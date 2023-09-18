@@ -1,4 +1,5 @@
 import './stylesheets/globals.scss'
+// import './stylesheets/tabview.scss'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
