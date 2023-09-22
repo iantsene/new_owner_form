@@ -1,40 +1,11 @@
 import { Checkbox, FormControlLabel, FormGroup, InputBase, TextField } from "@mui/material";
 import FormWrapper from "../form_components/FormWrapper";
+import { FormData } from "@/app/types/all-form-types";
 
-
-type UserData = {
-    attractionBay: boolean
-    attractionAttractionscoinLaundry: boolean
-    attractionDutyFree: boolean
-    attractionHealthBeautyspa: boolean
-    attractionMarina: boolean
-    attractionMuseums: boolean
-    attractionThemeParks: boolean
-    attractionWaterParks: boolean
-    attractionWineryTours: boolean
-    attractionZoo: boolean
-    leisureAntiquing: boolean
-    leisureBirdWatching: boolean
-    leisureEcoTourism: boolean
-    leisureGambling: boolean
-    leisureHorsebackRiding: boolean
-    leisureOutletShopping: boolean
-    leisurePaddleBoating: boolean
-    leisureSledding: boolean
-    leisureBoating: boolean
-    leisureShopping: boolean
-    leisureWildLifeViewing: boolean
-    leisureWaterSports: boolean
-    leisureFitnessCenter: boolean
-    leisureHospital: boolean
-    leisureLaundromat: boolean
-
-}
-
-type UserFormProps = UserData & {
-updateFields: (fields: Partial<UserData>) => void
-
-}
+type UserFormProps = FormData & {
+  updateFields: (fields: Partial<FormData>) => void
+  
+  }
 
 export default function AttractionsLeisure({
     

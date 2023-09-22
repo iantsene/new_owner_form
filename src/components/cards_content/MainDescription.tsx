@@ -1,48 +1,8 @@
 import { Checkbox, FormControlLabel, FormGroup, InputBase, TextField } from "@mui/material";
 import FormWrapper from "../form_components/FormWrapper";
+import { FormData } from "@/app/types/all-form-types";
 
 
-type UserData = {
-villa: boolean
-apartment: boolean
-maissonette: boolean
-room: boolean
-studio: boolean
-cottage: boolean
-bangalow: boolean
-house: boolean
-awayFromItAll: boolean
-livingRoomOnePerLevel: boolean
-family: boolean
-romantic: boolean
-historical: boolean
-traditionalProperty: boolean
-secluded: boolean
-brandNew: boolean
-detached: boolean
-semiDetached: boolean
-privateResidence: boolean
-kitchenGround: boolean
-dinerGround: boolean
-numOfFloorsToGround: string
-areaOfTheHouseInM2: string
-surroundingAreaInM2: string
-yearOfBuilt: string
-serviceSupermarket: boolean
-singleLevelHome: boolean
-serviceBoatTaxiService: boolean
-serviceLunch: boolean
-serviceOwnerNearby: boolean
-serviceMealDeliveryService: boolean
-childrenYes: boolean
-garden: boolean
-
-}
-
-type UserFormProps = UserData & {
-updateFields: (fields: Partial<UserData>) => void
-
-}
 
 export default function MainDescription({
 villa,
@@ -79,7 +39,7 @@ serviceMealDeliveryService,
 childrenYes,
 garden,
 
-    updateFields, data, handleFieldChange }: UserFormProps) {
+    updateFields, data, handleFieldChange }: FormData) {
 
     const handleSelfCheckInChange = (fieldName: string) => (e) => {
         handleFieldChange(fieldName, e.target.checked);

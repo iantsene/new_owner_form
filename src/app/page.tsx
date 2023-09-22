@@ -3,7 +3,7 @@ import Image from 'next/image'
 import useMultistepForm from './useMultistepForm'
 import ExtraInfo from '@/components/cards_content/ExtraInfo';
 import Amenities from '@/components/cards_content/Amenities';
-import Area from '@/components/cards_content/Area';
+import Views from '@/components/cards_content/Views';
 import { FormEvent, useState } from 'react';
 import GeneralInfo from '@/components/cards_content/GeneralInfo';
 import MainDescription from '@/components/cards_content/MainDescription';
@@ -44,7 +44,7 @@ const {steps, currentStepIndex, step, isFirstStep, isLastStep, back, next} = use
   <MainDescription {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
   <GeneralInfo {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
   <Location {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
-  <Area {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
+  <Views {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
   <Sports {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
   <AttractionsLeisure {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
   <Pool {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,

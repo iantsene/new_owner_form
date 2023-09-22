@@ -1,57 +1,12 @@
 import { Checkbox, FormControlLabel, FormGroup, InputBase } from "@mui/material";
 import TextField from '@mui/material/TextField';
 import FormWrapper from "../form_components/FormWrapper";
+import { FormData } from "@/app/types/all-form-types";
 
-
-type UserData = {
-    
-    onTheBeach: boolean
-    walkToTheBeach: boolean
-    highway: boolean
-    ski: boolean
-    train: boolean
-    taverna: boolean
-    countryside: boolean
-    beachFront: boolean
-    closestBeach: string
-    distanceToTheBeach: string
-    distanceToCityCenter: string
-    distanceToShops: string
-    distanceToAirport: string
-    distanceToKiosk: string
-    distanceToBar: string
-    distanceToFerry: string
-    distanceToGolf: string
-    nearestVillage: string
-    nearestRestaurant: string
-    nearestSupermarket: string
-    nearestMiniMarket: string
-    nearestPointOfInterest: string
-    nearestAtm: string
-    nearestBank: string
-    nearestWaterPark: string
-    nearestMarina: string
-    nearestDiveCenter: string
-    nearestHospital: string
-    nearestPoliceStation: string
-    nearestPetrolStation: string
-    nearestBusStation: string
-    nearestTennisCourt: string
-    nearestPharmacy: string
-    nearestHairdressers: string
-    nearestMedicalCenter: string
-    nearestLaunderette: string
-    propertyAddress: string
-    postCode: string
-    gpsLatitude: string
-    gpsLongitude: string
-
-}
-
-type UserFormProps = UserData & {
-updateFields: (fields: Partial<UserData>) => void
-
-}
+type UserFormProps = FormData & {
+  updateFields: (fields: Partial<FormData>) => void
+  
+  }
 
 export default function Location({
 
@@ -61,7 +16,7 @@ taverna,
 countryside,
 beachFront,
 highway,
-ski,
+skiIn,
 train,
 closestBeach,
 distanceToShops, 

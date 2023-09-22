@@ -1,19 +1,11 @@
 import { Checkbox, FormControlLabel, FormGroup } from "@mui/material";
 import FormWrapper from "../form_components/FormWrapper";
+import { FormData } from "@/app/types/all-form-types";
 
-
-type UserData = {
-wheelchairFriendly: boolean
-childrenAllowed: boolean
-petsAllowed: boolean
-smokingAllowed: boolean
-
-}
-
-type UserFormProps = UserData & {
-updateFields: (fields: Partial<UserData>) => void
-
-}
+type UserFormProps = FormData & {
+  updateFields: (fields: Partial<FormData>) => void
+  
+  }
 
 export default function GeneralInfo({wheelchairFriendly, childrenAllowed, petsAllowed, smokingAllowed, updateFields, data, handleFieldChange }: UserFormProps) {
 

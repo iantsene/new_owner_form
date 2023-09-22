@@ -1,25 +1,11 @@
 import { Checkbox, InputBase, FormControlLabel, FormGroup, InputLabel, Select, MenuItem, } from "@mui/material";
 import FormWrapper from "../form_components/FormWrapper";
+import { FormData } from "@/app/types/all-form-types";
 
-
-type UserData = {
-checkInTime: string
-checkOutTime: string
-selfCheckIn: boolean
-luggageCheckIn: boolean
-luggageDropTime: string
-rentalLicense: boolean
-extraLicenseRequired: boolean
-extraLicenceGMAG: boolean
-extraEcoHouse: boolean
-extraPartiesNotAllowed: boolean
-extraPartiesAllowed: boolean
-
-}
-
-type UserFormProps = UserData & {
-updateFields: (fields: Partial<UserData>) => void
-}
+type UserFormProps = FormData & {
+  updateFields: (fields: Partial<FormData>) => void
+  
+  }
 
 export default function ExtraInfo({checkInTime, checkOutTime, luggageCheckIn, selfCheckIn, luggageDropTime, rentalLicense, extraLicenseRequired, extraLicenceGMAG, extraEcoHouse, extraPartiesNotAllowed, extraPartiesAllowed, updateFields, data, handleFieldChange }: UserFormProps) {
 

@@ -9,7 +9,7 @@ updateFields: (fields: Partial<FormData>) => void
 
 }
 
-export default function Area({
+export default function Views({
 viewOcean,
 resort,
 river,
@@ -44,23 +44,12 @@ viewVineyardView,
       };
 
     return (
-        <FormWrapper title="Area & View">
+        <FormWrapper title="Property Views">
              <FormGroup>
             <div className="extra-categories">
            
-            <div className="category-styling">
-              <h3>Area of lodging</h3>
-        
-        <FormControlLabel control={<Checkbox checked={data.resort} onChange={handleSelfCheckInChange('resort')} />} label="Resort" />
-        <FormControlLabel control={<Checkbox checked={data.river} onChange={handleSelfCheckInChange('river')} />} label="River" />
-        <FormControlLabel control={<Checkbox checked={data.rural} onChange={handleSelfCheckInChange('rural')} />} label="Rural" />
-        <FormControlLabel control={<Checkbox checked={data.skiIn} onChange={handleSelfCheckInChange('skiIn')} />} label="Ski in" />
-        <FormControlLabel control={<Checkbox checked={data.skiOut} onChange={handleSelfCheckInChange('skiOut')} />} label="Ski out" />
-        <FormControlLabel control={<Checkbox checked={data.town} onChange={handleSelfCheckInChange('town')} />} label="Town" />
-        <FormControlLabel control={<Checkbox checked={data.village} onChange={handleSelfCheckInChange('village')} />} label="Village" />
-        <FormControlLabel control={<Checkbox checked={data.waterfront} onChange={handleSelfCheckInChange('waterfront')} />} label="Waterfront" />
-        </div>
-
+          
+              
         <div className="category-styling">
         <h3>View of lodging</h3>
         <FormControlLabel control={<Checkbox checked={data.viewBeachView} onChange={handleSelfCheckInChange('viewBeachView')} />} label="Beach view" />

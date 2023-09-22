@@ -1,34 +1,11 @@
 import { Checkbox, FormControlLabel, FormGroup, InputBase, TextField } from "@mui/material";
 import FormWrapper from "../form_components/FormWrapper";
+import { FormData } from "@/app/types/all-form-types";
 
-
-type UserData = {
-    levelGround: boolean
-    terrace: boolean
-    outsideFurniture: boolean
-    depthMarks: boolean
-    safetySign: boolean
-    swimmingRing: boolean
-    staircase: boolean
-    jacuzziJets: boolean
-    poolMaintenace: boolean
-    accessToPool: boolean
-    fence: boolean
-    poolTowels: boolean
-    poolShower: boolean
-    poolLasso: boolean
-    solarPanels: boolean
-    inflatables: boolean
-    minWidth: string
-    maxWidth: string
-    minDepth: string
-    maxdepth: string
-}
-
-type UserFormProps = UserData & {
-updateFields: (fields: Partial<UserData>) => void
-
-}
+type UserFormProps = FormData & {
+  updateFields: (fields: Partial<FormData>) => void
+  
+  }
 
 export default function Pool({
     
@@ -84,13 +61,15 @@ export default function Pool({
         <FormControlLabel control={<Checkbox checked={data.poolLasso} onChange={handleSelfCheckInChange('poolLasso')} />} label="pool lasso" />
         <FormControlLabel control={<Checkbox checked={data.solarPanels} onChange={handleSelfCheckInChange('solarPanels')} />} label="Solar panels" />
         <FormControlLabel control={<Checkbox checked={data.inflatables} onChange={handleSelfCheckInChange('inflatables')} />} label="Inflatables" />
-        <FormControlLabel control={<Checkbox checked={data.minWidth } onChange={handleSelfCheckInChange('minWidth ')} />} label="min width " />
-        <FormControlLabel control={<Checkbox checked={data.maxWidth } onChange={handleSelfCheckInChange('maxWidth ')} />} label="max width " />
-        <FormControlLabel control={<Checkbox checked={data.minDepth } onChange={handleSelfCheckInChange('minDepth ')} />} label="min depth " />
-        <FormControlLabel control={<Checkbox checked={data.maxdepth} onChange={handleSelfCheckInChange('maxdepth')} />} label="max depth" />
         
         
         </div>
+
+        <h3>Pool dimensions</h3>
+        <TextField id="outlined-basic" label="" variant="outlined" value={minWidth} onChange={e => updateFields({minWidth: e.target.value})} />
+        <TextField id="outlined-basic" label="" variant="outlined" value={maxWidth} onChange={e => updateFields({maxWidth: e.target.value})} />
+        <TextField id="outlined-basic" label="" variant="outlined" value={minDepth} onChange={e => updateFields({minDepth: e.target.value})} />
+        <TextField id="outlined-basic" label="" variant="outlined" value={maxdepth} onChange={e => updateFields({maxdepth: e.target.value})} />
        
         </div>
         </FormGroup>
