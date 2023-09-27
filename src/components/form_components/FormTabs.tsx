@@ -1,4 +1,5 @@
 import { Button, Paper, Tab, Tabs } from '@mui/material';
+import {useEffect} from 'react'
 
 
 export default function FormTabs(props){
@@ -12,6 +13,8 @@ export default function FormTabs(props){
   const tabLabels = ['Main Description', 'General Info', 'Location', 'Views', 'Pool', 'Outside', 'Inside', 'Kitchen', 'Safety', 'Beds & Baths', 'Amenities', 'Room Amenities', 'Extra Information',
 ];
 
+
+
     return(
         <>
         <div className="form-tabs">
@@ -24,14 +27,15 @@ export default function FormTabs(props){
                 indicatorColor="primary"
                 textColor="primary"
                 variant='scrollable'
-                scrollButtons="auto"
+                scrollButtons
+                allowScrollButtonsMobile
                 className='tab-space'
               >
                 {props.completedSteps.length > 0 && props.steps.map((step, index) => (
                   props.completedSteps.includes(index) && (
                     <Tab
                       key={index}
-                      className="tab"
+                      className="tab"                      
                       label={tabLabels[index]}
                       onClick={() => props.setCurrentStepIndex(index)}
 

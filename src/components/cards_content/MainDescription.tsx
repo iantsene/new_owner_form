@@ -1,4 +1,4 @@
-import { Checkbox, FormControl, FormLabel, FormControlLabel, FormGroup, InputBase, Radio, RadioGroup, TextField } from "@mui/material";
+import { Checkbox, FormControl, FormLabel, FormControlLabel, FormGroup, InputBase, Radio, RadioGroup, TextField, Paper } from "@mui/material";
 import FormWrapper from "../form_components/FormWrapper";
 import { FormDataTypes } from "@/app/types/all-form-types";
 
@@ -50,6 +50,7 @@ export default function MainDescription({
 
   return (
     <FormWrapper title="Main Description">
+      
       <FormGroup>
           <div className="main-lodging-category">
             <h3>Lodging Category</h3>
@@ -88,7 +89,7 @@ export default function MainDescription({
             <FormControlLabel control={<Checkbox size="small" checked={data.semiDetached} onChange={handleCheckboxChange('semiDetached')} />} label="Semi-detached" />
             <FormControlLabel control={<Checkbox size="small" checked={data.singleLevelHome} onChange={handleCheckboxChange('singleLevelHome')} />} label="Single level home" />
             <FormControlLabel control={<Checkbox size="small" checked={data.privateResidence} onChange={handleCheckboxChange('privateResidence')} />} label="Bed and breakfast" />
-
+            
 
           </div>
           <div className="category-styling">
@@ -120,5 +121,6 @@ export default function MainDescription({
         </div>
       </FormGroup>
     </FormWrapper>
+       
   )
 }

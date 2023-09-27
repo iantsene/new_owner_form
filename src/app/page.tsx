@@ -87,7 +87,9 @@ export default function Home() {
     <div className="formprime">
       <form id='form' onSubmit={onSubmit}>
         
-        <FormTabs completedSteps={completedSteps} currentStepIndex={currentStepIndex} setCurrentStepIndex={setCurrentStepIndex} steps={steps} />
+        
+  <Paper className="paper" sx={{ p: 3 }}>
+  <FormTabs completedSteps={completedSteps} currentStepIndex={currentStepIndex} setCurrentStepIndex={setCurrentStepIndex} steps={steps} />
         <div className='page-counter'>
 
           <div className='form-background'>
@@ -103,6 +105,7 @@ export default function Home() {
           </div>
 
         </div>
+    </Paper>
       </form>
     </div>
   </>

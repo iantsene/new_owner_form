@@ -1,3 +1,4 @@
+import { Paper } from "@mui/material"
 import {ReactNode} from "react"
 
 type FormWrapperProps = {
@@ -7,10 +8,12 @@ type FormWrapperProps = {
 
 export default function FormWrapper({ title, children}: FormWrapperProps) {
     return (
+        <Paper className="paper" sx={{ p: 3 }}>
         <div className="form-foreground" >
         <h2 className="formTitle">{title}</h2>
         <div className="formChildren">{children}</div>
         </div>
+        </Paper>
         )
 }
 
