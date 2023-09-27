@@ -1,11 +1,11 @@
 import { Checkbox, FormControlLabel, FormGroup, InputBase, TextField } from "@mui/material";
 import FormWrapper from "../form_components/FormWrapper";
-import { FormData } from "@/app/types/all-form-types";
+import { FormDataTypes } from "@/app/types/all-form-types";
 
 
 
-type UserFormProps = FormData & {
-updateFields: (fields: Partial<FormData>) => void
+type UserFormProps = FormDataTypes & {
+updateFields: (fields: Partial<FormDataTypes>) => void
 
 }
 
@@ -43,7 +43,7 @@ export default function Kitchen({
 
     updateFields, data, handleFieldChange }: UserFormProps) {
 
-    const handleSelfCheckInChange = (fieldName: string) => (e) => {
+    const handleCheckboxChange = (fieldName: string) => (e) => {
         handleFieldChange(fieldName, e.target.checked);
       };
 
@@ -57,38 +57,38 @@ export default function Kitchen({
         <div className="category-styling">
         <h3>Kitchen</h3>
         
-        <TextField id="outlined-basic"  variant="outlined" value={coffeeTypeAvailable} onChange={e => updateFields({coffeeTypeAvailable: e.target.value})} label="Coffee type available" />
-        <TextField id="outlined-basic"  variant="outlined" value={cookerWithFullOven} onChange={e => updateFields({cookerWithFullOven: e.target.value})} label="Cooker with full oven" />
-        <TextField id="outlined-basic"  variant="outlined" value={fridgeOrFreezer} onChange={e => updateFields({fridgeOrFreezer: e.target.value})} label="Fridge/Freezer" />
+        <TextField id="outlined-basic" size="small" variant="outlined" value={coffeeTypeAvailable} onChange={e => updateFields({coffeeTypeAvailable: e.target.value})} label="Coffee type available" />
+        <TextField id="outlined-basic" size="small" variant="outlined" value={cookerWithFullOven} onChange={e => updateFields({cookerWithFullOven: e.target.value})} label="Cooker with full oven" />
+        <TextField id="outlined-basic" size="small" variant="outlined" value={fridgeOrFreezer} onChange={e => updateFields({fridgeOrFreezer: e.target.value})} label="Fridge/Freezer" />
         
        
         
-        <FormControlLabel control={<Checkbox checked={data.microwave} onChange={handleSelfCheckInChange('microwave')} />} label="Microwave" />
-        <FormControlLabel control={<Checkbox checked={data.toaster} onChange={handleSelfCheckInChange('toaster')} />} label="Toaster" />
-        <FormControlLabel control={<Checkbox checked={data.cookerWithSmallOven} onChange={handleSelfCheckInChange('cookerWithSmallOven')} />} label="Cooker with small oven" />
-        <FormControlLabel control={<Checkbox checked={data.smallFridge} onChange={handleSelfCheckInChange('smallFridge')} />} label="Small fridge" />
-        <FormControlLabel control={<Checkbox checked={data.dinningArea} onChange={handleSelfCheckInChange('dinningArea')} />} label="Dinning area" />
-        <FormControlLabel control={<Checkbox checked={data.dishesAndSilverware} onChange={handleSelfCheckInChange('dishesAndSilverware')} />} label="Dishes and silverware" />
-        <FormControlLabel control={<Checkbox checked={data.kitchen} onChange={handleSelfCheckInChange('kitchen')} />} label="Kitchen" />
-        <FormControlLabel control={<Checkbox checked={data.dinningRoomOrSpace} onChange={handleSelfCheckInChange('dinningRoomOrSpace')} />} label="Dinning room or space" />
-        <FormControlLabel control={<Checkbox checked={data.highChair} onChange={handleSelfCheckInChange('highChair')} />} label="High chair" />
-        <FormControlLabel control={<Checkbox checked={data.waterDispenser} onChange={handleSelfCheckInChange('waterDispenser')} />} label="Water dispenser" />
-        <FormControlLabel control={<Checkbox checked={data.cookingBasics} onChange={handleSelfCheckInChange('cookingBasics')} />} label="Cooking basics" />
-        <FormControlLabel control={<Checkbox checked={data.diningTable} onChange={handleSelfCheckInChange('diningTable')} />} label="Dining table" />
-        <FormControlLabel control={<Checkbox checked={data.cookwareAndKitchenUtensils} onChange={handleSelfCheckInChange('cookwareAndKitchenUtensils')} />} label="Cookware and kitchen utensils" />
-        <FormControlLabel control={<Checkbox checked={data.separateStove} onChange={handleSelfCheckInChange('separateStove')} />} label="Separate stove" />
-        <FormControlLabel control={<Checkbox checked={data.wineGlasses} onChange={handleSelfCheckInChange('wineGlasses')} />} label="Wine glasses" />
-        <FormControlLabel control={<Checkbox checked={data.kettle} onChange={handleSelfCheckInChange('kettle')} />} label="Kettle" />
-        <FormControlLabel control={<Checkbox checked={data.sandwichToaster} onChange={handleSelfCheckInChange('sandwichToaster')} />} label="Sandwich toaster" />
-        <FormControlLabel control={<Checkbox checked={data.espressoCoffeeMachine} onChange={handleSelfCheckInChange('espressoCoffeeMachine')} />} label="Espresso coffee machine" />
-        <FormControlLabel control={<Checkbox checked={data.stove} onChange={handleSelfCheckInChange('stove')} />} label="Stove" />
-        <FormControlLabel control={<Checkbox checked={data.blenderOrMulti} onChange={handleSelfCheckInChange('blenderOrMulti')} />} label="Blender / multi" />
-        <FormControlLabel control={<Checkbox checked={data.filterCoffeeMachine} onChange={handleSelfCheckInChange('filterCoffeeMachine')} />} label="Filter coffee machine" />
-        <FormControlLabel control={<Checkbox checked={data.kitchenette} onChange={handleSelfCheckInChange('kitchenette')} />} label="Kitchenette" />
-        <FormControlLabel control={<Checkbox checked={data.fryer} onChange={handleSelfCheckInChange('fryer')} />} label="Fryer" />
-        <FormControlLabel control={<Checkbox checked={data.mixer} onChange={handleSelfCheckInChange('mixer')} />} label="Mixer" />
-        <FormControlLabel control={<Checkbox checked={data.extraSmallBbqOven} onChange={handleSelfCheckInChange('extraSmallBbqOven')} />} label="Extra small bbq oven" />
-        <FormControlLabel control={<Checkbox checked={data.breadMaker} onChange={handleSelfCheckInChange('breadMaker')} />} label="Bread maker" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.microwave} onChange={handleCheckboxChange('microwave')} />} label="Microwave" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.toaster} onChange={handleCheckboxChange('toaster')} />} label="Toaster" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.cookerWithSmallOven} onChange={handleCheckboxChange('cookerWithSmallOven')} />} label="Cooker with small oven" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.smallFridge} onChange={handleCheckboxChange('smallFridge')} />} label="Small fridge" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.dinningArea} onChange={handleCheckboxChange('dinningArea')} />} label="Dinning area" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.dishesAndSilverware} onChange={handleCheckboxChange('dishesAndSilverware')} />} label="Dishes and silverware" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.kitchen} onChange={handleCheckboxChange('kitchen')} />} label="Kitchen" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.dinningRoomOrSpace} onChange={handleCheckboxChange('dinningRoomOrSpace')} />} label="Dinning room or space" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.highChair} onChange={handleCheckboxChange('highChair')} />} label="High chair" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.waterDispenser} onChange={handleCheckboxChange('waterDispenser')} />} label="Water dispenser" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.cookingBasics} onChange={handleCheckboxChange('cookingBasics')} />} label="Cooking basics" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.diningTable} onChange={handleCheckboxChange('diningTable')} />} label="Dining table" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.cookwareAndKitchenUtensils} onChange={handleCheckboxChange('cookwareAndKitchenUtensils')} />} label="Cookware and kitchen utensils" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.separateStove} onChange={handleCheckboxChange('separateStove')} />} label="Separate stove" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.wineGlasses} onChange={handleCheckboxChange('wineGlasses')} />} label="Wine glasses" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.kettle} onChange={handleCheckboxChange('kettle')} />} label="Kettle" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.sandwichToaster} onChange={handleCheckboxChange('sandwichToaster')} />} label="Sandwich toaster" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.espressoCoffeeMachine} onChange={handleCheckboxChange('espressoCoffeeMachine')} />} label="Espresso coffee machine" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.stove} onChange={handleCheckboxChange('stove')} />} label="Stove" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.blenderOrMulti} onChange={handleCheckboxChange('blenderOrMulti')} />} label="Blender / multi" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.filterCoffeeMachine} onChange={handleCheckboxChange('filterCoffeeMachine')} />} label="Filter coffee machine" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.kitchenette} onChange={handleCheckboxChange('kitchenette')} />} label="Kitchenette" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.fryer} onChange={handleCheckboxChange('fryer')} />} label="Fryer" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.mixer} onChange={handleCheckboxChange('mixer')} />} label="Mixer" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.extraSmallBbqOven} onChange={handleCheckboxChange('extraSmallBbqOven')} />} label="Extra small bbq oven" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.breadMaker} onChange={handleCheckboxChange('breadMaker')} />} label="Bread maker" />
         
         
        

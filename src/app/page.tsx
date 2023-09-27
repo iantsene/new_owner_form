@@ -8,8 +8,6 @@ import { FormEvent, useState } from 'react';
 import GeneralInfo from '@/components/cards_content/GeneralInfo';
 import MainDescription from '@/components/cards_content/MainDescription';
 import Location from '@/components/cards_content/Location';
-import Sports from '@/components/cards_content/Sports';
-import AttractionsLeisure from '@/components/cards_content/AttractionsLeisure';
 import Pool from '@/components/cards_content/Pool';
 import Outside from '@/components/cards_content/Outside';
 import Inside from '@/components/cards_content/Inside';
@@ -17,66 +15,130 @@ import Kitchen from '@/components/cards_content/Kitchen';
 import Safety from '@/components/cards_content/Safety';
 import BedsNBaths from '@/components/cards_content/BedsNBaths';
 import RoomAmenities from '@/components/cards_content/RoomAmenities';
-import { FormData } from './types/all-form-types';
+import { FormDataTypes } from './types/all-form-types';
 import INITIAL_DATA from './variables/variables';
+import { Button, Paper, Tab, Tabs } from '@mui/material';
 
 
 
 
 export default function Home() {
-const [data, setData] = useState(INITIAL_DATA);
+  const [data, setData] = useState(INITIAL_DATA);
+  
+  
 
-const handleFieldChange = (fieldName, value) => {
-  setData({
-    ...data,
-    [fieldName]: value,
-  });
-};
+  const handleFieldChange = (fieldName, value) => {
+    setData({
+      ...data,
+      [fieldName]: value,
+    });
+  };
 
-function updateFields(fields: Partial<FormData>){
-  setData(prev => {
-    return {...prev, ...fields}
-  })
-}
-
-const {steps, currentStepIndex, step, isFirstStep, isLastStep, back, next} = useMultistepForm([
-
-  <MainDescription {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
-  <GeneralInfo {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
-  <Location {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
-  <Views {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
-  <Sports {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
-  <AttractionsLeisure {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
-  <Pool {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
-  <Outside {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
-  <Inside {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
-  <Kitchen {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
-  <Safety {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
-  <BedsNBaths {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
-  <Amenities {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
-  <RoomAmenities {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
-  <ExtraInfo {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
-])
-
-  function onSubmit( e: FormEvent) {
-    e.preventDefault()
-    next()
+  function updateFields(fields: Partial<FormDataTypes>) {
+    setData(prev => {
+      return { ...prev, ...fields }
+    })
   }
 
-    return (<>
-    <div className='msform'>
-      <form className='formprime' onSubmit={onSubmit}>
-        <div className='page-counter'>
-        {currentStepIndex + 1} / {steps.length}
+  function onSubmit(e: FormEvent) {
+    e.preventDefault()
+    if (!isLastStep) return next()
+    fetch('http://localhost:8080/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    }).then(res => (res.json()).then(data => console.log(data)).catch(error => console.log(error)));
+    console.log(data)
+  };
+
+
+  function handleTabChange(index: any) {
+    if (completedSteps.includes(index)) {
+      setCurrentStepIndex(index);
+    };
+  }
+
+
+  const { steps, currentStepIndex, setCurrentStepIndex, step, isFirstStep, isLastStep, back, next, handleStepComplete, completedSteps, } = useMultistepForm([
+
+    <MainDescription {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(0)} />,
+    <GeneralInfo {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(1)}/>,
+    <Location {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(2)}/>,
+    <Views {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(3)}/>,
+    <Pool {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(4)}/>,
+    <Outside {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(5)}/>,
+    <Inside {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(6)}/>,
+    <Kitchen {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(7)}/>,
+    <Safety {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(8)}/>,
+    <BedsNBaths {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(9)}/>,
+    <Amenities {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(10)}/>,
+    <RoomAmenities {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(11)}/>,
+    <ExtraInfo {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(12)}/>,
+
+  ])
+
+
+
+
+
+  
+
+
+
+  const tabLabels = ['Main Description', 'General Info', 'Location', 'Views', 'Pool', 'Outside', 'Inside', 'Kitchen', 'Safety', 'Beds & Baths', 'Amenities', 'Room Amenities', 'Extra Information',
+  ];
+
+  return (<>
+    <div className="formprime">
+      <form id='form' onSubmit={onSubmit}>
+        <div className="form-tabs">
+          <div className="tabs-container">
+
+          {completedSteps.length > 0 && (
+  <Tabs
+    value={currentStepIndex}
+    onChange={handleTabChange}
+    indicatorColor="primary"
+    textColor="primary"
+    centered
+    className='tab-space'
+  >
+    {completedSteps.length > 0 && steps.map((step, index) => (
+    completedSteps.includes(index) && (
+      <Tab
+        key={index}
+        className="tab"
+        label={tabLabels[index]}
+        onClick={() => setCurrentStepIndex(index)}
+        
+      />
+    )
+  ))}
+  </Tabs>
+)}
+
+
+          </div>
         </div>
-        {step}
-        <div className='formButtons'>
-          {!isFirstStep && <button type='button' onClick={back}>Back</button>}
-          <button type='submit'>{isLastStep ? "Submit" : "Next"}</button>
+
+        <div className='page-counter'>
+
+          <div className='form-background'>
+
+            {step}
+            <div className='formButtons'>
+
+              <div className="page-counter"> {currentStepIndex + 1} / {steps.length}</div>
+              {!isFirstStep && <Button variant="contained" type='button' onClick={back}>Back</Button>}
+              <Button variant="contained" onClick={handleStepComplete} type='submit'>{isLastStep ? "Submit" : "Next"}</Button>
+            </div>
+
+          </div>
+
         </div>
       </form>
     </div>
-    </>
+  </>
   )
 }
 

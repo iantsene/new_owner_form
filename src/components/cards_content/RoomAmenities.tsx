@@ -1,23 +1,23 @@
 import { Checkbox, FormControlLabel, FormGroup, InputBase, TextField } from "@mui/material";
 import FormWrapper from "../form_components/FormWrapper";
-import { FormData } from "@/app/types/all-form-types";
+import { FormDataTypes } from "@/app/types/all-form-types";
 
 
 
-type UserFormProps = FormData & {
-updateFields: (fields: Partial<FormData>) => void
+type UserFormProps = FormDataTypes & {
+updateFields: (fields: Partial<FormDataTypes>) => void
 
 }
 
 export default function RoomAmenities({
  
  
-  
+  physicalDistancing,
  
 
     updateFields, data, handleFieldChange }: UserFormProps) {
 
-    const handleSelfCheckInChange = (fieldName: string) => (e) => {
+    const handleCheckboxChange = (fieldName: string) => (e) => {
         handleFieldChange(fieldName, e.target.checked);
       };
 
@@ -32,7 +32,7 @@ export default function RoomAmenities({
         <h3>Room Amenities</h3>
         
         
-        <FormControlLabel control={<Checkbox checked={data.extrasBabyBath} onChange={handleSelfCheckInChange('extrasBabyBath')} />} label="Physical distancing" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.physicalDistancing} onChange={handleCheckboxChange('physicalDistancing')} />} label="Physical distancing" />
        
        
         

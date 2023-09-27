@@ -1,6 +1,6 @@
-import {FormData} from "@/app/types/all-form-types"
+import {FormDataTypes} from "@/app/types/all-form-types"
 
-const INITIAL_DATA: FormData = {
+const INITIAL_DATA: FormDataTypes = {
     checkInTime: "", 
     checkOutTime: "", 
     selfCheckIn: false, 
@@ -16,14 +16,7 @@ const INITIAL_DATA: FormData = {
     childrenAllowed: false,
     petsAllowed: false,
     smokingAllowed: false,
-    villa: false,
-    apartment: false,
-    maissonette: false,
-    room: false,
-    studio: false,
-    cottage: false,
-    bangalow: false,
-    house: false,
+    lodgingType: "villa",
     awayFromItAll: false,
     livingRoomOnePerLevel: false,
     family: false,
@@ -414,6 +407,7 @@ const INITIAL_DATA: FormData = {
     safeCommonSurfaceDisinfectantCleaning: "",
     safeSanitaryAssociation: "",
     sanitaryStandard: "",
+    physicalDistancing: false,
   }
 
 

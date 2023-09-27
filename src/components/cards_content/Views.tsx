@@ -1,11 +1,11 @@
 import { Checkbox, FormControlLabel, FormGroup, InputBase } from "@mui/material";
 import FormWrapper from "../form_components/FormWrapper";
-import { FormData } from "@/app/types/all-form-types";
+import { FormDataTypes } from "@/app/types/all-form-types";
 
 
 
-type UserFormProps = FormData & {
-updateFields: (fields: Partial<FormData>) => void
+type UserFormProps = FormDataTypes & {
+updateFields: (fields: Partial<FormDataTypes>) => void
 
 }
 
@@ -39,7 +39,7 @@ viewVineyardView,
 
     updateFields, data, handleFieldChange }: UserFormProps) {
 
-    const handleSelfCheckInChange = (fieldName: string) => (e) => {
+    const handleCheckboxChange = (fieldName: string) => (e) => {
         handleFieldChange(fieldName, e.target.checked);
       };
 
@@ -52,24 +52,24 @@ viewVineyardView,
               
         <div className="category-styling">
         <h3>View of lodging</h3>
-        <FormControlLabel control={<Checkbox checked={data.viewBeachView} onChange={handleSelfCheckInChange('viewBeachView')} />} label="Beach view" />
-        <FormControlLabel control={<Checkbox checked={data.viewOcean} onChange={handleSelfCheckInChange('viewOcean')} />} label="Ocean view" />
-        <FormControlLabel control={<Checkbox checked={data.viewSea} onChange={handleSelfCheckInChange('viewSea')} />} label="Sea view" />
-        <FormControlLabel control={<Checkbox checked={data.viewBayView} onChange={handleSelfCheckInChange('viewBayView')} />} label="Bay view" />
-        <FormControlLabel control={<Checkbox checked={data.waterView} onChange={handleSelfCheckInChange('waterView')} />} label="Water view" />
-        <FormControlLabel control={<Checkbox checked={data.viewMarinaView} onChange={handleSelfCheckInChange('viewMarinaView')} />} label="Marina view" />
-        <FormControlLabel control={<Checkbox checked={data.viewPoolView} onChange={handleSelfCheckInChange('viewPoolView')} />} label="Pool view" />
-        <FormControlLabel control={<Checkbox checked={data.viewHarborView} onChange={handleSelfCheckInChange('viewHarborView')} />} label="Harbor view" />
-        <FormControlLabel control={<Checkbox checked={data.viewSunset} onChange={handleSelfCheckInChange('viewSunset')} />} label="Sunset view" />
-        <FormControlLabel control={<Checkbox checked={data.viewPanoramic} onChange={handleSelfCheckInChange('viewPanoramic')} />} label="Panoramic view" />
-        <FormControlLabel control={<Checkbox checked={data.viewSunrise} onChange={handleSelfCheckInChange('viewSunrise')} />} label="Sunrise view" />
-        <FormControlLabel control={<Checkbox checked={data.viewCountryside} onChange={handleSelfCheckInChange('viewCountryside')} />} label="Countryside view" />
-        <FormControlLabel control={<Checkbox checked={data.viewCityView} onChange={handleSelfCheckInChange('viewCityView')} />} label="City view" />
-        <FormControlLabel control={<Checkbox checked={data.viewGardenView} onChange={handleSelfCheckInChange('viewGardenView')} />} label="Garden view" />
-        <FormControlLabel control={<Checkbox checked={data.viewMountainView} onChange={handleSelfCheckInChange('viewMountainView')} />} label="Mountain view" />
-        <FormControlLabel control={<Checkbox checked={data.viewResortView} onChange={handleSelfCheckInChange('viewResortView')} />} label="Resort view" />
-        <FormControlLabel control={<Checkbox checked={data.viewValleyView} onChange={handleSelfCheckInChange('viewValleyView')} />} label="Valley view" />
-        <FormControlLabel control={<Checkbox checked={data.viewVineyardView} onChange={handleSelfCheckInChange('viewVineyardView')} />} label="Vineyard view" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.viewBeachView} onChange={handleCheckboxChange('viewBeachView')} />} label="Beach view" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.viewOcean} onChange={handleCheckboxChange('viewOcean')} />} label="Ocean view" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.viewSea} onChange={handleCheckboxChange('viewSea')} />} label="Sea view" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.viewBayView} onChange={handleCheckboxChange('viewBayView')} />} label="Bay view" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.waterView} onChange={handleCheckboxChange('waterView')} />} label="Water view" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.viewMarinaView} onChange={handleCheckboxChange('viewMarinaView')} />} label="Marina view" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.viewPoolView} onChange={handleCheckboxChange('viewPoolView')} />} label="Pool view" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.viewHarborView} onChange={handleCheckboxChange('viewHarborView')} />} label="Harbor view" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.viewSunset} onChange={handleCheckboxChange('viewSunset')} />} label="Sunset view" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.viewPanoramic} onChange={handleCheckboxChange('viewPanoramic')} />} label="Panoramic view" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.viewSunrise} onChange={handleCheckboxChange('viewSunrise')} />} label="Sunrise view" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.viewCountryside} onChange={handleCheckboxChange('viewCountryside')} />} label="Countryside view" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.viewCityView} onChange={handleCheckboxChange('viewCityView')} />} label="City view" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.viewGardenView} onChange={handleCheckboxChange('viewGardenView')} />} label="Garden view" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.viewMountainView} onChange={handleCheckboxChange('viewMountainView')} />} label="Mountain view" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.viewResortView} onChange={handleCheckboxChange('viewResortView')} />} label="Resort view" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.viewValleyView} onChange={handleCheckboxChange('viewValleyView')} />} label="Valley view" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.viewVineyardView} onChange={handleCheckboxChange('viewVineyardView')} />} label="Vineyard view" />
        
 
         </div>

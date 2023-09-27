@@ -1,20 +1,78 @@
-.msform{
-    position: relative;
-    background: white;
-    border: 1px solid black;
+.formprime {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.form-tabs{
+  display: flex;
+  justify-content: center;
+  
+}
+
+.MuiTabs-flexContainer{
+  justify-content: flex-start;
+}
+
+.tabs-container {
+  
+  width: 100vh;
+  max-height: 100px; 
+  overflow-x: auto; 
+  white-space: nowrap;
+}
+
+.tab {
+  display: flex;
+  justify-content: flex-start;
+  padding: 10px;
+ 
+  border: 1px solid #ccc;
+  border-radius: 5px 20px 0px 0;
+  background-color: #f2f2f2;
+  cursor: pointer;
+}
+
+
+.form-foreground {
+  width: 50vw; /* Adjust the width as needed */
+  height: 600px;
+background: rgba(255, 157, 0, 0.08);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 157, 0, 0.73);
+overflow-y: auto; 
+
+}
+
+
+.form-background{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+    width: 60vw;
+    
     padding: 2rem;
     margin: 1rem;
     border-radius: .5rem;
     font-family: Arial;
+
+background: rgba(255, 255, 255, 0.78);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(8.7px);
+-webkit-backdrop-filter: blur(8.7px);
+border: 1px solid rgba(255, 255, 255, 1);
     
   }
 
 
   .page-counter{
-    position: absolute;
-    top: .5rem;
-    right: .5rem;
-    
+   align-self: center;
   }
   
   .formButtons{
@@ -30,10 +88,10 @@
     margin-bottom: 2rem;
   }
   
+
   .formChildren{
     
-    display: grid;
-    gap: 1rem .5rem;
-    justify-content: flex-start;
-    grid-template-columns: auto minmax(auto, 400px);
+    // display: flex;
+    // justify-content: flex-start;
+    
   }

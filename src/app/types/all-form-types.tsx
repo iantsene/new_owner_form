@@ -1,4 +1,4 @@
-export type FormData = {
+export type FormDataTypes = {
     
     checkInTime: string
     checkOutTime: string
@@ -15,14 +15,7 @@ export type FormData = {
     childrenAllowed: boolean
     petsAllowed: boolean
     smokingAllowed: boolean
-    villa: boolean
-    apartment: boolean
-    maissonette: boolean
-    room: boolean
-    studio: boolean
-    cottage: boolean
-    bangalow: boolean
-    house: boolean
+    lodgingType: string
     awayFromItAll: boolean
     livingRoomOnePerLevel: boolean
     family: boolean
@@ -413,8 +406,10 @@ export type FormData = {
     safeCommonSurfaceDisinfectantCleaning: string
     safeSanitaryAssociation: string
     sanitaryStandard: string
-
+    physicalDistancing: boolean
+    
     data: any
     handleFieldChange: any
-    updateFields: (fields: Partial<FormData>) => void
+    handleValueChange: string
+    updateFields: (fields: Partial<FormDataTypes>) => void
 }

@@ -1,9 +1,9 @@
 import { Checkbox, FormControlLabel, FormGroup, InputBase, TextField } from "@mui/material";
 import FormWrapper from "../form_components/FormWrapper";
-import { FormData } from "@/app/types/all-form-types";
+import { FormDataTypes } from "@/app/types/all-form-types";
 
-type UserFormProps = FormData & {
-  updateFields: (fields: Partial<FormData>) => void
+type UserFormProps = FormDataTypes & {
+  updateFields: (fields: Partial<FormDataTypes>) => void
   
   }
 
@@ -52,7 +52,7 @@ export default function Outside({
 
     updateFields, data, handleFieldChange }: FormData) {
 
-    const handleSelfCheckInChange = (fieldName: string) => (e) => {
+    const handleCheckboxChange = (fieldName: string) => (e) => {
         handleFieldChange(fieldName, e.target.checked);
       };
 
@@ -66,49 +66,49 @@ export default function Outside({
         
         
         
-        <FormControlLabel control={<Checkbox checked={data.garden} onChange={handleSelfCheckInChange('garden')} />} label="Garden" />
-        <FormControlLabel control={<Checkbox checked={data.garage} onChange={handleSelfCheckInChange('garage')} />} label="Garage" />
-        <FormControlLabel control={<Checkbox checked={data.tableTennis} onChange={handleSelfCheckInChange('tableTennis')} />} label="Table tennis" />
-        <FormControlLabel control={<Checkbox checked={data.tennisCourt} onChange={handleSelfCheckInChange('tennisCourt')} />} label="Tennis court" />
-        <FormControlLabel control={<Checkbox checked={data.balcony} onChange={handleSelfCheckInChange('balcony')} />} label="Balcony" />
-        <FormControlLabel control={<Checkbox checked={data.poolTable} onChange={handleSelfCheckInChange('poolTable')} />} label="Pool table" />
-        <FormControlLabel control={<Checkbox checked={data.diningTerrace} onChange={handleSelfCheckInChange('diningTerrace')} />} label="Dining terrace" />
-        <FormControlLabel control={<Checkbox checked={data.yard} onChange={handleSelfCheckInChange('yard')} />} label="Yard" />
-        <FormControlLabel control={<Checkbox checked={data.freeParkingOnTheStreet} onChange={handleSelfCheckInChange('freeParkingOnTheStreet')} />} label="Free parking on the street" />
-        <FormControlLabel control={<Checkbox checked={data.privateParking} onChange={handleSelfCheckInChange('privateParking')} />} label="Private parking" />
-        <FormControlLabel control={<Checkbox checked={data.chairsAndTableOutside} onChange={handleSelfCheckInChange('chairsAndTableOutside')} />} label="Chairs and table outside" />
-        <FormControlLabel control={<Checkbox checked={data.grass} onChange={handleSelfCheckInChange('grass')} />} label="Grass" />
-        <FormControlLabel control={<Checkbox checked={data.trees} onChange={handleSelfCheckInChange('trees')} />} label="Trees" />
-        <FormControlLabel control={<Checkbox checked={data.gardener} onChange={handleSelfCheckInChange('gardener')} />} label="Gardener" />
-        <FormControlLabel control={<Checkbox checked={data.waterFromAPersonalSupply} onChange={handleSelfCheckInChange('waterFromAPersonalSupply')} />} label="Water from a personal supply" />
-        <FormControlLabel control={<Checkbox checked={data.outdoorJacuzzi} onChange={handleSelfCheckInChange('outdoorJacuzzi')} />} label="Outdoor jacuzzi" />
-        <FormControlLabel control={<Checkbox checked={data.footballGame} onChange={handleSelfCheckInChange('footballGame')} />} label="Football game" />
-        <FormControlLabel control={<Checkbox checked={data.roofTerrace} onChange={handleSelfCheckInChange('roofTerrace')} />} label="Roof terrace" />
-        <FormControlLabel control={<Checkbox checked={data.outsideKitchen} onChange={handleSelfCheckInChange('outsideKitchen')} />} label="Outside kitchen" />
-        <FormControlLabel control={<Checkbox checked={data.traditionalPizzaOven} onChange={handleSelfCheckInChange('traditionalPizzaOven')} />} label="Traditional pizza oven" />
-        <FormControlLabel control={<Checkbox checked={data.outsideFridge} onChange={handleSelfCheckInChange('outsideFridge')} />} label="Outside fridge" />
-        <FormControlLabel control={<Checkbox checked={data.extraWaterTank} onChange={handleSelfCheckInChange('extraWaterTank')} />} label="Extra water tank" />
-        <FormControlLabel control={<Checkbox checked={data.playground} onChange={handleSelfCheckInChange('playground')} />} label="Playground" />
-        <FormControlLabel control={<Checkbox checked={data.hammock} onChange={handleSelfCheckInChange('hammock')} />} label="Hammock" />
-        <FormControlLabel control={<Checkbox checked={data.gardenSwing} onChange={handleSelfCheckInChange('gardenSwing')} />} label="Garden swing" />
-        <FormControlLabel control={<Checkbox checked={data.washingBasin} onChange={handleSelfCheckInChange('washingBasin')} />} label="Washing basin" />
-        <FormControlLabel control={<Checkbox checked={data.deck} onChange={handleSelfCheckInChange('deck')} />} label="Deck" />
-        <FormControlLabel control={<Checkbox checked={data.outdoorDining} onChange={handleSelfCheckInChange('outdoorDining')} />} label="Outdoor dining" />
-        <FormControlLabel control={<Checkbox checked={data.porch} onChange={handleSelfCheckInChange('porch')} />} label="Porch" />
-        <FormControlLabel control={<Checkbox checked={data.miniBar} onChange={handleSelfCheckInChange('miniBar')} />} label="Mini bar" />
-        <FormControlLabel control={<Checkbox checked={data.basketballCourt} onChange={handleSelfCheckInChange('basketballCourt')} />} label="Basketball court" />
-        <FormControlLabel control={<Checkbox checked={data.drinkingWater} onChange={handleSelfCheckInChange('drinkingWater')} />} label="Drinking water" />
-        <FormControlLabel control={<Checkbox checked={data.poofPilows} onChange={handleSelfCheckInChange('poofPilows')} />} label="Poof pilows" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.garden} onChange={handleCheckboxChange('garden')} />} label="Garden" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.garage} onChange={handleCheckboxChange('garage')} />} label="Garage" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.tableTennis} onChange={handleCheckboxChange('tableTennis')} />} label="Table tennis" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.tennisCourt} onChange={handleCheckboxChange('tennisCourt')} />} label="Tennis court" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.balcony} onChange={handleCheckboxChange('balcony')} />} label="Balcony" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.poolTable} onChange={handleCheckboxChange('poolTable')} />} label="Pool table" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.diningTerrace} onChange={handleCheckboxChange('diningTerrace')} />} label="Dining terrace" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.yard} onChange={handleCheckboxChange('yard')} />} label="Yard" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.freeParkingOnTheStreet} onChange={handleCheckboxChange('freeParkingOnTheStreet')} />} label="Free parking on the street" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.privateParking} onChange={handleCheckboxChange('privateParking')} />} label="Private parking" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.chairsAndTableOutside} onChange={handleCheckboxChange('chairsAndTableOutside')} />} label="Chairs and table outside" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.grass} onChange={handleCheckboxChange('grass')} />} label="Grass" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.trees} onChange={handleCheckboxChange('trees')} />} label="Trees" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.gardener} onChange={handleCheckboxChange('gardener')} />} label="Gardener" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.waterFromAPersonalSupply} onChange={handleCheckboxChange('waterFromAPersonalSupply')} />} label="Water from a personal supply" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.outdoorJacuzzi} onChange={handleCheckboxChange('outdoorJacuzzi')} />} label="Outdoor jacuzzi" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.footballGame} onChange={handleCheckboxChange('footballGame')} />} label="Football game" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.roofTerrace} onChange={handleCheckboxChange('roofTerrace')} />} label="Roof terrace" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.outsideKitchen} onChange={handleCheckboxChange('outsideKitchen')} />} label="Outside kitchen" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.traditionalPizzaOven} onChange={handleCheckboxChange('traditionalPizzaOven')} />} label="Traditional pizza oven" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.outsideFridge} onChange={handleCheckboxChange('outsideFridge')} />} label="Outside fridge" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.extraWaterTank} onChange={handleCheckboxChange('extraWaterTank')} />} label="Extra water tank" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.playground} onChange={handleCheckboxChange('playground')} />} label="Playground" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.hammock} onChange={handleCheckboxChange('hammock')} />} label="Hammock" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.gardenSwing} onChange={handleCheckboxChange('gardenSwing')} />} label="Garden swing" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.washingBasin} onChange={handleCheckboxChange('washingBasin')} />} label="Washing basin" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.deck} onChange={handleCheckboxChange('deck')} />} label="Deck" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.outdoorDining} onChange={handleCheckboxChange('outdoorDining')} />} label="Outdoor dining" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.porch} onChange={handleCheckboxChange('porch')} />} label="Porch" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.miniBar} onChange={handleCheckboxChange('miniBar')} />} label="Mini bar" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.basketballCourt} onChange={handleCheckboxChange('basketballCourt')} />} label="Basketball court" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.drinkingWater} onChange={handleCheckboxChange('drinkingWater')} />} label="Drinking water" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.poofPilows} onChange={handleCheckboxChange('poofPilows')} />} label="Poof pilows" />
         </div>
-        <h3>Barbeque</h3>
         <div className="category-styling">
-        <TextField id="outlined-basic" label="" variant="outlined" value={parkingAvailable} onChange={e => updateFields({parkingAvailable: e.target.value})} />
-        <TextField id="outlined-basic" label="" variant="outlined" value={terraceOrVeranda} onChange={e => updateFields({terraceOrVeranda: e.target.value})} />
-        <TextField id="outlined-basic" label="" variant="outlined" value={shadedTerraceOrveranda} onChange={e => updateFields({shadedTerraceOrveranda: e.target.value})} />
-        <TextField id="outlined-basic" label="" variant="outlined" value={barbeque} onChange={e => updateFields({barbeque: e.target.value})} />
-        <TextField id="outlined-basic" label="" variant="outlined" value={umbrella} onChange={e => updateFields({umbrella: e.target.value})} />
-        <TextField id="outlined-basic" label="" variant="outlined" value={sunloungers} onChange={e => updateFields({sunloungers: e.target.value})} />
-        <TextField id="outlined-basic" label="" variant="outlined" value={kioskWithDiningFacilities} onChange={e => updateFields({kioskWithDiningFacilities: e.target.value})} />
+        <h3>Barbeque</h3>
+        <TextField id="outlined-basic" size="small" label="Parking available" variant="outlined" value={parkingAvailable} onChange={e => updateFields({parkingAvailable: e.target.value})} />
+        <TextField id="outlined-basic" size="small" label="Terrace/veranda" variant="outlined" value={terraceOrVeranda} onChange={e => updateFields({terraceOrVeranda: e.target.value})} />
+        <TextField id="outlined-basic" size="small" label="Shaded terrace/veranda" variant="outlined" value={shadedTerraceOrveranda} onChange={e => updateFields({shadedTerraceOrveranda: e.target.value})} />
+        <TextField id="outlined-basic" size="small" label="Barbeque" variant="outlined" value={barbeque} onChange={e => updateFields({barbeque: e.target.value})} />
+        <TextField id="outlined-basic" size="small" label="Umbrella" variant="outlined" value={umbrella} onChange={e => updateFields({umbrella: e.target.value})} />
+        <TextField id="outlined-basic" size="small" label="Sunloungers" variant="outlined" value={sunloungers} onChange={e => updateFields({sunloungers: e.target.value})} />
+        <TextField id="outlined-basic" size="small" label="Kiosk with dining facilities" variant="outlined" value={kioskWithDiningFacilities} onChange={e => updateFields({kioskWithDiningFacilities: e.target.value})} />
         
         </div>
        

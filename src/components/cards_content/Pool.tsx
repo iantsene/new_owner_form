@@ -1,9 +1,9 @@
 import { Checkbox, FormControlLabel, FormGroup, InputBase, TextField } from "@mui/material";
 import FormWrapper from "../form_components/FormWrapper";
-import { FormData } from "@/app/types/all-form-types";
+import { FormDataTypes } from "@/app/types/all-form-types";
 
-type UserFormProps = FormData & {
-  updateFields: (fields: Partial<FormData>) => void
+type UserFormProps = FormDataTypes & {
+  updateFields: (fields: Partial<FormDataTypes>) => void
   
   }
 
@@ -32,7 +32,7 @@ export default function Pool({
 
     updateFields, data, handleFieldChange }: UserFormProps) {
 
-    const handleSelfCheckInChange = (fieldName: string) => (e) => {
+    const handleCheckboxChange = (fieldName: string) => (e) => {
         handleFieldChange(fieldName, e.target.checked);
       };
 
@@ -45,31 +45,31 @@ export default function Pool({
               <h3>Pool</h3>
 
 
-        <FormControlLabel control={<Checkbox checked={data.levelGround} onChange={handleSelfCheckInChange('levelGround')} />} label="Level ground" />
-        <FormControlLabel control={<Checkbox checked={data.terrace} onChange={handleSelfCheckInChange('terrace')} />} label="Terrace" />
-        <FormControlLabel control={<Checkbox checked={data.outsideFurniture} onChange={handleSelfCheckInChange('outsideFurniture')} />} label="outside furniture" />
-        <FormControlLabel control={<Checkbox checked={data.depthMarks} onChange={handleSelfCheckInChange('depthMarks')} />} label="depth marks" />
-        <FormControlLabel control={<Checkbox checked={data.safetySign} onChange={handleSelfCheckInChange('safetySign')} />} label="safety sign" />
-        <FormControlLabel control={<Checkbox checked={data.swimmingRing} onChange={handleSelfCheckInChange('swimmingRing')} />} label="swimming ring" />
-        <FormControlLabel control={<Checkbox checked={data.staircase} onChange={handleSelfCheckInChange('staircase')} />} label="staircase" />
-        <FormControlLabel control={<Checkbox checked={data.jacuzziJets} onChange={handleSelfCheckInChange('jacuzziJets')} />} label="jacuzzi jets" />
-        <FormControlLabel control={<Checkbox checked={data.poolMaintenace} onChange={handleSelfCheckInChange('poolMaintenace')} />} label="Pool maintenace" />
-        <FormControlLabel control={<Checkbox checked={data.accessToPool} onChange={handleSelfCheckInChange('accessToPool')} />} label="Access to pool" />
-        <FormControlLabel control={<Checkbox checked={data.fence} onChange={handleSelfCheckInChange('fence')} />} label="Fence" />
-        <FormControlLabel control={<Checkbox checked={data.poolTowels} onChange={handleSelfCheckInChange('poolTowels')} />} label="pool towels" />
-        <FormControlLabel control={<Checkbox checked={data.poolShower} onChange={handleSelfCheckInChange('poolShower')} />} label="pool shower" />
-        <FormControlLabel control={<Checkbox checked={data.poolLasso} onChange={handleSelfCheckInChange('poolLasso')} />} label="pool lasso" />
-        <FormControlLabel control={<Checkbox checked={data.solarPanels} onChange={handleSelfCheckInChange('solarPanels')} />} label="Solar panels" />
-        <FormControlLabel control={<Checkbox checked={data.inflatables} onChange={handleSelfCheckInChange('inflatables')} />} label="Inflatables" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.levelGround} onChange={handleCheckboxChange('levelGround')} />} label="Level ground" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.terrace} onChange={handleCheckboxChange('terrace')} />} label="Terrace" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.outsideFurniture} onChange={handleCheckboxChange('outsideFurniture')} />} label="Outside furniture" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.depthMarks} onChange={handleCheckboxChange('depthMarks')} />} label="Depth marks" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.safetySign} onChange={handleCheckboxChange('safetySign')} />} label="Safety sign" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.swimmingRing} onChange={handleCheckboxChange('swimmingRing')} />} label="Swimming ring" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.staircase} onChange={handleCheckboxChange('staircase')} />} label="Staircase" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.jacuzziJets} onChange={handleCheckboxChange('jacuzziJets')} />} label="Jacuzzi jets" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.poolMaintenace} onChange={handleCheckboxChange('poolMaintenace')} />} label="Pool maintenace" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.accessToPool} onChange={handleCheckboxChange('accessToPool')} />} label="Access to pool" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.fence} onChange={handleCheckboxChange('fence')} />} label="Fence" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.poolTowels} onChange={handleCheckboxChange('poolTowels')} />} label="Pool towels" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.poolShower} onChange={handleCheckboxChange('poolShower')} />} label="Pool shower" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.poolLasso} onChange={handleCheckboxChange('poolLasso')} />} label="Pool lasso" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.solarPanels} onChange={handleCheckboxChange('solarPanels')} />} label="Solar panels" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.inflatables} onChange={handleCheckboxChange('inflatables')} />} label="Inflatables" />
         
         
         </div>
 
         <h3>Pool dimensions</h3>
-        <TextField id="outlined-basic" label="" variant="outlined" value={minWidth} onChange={e => updateFields({minWidth: e.target.value})} />
-        <TextField id="outlined-basic" label="" variant="outlined" value={maxWidth} onChange={e => updateFields({maxWidth: e.target.value})} />
-        <TextField id="outlined-basic" label="" variant="outlined" value={minDepth} onChange={e => updateFields({minDepth: e.target.value})} />
-        <TextField id="outlined-basic" label="" variant="outlined" value={maxdepth} onChange={e => updateFields({maxdepth: e.target.value})} />
+        <TextField id="outlined-basic" size="small" label="Min width" variant="outlined" value={minWidth} onChange={e => updateFields({minWidth: e.target.value})} />
+        <TextField id="outlined-basic" size="small" label="Max width" variant="outlined" value={maxWidth} onChange={e => updateFields({maxWidth: e.target.value})} />
+        <TextField id="outlined-basic" size="small" label="Min depth" variant="outlined" value={minDepth} onChange={e => updateFields({minDepth: e.target.value})} />
+        <TextField id="outlined-basic" size="small" label="Max depth" variant="outlined" value={maxdepth} onChange={e => updateFields({maxdepth: e.target.value})} />
        
         </div>
         </FormGroup>

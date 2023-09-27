@@ -1,11 +1,11 @@
 import { Checkbox, FormControlLabel, FormGroup, InputBase, TextField } from "@mui/material";
 import FormWrapper from "../form_components/FormWrapper";
-import { FormData } from "@/app/types/all-form-types";
+import { FormDataTypes } from "@/app/types/all-form-types";
 
 
 
-type UserFormProps = FormData & {
-updateFields: (fields: Partial<FormData>) => void
+type UserFormProps = FormDataTypes & {
+updateFields: (fields: Partial<FormDataTypes>) => void
 
 }
 
@@ -25,7 +25,7 @@ export default function Safety({
 
     updateFields, data, handleFieldChange }: UserFormProps) {
 
-    const handleSelfCheckInChange = (fieldName: string) => (e) => {
+    const handleCheckboxChange = (fieldName: string) => (e) => {
         handleFieldChange(fieldName, e.target.checked);
       };
 
@@ -37,17 +37,17 @@ export default function Safety({
               
         <div className="category-styling">
         <h3>Safety</h3>
-        <FormControlLabel control={<Checkbox checked={data.carbonMonoxideAlarm} onChange={handleSelfCheckInChange('carbonMonoxideAlarm')} />} label="Carbon monoxide alarm" />
-        <FormControlLabel control={<Checkbox checked={data.emergencyExitRoute} onChange={handleSelfCheckInChange('emergencyExitRoute')} />} label="Emergency exit route" />
-        <FormControlLabel control={<Checkbox checked={data.fireEmergencyContact} onChange={handleSelfCheckInChange('fireEmergencyContact')} />} label="Fire emergency contact" />
-        <FormControlLabel control={<Checkbox checked={data.fireExtinguisher} onChange={handleSelfCheckInChange('fireExtinguisher')} />} label="Fire extinguisher" />
-        <FormControlLabel control={<Checkbox checked={data.firstAidKit} onChange={handleSelfCheckInChange('firstAidKit')} />} label="First aid kit" />
-        <FormControlLabel control={<Checkbox checked={data.medicalEmergencyContact} onChange={handleSelfCheckInChange('medicalEmergencyContact')} />} label="Medical emergency contact" />
-        <FormControlLabel control={<Checkbox checked={data.policeEmergencyContact} onChange={handleSelfCheckInChange('policeEmergencyContact')} />} label="Police emergency contact" />
-        <FormControlLabel control={<Checkbox checked={data.smokeAlarm} onChange={handleSelfCheckInChange('smokeAlarm')} />} label="Smoke alarm" />
-        <FormControlLabel control={<Checkbox checked={data.deadboltLock} onChange={handleSelfCheckInChange('deadboltLock')} />} label="Deadbolt lock" />
-        <FormControlLabel control={<Checkbox checked={data.outdoorLighting} onChange={handleSelfCheckInChange('outdoorLighting')} />} label="Outdoor lighting" />
-        <FormControlLabel control={<Checkbox checked={data.lightningProtection} onChange={handleSelfCheckInChange('lightningProtection')} />} label="Lightning protection" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.carbonMonoxideAlarm} onChange={handleCheckboxChange('carbonMonoxideAlarm')} />} label="Carbon monoxide alarm" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.emergencyExitRoute} onChange={handleCheckboxChange('emergencyExitRoute')} />} label="Emergency exit route" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.fireEmergencyContact} onChange={handleCheckboxChange('fireEmergencyContact')} />} label="Fire emergency contact" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.fireExtinguisher} onChange={handleCheckboxChange('fireExtinguisher')} />} label="Fire extinguisher" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.firstAidKit} onChange={handleCheckboxChange('firstAidKit')} />} label="First aid kit" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.medicalEmergencyContact} onChange={handleCheckboxChange('medicalEmergencyContact')} />} label="Medical emergency contact" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.policeEmergencyContact} onChange={handleCheckboxChange('policeEmergencyContact')} />} label="Police emergency contact" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.smokeAlarm} onChange={handleCheckboxChange('smokeAlarm')} />} label="Smoke alarm" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.deadboltLock} onChange={handleCheckboxChange('deadboltLock')} />} label="Deadbolt lock" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.outdoorLighting} onChange={handleCheckboxChange('outdoorLighting')} />} label="Outdoor lighting" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.lightningProtection} onChange={handleCheckboxChange('lightningProtection')} />} label="Lightning protection" />
         
         
         

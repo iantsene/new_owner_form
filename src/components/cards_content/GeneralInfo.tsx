@@ -1,15 +1,15 @@
 import { Checkbox, FormControlLabel, FormGroup } from "@mui/material";
 import FormWrapper from "../form_components/FormWrapper";
-import { FormData } from "@/app/types/all-form-types";
+import { FormDataTypes } from "@/app/types/all-form-types";
 
-type UserFormProps = FormData & {
-  updateFields: (fields: Partial<FormData>) => void
+type UserFormProps = FormDataTypes & {
+  updateFields: (fields: Partial<FormDataTypes>) => void
   
   }
 
 export default function GeneralInfo({wheelchairFriendly, childrenAllowed, petsAllowed, smokingAllowed, updateFields, data, handleFieldChange }: UserFormProps) {
 
-    const handleSelfCheckInChange = (fieldName: string) => (e) => {
+    const handleCheckboxChange = (fieldName: string) => (e) => {
         handleFieldChange(fieldName, e.target.checked);
       };
 
@@ -20,10 +20,10 @@ export default function GeneralInfo({wheelchairFriendly, childrenAllowed, petsAl
            
             <div className="category-styling">
             
-        <FormControlLabel control={<Checkbox checked={data.wheelchairFriendly} onChange={handleSelfCheckInChange('wheelchairFriendly')} />} label="Wheelchair friendly" />
-        <FormControlLabel control={<Checkbox checked={data.childrenAllowed} onChange={handleSelfCheckInChange('childrenAllowed')} />} label="Children Allowed" />
-        <FormControlLabel control={<Checkbox checked={data.petsAllowed} onChange={handleSelfCheckInChange('petsAllowed')} />}  label="Pets allowed" />
-        <FormControlLabel control={<Checkbox checked={data.smokingAllowed} onChange={handleSelfCheckInChange('smokingAllowed')} />} label="Smoking allowed" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.wheelchairFriendly} onChange={handleCheckboxChange('wheelchairFriendly')} />} label="Wheelchair friendly" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.childrenAllowed} onChange={handleCheckboxChange('childrenAllowed')} />} label="Children Allowed" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.petsAllowed} onChange={handleCheckboxChange('petsAllowed')} />}  label="Pets allowed" />
+        <FormControlLabel control={<Checkbox size="small" checked={data.smokingAllowed} onChange={handleCheckboxChange('smokingAllowed')} />} label="Smoking allowed" />
         
         </div>
 

@@ -8,6 +8,13 @@
 
 html,
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
+  width: 100vw;
+  height: 100vh;
+  
+}
+
+body {
+background: url(../../../public/images/corfufeature.jpg);
+background-size: cover;
+background-position: center;
 }
