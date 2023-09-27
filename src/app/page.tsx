@@ -18,14 +18,14 @@ import RoomAmenities from '@/components/cards_content/RoomAmenities';
 import { FormDataTypes } from './types/all-form-types';
 import INITIAL_DATA from './variables/variables';
 import { Button, Paper, Tab, Tabs } from '@mui/material';
-
+import FormTabs from '../components/form_components/FormTabs'
 
 
 
 export default function Home() {
   const [data, setData] = useState(INITIAL_DATA);
-  
-  
+
+
 
   const handleFieldChange = (fieldName, value) => {
     setData({
@@ -52,28 +52,24 @@ export default function Home() {
   };
 
 
-  function handleTabChange(index: any) {
-    if (completedSteps.includes(index)) {
-      setCurrentStepIndex(index);
-    };
-  }
+  
 
 
   const { steps, currentStepIndex, setCurrentStepIndex, step, isFirstStep, isLastStep, back, next, handleStepComplete, completedSteps, } = useMultistepForm([
 
     <MainDescription {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(0)} />,
-    <GeneralInfo {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(1)}/>,
-    <Location {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(2)}/>,
-    <Views {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(3)}/>,
-    <Pool {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(4)}/>,
-    <Outside {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(5)}/>,
-    <Inside {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(6)}/>,
-    <Kitchen {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(7)}/>,
-    <Safety {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(8)}/>,
-    <BedsNBaths {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(9)}/>,
-    <Amenities {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(10)}/>,
-    <RoomAmenities {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(11)}/>,
-    <ExtraInfo {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(12)}/>,
+    <GeneralInfo {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(1)} />,
+    <Location {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(2)} />,
+    <Views {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(3)} />,
+    <Pool {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(4)} />,
+    <Outside {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(5)} />,
+    <Inside {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(6)} />,
+    <Kitchen {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(7)} />,
+    <Safety {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(8)} />,
+    <BedsNBaths {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(9)} />,
+    <Amenities {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(10)} />,
+    <RoomAmenities {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(11)} />,
+    <ExtraInfo {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(12)} />,
 
   ])
 
@@ -81,46 +77,17 @@ export default function Home() {
 
 
 
+
+
+
+
   
-
-
-
-  const tabLabels = ['Main Description', 'General Info', 'Location', 'Views', 'Pool', 'Outside', 'Inside', 'Kitchen', 'Safety', 'Beds & Baths', 'Amenities', 'Room Amenities', 'Extra Information',
-  ];
 
   return (<>
     <div className="formprime">
       <form id='form' onSubmit={onSubmit}>
-        <div className="form-tabs">
-          <div className="tabs-container">
-
-          {completedSteps.length > 0 && (
-  <Tabs
-    value={currentStepIndex}
-    onChange={handleTabChange}
-    indicatorColor="primary"
-    textColor="primary"
-    centered
-    className='tab-space'
-  >
-    {completedSteps.length > 0 && steps.map((step, index) => (
-    completedSteps.includes(index) && (
-      <Tab
-        key={index}
-        className="tab"
-        label={tabLabels[index]}
-        onClick={() => setCurrentStepIndex(index)}
         
-      />
-    )
-  ))}
-  </Tabs>
-)}
-
-
-          </div>
-        </div>
-
+        <FormTabs completedSteps={completedSteps} currentStepIndex={currentStepIndex} setCurrentStepIndex={setCurrentStepIndex} steps={steps} />
         <div className='page-counter'>
 
           <div className='form-background'>
@@ -173,7 +140,7 @@ export default function Home() {
 
 
 
-// const villaCategories = [ 
+// const villaCategories = [
 // {name: "Extra Website Info", content: villaFeatures.extraWebsiteInformation},
 // {name: "General Info", content: villaFeatures.extraWebsiteInformation},
 // {name: "Main Description", content: villaFeatures.extraWebsiteInformation},
