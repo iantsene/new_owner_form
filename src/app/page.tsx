@@ -27,7 +27,7 @@ export default function Home() {
   const [isTabContainerReady, setIsTabContainerReady] = useState(false);
   
 
-  const handleFieldChange = (fieldName, value) => {
+  const handleFieldChange = (fieldName: any, value: any) => {
     setData({
       ...data,
       [fieldName]: value,
@@ -63,19 +63,19 @@ export default function Home() {
 
   const { steps, currentStepIndex, setCurrentStepIndex, step, isFirstStep, isLastStep, back, next, handleStepComplete, completedSteps, } = useMultistepForm([
 
-    <MainDescription {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(0)} />,
-    <GeneralInfo {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(1)} />,
-    <Location {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(2)} />,
-    <Views {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(3)} />,
-    <Pool {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(4)} />,
-    <Outside {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(5)} />,
-    <Inside {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(6)} />,
-    <Kitchen {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(7)} />,
-    <Safety {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(8)} />,
-    <BedsNBaths {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(9)} />,
-    <Amenities {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(10)} />,
-    <RoomAmenities {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(11)}/>,
-    <ExtraInfo {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(12)} />,
+    <MainDescription {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
+    <GeneralInfo {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
+    <Location {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
+    <Views {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
+    <Pool {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
+    <Outside {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
+    <Inside {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
+    <Kitchen {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
+    <Safety {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
+    <BedsNBaths {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
+    <Amenities {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
+    <RoomAmenities {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields}/>,
+    <ExtraInfo {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
 
   ])
 
