@@ -408,6 +408,7 @@ const INITIAL_DATA: FormDataTypes = {
     safeSanitaryAssociation: "",
     sanitaryStandard: "",
     physicalDistancing: false,
+    roomDescription: "",
   }
 
 

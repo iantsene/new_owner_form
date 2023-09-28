@@ -24,8 +24,8 @@ import FormTabs from '../components/form_components/FormTabs'
 
 export default function Home() {
   const [data, setData] = useState(INITIAL_DATA);
-
-
+  const [isTabContainerReady, setIsTabContainerReady] = useState(false);
+  
 
   const handleFieldChange = (fieldName, value) => {
     setData({
@@ -42,7 +42,13 @@ export default function Home() {
 
   function onSubmit(e: FormEvent) {
     e.preventDefault()
-    if (!isLastStep) return next()
+    if (!isLastStep) {
+      // Check if this is the first "Next" button click
+      if (!isTabContainerReady) {
+        setIsTabContainerReady(true);
+      }
+      return next();
+    }
     fetch('http://localhost:8080/submit', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -52,7 +58,7 @@ export default function Home() {
   };
 
 
-  
+
 
 
   const { steps, currentStepIndex, setCurrentStepIndex, step, isFirstStep, isLastStep, back, next, handleStepComplete, completedSteps, } = useMultistepForm([
@@ -68,7 +74,7 @@ export default function Home() {
     <Safety {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(8)} />,
     <BedsNBaths {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(9)} />,
     <Amenities {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(10)} />,
-    <RoomAmenities {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(11)} />,
+    <RoomAmenities {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(11)}/>,
     <ExtraInfo {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} onComplete={() => handleStepComplete(12)} />,
 
   ])
@@ -81,31 +87,38 @@ export default function Home() {
 
 
 
-  
+
 
   return (<>
     <div className="formprime">
       <form id='form' onSubmit={onSubmit}>
-        
-        
-  <Paper className="paper" sx={{ p: 3 }}>
-  <FormTabs completedSteps={completedSteps} currentStepIndex={currentStepIndex} setCurrentStepIndex={setCurrentStepIndex} steps={steps} />
-        <div className='page-counter'>
 
-          <div className='form-background'>
 
-            {step}
-            <div className='formButtons'>
+        <Paper className="paper" sx={{ p: 3 }}>
+          <FormTabs
+            completedSteps={completedSteps}
+            currentStepIndex={currentStepIndex}
+            setCurrentStepIndex={setCurrentStepIndex}
+            steps={steps}
+            isTabContainerReady={isTabContainerReady}
+            setIsTabContainerReady={setIsTabContainerReady} />
+          <div className='page-counter'>
 
-              <div className="page-counter"> {currentStepIndex + 1} / {steps.length}</div>
-              {!isFirstStep && <Button variant="contained" type='button' onClick={back}>Back</Button>}
-              <Button variant="contained" onClick={handleStepComplete} type='submit'>{isLastStep ? "Submit" : "Next"}</Button>
+            <div className='form-background'>
+
+              {step}
+              <div className='formButtons'>
+
+                <div className="page-counter"> {currentStepIndex + 1} / {steps.length}</div>
+                {!isFirstStep ? (<Button variant="contained" type='button' onClick={back}>Back</Button>) : (<div style={{ width: '71.73px', height: '36.5px' }}></div>
+                )}
+                <Button variant="contained" onClick={handleStepComplete} type='submit'>{isLastStep ? "Submit" : "Next"}</Button>
+              </div>
+
             </div>
 
           </div>
-
-        </div>
-    </Paper>
+        </Paper>
       </form>
     </div>
   </>

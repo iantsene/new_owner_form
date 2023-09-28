@@ -121,7 +121,7 @@ export default function Sports({
         <FormControlLabel control={<Checkbox size="small" checked={data.sportsSnorkelingDiving} onChange={handleCheckboxChange('sportsSnorkelingDiving')} />} label="Sports tubing water" />
         <FormControlLabel control={<Checkbox size="small" checked={data.sportsTubingWater} onChange={handleCheckboxChange('sportsTubingWater')} />} label="Power boat rental" />
         <FormControlLabel control={<Checkbox size="small" checked={data.powerBoatRental} onChange={handleCheckboxChange('powerBoatRental')} />} label="Power boat rental" />
-        <TextField id="outlined-basic" size="small" label="Scuba or snorkeling" variant="outlined" value={scubaOrSnorkeling} onChange={e => updateFields({scubaOrSnorkeling : e.target.value})} />
+        <TextField id="outlined-basic" size="small" label="Scuba or snorkeling" variant="standard" value={scubaOrSnorkeling} onChange={e => updateFields({scubaOrSnorkeling : e.target.value})} />
         </div>
        
         </div>

@@ -1,6 +1,12 @@
 .extra-categories{
+    display: flex;    
+    gap: 45px;
+}
+
+.category-styling{
     display: flex;
-    
+    flex-direction: column;
+    margin-bottom: 1.5rem;
 }
 
 
@@ -13,13 +19,51 @@
     margin-bottom: 20px;
 }
 
-.category-styling{
+
+
+.lodge-category {
     display: flex;
-    flex-direction: column;
-    
+    flex-direction: row;
 }
 
+.short-options-grid {
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr 1fr; 
+    grid-template-rows: 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+      ". . . ."; 
+      margin-bottom: 3rem;
+  }
 
+.multi-options-grid {
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr 1fr; 
+    grid-template-rows: 1fr 1fr 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+    ". . . ."
+    ". . . ."
+    ". . . ."; 
+    margin-bottom: 3rem;
+}
 
+.bedrooms {
+    display: flex;
+    gap:20px;
+    margin-bottom: 2rem;
+}
 
+.bathrooms {
+    display: flex;
+    gap:20px;
+}
 
+.safe-cleaning {
+    margin-bottom: 3rem;
+}
+
+.time-inputs {
+    display: flex;
+    justify-content: flex-end;
+}

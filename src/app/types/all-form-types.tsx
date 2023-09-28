@@ -407,6 +407,7 @@ export type FormDataTypes = {
     safeSanitaryAssociation: string
     sanitaryStandard: string
     physicalDistancing: boolean
+    roomDescription: string
     
     data: any
     handleFieldChange: any

@@ -1,6 +1,5 @@
-
-
 .formprime {
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,44 +8,18 @@
 
 
 
-.form-tabs {
+.formButtons {
+  margin-top: 1rem;
   display: flex;
-  justify-content: center;
-  
+  gap: .5rem;
+  justify-content: flex-end;
 }
 
-
-
-
-.MuiTabs-flexContainer {
-  justify-content: flex-start;
+.formTitle {
+  text-align: center;
+  margin: 0;
+  margin-bottom: 2rem;
 }
-
-
-// .tab-container-placeholder {
-//   width: 100vh; /* Adjust the width as needed */
- 
-// }
-
-.tabs-container {
-  
-  width: 130vh;
- 
-  
-}
-
-
-
-.tab {
-  display: flex;
-  justify-content: flex-start;
-  padding: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px 20px 0px 0;
-  background-color: #f2f2f2;
-  cursor: pointer;
-}
-
 
 .form-foreground {
   width: 50vw;
@@ -72,8 +45,44 @@
   backdrop-filter: blur(8.7px);
   -webkit-backdrop-filter: blur(8.7px);
   border: 1px solid rgba(255, 255, 255, 1);
+}
+
+.form-tabs {
+  display: flex;
+  justify-content: flex-start;
+  max-width: 120vh;
+  overflow-x: hidden;
 
 }
+
+
+
+
+.MuiTabs-flexContainer {
+  justify-content: flex-start;
+}
+
+
+.tab-container-placeholder {
+  max-width: 100vh;
+  padding-top: 49.5px;
+}
+
+
+
+
+
+.tab {
+  display: flex;
+  justify-content: flex-start;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px 20px 0px 0;
+  background-color: #f2f2f2;
+  cursor: pointer;
+}
+
+
 
 
 .page-counter {
@@ -82,23 +91,23 @@
   align-self: center;
 }
 
-.formButtons {
-  margin-top: 1rem;
+li {
   display: flex;
-  gap: .5rem;
-  justify-content: flex-end;
-}
-
-.formTitle {
-  text-align: center;
-  margin: 0;
-  margin-bottom: 2rem;
+  justify-content: flex-start;
+  align-items: center;
+  
 }
 
 
-.formChildren {
+.text-icons {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
 
-  // display: flex;
-  // justify-content: flex-start;
-
+.icons {
+  width: 20px;
+  height: 20px;
+  align-content: center;
 }
