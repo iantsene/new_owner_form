@@ -50,7 +50,7 @@ viewVineyardView,
            
           
               
-        <div className="category-styling">
+            <div className="main-category">
         <h3>View of lodging</h3>
         <ul className="multi-options-grid">
           <li><FormControlLabel control={<Checkbox size="small" checked={data.viewBeachView} onChange={handleCheckboxChange('viewBeachView')} />} label="Beach view" /></li>

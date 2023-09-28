@@ -52,7 +52,7 @@ export default function MainDescription({
     <FormWrapper title="Main Description">
       
       <FormGroup>
-          <div className="main-lodging-category">
+          <div className="main-category">
             <h3>Lodging Category</h3>
             <FormControl>
               <FormLabel id="lodge-label"></FormLabel>
@@ -78,8 +78,8 @@ export default function MainDescription({
             </FormControl>
           </div>
         
-
-          <div className="category-styling">
+          <div className="main-category">
+          
             <h3>Lodging type</h3>
             <ul className="multi-options-grid">
               <li><FormControlLabel control={<Checkbox size="small" checked={data.awayFromItAll} onChange={handleCheckboxChange('awayFromItAll')} />} label="Away from it all" /></li>
@@ -94,21 +94,11 @@ export default function MainDescription({
               <li><FormControlLabel control={<Checkbox size="small" checked={data.singleLevelHome} onChange={handleCheckboxChange('singleLevelHome')} />} label="Single level home" /></li>
               <li><FormControlLabel control={<Checkbox size="small" checked={data.privateResidence} onChange={handleCheckboxChange('privateResidence')} />} label="Bed and breakfast" /></li>
             </ul>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-
           </div>
-          <div className="category-styling">
+         
+
+          <div className="main-category">
+         
             <h3>Nearby services and properties</h3>
             <ul className="multi-options-grid">
               <li><FormControlLabel control={<Checkbox size="small" checked={data.kitchenGround} onChange={handleCheckboxChange('kitchenGround')} />} label="Kitchen on the ground" /></li>
@@ -123,19 +113,11 @@ export default function MainDescription({
               <li><FormControlLabel control={<Checkbox size="small" checked={data.childrenYes} onChange={handleCheckboxChange('childrenYes')} />} label="Children Yes" /></li>
               <li><FormControlLabel control={<Checkbox size="small" checked={data.garden} onChange={handleCheckboxChange('garden')} />} label="Garden" /></li>
             </ul>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-          </div>
-          <div className="category-styling">
+            </div>
+         
+
+          <div className="main-category">
+          
             <h3>Living space and lodging information</h3>
             <ul>
               <li><TextField id="outlined-basic" size="small" label="Area of the house in m2" variant="standard" value={areaOfTheHouseInM2} onChange={e => updateFields({ areaOfTheHouseInM2: e.target.value })} /></li>
@@ -150,7 +132,7 @@ export default function MainDescription({
           </div>
 
 
-
+         
 
 
         

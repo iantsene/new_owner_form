@@ -41,7 +41,7 @@ export default function Pool({
              <FormGroup>
         
            
-            <div className="category-styling">
+             <div className="main-category">
               <h3>Pool amenities & properties</h3>
 
           <ul className="multi-options-grid">
@@ -65,7 +65,7 @@ export default function Pool({
        
         
         </div>
-
+        <div className="main-category">
         <h3>Pool dimensions</h3>
         <ul className="multi-options-grid">
           <li><TextField id="outlined-basic" size="small" label="Min width" variant="standard" value={minWidth} onChange={e => updateFields({minWidth: e.target.value})} /></li>
@@ -73,7 +73,7 @@ export default function Pool({
           <li><TextField id="outlined-basic" size="small" label="Min depth" variant="standard" value={minDepth} onChange={e => updateFields({minDepth: e.target.value})} /></li>
           <li><TextField id="outlined-basic" size="small" label="Max depth" variant="standard" value={maxdepth} onChange={e => updateFields({maxdepth: e.target.value})} /></li>
         </ul>
-        
+        </div>
         
         
         

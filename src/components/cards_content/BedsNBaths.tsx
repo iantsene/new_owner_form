@@ -67,7 +67,9 @@ export default function BedsNBaths({
       <FormGroup>
         <div className="extra-categories">
           <div className="category-styling">
-                
+          <div className="main-category"> 
+          <h3>Bedrooms and Bathrooms details</h3>
+          </div>
               <div className="bedrooms">
 
                 <ul>
@@ -120,6 +122,7 @@ export default function BedsNBaths({
 
           </div>
 
+          <div className="main-category"> 
             <h3>Extras</h3>
             <ul className="multi-options-grid">
             <li><FormControlLabel control={<Checkbox size="small" checked={data.extrasBabyBath} onChange={handleCheckboxChange('extrasBabyBath')} />} label="Baby bath" /></li>
@@ -133,14 +136,16 @@ export default function BedsNBaths({
             <li><FormControlLabel control={<Checkbox size="small" checked={data.extrasChildSafetyGate} onChange={handleCheckboxChange('extrasChildSafetyGate')} />} label="Child safety gate" /></li>
             <li><FormControlLabel control={<Checkbox size="small" checked={data.cleaningProducts} onChange={handleCheckboxChange('cleaningProducts')} />} label="Cleaning products" /></li>
             </ul>
+            </div>
 
+            <div className="main-category"> 
             <ul>
-              <h4>Common area beds</h4>
+              <h3>Common area beds</h3>
               <li><TextField size="small" variant="standard" value={commonAreaBedOne} onChange={e => updateFields({ commonAreaBedOne: e.target.value })} label="Common area bed 1" /></li>
               <li><TextField size="small" variant="standard" value={commonAreaBedTwo} onChange={e => updateFields({ commonAreaBedTwo: e.target.value })} label="Common area bed 2" /></li>
               <li><TextField size="small" variant="standard" value={cot} onChange={e => updateFields({ cot: e.target.value })} label="Cot" /></li>
             </ul>
-
+            </div>
 
 
 

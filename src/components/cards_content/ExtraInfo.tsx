@@ -18,7 +18,7 @@ export default function ExtraInfo({checkInTime, checkOutTime, luggageCheckIn, se
              <FormGroup>
             <div className="extra-categories">
            
-            <div className="category-styling">
+            <div className="main-category">
             <h3 className="cat-headers">Check-in options</h3> 
         
         <ul>
@@ -38,7 +38,7 @@ export default function ExtraInfo({checkInTime, checkOutTime, luggageCheckIn, se
         
         </div>
 
-        <div className="category-styling">
+        <div className="main-category">
         <ul>
         <h3 className="cat-headers">Licenses</h3>
           <li><FormControlLabel control={<Checkbox size="small" checked={data.rentalLicense} onChange={handleCheckboxChange('rentalLicense')} />} label="Rental license" /></li>
@@ -50,7 +50,7 @@ export default function ExtraInfo({checkInTime, checkOutTime, luggageCheckIn, se
         
         </div>
 
-        <div className="category-styling">
+        <div className="main-category">
         <ul>
         <h3 className="cat-headers">Extra Parties & Eco</h3>
           <li><FormControlLabel control={<Checkbox size="small" checked={data.extraEcoHouse} onChange={handleCheckboxChange('extraEcoHouse')} />} label="Extra Eco house" /></li>

@@ -65,7 +65,7 @@ gpsLongitude,
              <FormGroup>
             
 
-            <div className="category-styling">
+             <div className="main-category">
         <h3>Location details</h3>
         <ul className="multi-options-grid">
           <li><FormControlLabel control={<Checkbox size="small" checked={data.resort} onChange={handleCheckboxChange('resort')} />} label="Resort" /></li>
@@ -79,8 +79,8 @@ gpsLongitude,
         </ul>
         </div>
            
-            <div className="category-styling">
-              <h3>Distance to services and POIs</h3>
+        <div className="main-category">
+              <h3>Distance to services and points of interest</h3>
                 <ul className="multi-options-grid">
                   <li><TextField size="small" label="Closest beach" variant="standard" value={closestBeach} onChange={e => updateFields({closestBeach : e.target.value})} /></li>
                   <li><TextField size="small" label="Distance to shops" variant="standard" value={distanceToShops} onChange={e => updateFields({distanceToShops : e.target.value})} /></li>

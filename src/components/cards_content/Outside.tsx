@@ -60,9 +60,10 @@ export default function Outside({
         <FormWrapper title="Outside">
              <FormGroup>
             
-            <div className="category-styling">
+             <div className="main-category">
              
         
+        <h3>Outside main features</h3>
         <ul className="multi-options-grid">
           <li><FormControlLabel control={<Checkbox size="small" checked={data.garden} onChange={handleCheckboxChange('garden')} />} label="Garden" /></li>
           <li><FormControlLabel control={<Checkbox size="small" checked={data.garage} onChange={handleCheckboxChange('garage')} />} label="Garage" /></li>
@@ -100,7 +101,7 @@ export default function Outside({
         </ul>
         
         </div>
-        <div className="category-styling">
+        <div className="main-category">
         <h3>Ouside extras</h3>
         <ul className="multi-options-grid">
           <li><TextField id="outlined-basic" size="small" label="Parking available" variant="standard" value={parkingAvailable} onChange={e => updateFields({parkingAvailable: e.target.value})} /></li>

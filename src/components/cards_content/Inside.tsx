@@ -78,10 +78,10 @@ export default function Inside({
            
           
               
-        <div className="category-styling">
+            <div className="main-category">
         
        
-        
+            <h3>Inside options</h3>
         <ul className="multi-options-grid">
           <li><TextField id="outlined-basic" size="small" variant="standard" value={fireplaceType} onChange={e => updateFields({fireplaceType: e.target.value})} label="Fireplace type" /></li>
           <li><TextField id="outlined-basic" size="small" variant="standard" value={heatingMeans} onChange={e => updateFields({heatingMeans: e.target.value})} label="Heating means" /></li>
@@ -92,7 +92,8 @@ export default function Inside({
         
         
         
-        
+        <div className="main-category">
+        <h3>Inside extras</h3>
         <ul className="multi-options-grid">
           <li><FormControlLabel control={<Checkbox size="small" checked={data.heating} onChange={handleCheckboxChange('heating')} />} label="Heating" /></li>
           <li><FormControlLabel control={<Checkbox size="small" checked={data.miniBar} onChange={handleCheckboxChange('miniBar')} />} label="Mini bar" /></li>
@@ -129,7 +130,7 @@ export default function Inside({
           <li><FormControlLabel control={<Checkbox size="small" checked={data.privateEntrance} onChange={handleCheckboxChange('privateEntrance')} />} label="Private entrance" /></li>
           <li><FormControlLabel control={<Checkbox size="small" checked={data.washerDryer} onChange={handleCheckboxChange('washerDryer')} />} label="Washer dryer" /></li>
           <li><FormControlLabel control={<Checkbox size="small" checked={data.safeBox} onChange={handleCheckboxChange('safeBox')} />} label="Safe box" /></li>
-          <li><FormControlLabel control={<Checkbox size="small" checked={data.insideJacuzzi} onChange={handleCheckboxChange('insideJacuzzi')} />} label="inside jacuzzi" /></li>
+          <li><FormControlLabel control={<Checkbox size="small" checked={data.insideJacuzzi} onChange={handleCheckboxChange('insideJacuzzi')} />} label="Inside jacuzzi" /></li>
           <li><FormControlLabel control={<Checkbox size="small" checked={data.tableTennis} onChange={handleCheckboxChange('tableTennis')} />} label="Table tennis" /></li>
           <li><FormControlLabel control={<Checkbox size="small" checked={data.snookerTable} onChange={handleCheckboxChange('snookerTable')} />} label="Snooker table" /></li>
           <li><FormControlLabel control={<Checkbox size="small" checked={data.hotWaterFromElectric} onChange={handleCheckboxChange('hotWaterFromElectric')} />} label="Hot water from electric" /></li>
@@ -144,7 +145,7 @@ export default function Inside({
           <li><FormControlLabel control={<Checkbox size="small" checked={data.freeWifi} onChange={handleCheckboxChange('freeWifi')} />} label="Free wifi" /></li>
 
         </ul>
-        
+        </div>
         
 
         </div>

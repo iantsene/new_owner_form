@@ -50,18 +50,12 @@ export default function Kitchen({
     return (
         <FormWrapper title="Kitchen">
              <FormGroup>
-            <div className="extra-categories">
+            
            
           
               
-        <div className="category-styling">
-       
-        
-        
-        
-        
-       
-        
+            <div className="main-category">   
+            <h3>Kitchen amenities</h3>    
         <ul className="multi-options-grid">
           <li><FormControlLabel control={<Checkbox size="small" checked={data.microwave} onChange={handleCheckboxChange('microwave')} />} label="Microwave" /></li>
           <li><FormControlLabel control={<Checkbox size="small" checked={data.toaster} onChange={handleCheckboxChange('toaster')} />} label="Toaster" /></li>
@@ -90,50 +84,18 @@ export default function Kitchen({
           <li><FormControlLabel control={<Checkbox size="small" checked={data.extraSmallBbqOven} onChange={handleCheckboxChange('extraSmallBbqOven')} />} label="Extra small bbq oven" /></li>
           <li><FormControlLabel control={<Checkbox size="small" checked={data.breadMaker} onChange={handleCheckboxChange('breadMaker')} />} label="Bread maker" /></li>
         </ul>
-        
+        </div>
+        <div className="main-category">
         <ul >
-          <h4>Extra info</h4>
+          <h3>Extra info</h3>
           <li><TextField id="outlined-basic" size="small" variant="standard" value={coffeeTypeAvailable} onChange={e => updateFields({coffeeTypeAvailable: e.target.value})} label="Coffee type available" /></li>
           <li><TextField id="outlined-basic" size="small" variant="standard" value={cookerWithFullOven} onChange={e => updateFields({cookerWithFullOven: e.target.value})} label="Cooker with full oven" /></li>
           <li><TextField id="outlined-basic" size="small" variant="standard" value={fridgeOrFreezer} onChange={e => updateFields({fridgeOrFreezer: e.target.value})} label="Fridge/Freezer" /></li>
         </ul>
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-       
-
         </div>
+    
         
-        
-
-        
-        
-       
-       
-        </div>
         </FormGroup>
         </FormWrapper>
         )
