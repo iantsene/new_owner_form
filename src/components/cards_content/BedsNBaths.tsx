@@ -71,7 +71,7 @@ export default function BedsNBaths({
           <h3>Bedrooms and Bathrooms details</h3>
           </div>
               <div className="bedrooms">
-
+              <div className="bedsnbaths-category"> 
                 <ul>
                 <h4>Bedroom types</h4>
                 <li><TextField size="small" variant="standard" value={bedroomOneType} onChange={e => updateFields({ bedroomOneType: e.target.value })} label="Bedroom 1 Type" /></li>
@@ -82,7 +82,8 @@ export default function BedsNBaths({
                 <li><TextField size="small" variant="standard" value={bedroomSixType} onChange={e => updateFields({ bedroomSixType: e.target.value })} label="Bedroom 6 Type" /></li>
                 <li><TextField size="small" variant="standard" value={bedroomSevenType} onChange={e => updateFields({ bedroomSevenType: e.target.value })} label="Bedroom 7 Type" /></li>
             </ul>
-
+                </div>
+                <div className="bedsnbaths-category"> 
             <ul>
               <h4>Bedroom heating</h4>
               <li><TextField size="small" variant="standard" value={bedroomOneHeating} onChange={e => updateFields({ bedroomOneHeating: e.target.value })} label="Bedroom 1 Heating" /></li>
@@ -93,8 +94,9 @@ export default function BedsNBaths({
               <li><TextField size="small" variant="standard" value={bedroomSixHeating} onChange={e => updateFields({ bedroomSixHeating: e.target.value })} label="Bedroom 6 Heating" /></li>
               <li><TextField size="small" variant="standard" value={bedroomSevenHeating} onChange={e => updateFields({ bedroomSevenHeating: e.target.value })} label="Bedroom 7 Heating" /></li>
             </ul>
-
+              </div>
             <div className="bathrooms">
+            <div className="bedsnbaths-category"> 
             <ul>
               <h4>Bathrooms</h4>
               <li><li><TextField size="small" variant="standard" value={bathroomOne} onChange={e => updateFields({ bathroomOne: e.target.value })} label="Bathroom 1" /></li></li>
@@ -105,8 +107,8 @@ export default function BedsNBaths({
               <li><li><TextField size="small" variant="standard" value={bathroomSix} onChange={e => updateFields({ bathroomSix: e.target.value })} label="Bathroom 6" /></li></li>
               <li><li><TextField size="small" variant="standard" value={bathroomSeven} onChange={e => updateFields({ bathroomSeven: e.target.value })} label="Bathroom 7" /></li></li>
             </ul>
-
-
+              </div>
+              <div className="bedsnbaths-category"> 
             <ul>
               <h4>Common bathrooms</h4>
               <li><TextField size="small" variant="standard" value={bathroomsCommonOne} onChange={e => updateFields({ bathroomsCommonOne: e.target.value })} label="Bathrooms Common 1" /></li>
@@ -118,6 +120,7 @@ export default function BedsNBaths({
               <li><TextField size="small" variant="standard" value={bathroomsCommonSeven} onChange={e => updateFields({ bathroomsCommonSeven: e.target.value })} label="Bathrooms Common 7" /></li>
               <li><TextField size="small" variant="standard" value={enSuiteBathroomOne} onChange={e => updateFields({ enSuiteBathroomOne: e.target.value })} label="En-suite bathroom 1" /></li>
             </ul>
+            </div>
             </div>
 
           </div>

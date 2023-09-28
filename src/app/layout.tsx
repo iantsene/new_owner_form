@@ -1,6 +1,6 @@
 import './stylesheets/globals.scss'
 import './stylesheets/form.scss'
-import './stylesheets/card-content.scss'
+import './stylesheets/media-queries.scss'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 

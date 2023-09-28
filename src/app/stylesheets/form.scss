@@ -1,11 +1,16 @@
 .formprime {
-
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
 
+
+.form-title {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 3rem;
+}
 
 
 .formButtons {
