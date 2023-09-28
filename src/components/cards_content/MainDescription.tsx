@@ -78,7 +78,7 @@ export default function MainDescription({
               </RadioGroup>
             </FormControl>
           </div>
-        
+       
           <div className="main-category">
           
             <h3>Lodging type</h3>
@@ -115,7 +115,7 @@ export default function MainDescription({
               <li><FormControlLabel control={<Checkbox size="small" checked={data.garden} onChange={handleCheckboxChange('garden')} />} label="Garden" /></li>
             </ul>
             </div>
-         
+          
 
           <div className="main-category">
           
