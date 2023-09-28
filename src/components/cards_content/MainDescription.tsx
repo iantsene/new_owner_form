@@ -57,6 +57,7 @@ export default function MainDescription({
             <FormControl>
               <FormLabel id="lodge-label"></FormLabel>
               <RadioGroup
+                className="radio-group"
                 row
                 aria-labelledby="lodge-label"
                 name="lodging-types"
