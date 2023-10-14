@@ -19,13 +19,16 @@ import { FormDataTypes } from './types/all-form-types';
 import INITIAL_DATA from './variables/variables';
 import { Button, Paper, Tab, Tabs } from '@mui/material';
 import FormTabs from '../components/form_components/FormTabs'
-
+import Questionnaire from '@/components/cards_content/Questionnaire';
 
 
 export default function Home() {
   const [data, setData] = useState(INITIAL_DATA);
   const [isTabContainerReady, setIsTabContainerReady] = useState(false);
-  
+  const [includeDetailedSteps, setIncludeDetailedSteps] = useState(false);
+
+
+
 
   const handleFieldChange = (fieldName: any, value: any) => {
     setData({
@@ -43,7 +46,7 @@ export default function Home() {
   function onSubmit(e: FormEvent) {
     e.preventDefault()
     if (!isLastStep) {
-      // Check if this is the first "Next" button click
+
       if (!isTabContainerReady) {
         setIsTabContainerReady(true);
       }
@@ -59,11 +62,12 @@ export default function Home() {
 
 
 
-
-
-  const { steps, currentStepIndex, setCurrentStepIndex, step, isFirstStep, isLastStep, back, next, handleStepComplete, completedSteps, } = useMultistepForm([
-
+  const briefSteps = [
+    <Questionnaire {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
     <MainDescription {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
+  ];
+
+  const detailedSteps = [
     <GeneralInfo {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
     <Location {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
     <Views {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
@@ -74,18 +78,34 @@ export default function Home() {
     <Safety {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
     <BedsNBaths {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
     <Amenities {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
-    <RoomAmenities {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields}/>,
+    <RoomAmenities {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
     <ExtraInfo {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
+  ];
 
-  ])
+  if (includeDetailedSteps) {
+    briefSteps.push(...detailedSteps
+    );
+  }
+  
 
 
+  const currentSteps = [...briefSteps,];
+  const { steps, currentStepIndex, setCurrentStepIndex, step, isFirstStep, isLastStep, back, next, handleStepComplete, completedSteps } = useMultistepForm(currentSteps);
 
 
+  const addDetailedSteps = () => {
+    setIncludeDetailedSteps(true);
 
+  };
 
+  const removeDetailedSteps = () => {
+    briefSteps.pop()
 
+  };
 
+  function modeLabel() {
+    return includeDetailedSteps ? "Advanced View" : "Basic View";
+  }
 
 
 
@@ -107,12 +127,21 @@ export default function Home() {
             <div className='form-background'>
 
               {step}
-              <div className='formButtons'>
-
-                <div className="page-counter"> {currentStepIndex + 1} / {steps.length}</div>
-                {!isFirstStep ? (<Button variant="contained" type='button' onClick={back}>Back</Button>) : (<div style={{ width: '71.73px', height: '36.5px' }}></div>
-                )}
-                <Button variant="contained" onClick={handleStepComplete} type='submit'>{isLastStep ? "Submit" : "Next"}</Button>
+              <div className="formButtons">
+                <div>{steps.length < 10 && currentStepIndex === 1 ? (<span className='help-text'>At this point we have enough information to get you started. You may submit your property as it is if you wish and fill the details later, or you can click below to switch to our advanced view where you can add your detailed information now. </span>) : <div style={{display: 'block' , width: 15, height: 36}}></div>
+                }</div>
+                <div>
+                  <div className="page-counter"><span className='mode-label'>{modeLabel()}</span> {currentStepIndex + 1} / {steps.length}</div>
+                  <div className='menu-buttons'>
+                  {!isFirstStep ? (<Button variant="contained" type='button' onClick={back}>Back</Button>) : (null
+                  )}
+                  <Button variant="contained" className={isLastStep ? 'submit-btn' : ''} onClick={handleStepComplete} type='submit'>{isLastStep ? "Submit" : "Next"}</Button>
+                  {steps.length <= 10 && currentStepIndex === 1 ? (<Button variant="contained" className='advanced-view-btn' type='button' onClick={addDetailedSteps}>Go to advanced view</Button>) : null
+                  }
+                  {steps.length ?  (<Button variant="contained" className='basic-view-btn' type='button' onClick={removeDetailedSteps}>Go to basic view</Button>) : null
+                  }
+                  </div>
+                </div>
               </div>
 
             </div>
@@ -127,50 +156,3 @@ export default function Home() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import TabView from '@/components/TabView'
-// import villaFeatures from './features';
-
-
-
-
-// const villaCategories = [
-// {name: "Extra Website Info", content: villaFeatures.extraWebsiteInformation},
-// {name: "General Info", content: villaFeatures.extraWebsiteInformation},
-// {name: "Main Description", content: villaFeatures.extraWebsiteInformation},
-// {name: "Location", content: villaFeatures.extraWebsiteInformation},
-// {name: "Area", content: villaFeatures.extraWebsiteInformation},
-// {name: "Sports", content: villaFeatures.extraWebsiteInformation},
-// {name: "Attractions & Leisure", content: villaFeatures.extraWebsiteInformation},
-// {name: "Pool", content: villaFeatures.extraWebsiteInformation},
-// {name: "Outside", content: villaFeatures.extraWebsiteInformation},
-// {name: "Inside", content: villaFeatures.extraWebsiteInformation},
-// {name: "Kitchen", content: villaFeatures.extraWebsiteInformation},
-// {name: "Safety", content: villaFeatures.extraWebsiteInformation},
-// {name: "Bedrooms & Bathrooms", content: villaFeatures.extraWebsiteInformation},
-// {name: "Amenities", content: villaFeatures.extraWebsiteInformation},
-// {name: "Room Amenities", content: villaFeatures.extraWebsiteInformation} ];
-// <TabView title={<h1 className='formTitle'>Villa Categories</h1>}
-//         tabs={[villaCategories]} />

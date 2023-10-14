@@ -12,12 +12,43 @@
     margin-bottom: 3rem;
 }
 
+.mode-label {
+  font-weight: bold;
+  margin-right: 15px;
+}
+
+.help-text {
+  font-size: small;
+  max-height: 15px;
+}
 
 .formButtons {
   margin-top: 1rem;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr; 
+  grid-template-rows: 1fr; 
   gap: .5rem;
   justify-content: flex-end;
+  text-align: center;
+}
+
+.submit-btn {
+  background-color: goldenrod;
+  &:hover {
+    background-color: #9a4f00;
+  }
+}
+
+.advanced-view-btn {
+  position: absolute;
+  right: 0px;  
+  bottom: 0;
+}
+
+.basic-view-btn {
+  position: absolute;
+  left: 0px;  
+  bottom: 0;
 }
 
 .formTitle {

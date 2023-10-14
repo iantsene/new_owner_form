@@ -6,6 +6,8 @@ export default function useMultistepForm(steps: ReactElement[]) {
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
   const [completedSteps, setCompletedSteps] = useState<number[]>([]);
 
+  
+
   function next() {
     if (currentStepIndex < steps.length - 1) {
       setCurrentStepIndex((i) => i + 1);
@@ -28,6 +30,7 @@ export default function useMultistepForm(steps: ReactElement[]) {
   function goTo(index: number) {
     setCurrentStepIndex(index);
   }
+
 
   return {
     currentStepIndex,
