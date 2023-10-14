@@ -24,6 +24,7 @@ import Questionnaire from '@/components/cards_content/Questionnaire';
 
 export default function Home() {
   const [data, setData] = useState(INITIAL_DATA);
+  const [selectedItems, setSelectedItems] = useState({});
   const [isTabContainerReady, setIsTabContainerReady] = useState(false);
   const [includeDetailedSteps, setIncludeDetailedSteps] = useState(false);
 
@@ -35,7 +36,13 @@ export default function Home() {
       ...data,
       [fieldName]: value,
     });
+
+    setSelectedItems({
+      ...selectedItems,
+      [fieldName]: value,
+    });
   };
+  
 
   function updateFields(fields: Partial<FormDataTypes>) {
     setData(prev => {
@@ -87,6 +94,7 @@ export default function Home() {
     );
   }
   
+  
 
 
   const currentSteps = [...briefSteps,];
@@ -99,8 +107,14 @@ export default function Home() {
   };
 
   const removeDetailedSteps = () => {
-    briefSteps.pop()
+    setIncludeDetailedSteps(false);
+  };
 
+  const applySelectedItems = () => {
+    setData({
+      ...data,
+      ...selectedItems,
+    });
   };
 
   function modeLabel() {
@@ -138,7 +152,11 @@ export default function Home() {
                   <Button variant="contained" className={isLastStep ? 'submit-btn' : ''} onClick={handleStepComplete} type='submit'>{isLastStep ? "Submit" : "Next"}</Button>
                   {steps.length <= 10 && currentStepIndex === 1 ? (<Button variant="contained" className='advanced-view-btn' type='button' onClick={addDetailedSteps}>Go to advanced view</Button>) : null
                   }
-                  {steps.length ?  (<Button variant="contained" className='basic-view-btn' type='button' onClick={removeDetailedSteps}>Go to basic view</Button>) : null
+                  {steps.length === 14 ?  (<Button variant="contained" className='basic-view-btn' type='button' onClick={() => {
+    removeDetailedSteps();
+    applySelectedItems();
+    setCurrentStepIndex(1)
+  }}>Go to basic view</Button>) : null
                   }
                   </div>
                 </div>
