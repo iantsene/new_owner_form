@@ -25,7 +25,7 @@ import Questionnaire from '@/components/cards_content/Questionnaire';
 export default function Home() {
   const [data, setData] = useState(INITIAL_DATA);
   const [selectedItems, setSelectedItems] = useState({});
-  const [isTabContainerReady, setIsTabContainerReady] = useState(false);
+  const [isTabContainerReady, setIsTabContainerReady] = useState(true);
   const [includeDetailedSteps, setIncludeDetailedSteps] = useState(false);
 
 
@@ -43,6 +43,7 @@ export default function Home() {
     });
   };
   
+
 
   function updateFields(fields: Partial<FormDataTypes>) {
     setData(prev => {
@@ -93,22 +94,29 @@ export default function Home() {
     briefSteps.push(...detailedSteps
     );
   }
-  
-  
+
+
 
 
   const currentSteps = [...briefSteps,];
   const { steps, currentStepIndex, setCurrentStepIndex, step, isFirstStep, isLastStep, back, next, handleStepComplete, completedSteps } = useMultistepForm(currentSteps);
 
 
-  const addDetailedSteps = () => {
-    setIncludeDetailedSteps(true);
-
+  const goToAdvancedView = () => {
+    if (!includeDetailedSteps) {
+      setIncludeDetailedSteps(true);
+      setCurrentStepIndex(2); // Set the current step index to the first detailed step
+    }
+  };
+  
+  const goToBasicView = () => {
+    if (includeDetailedSteps) {
+      setIncludeDetailedSteps(false);
+      setCurrentStepIndex(1); // Set the current step index back to the second step (Main Description)
+    }
   };
 
-  const removeDetailedSteps = () => {
-    setIncludeDetailedSteps(false);
-  };
+  
 
   const applySelectedItems = () => {
     setData({
@@ -142,22 +150,22 @@ export default function Home() {
 
               {step}
               <div className="formButtons">
-                <div>{steps.length < 10 && currentStepIndex === 1 ? (<span className='help-text'>At this point we have enough information to get you started. You may submit your property as it is if you wish and fill the details later, or you can click below to switch to our advanced view where you can add your detailed information now. </span>) : <div style={{display: 'block' , width: 15, height: 36}}></div>
+                <div>{steps.length < 10 && currentStepIndex === 1 ? (<span className='help-text'>After filling out this section we have enough information to get you started. You may submit your property as it is now and fill the details later, or you can click below to switch to our advanced view where you may add your detailed information now. </span>) : <div style={{ display: 'block', width: 15, height: 36 }}></div>
                 }</div>
                 <div>
                   <div className="page-counter"><span className='mode-label'>{modeLabel()}</span> {currentStepIndex + 1} / {steps.length}</div>
                   <div className='menu-buttons'>
-                  {!isFirstStep ? (<Button variant="contained" type='button' onClick={back}>Back</Button>) : (null
-                  )}
-                  <Button variant="contained" className={isLastStep ? 'submit-btn' : ''} onClick={handleStepComplete} type='submit'>{isLastStep ? "Submit" : "Next"}</Button>
-                  {steps.length <= 10 && currentStepIndex === 1 ? (<Button variant="contained" className='advanced-view-btn' type='button' onClick={addDetailedSteps}>Go to advanced view</Button>) : null
-                  }
-                  {steps.length === 14 ?  (<Button variant="contained" className='basic-view-btn' type='button' onClick={() => {
-    removeDetailedSteps();
-    applySelectedItems();
-    setCurrentStepIndex(1)
-  }}>Go to basic view</Button>) : null
-                  }
+                    {!isFirstStep ? (<Button variant="contained" type='button' onClick={back}>Back</Button>) : (null
+                    )}
+                    <Button variant="contained" className={isLastStep ? 'submit-btn' : ''} onClick={handleStepComplete} type='submit'>{isLastStep ? "Submit" : "Next"}</Button>
+                    {steps.length <= 10 && currentStepIndex === 1 ? (<Button variant="contained" className='advanced-view-btn' type='button' onClick={goToAdvancedView}>Go to advanced view</Button>) : null
+                    }
+                    {steps.length === 14 ? (<Button variant="contained" className='basic-view-btn' type='button' onClick={() => {
+                      goToBasicView();
+                      applySelectedItems();
+                      setCurrentStepIndex(1)
+                    }}>Go to basic view</Button>) : null
+                    }
                   </div>
                 </div>
               </div>
@@ -171,6 +179,3 @@ export default function Home() {
   </>
   )
 }
-
-
-

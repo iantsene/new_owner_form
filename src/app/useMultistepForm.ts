@@ -44,6 +44,7 @@ export default function useMultistepForm(steps: ReactElement[]) {
     back,
     handleStepComplete,
     completedSteps,
+    setCompletedSteps
   };
 }
 

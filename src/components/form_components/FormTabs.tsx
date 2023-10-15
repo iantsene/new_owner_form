@@ -6,64 +6,64 @@ import {useEffect, useState} from 'react'
 export default function FormTabs(props){
   const tabLabels = ['Basic Info', 'Main Description', 'General Info', 'Location', 'Views', 'Pool', 'Outside', 'Inside', 'Kitchen', 'Safety', 'Beds & Baths', 'Amenities', 'Room Amenities', 'Extra Information',];
   
-  const { completedSteps, currentStepIndex, setCurrentStepIndex, isTabContainerReady, setIsTabContainerReady } = props;
+  const { completedSteps, currentStepIndex, setCurrentStepIndex, isTabContainerReady, setIsTabContainerReady, includeDetailedSteps } = props;
   
+
+  const [openTabs, setOpenTabs] = useState([0]); // Initialize with only the "Basic Info" tab open
 
   useEffect(() => {
-    setIsTabContainerReady(false);
-  }, []);
+    setIsTabContainerReady(true); // Set isTabContainerReady to true initially
+  }, []); // Only run this effect once
+
+  useEffect(() => {
+    if (isTabContainerReady) {
+      const index = currentStepIndex;
+      setOpenTabs((prevOpenTabs) => {
+        if (!prevOpenTabs.includes(index)) {
+          return [...prevOpenTabs, index]; // Remember the tab as open
+        }
+        return prevOpenTabs;
+      });
+    }
+  }, [currentStepIndex, isTabContainerReady]);
 
   const handleTabChange = (index) => {
-    if (completedSteps.includes(index)) {
-      setCurrentStepIndex(index);
-    }
+    setCurrentStepIndex(index);
   };
 
-  
+  useEffect(() => {
+    if (!includeDetailedSteps) {
+      
+      setCurrentStepIndex(0); 
+      setOpenTabs([0]);
+    }
+  }, [includeDetailedSteps]);
 
-  let tabContainer = (
-    <div className="tab-container-placeholder">
-    </div>
-  );
-
-  if (isTabContainerReady) {
-    tabContainer = (
-      <div className="form-tabs">
-        {completedSteps.length > 0 && (
-          <Tabs
-            value={currentStepIndex}
-            indicatorColor="primary"
-            textColor="primary"
-            variant="scrollable"
-            scrollButtons="auto"
-            className="tab-space"
-          >
-            {completedSteps.length > 0 &&
-              props.steps.map((step, index) =>
-                completedSteps.includes(index) ? (
-                  <Tab
-                    key={index}
-                    className="tab"
-                    label={tabLabels[index]}
-                    onClick={() => setCurrentStepIndex(index)}
-                  />
-                ) : null
-              )}
-          </Tabs>
-        )}
-       
-      </div>
-    );
-  }
+  const renderedTabs = tabLabels
+    .filter((_, index) => completedSteps.includes(index) || openTabs.includes(index))
+    .map((label, index) => (
+      <Tab
+        key={index}
+        className={`tab ${currentStepIndex === index ? 'active-tab' : ''}`}
+        label={label}
+        onClick={() => handleTabChange(index)}
+      />
+    ));
 
   return (
     <div className="form-tabs">
-      {tabContainer}
+      {isTabContainerReady && (
+        <Tabs
+          value={currentStepIndex}
+          indicatorColor="primary"
+          textColor="primary"
+          variant="scrollable"
+          scrollButtons="auto"
+          className="tab-space"
+        >
+          {renderedTabs}
+        </Tabs>
+      )}
     </div>
   );
 }
-
-
-
-
-
