@@ -24,7 +24,7 @@ export default function useMultistepForm(steps: ReactElement[]) {
     if (!completedSteps.includes(currentStepIndex)) {
       setCompletedSteps([...completedSteps, currentStepIndex]);
     }
-  }
+  } //If completedSteps hook doesn't include the currentStepIndex set the completed steps to be whatever is the current state of completedStep plus the currentStepIndex.
 
 
   function goTo(index: number) {
@@ -34,12 +34,12 @@ export default function useMultistepForm(steps: ReactElement[]) {
 
   return {
     currentStepIndex,
+    setCurrentStepIndex,
     step: steps[currentStepIndex],
     steps,
     isFirstStep: currentStepIndex === 0,
     isLastStep: currentStepIndex === steps.length - 1,
     goTo,
-    setCurrentStepIndex,
     next,
     back,
     handleStepComplete,

@@ -106,7 +106,6 @@
 
 
 
-
 .tab {
   display: flex;
   justify-content: flex-start;
@@ -117,6 +116,9 @@
   cursor: pointer;
 }
 
+.active-tab {
+  background-color: rgb(184, 184, 221);
+}
 
 
 

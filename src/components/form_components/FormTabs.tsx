@@ -4,66 +4,67 @@ import {useEffect, useState} from 'react'
 
 
 export default function FormTabs(props){
-  const tabLabels = ['Basic Info', 'Main Description', 'General Info', 'Location', 'Views', 'Pool', 'Outside', 'Inside', 'Kitchen', 'Safety', 'Beds & Baths', 'Amenities', 'Room Amenities', 'Extra Information',];
   
-  const { completedSteps, currentStepIndex, setCurrentStepIndex, isTabContainerReady, setIsTabContainerReady, includeDetailedSteps } = props;
+  const { completedSteps, currentStepIndex, setCurrentStepIndex, isTabContainerReady, setIsTabContainerReady, includeDetailedSteps, openTabs, 
+    setOpenTabs, basicTabLabels, tabLabels, viewMode } = props;
   
-
-  const [openTabs, setOpenTabs] = useState([0]); // Initialize with only the "Basic Info" tab open
-
-  useEffect(() => {
-    setIsTabContainerReady(true); // Set isTabContainerReady to true initially
-  }, []); // Only run this effect once
-
-  useEffect(() => {
-    if (isTabContainerReady) {
-      const index = currentStepIndex;
+ 
+    useEffect(() => {
+      if (isTabContainerReady) {
+        const index = currentStepIndex;
+        setOpenTabs((prevOpenTabs) => {
+          if (!prevOpenTabs.includes(index)) {
+            return [...prevOpenTabs, index]; //2. Remember the tab as open
+          }
+          return prevOpenTabs;
+        });
+      }
+    }, [currentStepIndex, isTabContainerReady]);
+  
+    const handleTabChange = (index) => {
+      if (index >= tabLabels.length) {
+        return;
+      }
+  
+      setCurrentStepIndex(index);
+  
       setOpenTabs((prevOpenTabs) => {
         if (!prevOpenTabs.includes(index)) {
-          return [...prevOpenTabs, index]; // Remember the tab as open
+          return [...prevOpenTabs, index];
         }
         return prevOpenTabs;
       });
-    }
-  }, [currentStepIndex, isTabContainerReady]);
-
-  const handleTabChange = (index) => {
-    setCurrentStepIndex(index);
-  };
-
-  useEffect(() => {
-    if (!includeDetailedSteps) {
-      
-      setCurrentStepIndex(0); 
-      setOpenTabs([0]);
-    }
-  }, [includeDetailedSteps]);
-
-  const renderedTabs = tabLabels
-    .filter((_, index) => completedSteps.includes(index) || openTabs.includes(index))
-    .map((label, index) => (
-      <Tab
-        key={index}
-        className={`tab ${currentStepIndex === index ? 'active-tab' : ''}`}
-        label={label}
-        onClick={() => handleTabChange(index)}
-      />
-    ));
-
-  return (
-    <div className="form-tabs">
-      {isTabContainerReady && (
-        <Tabs
-          value={currentStepIndex}
-          indicatorColor="primary"
-          textColor="primary"
-          variant="scrollable"
-          scrollButtons="auto"
-          className="tab-space"
-        >
-          {renderedTabs}
-        </Tabs>
-      )}
-    </div>
-  );
-}
+    };
+  
+    //3. Determine which tabs to render based on the view mode
+    const tabsToRender = viewMode === 'basic' ? basicTabLabels : tabLabels;
+  
+    //4. Controls the rendering the tabs
+    const renderedTabs = tabsToRender
+      .filter((_, index) => completedSteps.includes(index) || openTabs.includes(index))
+      .map((label, index) => (
+        <Tab
+          key={index}
+          className={`tab ${currentStepIndex === index ? 'active-tab' : ''}`}
+          label={label}
+          onClick={() => handleTabChange(index)}
+        />
+      ));
+  
+    return (
+      <div className="form-tabs">
+        {isTabContainerReady && (
+          <Tabs
+            value={completedSteps}
+            indicatorColor="primary"
+            textColor="primary"
+            variant="scrollable"
+            scrollButtons="auto"
+            className="tab-space"
+          >
+            {renderedTabs}
+          </Tabs>
+        )}
+      </div>
+    );
+  }

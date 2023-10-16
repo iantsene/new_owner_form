@@ -1,5 +1,5 @@
 "use client";
-import Image from 'next/image'
+
 import useMultistepForm from './useMultistepForm'
 import ExtraInfo from '@/components/cards_content/ExtraInfo';
 import Amenities from '@/components/cards_content/Amenities';
@@ -23,10 +23,11 @@ import Questionnaire from '@/components/cards_content/Questionnaire';
 
 
 export default function Home() {
-  const [data, setData] = useState(INITIAL_DATA);
-  const [selectedItems, setSelectedItems] = useState({});
-  const [isTabContainerReady, setIsTabContainerReady] = useState(true);
-  const [includeDetailedSteps, setIncludeDetailedSteps] = useState(false);
+  const [data, setData] = useState(INITIAL_DATA); //1. Maintains state for the entire document. INITIAL_DATA lives under app/variables
+  const [selectedItems, setSelectedItems] = useState({}); //2. Secondary document state. Part of a mechanism to transfer state to data when collapsing from Advanced View to Basic
+  const [isTabContainerReady, setIsTabContainerReady] = useState(true); //3. Marks whether a placeholder occupies space upon the tab space (false) or whether the actual tabs comtainer is there to display tabs (true)
+  const [includeDetailedSteps, setIncludeDetailedSteps] = useState(false); //4. Switch that affects other code determining whether we are on the basic or the advanced view.
+  const [openTabs, setOpenTabs] = useState([0]); //5. Controls how many tabs should be open
 
 
 
@@ -42,7 +43,7 @@ export default function Home() {
       [fieldName]: value,
     });
   };
-  
+
 
 
   function updateFields(fields: Partial<FormDataTypes>) {
@@ -74,7 +75,7 @@ export default function Home() {
     <Questionnaire {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
     <MainDescription {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
   ];
-
+  //6. These above and below are the actual tab components, laid out here to be injected below and elsewhere.
   const detailedSteps = [
     <GeneralInfo {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
     <Location {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
@@ -90,44 +91,48 @@ export default function Home() {
     <ExtraInfo {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
   ];
 
-  if (includeDetailedSteps) {
-    briefSteps.push(...detailedSteps
-    );
-  }
+  const basicTabLabels = ['Basic Info', 'Main Description',];
+  const advancedTabLabels = ['General Info', 'Location', 'Views', 'Pool', 'Outside', 'Inside', 'Kitchen', 'Safety', 'Beds & Baths', 'Amenities', 'Room Amenities', 'Extra Information',];
+  const [tabLabels, setTabLabels] = useState([...basicTabLabels, ...advancedTabLabels]); //Controls the rendering of tabs (FormTabs.tsx #4) via the above labels. 
+
+  includeDetailedSteps && briefSteps.push(...detailedSteps) // Makes sure that on first push of advanced view button the array with the detailedSteps tabs is couple with the briefSteps one.
+  //7. That way on click you get continuity of tabs and a smooth experience
+
+
 
 
 
 
   const currentSteps = [...briefSteps,];
   const { steps, currentStepIndex, setCurrentStepIndex, step, isFirstStep, isLastStep, back, next, handleStepComplete, completedSteps } = useMultistepForm(currentSteps);
+  //8. This is my multistep custom hook which handles navigation and tracking of steps on the form.
 
-
-  const goToAdvancedView = () => {
+  const goToAdvancedView = () => { 
     if (!includeDetailedSteps) {
       setIncludeDetailedSteps(true);
-      setCurrentStepIndex(2); // Set the current step index to the first detailed step
-    }
-  };
-  
-  const goToBasicView = () => {
-    if (includeDetailedSteps) {
-      setIncludeDetailedSteps(false);
-      setCurrentStepIndex(1); // Set the current step index back to the second step (Main Description)
+      setTabLabels([...basicTabLabels, ...advancedTabLabels])
+      setCurrentStepIndex(2); //9. Sets to the first "Advanced" step on click of Advanced View button (effectively it hits next)
     }
   };
 
-  
+  const goToBasicView = () => {
+    setIncludeDetailedSteps(false);
+    setCurrentStepIndex(0); //10. Sets to the first "Basic" step
+    setTabLabels(basicTabLabels)
+  };
+
+
 
   const applySelectedItems = () => {
     setData({
       ...data,
       ...selectedItems,
     });
-  };
+  }; //11. Part of the mechanism I mentioned on 2.
 
   function modeLabel() {
     return includeDetailedSteps ? "Advanced View" : "Basic View";
-  }
+  } //12. This handles the label over the navigation form buttons to display based on the current view.
 
 
 
@@ -143,7 +148,13 @@ export default function Home() {
             setCurrentStepIndex={setCurrentStepIndex}
             steps={steps}
             isTabContainerReady={isTabContainerReady}
-            setIsTabContainerReady={setIsTabContainerReady} />
+            setIsTabContainerReady={setIsTabContainerReady}
+            openTabs={openTabs}
+            setOpenTabs={setOpenTabs}
+            basicTabLabels={basicTabLabels}
+            tabLabels={tabLabels}
+
+          /> 
           <div className='page-counter'>
 
             <div className='form-background'>
