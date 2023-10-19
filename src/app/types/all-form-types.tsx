@@ -17,7 +17,8 @@ export type FormDataTypes = {
     smokingAllowed: boolean
     lodgingType: string
     awayFromItAll: boolean
-    livingRoomOnePerLevel: boolean
+    livingRoom: boolean
+    livingRoomDescription: string
     family: boolean
     romantic: boolean
     historical: boolean
@@ -28,7 +29,8 @@ export type FormDataTypes = {
     semiDetached: boolean
     privateResidence: boolean
     kitchenGround: boolean
-    dinerGround: boolean
+    diner: boolean
+    dinerDescription: string
     numOfFloorsToGround: string
     areaOfTheHouseInM2: string
     surroundingAreaInM2: string

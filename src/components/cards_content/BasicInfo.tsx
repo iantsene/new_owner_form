@@ -1,5 +1,5 @@
 import { Checkbox, FormControlLabel, FormGroup, InputBase, TextField, FormLabel, FormControl, RadioGroup, Radio } from "@mui/material";
-import { useForm, Controller } from 'react-hook-form';
+
 import FormWrapper from "../form_components/FormWrapper";
 import { FormDataTypes } from "@/app/types/all-form-types";
 
@@ -10,12 +10,15 @@ type UserFormProps = FormDataTypes & {
 
 }
 
-export default function Questionnaire({
+export default function BasicInfo({
 
 
 
 
-
+  propertyAddress,
+  postCode,
+  gpsLatitude,
+  gpsLongitude,
 
   updateFields, data, handleFieldChange }: UserFormProps) {
 
@@ -32,8 +35,6 @@ export default function Questionnaire({
   };
 
 
-    const { control, handleSubmit, watch } = useForm();
-    const checked = watch('exists');
 
   
 
@@ -69,7 +70,7 @@ export default function Questionnaire({
           </div>
 
           <div className="main-category">
-        <h3>what are the accessibility options?</h3>
+        <h3>what are your accessibility options?</h3>
           <ul>
             <li><FormControlLabel control={<Checkbox size="small" checked={data.wheelchairFriendly} onChange={handleCheckboxChange('wheelchairFriendly')} />} label="Wheelchair friendly" /></li>
             <li><FormControlLabel control={<Checkbox size="small" checked={data.childrenAllowed} onChange={handleCheckboxChange('childrenAllowed')} />} label="Children Allowed" /></li>
@@ -103,28 +104,17 @@ export default function Questionnaire({
         
         </div>
 
-        <ul className="multi-options-grid">
-       <li><label>Does it exist?</label>
-        <Controller
-          name="exists"
-          control={control}
-          defaultValue={false}
-          render={({ field }) => <Checkbox {...field} />}
-        />
-        {checked && (
-        <div>
-          <label>Details:</label>
-          <Controller
-            name="details"
-            control={control}
-            rules={{ maxLength: 60 }}
-            render={({ field }) => <TextField {...field} />}
-          />
-        </div>
-      )}</li> 
-     </ul>
-
       
+
+     <div className="main-category"> 
+     <h3>Property location</h3>
+     <ul className="multi-options-grid">
+    <li><TextField size="small" label="Property address" variant="standard" value={propertyAddress} onChange={e => updateFields({propertyAddress : e.target.value})} /></li>
+    <li><TextField size="small" label="Post code" variant="standard" value={postCode} onChange={e => updateFields({postCode : e.target.value})} /></li>
+    <li><TextField size="small" label="GPS latitude" variant="standard" value={gpsLatitude} onChange={e => updateFields({gpsLatitude : e.target.value})} /></li>
+    <li><TextField size="small" label="GPS longitude" variant="standard" value={gpsLongitude} onChange={e => updateFields({gpsLongitude : e.target.value})} /></li>
+    </ul>
+      </div>
 
 
       </FormGroup>

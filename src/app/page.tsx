@@ -1,9 +1,7 @@
 "use client";
 
 import useMultistepForm from './useMultistepForm'
-import ExtraInfo from '@/components/cards_content/ExtraInfo';
 import Amenities from '@/components/cards_content/Amenities';
-import Views from '@/components/cards_content/Views';
 import { FormEvent, useState } from 'react';
 import GeneralInfo from '@/components/cards_content/GeneralInfo';
 import MainDescription from '@/components/cards_content/MainDescription';
@@ -14,12 +12,11 @@ import Inside from '@/components/cards_content/Inside';
 import Kitchen from '@/components/cards_content/Kitchen';
 import Safety from '@/components/cards_content/Safety';
 import BedsNBaths from '@/components/cards_content/BedsNBaths';
-import RoomAmenities from '@/components/cards_content/RoomAmenities';
 import { FormDataTypes } from './types/all-form-types';
 import INITIAL_DATA from './variables/variables';
 import { Button, Paper, Tab, Tabs } from '@mui/material';
 import FormTabs from '../components/form_components/FormTabs'
-import Questionnaire from '@/components/cards_content/Questionnaire';
+import BasicInfo from '@/components/cards_content/BasicInfo';
 
 
 export default function Home() {
@@ -72,14 +69,12 @@ export default function Home() {
 
 
   const briefSteps = [
-    <Questionnaire {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
+    <BasicInfo {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
     <MainDescription {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
   ];
   //6. These above and below are the actual tab components, laid out here to be injected below and elsewhere.
   const detailedSteps = [
     <GeneralInfo {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
-    <Location {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
-    <Views {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
     <Pool {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
     <Outside {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
     <Inside {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
@@ -87,12 +82,12 @@ export default function Home() {
     <Safety {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
     <BedsNBaths {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
     <Amenities {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
-    <RoomAmenities {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
-    <ExtraInfo {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
+    <Location {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
+   
   ];
 
   const basicTabLabels = ['Basic Info', 'Main Description',];
-  const advancedTabLabels = ['General Info', 'Location', 'Views', 'Pool', 'Outside', 'Inside', 'Kitchen', 'Safety', 'Beds & Baths', 'Amenities', 'Room Amenities', 'Extra Information',];
+  const advancedTabLabels = ['General Info','Pool', 'Outside', 'Inside', 'Kitchen', 'Safety', 'Beds & Baths', 'Amenities','Location',];
   const [tabLabels, setTabLabels] = useState([...basicTabLabels, ...advancedTabLabels]); //Controls the rendering of tabs (FormTabs.tsx #4) via the above labels. 
 
   includeDetailedSteps && briefSteps.push(...detailedSteps) // Makes sure that on first push of advanced view button the array with the detailedSteps tabs is couple with the briefSteps one.
@@ -171,7 +166,7 @@ export default function Home() {
                     <Button variant="contained" className={isLastStep ? 'submit-btn' : ''} onClick={handleStepComplete} type='submit'>{isLastStep ? "Submit" : "Next"}</Button>
                     {steps.length <= 10 && currentStepIndex === 1 ? (<Button variant="contained" className='advanced-view-btn' type='button' onClick={goToAdvancedView}>Go to advanced view</Button>) : null
                     }
-                    {steps.length === 14 ? (<Button variant="contained" className='basic-view-btn' type='button' onClick={() => {
+                    {steps.length === 11 ? (<Button variant="contained" className='basic-view-btn' type='button' onClick={() => {
                       goToBasicView();
                       applySelectedItems();
                       setCurrentStepIndex(1)

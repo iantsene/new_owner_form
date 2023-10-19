@@ -1,5 +1,5 @@
 import { Checkbox, InputBase, FormControlLabel, FormGroup, InputLabel, Select, MenuItem, Paper, } from "@mui/material";
-import FormWrapper from "../form_components/FormWrapper";
+// import FormWrapper from "../form_components/FormWrapper";
 import { FormDataTypes } from "@/app/types/all-form-types";
 
 type UserFormProps = FormDataTypes & {
