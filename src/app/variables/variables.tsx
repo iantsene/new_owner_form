@@ -33,8 +33,8 @@ const INITIAL_DATA: FormDataTypes = {
   diner: false,
   dinerDescription: "",
   numOfFloorsToGround: 0,
-  areaOfTheHouseInM2: "",
-  surroundingAreaInM2: "",
+  areaOfTheHouseInM2: 0,
+  surroundingAreaInM2: 0,
   yearOfBuilt: 0,
   serviceSupermarket: false,
   singleLevelHome: false,
@@ -436,4 +436,7 @@ export default INITIAL_DATA;
 
 
 
-
+const {nearestVillage, nearestVillageDistance, taverna, tavernaDistance, distanceToTheBeach, distanceToBeachValue, distanceToTheSea, distanceToTheSeaValue, distanceToShops,
+   distanceToShopsValue, distanceToAirport, distanceToAirportValue, distanceToKiosk, distanceToKioskValue, distanceToBar, distanceToBarValue, distanceToFerry, distanceToFerryValue,
+    distanceToGolf, distanceToGolfValue, closestBeach, closestBeachDistance, nearestAtm, nearestBank, nearestBusStation, nearestDiveCenter, nearestHairdressers, nearestHospital,
+     nearestLaunderette, nearestMarina, nearestMedicalCenter, nearestMiniMarket, nearestPetrolStation, nearestPharmacy, nearestPointOfInterest, nearestPoliceStation} = INITIAL_DATA

@@ -19,6 +19,8 @@ export default function GeneralInfo({ wheelchairFriendly, childrenAllowed, petsA
 
   return (
     <FormWrapper title="General Information">
+      <div className="category-description"><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, aut error! 
+        Aperiam ducimus inventore nisi cupiditate facilis consectetur ea officia quaerat, quam neque quo reiciendis nobis iste cum quis perspiciatis.</span></div>
       <FormGroup>
         
 
@@ -28,11 +30,11 @@ export default function GeneralInfo({ wheelchairFriendly, childrenAllowed, petsA
               <h3 className="cat-headers">Check-in options</h3>
 
               <ul>
-                <li><label htmlFor="chkin">Check-in Time:<InputBase className="time-inputs" type="time" id="chkin" value={checkInTime} onChange={e => updateFields({ checkInTime: e.target.value })} /></label></li>
-                <li><label htmlFor="chkout">Check-out Time:<InputBase className="time-inputs" type="time" id="chkout" value={checkOutTime} onChange={e => updateFields({ checkOutTime: e.target.value })} /></label></li>
-                <li><FormControlLabel control={<Checkbox size="small" checked={data.selfCheckIn} onChange={handleCheckboxChange('selfCheckIn')} />} value={selfCheckIn} label="Self Check-in" /></li>
-                <li><FormControlLabel control={<Checkbox size="small" checked={data.luggageCheckIn} onChange={handleCheckboxChange('luggageCheckIn')} />} label="Luggage Check-in" /></li>
-                <li><label htmlFor="lgdrop">Luggage drop-off time:<InputBase className="time-inputs" type="time" value={luggageDropTime} onChange={e => updateFields({ luggageDropTime: e.target.value })} id="lgdrop" /></label></li>
+                <li><img src="/Icons/icon-placeholder.png" /><label htmlFor="chkin">Check-in Time:<InputBase className="time-inputs" type="time" id="chkin" value={checkInTime} onChange={e => updateFields({ checkInTime: e.target.value })} /></label></li>
+                <li><img src="/Icons/icon-placeholder.png" /><label htmlFor="chkout">Check-out Time:<InputBase className="time-inputs" type="time" id="chkout" value={checkOutTime} onChange={e => updateFields({ checkOutTime: e.target.value })} /></label></li>
+                <li><img src="/Icons/icon-placeholder.png" /><FormControlLabel control={<Checkbox size="small" checked={data.selfCheckIn} onChange={handleCheckboxChange('selfCheckIn')} />} value={selfCheckIn} label="Self Check-in" /></li>
+                <li><img src="/Icons/icon-placeholder.png" /><FormControlLabel control={<Checkbox size="small" checked={data.luggageCheckIn} onChange={handleCheckboxChange('luggageCheckIn')} />} label="Luggage Check-in" /></li>
+                <li><img src="/Icons/icon-placeholder.png" /><label htmlFor="lgdrop">Luggage drop-off time:<InputBase className="time-inputs" type="time" value={luggageDropTime} onChange={e => updateFields({ luggageDropTime: e.target.value })} id="lgdrop" /></label></li>
               </ul>
 
 
@@ -47,9 +49,9 @@ export default function GeneralInfo({ wheelchairFriendly, childrenAllowed, petsA
             <div className="main-category">
               <ul>
                 <h3 className="cat-headers">Licenses</h3>
-                <li><FormControlLabel control={<Checkbox size="small" checked={data.rentalLicense} onChange={handleCheckboxChange('rentalLicense')} />} label="Rental license" /></li>
-                <li><FormControlLabel control={<Checkbox size="small" checked={data.extraLicenseRequired} onChange={handleCheckboxChange('extraLicenseRequired')} />} label="Extra License required" /></li>
-                <li><FormControlLabel control={<Checkbox size="small" checked={data.extraLicenceGMAG} onChange={handleCheckboxChange('extraLicenceGMAG')} />} label="Extra License type GreeceMAG" /></li>
+                <li><img src="/Icons/icon-placeholder.png" /><FormControlLabel control={<Checkbox size="small" checked={data.rentalLicense} onChange={handleCheckboxChange('rentalLicense')} />} label="Rental license" /></li>
+                <li><img src="/Icons/icon-placeholder.png" /><FormControlLabel control={<Checkbox size="small" checked={data.extraLicenseRequired} onChange={handleCheckboxChange('extraLicenseRequired')} />} label="Extra License required" /></li>
+                <li><img src="/Icons/icon-placeholder.png" /><FormControlLabel control={<Checkbox size="small" checked={data.extraLicenceGMAG} onChange={handleCheckboxChange('extraLicenceGMAG')} />} label="Extra License type GreeceMAG" /></li>
               </ul>
 
 
@@ -59,9 +61,9 @@ export default function GeneralInfo({ wheelchairFriendly, childrenAllowed, petsA
             <div className="main-category">
               <ul>
                 <h3 className="cat-headers">Extra Parties & Eco</h3>
-                <li><FormControlLabel control={<Checkbox size="small" checked={data.extraEcoHouse} onChange={handleCheckboxChange('extraEcoHouse')} />} label="Extra Eco house" /></li>
-                <li><FormControlLabel control={<Checkbox size="small" checked={data.extraPartiesNotAllowed} onChange={handleCheckboxChange('extraPartiesNotAllowed')} />} label="Extra Parties not allowed" /></li>
-                <li><FormControlLabel control={<Checkbox size="small" checked={data.extraPartiesAllowed} onChange={handleCheckboxChange('extraPartiesAllowed')} />} label="Extra Parties allowed" /></li>
+                <li><img src="/Icons/icon-placeholder.png" /><FormControlLabel control={<Checkbox size="small" checked={data.extraEcoHouse} onChange={handleCheckboxChange('extraEcoHouse')} />} label="Extra Eco house" /></li>
+                <li><img src="/Icons/icon-placeholder.png" /><FormControlLabel control={<Checkbox size="small" checked={data.extraPartiesNotAllowed} onChange={handleCheckboxChange('extraPartiesNotAllowed')} />} label="Extra Parties not allowed" /></li>
+                <li><img src="/Icons/icon-placeholder.png" /><FormControlLabel control={<Checkbox size="small" checked={data.extraPartiesAllowed} onChange={handleCheckboxChange('extraPartiesAllowed')} />} label="Extra Parties allowed" /></li>
               </ul>
 
 

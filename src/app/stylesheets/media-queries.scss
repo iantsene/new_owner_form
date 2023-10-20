@@ -56,10 +56,17 @@ $breakpoint-large-screens: 1920px;
         margin-bottom: 4rem;
     }
     
-    
+    .category-description {
+        
+        width: 50vw;
+        height: 60px;
+    }
+
+
     .lodge-category {
         display: flex;
         flex-direction: row;
+        max-width: 50vw;
     }
     
     .short-options-grid {
@@ -71,6 +78,19 @@ $breakpoint-large-screens: 1920px;
           ". . . ."; 
           
       }
+
+    .duo-options-grid {
+        margin-top: 25px;
+        text-align: start;
+        display: grid; 
+        grid-template-columns: 1fr 1fr; 
+        grid-template-rows: auto; 
+        gap: 0px 0px; 
+        grid-template-areas: 
+          ". ."; 
+        justify-content: center; 
+        justify-items: center; 
+    }
     
     .multi-options-grid {
         display: grid; 

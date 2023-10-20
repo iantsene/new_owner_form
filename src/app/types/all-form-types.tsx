@@ -31,10 +31,10 @@ export type FormDataTypes = {
     kitchenGround: boolean
     diner: boolean
     dinerDescription: string
-    numOfFloorsToGround: string
-    areaOfTheHouseInM2: string
-    surroundingAreaInM2: string
-    yearOfBuilt: string
+    numOfFloorsToGround: number
+    areaOfTheHouseInM2: number
+    surroundingAreaInM2: number
+    yearOfBuilt: number
     serviceSupermarket: boolean
     singleLevelHome: boolean
     serviceBoatTaxiService: boolean

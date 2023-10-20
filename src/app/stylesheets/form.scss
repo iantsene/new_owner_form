@@ -9,7 +9,7 @@
 .form-title {
     display: flex;
     justify-content: flex-start;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
 }
 
 .mode-label {
@@ -58,7 +58,7 @@
 }
 
 .form-foreground {
-  width: 50vw;
+  width: 55vw;
   height: 600px;
   overflow-y: auto;
 
@@ -132,8 +132,16 @@ li {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  label{
+    display: flex;
+   align-items:last baseline; 
+   
+  
+  }
   
 }
+
+
 
 
 .text-icons {

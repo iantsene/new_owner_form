@@ -19,6 +19,7 @@ import FormTabs from '../components/form_components/FormTabs'
 import BasicInfo from '@/components/cards_content/BasicInfo';
 
 
+
 export default function Home() {
   const [data, setData] = useState(INITIAL_DATA); //1. Maintains state for the entire document. INITIAL_DATA lives under app/variables
   const [selectedItems, setSelectedItems] = useState({}); //2. Secondary document state. Part of a mechanism to transfer state to data when collapsing from Advanced View to Basic
@@ -71,10 +72,11 @@ export default function Home() {
   const briefSteps = [
     <BasicInfo {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
     <MainDescription {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
+    <GeneralInfo {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
   ];
   //6. These above and below are the actual tab components, laid out here to be injected below and elsewhere.
   const detailedSteps = [
-    <GeneralInfo {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
+    
     <Pool {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
     <Outside {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
     <Inside {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
@@ -86,8 +88,8 @@ export default function Home() {
    
   ];
 
-  const basicTabLabels = ['Basic Info', 'Main Description',];
-  const advancedTabLabels = ['General Info','Pool', 'Outside', 'Inside', 'Kitchen', 'Safety', 'Beds & Baths', 'Amenities','Location',];
+  const basicTabLabels = ['Basic Info', 'Main Description','General Info'];
+  const advancedTabLabels = ['Pool', 'Outside', 'Inside', 'Kitchen', 'Safety', 'Beds & Baths', 'Amenities','Location',];
   const [tabLabels, setTabLabels] = useState([...basicTabLabels, ...advancedTabLabels]); //Controls the rendering of tabs (FormTabs.tsx #4) via the above labels. 
 
   includeDetailedSteps && briefSteps.push(...detailedSteps) // Makes sure that on first push of advanced view button the array with the detailedSteps tabs is couple with the briefSteps one.
@@ -164,12 +166,12 @@ export default function Home() {
                     {!isFirstStep ? (<Button variant="contained" type='button' onClick={back}>Back</Button>) : (null
                     )}
                     <Button variant="contained" className={isLastStep ? 'submit-btn' : ''} onClick={handleStepComplete} type='submit'>{isLastStep ? "Submit" : "Next"}</Button>
-                    {steps.length <= 10 && currentStepIndex === 1 ? (<Button variant="contained" className='advanced-view-btn' type='button' onClick={goToAdvancedView}>Go to advanced view</Button>) : null
+                    {steps.length <= 10 && currentStepIndex === 2 ? (<Button variant="contained" className='advanced-view-btn' type='button' onClick={goToAdvancedView}>Go to advanced view</Button>) : null
                     }
                     {steps.length === 11 ? (<Button variant="contained" className='basic-view-btn' type='button' onClick={() => {
                       goToBasicView();
                       applySelectedItems();
-                      setCurrentStepIndex(1)
+                      setCurrentStepIndex(2)
                     }}>Go to basic view</Button>) : null
                     }
                   </div>
