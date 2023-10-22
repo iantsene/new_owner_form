@@ -59,8 +59,8 @@ export default function BasicInfo({
         Aperiam ducimus inventore nisi cupiditate facilis consectetur ea officia quaerat, quam neque quo reiciendis nobis iste cum quis perspiciatis.</span></div>
       <FormGroup>
       <div className="main-category">
-            <h3>Lodging type</h3>
-            <span>What type of lodging are you currently offering?</span>
+            <h3>What type of lodging are you currently offering?</h3>
+            
             <FormControl>
               <FormLabel id="lodge-label"></FormLabel>
               <RadioGroup

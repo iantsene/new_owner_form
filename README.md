@@ -1,4 +1,7 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+![Form Sample IMG](public/images/form-sample-img.png)
+
 # Multi-step form page for new villa owners 
 This project is a front-end page created to serve as the initiation point of new villa owners for a villa renting business. The point is to fill in the information and by the end export everything to the backend as JSON for archiving.
 
