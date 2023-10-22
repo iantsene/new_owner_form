@@ -72,7 +72,7 @@ export default function Home() {
   const briefSteps = [
     <BasicInfo {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
     <MainDescription {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
-    <GeneralInfo {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
+    <GeneralInfo {...data} data={data} setData={setData} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
   ];
   //6. These above and below are the actual tab components, laid out here to be injected below and elsewhere.
   const detailedSteps = [
@@ -108,7 +108,7 @@ export default function Home() {
     if (!includeDetailedSteps) {
       setIncludeDetailedSteps(true);
       setTabLabels([...basicTabLabels, ...advancedTabLabels])
-      setCurrentStepIndex(2); //9. Sets to the first "Advanced" step on click of Advanced View button (effectively it hits next)
+      setCurrentStepIndex(3); //9. Sets to the first "Advanced" step on click of Advanced View button (effectively it hits next)
     }
   };
 

@@ -406,7 +406,7 @@ const INITIAL_DATA: FormDataTypes = {
   safeEnhachedCleaning: "",
   safeCleaningDisinfection: "",
   safeSelfCheckInCheckOut: "",
-  safeCommonSurfaceDisinfectantCleaning: "",
+  safeCommonSurfaceDisinfecting: "",
   safeSanitaryAssociation: "",
   sanitaryStandard: "",
   physicalDistancing: false,

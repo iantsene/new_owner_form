@@ -405,13 +405,14 @@ export type FormDataTypes = {
     safeEnhachedCleaning: string
     safeCleaningDisinfection: string
     safeSelfCheckInCheckOut: string
-    safeCommonSurfaceDisinfectantCleaning: string
+    safeCommonSurfaceDisinfecting: string
     safeSanitaryAssociation: string
     sanitaryStandard: string
     physicalDistancing: boolean
     roomDescription: string
     
     data: any
+    setData: any
     handleFieldChange: any
     handleValueChange: string
     updateFields: (fields: Partial<FormDataTypes>) => void

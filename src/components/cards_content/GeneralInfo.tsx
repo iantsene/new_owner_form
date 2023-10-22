@@ -1,91 +1,91 @@
-import { Checkbox, FormControlLabel, FormGroup, TextField, InputBase } from "@mui/material";
+import { Checkbox, FormControlLabel, FormGroup, TextField, InputBase, TextareaAutosize } from "@mui/material";
 import FormWrapper from "../form_components/FormWrapper";
 import { FormDataTypes } from "@/app/types/all-form-types";
+import AutosizeTextarea from './reuseable-components/AutosizeTextarea';
+import { useEffect, useState } from "react";
 
 type UserFormProps = FormDataTypes & {
   updateFields: (fields: Partial<FormDataTypes>) => void
 
 }
 
-export default function GeneralInfo({ wheelchairFriendly, childrenAllowed, petsAllowed, smokingAllowed, roomDescription, checkInTime, checkOutTime, luggageCheckIn, selfCheckIn, luggageDropTime, rentalLicense, extraLicenseRequired, extraLicenceGMAG, extraEcoHouse, extraPartiesNotAllowed, extraPartiesAllowed, updateFields, data, handleFieldChange }: UserFormProps) {
+export default function GeneralInfo({ wheelchairFriendly, childrenAllowed, petsAllowed, smokingAllowed, roomDescription, checkInTime, checkOutTime, luggageCheckIn, selfCheckIn, luggageDropTime, rentalLicense, extraLicenseRequired, extraLicenceGMAG, extraEcoHouse, extraPartiesNotAllowed, extraPartiesAllowed, updateFields, data, setData, handleFieldChange }: UserFormProps) {
+ 
 
 
-
-
-  const maxCharacters = 500;
   const handleCheckboxChange = (fieldName: string) => (e) => {
     handleFieldChange(fieldName, e.target.checked);
   };
 
+
+
   return (
     <FormWrapper title="General Information">
-      <div className="category-description"><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, aut error! 
+      <div className="category-description"><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, aut error!
         Aperiam ducimus inventore nisi cupiditate facilis consectetur ea officia quaerat, quam neque quo reiciendis nobis iste cum quis perspiciatis.</span></div>
       <FormGroup>
-        
-
-          <div className="general-info-categories">
-
-            <div className="main-category">
-              <h3 className="cat-headers">Check-in options</h3>
-
-              <ul>
-                <li><img src="/Icons/icon-placeholder.png" /><label htmlFor="chkin">Check-in Time:<InputBase className="time-inputs" type="time" id="chkin" value={checkInTime} onChange={e => updateFields({ checkInTime: e.target.value })} /></label></li>
-                <li><img src="/Icons/icon-placeholder.png" /><label htmlFor="chkout">Check-out Time:<InputBase className="time-inputs" type="time" id="chkout" value={checkOutTime} onChange={e => updateFields({ checkOutTime: e.target.value })} /></label></li>
-                <li><img src="/Icons/icon-placeholder.png" /><FormControlLabel control={<Checkbox size="small" checked={data.selfCheckIn} onChange={handleCheckboxChange('selfCheckIn')} />} value={selfCheckIn} label="Self Check-in" /></li>
-                <li><img src="/Icons/icon-placeholder.png" /><FormControlLabel control={<Checkbox size="small" checked={data.luggageCheckIn} onChange={handleCheckboxChange('luggageCheckIn')} />} label="Luggage Check-in" /></li>
-                <li><img src="/Icons/icon-placeholder.png" /><label htmlFor="lgdrop">Luggage drop-off time:<InputBase className="time-inputs" type="time" value={luggageDropTime} onChange={e => updateFields({ luggageDropTime: e.target.value })} id="lgdrop" /></label></li>
-              </ul>
 
 
+        <div className="general-info-categories">
 
+          <div className="main-category">
+            <h3 className="cat-headers">Check-in options</h3>
+
+            <ul>
+
+              <li><img src="/Icons/icon-placeholder.png" /><label htmlFor="chkin">Check-in Time:<InputBase className="time-inputs" type="time" id="chkin" value={checkInTime} onChange={e => updateFields({ checkInTime: e.target.value })} /></label></li>
+              <li><img src="/Icons/icon-placeholder.png" /><label htmlFor="chkout">Check-out Time:<InputBase className="time-inputs" type="time" id="chkout" value={checkOutTime} onChange={e => updateFields({ checkOutTime: e.target.value })} /></label></li>
+              <li><img src="/Icons/icon-placeholder.png" /><label htmlFor="lgdrop">Luggage drop-off time:<InputBase className="time-inputs" type="time" value={luggageDropTime} onChange={e => updateFields({ luggageDropTime: e.target.value })} id="lgdrop" /></label></li>
+              <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={selfCheckIn} onChange={handleCheckboxChange('selfCheckIn')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Self Check-in</span></div>} /></li>
+              <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={luggageCheckIn} onChange={handleCheckboxChange('luggageCheckIn')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Luggage Check-in</span></div>} /></li>
+            </ul>
 
 
 
 
 
-            </div>
-
-            <div className="main-category">
-              <ul>
-                <h3 className="cat-headers">Licenses</h3>
-                <li><img src="/Icons/icon-placeholder.png" /><FormControlLabel control={<Checkbox size="small" checked={data.rentalLicense} onChange={handleCheckboxChange('rentalLicense')} />} label="Rental license" /></li>
-                <li><img src="/Icons/icon-placeholder.png" /><FormControlLabel control={<Checkbox size="small" checked={data.extraLicenseRequired} onChange={handleCheckboxChange('extraLicenseRequired')} />} label="Extra License required" /></li>
-                <li><img src="/Icons/icon-placeholder.png" /><FormControlLabel control={<Checkbox size="small" checked={data.extraLicenceGMAG} onChange={handleCheckboxChange('extraLicenceGMAG')} />} label="Extra License type GreeceMAG" /></li>
-              </ul>
 
 
 
-            </div>
-
-            <div className="main-category">
-              <ul>
-                <h3 className="cat-headers">Extra Parties & Eco</h3>
-                <li><img src="/Icons/icon-placeholder.png" /><FormControlLabel control={<Checkbox size="small" checked={data.extraEcoHouse} onChange={handleCheckboxChange('extraEcoHouse')} />} label="Extra Eco house" /></li>
-                <li><img src="/Icons/icon-placeholder.png" /><FormControlLabel control={<Checkbox size="small" checked={data.extraPartiesNotAllowed} onChange={handleCheckboxChange('extraPartiesNotAllowed')} />} label="Extra Parties not allowed" /></li>
-                <li><img src="/Icons/icon-placeholder.png" /><FormControlLabel control={<Checkbox size="small" checked={data.extraPartiesAllowed} onChange={handleCheckboxChange('extraPartiesAllowed')} />} label="Extra Parties allowed" /></li>
-              </ul>
-
-
-
-            </div>
-
-
-            <div className="main-category">
-              <h3>Brief Description</h3>
-              <TextField
-                label={`Character Limit: ${maxCharacters - roomDescription.length} characters left`}
-                multiline
-                rows={16}
-                variant="outlined"
-                value={roomDescription}
-                fullWidth
-                onChange={e => updateFields({ roomDescription: e.target.value })}
-              />
-            </div>
           </div>
 
-        
+          <div className="main-category">
+            <ul>
+              <h3 className="cat-headers">Licenses</h3>
+              <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={rentalLicense} onChange={handleCheckboxChange('rentalLicense')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Rental license</span></div>} /></li>
+              <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={extraLicenseRequired} onChange={handleCheckboxChange('extraLicenseRequired')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Extra License required</span></div>} /></li>
+              <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={extraLicenceGMAG} onChange={handleCheckboxChange('extraLicenceGMAG')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Extra License type GreeceMAG</span></div>} /></li>
+            </ul>
+
+
+
+          </div>
+
+          <div className="main-category">
+            <ul>
+              <h3 className="cat-headers">Extra Parties & Eco</h3>
+              <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={extraEcoHouse} onChange={handleCheckboxChange('extraEcoHouse')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Extra Eco house</span></div>} /></li>
+              <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={extraPartiesNotAllowed} onChange={handleCheckboxChange('extraPartiesNotAllowed')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Extra Parties not allowed</span></div>} /></li>
+              <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={extraPartiesAllowed} onChange={handleCheckboxChange('extraPartiesAllowed')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Extra Parties allowed</span></div>} /></li>
+            </ul>
+
+
+
+          </div>
+        </div>
+
+        <div className="textarea-category">
+          <h3>Brief Description</h3>
+          <AutosizeTextarea
+          data={data}
+          setData={setData}
+          
+          />
+         
+        </div>
+
+
+
       </FormGroup>
     </FormWrapper>
   )

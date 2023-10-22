@@ -1,6 +1,7 @@
 import { Checkbox, FormControlLabel, FormGroup, InputBase, TextField } from "@mui/material";
 import FormWrapper from "../form_components/FormWrapper";
 import { FormDataTypes } from "@/app/types/all-form-types";
+import React from "react";
 
 
 
@@ -43,7 +44,7 @@ export default function Amenities({
   safeEnhachedCleaning,
   safeCleaningDisinfection,
   safeSelfCheckInCheckOut,
-  safeCommonSurfaceDisinfectantCleaning,
+  safeCommonSurfaceDisinfecting,
   safeSanitaryAssociation,
   sanitaryStandard,
 
@@ -68,20 +69,20 @@ export default function Amenities({
         <div className="main-category">
           <h3>General Amenities</h3>
           <ul className="multi-options-grid">
-            <li><img src="/Icons/icon-placeholder.png" /><FormControlLabel control={<Checkbox size="small" checked={data.shampooProvided} onChange={handleCheckboxChange('shampooProvided')} />} label="Shampoo provided" /></li>
-            <li><img src="/Icons/icon-placeholder.png" /><FormControlLabel control={<Checkbox size="small" checked={data.carHireRecommended} onChange={handleCheckboxChange('carHireRecommended')} />} label="Car hire recommended" /></li>
-            <li><img src="/Icons/icon-placeholder.png" /><FormControlLabel control={<Checkbox size="small" checked={data.carHireNotEssential} onChange={handleCheckboxChange('carHireNotEssential')} />} label="Car hire not essential" /></li>
-            <li><img src="/Icons/icon-placeholder.png" /><FormControlLabel control={<Checkbox size="small" checked={data.beachSunLoungersProvided} onChange={handleCheckboxChange('beachSunLoungersProvided')} />} label="Beach sun loungers provided" /></li>
-            <li><img src="/Icons/icon-placeholder.png" /><FormControlLabel control={<Checkbox size="small" checked={data.beachTowelsCoolBagsAndBoxes} onChange={handleCheckboxChange('beachTowelsCoolBagsAndBoxes')} />} label="Beach towels cool bags and boxes" /></li>
-            <li><img src="/Icons/icon-placeholder.png" /><FormControlLabel control={<Checkbox size="small" checked={data.beachTowelsProvided} onChange={handleCheckboxChange('beachTowelsProvided')} />} label="Beach towels provided" /></li>
-            <li><img src="/Icons/icon-placeholder.png" /><FormControlLabel control={<Checkbox size="small" checked={data.essentials} onChange={handleCheckboxChange('essentials')} />} label="Essentials" /></li>
-            <li><img src="/Icons/icon-placeholder.png" /><FormControlLabel control={<Checkbox size="small" checked={data.hangers} onChange={handleCheckboxChange('hangers')} />} label="Hangers" /></li>
-            <li><img src="/Icons/icon-placeholder.png" /><FormControlLabel control={<Checkbox size="small" checked={data.extraPillowsAndBlankets} onChange={handleCheckboxChange('extraPillowsAndBlankets')} />} label="Extra pillows and blankets" /></li>
-            <li><img src="/Icons/icon-placeholder.png" /><FormControlLabel control={<Checkbox size="small" checked={data.roomDarkeningShades} onChange={handleCheckboxChange('roomDarkeningShades')} />} label="Room-darkening shades" /></li>
-            <li><img src="/Icons/icon-placeholder.png" /><FormControlLabel control={<Checkbox size="small" checked={data.showerGel} onChange={handleCheckboxChange('showerGel')} />} label="Shower gel" /></li>
-            <li><img src="/Icons/icon-placeholder.png" /><FormControlLabel control={<Checkbox size="small" checked={data.extrasBeachChair} onChange={handleCheckboxChange('extrasBeachChair')} />} label="Extras beach chair" /></li>
-            <li><img src="/Icons/icon-placeholder.png" /><FormControlLabel control={<Checkbox size="small" checked={data.extrasPaddleBoard} onChange={handleCheckboxChange('extrasPaddleBoard')} />} label="Extras paddle board" /></li>
-            <li><img src="/Icons/icon-placeholder.png" /><FormControlLabel control={<Checkbox size="small" checked={data.hotWaterProvided} onChange={handleCheckboxChange('hotWaterProvided')} />} label="Hot water provided" /></li>
+<li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={shampooProvided} onChange={handleCheckboxChange('shampooProvided')} />} label={<div className="label-content"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><span className="checkbox-tags">Shampoo provided</span></div>} /></li>
+<li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={carHireRecommended} onChange={handleCheckboxChange('carHireRecommended')} />} label={<div className="label-content"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><span className="checkbox-tags">Car hire recommended</span></div>} /></li>
+<li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={carHireNotEssential} onChange={handleCheckboxChange('carHireNotEssential')} />} label={<div className="label-content"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><span className="checkbox-tags">Car hire not essential</span></div>} /></li>
+<li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={beachSunLoungersProvided} onChange={handleCheckboxChange('beachSunLoungersProvided')} />} label={<div className="label-content"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><span className="checkbox-tags">Beach sun loungers provided</span></div>} /></li>
+<li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={beachTowelsCoolBagsAndBoxes} onChange={handleCheckboxChange('beachTowelsCoolBagsAndBoxes')} />} label={<div className="label-content"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><span className="checkbox-tags">Beach towels cool bags and boxes</span></div>} /></li>
+<li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={beachTowelsProvided} onChange={handleCheckboxChange('beachTowelsProvided')} />} label={<div className="label-content"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><span className="checkbox-tags">Beach towels provided</span></div>} /></li>
+<li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={essentials} onChange={handleCheckboxChange('essentials')} />} label={<div className="label-content"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><span className="checkbox-tags">Essentials</span></div>} /></li>
+<li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={hangers} onChange={handleCheckboxChange('hangers')} />} label={<div className="label-content"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><span className="checkbox-tags">Hangers</span></div>} /></li>
+<li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={extraPillowsAndBlankets} onChange={handleCheckboxChange('extraPillowsAndBlankets')} />} label={<div className="label-content"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><span className="checkbox-tags">Extra pillows and blankets</span></div>} /></li>
+<li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={roomDarkeningShades} onChange={handleCheckboxChange('roomDarkeningShades')} />} label={<div className="label-content"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><span className="checkbox-tags">Room-darkening shades</span></div>} /></li>
+<li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={showerGel} onChange={handleCheckboxChange('showerGel')} />} label={<div className="label-content"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><span className="checkbox-tags">Shower gel</span></div>} /></li>
+<li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={extrasBeachChair} onChange={handleCheckboxChange('extrasBeachChair')} />} label={<div className="label-content"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><span className="checkbox-tags">Extras beach chair</span></div>} /></li>
+<li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={extrasPaddleBoard} onChange={handleCheckboxChange('extrasPaddleBoard')} />} label={<div className="label-content"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><span className="checkbox-tags">Extras paddle board</span></div>} /></li>
+<li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={hotWaterProvided} onChange={handleCheckboxChange('hotWaterProvided')} />} label={<div className="label-content"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><span className="checkbox-tags">Hot water provided</span></div>} /></li>
           </ul>
         </div>
 
@@ -89,9 +90,9 @@ export default function Amenities({
 
         <div className="main-category">
           <h3>Keys</h3>
-          <ul className="short-options-grid">
-            <li><img src="/Icons/icon-placeholder.png" /><TextField id="outlined-basic" size="small" variant="standard" value={keyLocation} onChange={e => updateFields({ keyLocation: e.target.value })} label="Key location" /></li>
-            <li><img src="/Icons/icon-placeholder.png" /><TextField id="outlined-basic" size="small" variant="standard" value={extraKeyLocation} onChange={e => updateFields({ extraKeyLocation: e.target.value })} label="Extra key location" /></li>
+          <ul className="duo-options-grid">
+          <li><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><label className="label"><span>Key location:</span><TextField size="small" label="Key location" variant="standard" value={keyLocation} onChange={e => updateFields({keyLocation : e.target.value})} /></label></li>
+          <li><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><label className="label"><span>Extra key location:</span><TextField size="small" label="Extra key location" variant="standard" value={extraKeyLocation} onChange={e => updateFields({extraKeyLocation : e.target.value})} /></label></li>
           </ul>
         </div>
 
@@ -101,11 +102,12 @@ export default function Amenities({
         <div className="main-category">
 
           <h3>Linen</h3>
-          <ul className="short-options-grid">
-            <li><img src="/Icons/icon-placeholder.png" /><TextField variant="standard" value={linenCleaningMethod} onChange={e => updateFields({ linenCleaningMethod: e.target.value })} label="Linen cleaning method" /></li>
-            <li><img src="/Icons/icon-placeholder.png" /><FormControlLabel control={<Checkbox size="small" checked={data.bedLinen} onChange={handleCheckboxChange('bedLinen')} />} label="Bed linen" /></li>
-            <li><img src="/Icons/icon-placeholder.png" /><FormControlLabel control={<Checkbox size="small" checked={data.linenOnceAWeek} onChange={handleCheckboxChange('linenOnceAWeek')} />} label="Linen X1 a week" /></li>
-            <li><img src="/Icons/icon-placeholder.png" /><FormControlLabel control={<Checkbox size="small" checked={data.linenTwiceAWeek} onChange={handleCheckboxChange('linenTwiceAWeek')} />} label="Linen X2 a week" /></li>
+          <ul className="duo-options-grid">
+        <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={bedLinen} onChange={handleCheckboxChange('bedLinen')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Bed linen</span></div>} /></li>
+        <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={linenOnceAWeek} onChange={handleCheckboxChange('linenOnceAWeek')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Linen X1 a week</span></div>} /></li>
+        <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={linenTwiceAWeek} onChange={handleCheckboxChange('linenTwiceAWeek')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Linen X2 a week</span></div>} /></li>
+            <li><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><label className="label"><span>Linen cleaning method:</span><TextField size="small" label="Linen cleaning method" variant="standard" value={linenCleaningMethod} onChange={e => updateFields({linenCleaningMethod : e.target.value})} /></label></li>
+            
           </ul>
         </div>
 
@@ -116,22 +118,23 @@ export default function Amenities({
 
           <h3>Maid</h3>
           <ul className="short-options-grid">
-            <li><img src="/Icons/icon-placeholder.png" /><FormControlLabel control={<Checkbox size="small" checked={data.maidEveryDay} onChange={handleCheckboxChange('maidEveryDay')} />} label="Maid every day" /></li>
-            <li><img src="/Icons/icon-placeholder.png" /><FormControlLabel control={<Checkbox size="small" checked={data.maidOnceAWeek} onChange={handleCheckboxChange('maidOnceAWeek')} />} label="Maid X1 a week" /></li>
-            <li><img src="/Icons/icon-placeholder.png" /><FormControlLabel control={<Checkbox size="small" checked={data.maidTwiceAWeek} onChange={handleCheckboxChange('maidTwiceAWeek')} />} label="Maid X2 a week" /></li>
-            <li><img src="/Icons/icon-placeholder.png" /><FormControlLabel control={<Checkbox size="small" checked={data.maidThriceAWeek} onChange={handleCheckboxChange('maidThriceAWeek')} />} label="Maid X3 a week" /></li>
-            <li><img src="/Icons/icon-placeholder.png" /><FormControlLabel control={<Checkbox size="small" checked={data.maidBreakfastIncluded} onChange={handleCheckboxChange('maidBreakfastIncluded')} />} label="Maid breakfast included" /></li>
-          </ul>
+        <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={maidEveryDay} onChange={handleCheckboxChange('maidEveryDay')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Maid every day</span></div>} /></li>
+        <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={maidOnceAWeek} onChange={handleCheckboxChange('maidOnceAWeek')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Maid X1 a week</span></div>} /></li>
+        <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={maidTwiceAWeek} onChange={handleCheckboxChange('maidTwiceAWeek')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Maid X2 a week</span></div>} /></li>
+        <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={maidThriceAWeek} onChange={handleCheckboxChange('maidThriceAWeek')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Maid X3 a week</span></div>} /></li>
+        <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={maidBreakfastIncluded} onChange={handleCheckboxChange('maidBreakfastIncluded')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Maid breakfast included</span></div>} /></li>
+        </ul>
         </div>
 
 
         <div className="main-category">
               <h3>Safe cleaning</h3>
-            <ul className="short-options-grid">
-              <li><img src="/Icons/icon-placeholder.png" /><TextField id="outlined-basic" size="small" variant="standard" value={safeEnhachedCleaning} onChange={e => updateFields({ safeEnhachedCleaning: e.target.value })} label="Enhached cleaning" /></li>
-              <li><img src="/Icons/icon-placeholder.png" /><TextField id="outlined-basic" size="small" variant="standard" value={safeCleaningDisinfection} onChange={e => updateFields({ safeCleaningDisinfection: e.target.value })} label="Disinfection" /></li>
-              <li><img src="/Icons/icon-placeholder.png" /><TextField id="outlined-basic" size="small" variant="standard" value={safeSelfCheckInCheckOut} onChange={e => updateFields({ safeSelfCheckInCheckOut: e.target.value })} label="Self check in check out" /></li>
-              <li><img src="/Icons/icon-placeholder.png" /><TextField id="outlined-basic" size="small" variant="standard" value={safeCommonSurfaceDisinfectantCleaning} onChange={e => updateFields({ safeCommonSurfaceDisinfectantCleaning: e.target.value })} label="Common surface disinfectant cleaning" /></li>
+            <ul className="duo-options-grid">
+
+            <li><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><label className="label"><span>Enhached cleaning:</span><TextField size="small" label="Enhached cleaning" variant="standard" value={safeEnhachedCleaning} onChange={e => updateFields({safeEnhachedCleaning : e.target.value})} /></label></li>
+            <li><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><label className="label"><span>Disinfection:</span><TextField size="small" label="Disinfection" variant="standard" value={safeCleaningDisinfection} onChange={e => updateFields({safeCleaningDisinfection : e.target.value})} /></label></li>
+            <li><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><label className="label"><span>Self check in check out:</span><TextField size="small" label="Self check in check out" variant="standard" value={safeSelfCheckInCheckOut} onChange={e => updateFields({safeSelfCheckInCheckOut : e.target.value})} /></label></li>
+            <li><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><label className="label"><span>Common surface disinfecting:</span><TextField size="small" label="Common surface disinfecting" variant="standard" value={safeCommonSurfaceDisinfecting} onChange={e => updateFields({safeCommonSurfaceDisinfecting : e.target.value})} /></label></li>
             </ul>
           </div>
 
@@ -139,8 +142,9 @@ export default function Amenities({
           <div className="main-category">
             <ul className="safe-cleaning">
               <h3>Sanitation</h3>
-              <li><img src="/Icons/icon-placeholder.png" /><TextField id="outlined-basic" size="small" variant="standard" value={safeSanitaryAssociation} onChange={e => updateFields({ safeSanitaryAssociation: e.target.value })} label="Safe sanitary association" /></li>
-              <li><img src="/Icons/icon-placeholder.png" /><TextField id="outlined-basic" size="small" variant="standard" value={sanitaryStandard} onChange={e => updateFields({ sanitaryStandard: e.target.value })} label="Sanitary standard" /></li>
+              <li><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><label className="label"><span>Safe sanitary association:</span><TextField size="small" label="Safe sanitary association" variant="standard" value={safeSanitaryAssociation} onChange={e => updateFields({safeSanitaryAssociation : e.target.value})} /></label></li>
+              <li><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><label className="label"><span>Sanitary standard:</span><TextField size="small" label="Sanitary standard" variant="standard" value={sanitaryStandard} onChange={e => updateFields({sanitaryStandard : e.target.value})} /></label></li>
+
             </ul>
           </div>
 
@@ -148,10 +152,15 @@ export default function Amenities({
           <div className="main-category">
             <ul >
               <h3>Towels</h3>
-              <li><img src="/Icons/icon-placeholder.png" /><FormControlLabel control={<Checkbox size="small" checked={data.towels} onChange={handleCheckboxChange('towels')} />} label="Towels" /></li>
-              <li><img src="/Icons/icon-placeholder.png" /><FormControlLabel control={<Checkbox size="small" checked={data.towelsOnceAWeek} onChange={handleCheckboxChange('towelsOnceAWeek')} />} label="Towels X1 a week" /></li>
-              <li><img src="/Icons/icon-placeholder.png" /><FormControlLabel control={<Checkbox size="small" checked={data.towelsTwiceAWeek} onChange={handleCheckboxChange('towelsTwiceAWeek')} />} label="Towels X2 a week" /></li>
-              <li><img src="/Icons/icon-placeholder.png" /><FormControlLabel control={<Checkbox size="small" checked={data.towelsThriceAWeek} onChange={handleCheckboxChange('towelsThriceAWeek')} />} label="Towels X3 a week" /></li>
+
+
+
+
+
+        <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={towels} onChange={handleCheckboxChange('towels')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Towels</span></div>} /></li>
+        <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={towelsOnceAWeek} onChange={handleCheckboxChange('towelsOnceAWeek')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Towels X1 a week</span></div>} /></li>
+        <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={towelsTwiceAWeek} onChange={handleCheckboxChange('towelsTwiceAWeek')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Towels X2 a week</span></div>} /></li>
+        <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={towelsThriceAWeek} onChange={handleCheckboxChange('towelsThriceAWeek')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Towels X3 a week</span></div>} /></li>
             </ul>
           </div>
 
