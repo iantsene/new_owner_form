@@ -1,0 +1,145 @@
+  @media (max-width: 3000px) {// 2601 - 3000px
+
+
+
+    // ################ Form dimensions control panel ##############
+    
+    
+    .form-foreground {
+      //controls the content screen container
+      width: 2140px;
+      height: 944px;
+      overflow-x: hidden;
+    }
+    
+    .custom-accordion {
+      width: 2138px; // determines the size of the accordions on all pages
+    }
+    
+    .form-background {
+      //controls the form background white container
+      width: 2300px;
+    
+    }
+    
+    
+    
+    .form-tabs {
+      //tabs container size
+      display: flex;
+      justify-content: center;
+      max-width: 2400px;
+      overflow-x: hidden;
+    }
+    
+    
+    // ################ Form dimensions control end ################
+    }
+    
+
+   
+
+
+    
+      
+
+        
+   
+        
+// ################ Lists ########################
+.list-item-container {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  white-space: nowrap;
+  .MuiInputLabel-root {
+    width: 250px;
+  }
+  }
+ 
+// ################ Lists end ####################
+
+
+// ################ Grids ########################
+.duo-options-grid {
+  margin: 25px;
+  width: unset;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0px 15px;
+  grid-template-areas:
+    ". ."
+    ". .";
+  justify-items: center;
+  align-items: center;
+  place-items: center;
+}
+
+
+
+
+
+
+
+.multi-options-grid {
+  margin: 25px;
+  
+  display: grid;
+  text-align: start;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 0px 0px;
+  grid-template-areas:
+    ". . . ."
+    ". . . ."
+    ". . . .";
+  word-wrap: break-word;
+  margin-bottom: 2rem;
+  justify-content: center;
+  justify-items: center;
+}
+  // ################ Grids end ####################
+
+
+  
+// ################ Overrides ####################
+      .linen-service-cat .duo-options-grid {
+        
+        place-items: flex-start;
+      
+      }
+
+
+
+      .linen-service-cat .duo-options-grid {
+        margin-top: 35px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        gap: 0px 0px;
+        grid-template-areas:
+          ". . .";
+          white-space: nowrap;
+        justify-content: center;
+        justify-items: center;
+      }
+
+      .clean-method-cat .list-item-container {
+        width: 50%;
+      }
+    
+
+      .clean-method-cat .media-query-custom-grid {//makes the dual-column grid into a single column-grid. Takes care of texfields and their textboxes when there is no other way to align
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-gap: 0px 0px;
+        gap: 0px 0px;
+        grid-template-areas: "." 
+                             "."
+                             "."
+                             ".";
+        justify-content: center;
+        justify-items: center;
+      }
+      
+// ################ Overrides end ################

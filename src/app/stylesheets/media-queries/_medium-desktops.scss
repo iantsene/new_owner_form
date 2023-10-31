@@ -1,0 +1,125 @@
+@media (max-width: 2600px) { // 2101px - 2600px 
+
+  
+    // ################Form dimensions control panel ##############
+  
+    
+    .form-foreground {
+      //controls the content screen container
+      width: 1702px;
+      height: 950px;
+      overflow-x: hidden;
+    }
+  
+    .custom-accordion {
+      width: 1700px; // determines the size of the accordions on all pages
+    }
+    
+    .form-background {
+      //controls the form background white container
+      width: 1900px;
+    
+    }
+    
+  
+    .form-tabs {
+      //tabs container size
+      display: flex;
+      justify-content: center;
+      max-width: 2400px;
+      overflow-x: hidden;
+    }
+    
+    // ################ 2101px - 2600px Form dimensions control end ################
+    
+    }
+
+
+    .checkbox-tags {
+      display: flex;
+    }
+
+    .bedsnbaths-category {
+      h3 {
+        margin-bottom: 10px;
+      }
+      .list-item-container {
+        width: 100%;
+      }
+      display: block;
+      text-align: start;
+      margin-bottom: 4rem;
+    }
+
+
+  
+  // ################  Grids ####################
+
+
+    .duo-options-grid {
+      margin: 25px;
+     width: unset;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+      gap: 0px 15px;
+      grid-template-areas:
+        ". .";
+        place-items: center;
+        
+    }
+
+
+   
+
+
+    .multi-options-grid {
+      width: unset;
+      display: grid;
+      text-align: start;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: auto;
+      gap: 0px 0px;
+      grid-template-areas:
+        ". . . ."
+        ". . . ."
+        ". . . .";
+      word-wrap: break-word;
+      margin-bottom: 2rem;
+      place-items: center;
+    }
+
+  // ################  Grids end ####################
+
+
+
+
+
+     // ################ Lists ########################
+
+    .radio-group .list-items {
+      min-width: 180px;
+    }
+
+    .list-item-container {
+      display: flex;
+      align-items: center;
+      width: 75%;
+      white-space: nowrap;
+      }
+
+     
+
+    // ################ Lists end ####################
+
+
+
+
+
+
+    // ################ Overrides ####################
+      .css-15v22id-MuiAccordionDetails-root {
+        padding: 0;
+      }
+      
+    // ################ Overrides end ################

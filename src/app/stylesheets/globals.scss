@@ -1,4 +1,13 @@
-
+@import 'form.scss';
+@import 'media-queries.scss';
+@import 'media-queries/large-desktops';
+@import 'media-queries/medium-desktops';
+@import 'media-queries/desktops';
+@import 'media-queries/large-laptops';
+@import 'media-queries/medium-laptops';
+@import 'media-queries/laptops';
+@import 'media-queries/tablets';
+@import 'media-queries/mobiles';
 
 * {
   box-sizing: border-box;
@@ -8,15 +17,15 @@
 
 html,
 body {
-  width: 100vw;
-  height: 100vh;
-  
+  width: 100svw;
+  height: 100svh;
+ 
 }
 
 body {
 background: url(../../../public/images/corfufeature.jpg);
 background-size: cover;
-background-position: center;
+background-position: center no-repeat;
 }
 
 

@@ -6,15 +6,14 @@ import TextareaAutosize from '@mui/material/TextareaAutosize';
 
 interface AutosizeTextareaProps {
   data: {
-    roomDescription: string;
-    // Define other properties in your data object
+    briefDescription: string;
   };
-  setData: (data: { roomDescription: string }) => void;
+  setData: (data: { briefDescription: string }) => void;
 }
 
- function AutosizeTextarea ({ data, setData }: React.FC<AutosizeTextareaProps>){
+ function AutosizeTextarea ({ data, setData }: AutosizeTextareaProps){
 
-const {roomDescription} = data;
+const {briefDescription} = data;
 
 
 
@@ -28,17 +27,17 @@ const {roomDescription} = data;
     // Update the data object with the new roomDescription value
     setData({
       ...data,
-      roomDescription: newText,
+      briefDescription: newText,
     });
     
   };
 
   let textColor = 'black';
-  if (roomDescription.length >= 125 && roomDescription.length <= 249) {
+  if (briefDescription.length >= 125 && briefDescription.length <= 249) {
     textColor = 'green';
-  } else if (roomDescription.length >= 250 && roomDescription.length <= 374) {
+  } else if (briefDescription.length >= 250 && briefDescription.length <= 374) {
     textColor = 'darkgoldenrod';
-  } else if (roomDescription.length >= 375 && roomDescription.length <= 500) {
+  } else if (briefDescription.length >= 375 && briefDescription.length <= 500) {
     textColor = 'red';
   }
 
@@ -51,12 +50,12 @@ const {roomDescription} = data;
     aria-label="minimum height" 
     minRows={3} 
     placeholder="Please describe your property"
-    value={roomDescription} // Pass the value from your state
+    value={briefDescription} // Pass the value from your state
     onChange={handleTextareaChange} // Define the onChange handler to update the state
    
      />
      <span className="textbox-char-limit" style={{color: textColor}}>
-     Character Limit: {maxCharacters - roomDescription.length} characters left
+     Character Limit: {maxCharacters - briefDescription.length} characters left
    </span>
  </div>
 

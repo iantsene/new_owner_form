@@ -1,7 +1,7 @@
 import { Checkbox, FormControlLabel, FormGroup, TextField, InputBase, TextareaAutosize } from "@mui/material";
 import FormWrapper from "../form_components/FormWrapper";
 import { FormDataTypes } from "@/app/types/all-form-types";
-import AutosizeTextarea from './reuseable-components/AutosizeTextarea';
+import AutosizeTextarea from '../reuseable-components/AutosizeTextarea';
 import { useEffect, useState } from "react";
 
 type UserFormProps = FormDataTypes & {
@@ -9,7 +9,7 @@ type UserFormProps = FormDataTypes & {
 
 }
 
-export default function GeneralInfo({ wheelchairFriendly, childrenAllowed, petsAllowed, smokingAllowed, roomDescription, checkInTime, checkOutTime, luggageCheckIn, selfCheckIn, luggageDropTime, rentalLicense, extraLicenseRequired, extraLicenceGMAG, extraEcoHouse, extraPartiesNotAllowed, extraPartiesAllowed, updateFields, data, setData, handleFieldChange }: UserFormProps) {
+export default function GeneralInfo({  roomDescription, checkInTime, checkOutTime, luggageCheckIn, selfCheckIn, luggageDropTime, rentalLicense, extraLicenseRequired, extraLicenceGMAG, extraEcoHouse, extraPartiesNotAllowed, extraPartiesAllowed, updateFields, data, setData, handleFieldChange }: UserFormProps) {
  
 
 
@@ -26,27 +26,20 @@ export default function GeneralInfo({ wheelchairFriendly, childrenAllowed, petsA
       <FormGroup>
 
 
+      
+
         <div className="general-info-categories">
 
-          <div className="main-category">
+        <div className="main-category tablet-mq">
             <h3 className="cat-headers">Check-in options</h3>
 
             <ul>
-
               <li><img src="/Icons/icon-placeholder.png" /><label htmlFor="chkin">Check-in Time:<InputBase className="time-inputs" type="time" id="chkin" value={checkInTime} onChange={e => updateFields({ checkInTime: e.target.value })} /></label></li>
               <li><img src="/Icons/icon-placeholder.png" /><label htmlFor="chkout">Check-out Time:<InputBase className="time-inputs" type="time" id="chkout" value={checkOutTime} onChange={e => updateFields({ checkOutTime: e.target.value })} /></label></li>
               <li><img src="/Icons/icon-placeholder.png" /><label htmlFor="lgdrop">Luggage drop-off time:<InputBase className="time-inputs" type="time" value={luggageDropTime} onChange={e => updateFields({ luggageDropTime: e.target.value })} id="lgdrop" /></label></li>
               <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={selfCheckIn} onChange={handleCheckboxChange('selfCheckIn')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Self Check-in</span></div>} /></li>
               <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={luggageCheckIn} onChange={handleCheckboxChange('luggageCheckIn')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Luggage Check-in</span></div>} /></li>
             </ul>
-
-
-
-
-
-
-
-
           </div>
 
           <div className="main-category">

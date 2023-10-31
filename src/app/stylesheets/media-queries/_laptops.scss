@@ -1,0 +1,605 @@
+@media (max-width: 1100px) {
+  //769px - 1100px
+  // ############################ FORM ELEMENTS ############################
+
+  * {
+    font-size: 12px;
+
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  .help-text {
+    font-size: 0.9rem;
+  }
+
+  // ################ 769px - 1100px Form dimensions control ################
+
+
+  .form-foreground {
+    //controls the content screen container
+    width: 610px;
+    height: 250px;
+  }
+
+  .custom-accordion {
+    width: 617px // determines the size of the accordions on all pages
+  }
+
+  .form-background {
+    //controls the form background white container
+    width: 675px;
+  }
+
+
+  .form-tabs {
+    //tabs container size
+    display: flex;
+    justify-content: flex-start;
+    max-width: 700px;
+    overflow-x: hidden;
+  }
+
+  // ################ Form dimensions control end ############
+
+
+
+
+  // ################ Tabs ################
+
+
+
+
+  .css-1h9z7r5-MuiButtonBase-root-MuiTab-root,
+  .tab {
+    width: 80px;
+    min-height: 30px;
+    color: darkslateblue;
+    font-size: 0.8rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0 0px;
+    white-space: normal;
+    border: 1px solid #ccc;
+    border-radius: 5px 20px 0px 0;
+    background-color: #f2f2f2;
+    cursor: pointer;
+  }
+
+  .css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected,
+  .active-tab {
+    background-color: rgba(245, 171, 11, 0.637);
+
+  }
+
+
+
+  // ################ Tabs end ################
+  // ############################ FORM ELEMENTS END ##########################
+
+
+
+
+
+  // ################  Categories ###################
+  .main-category {
+    h3 {
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    width: 610px;
+    display: block;
+    margin-bottom: 4rem;
+  }
+
+  .general-info-categories span.checkbox-tags {
+    min-width: 117px;
+
+  }
+
+  .category-styling {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+  }
+
+  .category-description {
+    width: 610px;
+    height: 60px;
+
+    span {
+      font-size: small;
+      word-wrap: break-word;
+    }
+  }
+
+
+
+  .extra-categories {
+    display: flex;
+    flex-direction: column;
+    gap: unset;
+  }
+
+  .lodge-category {
+    display: flex;
+    flex-direction: row;
+
+  }
+
+  // ################  Categories end ###############
+
+
+
+
+
+  // ################  Grids ########################
+
+
+
+
+  // .media-query-custom-grid {
+  //   margin-top: 35px;
+  //   width: 619px;
+  //   display: grid;
+  //   grid-template-columns: 1fr;
+  //   grid-template-rows: 1fr;
+  //   gap: 0px 15px;
+  //   grid-template-areas:
+  //     ".";
+  //   justify-content: flex-start;
+  //   justify-items: center;
+  // }
+
+  .media-query-custom-breakpoint {
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      ". .";
+    justify-content: flex-start;
+    justify-items: center;
+    white-space: nowrap;
+  }
+
+
+  .multi-options-grid {
+    overflow-x: hidden;
+
+    /* Set your desired fixed width */
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-gap: 0px 0px;
+    gap: 0px 0px;
+    grid-template-areas: ". . . .";
+    white-space: nowrap;
+    justify-content: center;
+    justify-items: flex-start;
+  }
+
+
+
+  .duo-options-grid {
+
+    margin: 0 0 2rem 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 0px 15px;
+    grid-template-areas:
+      ". .";
+    justify-content: center;
+    justify-items: center;
+    white-space: nowrap;
+  }
+
+
+  // ################  Grids end ####################
+
+
+
+
+
+  // ################  Lists ########################
+
+
+  // .list-item-container {
+  //   display: flex;
+  //   align-items: center;
+  //   width: 100%;
+  //   white-space: nowrap;
+  // }
+
+  .list-item-container {
+    display: flex;
+    align-items: center;
+    width: unset;
+    white-space: nowrap;
+  }
+
+
+  .list-items .label {
+
+    span {
+      width: 117px;
+      text-align: left;
+      margin-right: 10px;
+    }
+  }
+
+
+
+  label span {
+    display: flex;
+  }
+
+  .list-item-container .label {
+    flex: 1;
+    /* Allow label to take up the remaining space */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 5px;
+    min-width: 130px;
+    /* Adjust width as needed */
+    text-align: left;
+  }
+
+
+
+
+
+  .radio-group .list-items {
+    min-width: unset;
+  }
+
+  // ################  Lists end ####################
+
+  // ################ 769px - 1024px Overrides ####################
+
+  .living-space-cat .duo-options-grid,
+  //Single Grid
+  .outside-extras-cat .media-query-custom-breakpoint,
+  .kitchen-extras-cat .duo-options-grid,
+  .common-area-beds-cat .duo-options-grid,
+  .safe-cleaning-cat .duo-options-grid,
+  .sanitation-cat .duo-options-grid,
+  .distance-to-pois-category .duo-options-grid,
+  .distance-to-services-category .duo-options-grid,
+  .nearby-attractions-category .duo-options-grid,
+  .nearby-leisures-category .duo-options-grid,
+  .clean-method-cat .duo-options-grid,
+  .general-info-categories .media-query-custom-grid {
+    //makes the dual-column grid into a single column-grid. Takes care of texfields and their textboxes when there is no other way to align
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-gap: 0px 0px;
+    gap: 0px 0px;
+    grid-template-areas:
+      "."
+      "."
+      "."
+      ".";
+    justify-content: center;
+    justify-items: center;
+  }
+
+
+
+
+
+
+
+
+  .cooking-devices-cat .media-query-custom-breakpoint,
+  .cooking-means-cat .media-query-custom-breakpoint,
+  .dining-area-utensils-cat .media-query-custom-breakpoint {
+    width: 610px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 0px 0px;
+    grid-template-areas:
+      ". .";
+    justify-content: center;
+    justify-items: center;
+  }
+
+  .cooking-devices-cat .checkbox-tags,
+  .cooking-means-cat .checkbox-tags,
+  .dining-area-utensils-cat .checkbox-tags {
+    //Added this for kitchen category. In order to align to center I need to give width to the list items
+    width: 100px;
+  }
+
+  .nearby-services-category .multi-options-grid,
+  // Triple grid adaptation
+  .outside-category .multi-options-grid,
+  .inside-extras-category .multi-options-grid,
+  .kitchen-category .multi-options-grid,
+  .safety-category .multi-options-grid,
+  .lodging-type-category .multi-options-grid,
+  .bedsnbaths-extras-cat .multi-options-grid,
+  .outdoors-dining-cat .media-query-custom-breakpoint,
+  .ambience-n-terrain-cat .media-query-custom-breakpoint,
+  .outside-conveniences-cat .media-query-custom-breakpoint,
+  .heating-cooling-cat .media-query-custom-breakpoint,
+  .laundry-services-cat .media-query-custom-breakpoint,
+  .indoor-amenities-cat .media-query-custom-breakpoint,
+  .indoor-wellness-cat .media-query-custom-breakpoint,
+  .utility-options-cat .media-query-custom-breakpoint,
+  .indoor-entertainment-cat .media-query-custom-breakpoint,
+  .outside-games-cat .media-query-custom-breakpoint {
+
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-gap: 0px 0px;
+    gap: 0px 0px;
+    grid-template-areas: ". . .";
+    justify-items: flex-start;
+  }
+
+
+
+
+
+  .lodging-type-category,
+  .nearby-services-category,
+  .outside-category,
+  .inside-extras-category,
+  .kitchen-category,
+  .safety-category,
+  .bednbaths-extras-category,
+  .general-amenities-category {
+
+    .checkbox-tags {
+      min-width: 120px;
+    }
+  }
+
+
+
+  .distance-to-pois-category,
+  .distance-to-services-category,
+  .nearby-attractions-category,
+  .nearby-leisures-category,
+  .property-address-category,
+  .pool-dimensions-category,
+  .outside-extras-category,
+  .inside-options-cat,
+  .kitchen-extras-cat,
+  .common-area-beds-cat,
+  .keys-cat,
+  .safe-cleaning-cat,
+  .sanitation-cat {
+    .duo-options-grid {
+
+      justify-items: center;
+    }
+  }
+
+  .accessibility-cat .MuiFormControlLabel-root,
+  .towels-service-cat .MuiFormControlLabel-root,
+  .maid-service-cat .MuiFormControlLabel-root {
+    width: 185px;
+    /* Adjusts the min-width of labels for aligning purposes */
+  }
+
+
+  .lodging-type-category .MuiFormControlLabel-root,
+  .pool-category .MuiFormControlLabel-root,
+  .kitchen-category .MuiFormControlLabel-root,
+  .safety-category .MuiFormControlLabel-root,
+  .bedsnbaths-extras-cat .MuiFormControlLabel-root,
+  .check-in-cat .MuiFormControlLabel-root,
+  .views-category .MuiFormControlLabel-root {
+    //Eliminates the artificial width sizes of labels and allows to align the fields vertically
+    width: unset;
+  }
+
+
+
+
+
+  .linen-service-cat .duo-options-grid {
+    margin-top: 12.5px;
+    margin-bottom: 12.5px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-gap: 0px 0px;
+    gap: 0px 0px;
+    grid-template-areas: ". . .";
+    justify-items: center;
+  }
+
+
+
+  .outdoors-dining-cat,
+  .ambience-n-terrain-cat,
+  .outside-conveniences-cat,
+  .outside-games-cat,
+  .heating-cooling-cat,
+  .laundry-services-cat,
+  .indoor-amenities-cat,
+  .indoor-wellness-cat,
+  .utility-options-cat,
+  .indoor-entertainment-cat,
+  //classes to target
+
+  .checkbox-tags,
+  .MuiFormControlLabel-root ///classes to apply effects into within target classes above
+
+    {
+    min-width: unset;
+    width: unset;
+  }
+
+
+
+
+  .accessibility-cat .duo-options-grid {
+    justify-items: center;
+  }
+
+
+  img,
+  .css-i4bv87-MuiSvgIcon-root {
+    width: 20px;
+    height: 20px;
+  }
+
+  .MuiTabs-scroller {
+    //Affects the tabs content styles
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+
+
+  .MuiFormControlLabel-root {
+    margin-left: 0; //Fixes a problem on the checkbox options where this class was adding a margin of 16px
+  }
+
+  .css-15v22id-MuiAccordionDetails-root {
+    padding: unset; //Overrides the padding inside an accordion
+  }
+
+  .check-in-cat .media-query-custom-breakpoint {
+    width: 500px;
+
+  }
+
+  .licenses-cat .media-query-custom-breakpoint,
+  .extra-parties-cat .media-query-custom-breakpoint {
+    //setting dimensions for the grids of these categories for this breakpoint
+    width: 619px;
+    gap: 0 15px;
+  }
+
+
+
+
+  .bedsnbaths-extras-cat .checkbox-tags {
+    min-width: unset;
+  }
+
+
+  .general-amenities-category .multi-options-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-gap: 0px 0px;
+    gap: 0px 0px;
+    grid-template-areas: ". .";
+    justify-items: flex-start;
+  }
+
+
+
+
+
+  .linen-service-cat span.checkbox-tags {
+    width: unset;
+  }
+
+  .linen-service-cat .MuiFormControlLabel-root {
+    min-width: unset;
+    width: unset;
+  }
+
+
+  .internet-options-cat .media-query-custom-breakpoint {
+    justify-items: flex-start;
+  }
+
+
+  .css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root {
+    // padding: 0 12px;
+    height: 30px;
+    align-self: flex-end;
+    background-color: rgba(245, 171, 11, 0.493)
+  }
+
+
+
+  .extra-categories .media-query-custom-breakpoint {
+    // Dual column grid
+    width: 610px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 0px 0px;
+    grid-template-areas:
+      "beds-category baths-category"
+      "beds-heating-cat common-baths-cat";
+    justify-content: center;
+    justify-items: center;
+  }
+
+  .beds-category .media-query-custom-breakpoint,
+  .beds-heating-cat .media-query-custom-breakpoint,
+  .baths-category .media-query-custom-breakpoint,
+  .common-baths-cat .media-query-custom-breakpoint,
+  .clean-method-cat .media-query-custom-grid {
+    //makes the dual-column grid into a single column-grid. Takes care of texfields and their textboxes when there is no other way to align
+    width: unset;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-gap: 0px 0px;
+    gap: 0px 0px;
+    grid-template-areas:  "."
+                          "."
+                          "."
+                          ".";
+    justify-content: center;
+    justify-items: center;
+  }
+
+
+
+  .beds-category .list-item-container>.label,
+  .baths-category .list-item-container>.label,
+  .baths-category .list-item-container>.label,
+  .common-baths-cat .list-item-container>.label {
+    flex: unset;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 5px;
+    min-width: unset;
+    text-align: left;
+  }
+
+
+  .extra-categories .main-category {
+    width: unset;
+    display: block;
+    margin-bottom: 4rem;
+  }
+
+
+  .beds-category .MuiInputBase-input,
+  .beds-heating-cat .MuiInputBase-input,
+  .baths-category .MuiInputBase-input,
+  .common-baths-cat .MuiInputBase-input {
+    width: 120px;
+
+  }
+
+  // ################ Overrides end ################
+
+}
+
+//769px - 1100px

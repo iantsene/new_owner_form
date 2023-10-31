@@ -1,0 +1,93 @@
+@media (max-width: 480px) {//0 - 480px
+    // ############################ FORM ELEMENTS ############################
+  
+  
+  
+  
+  
+  // ################ Form dimensions control ################
+  .form-tabs {
+    //tabs container size
+    display: flex;
+    justify-content: flex-start;
+    max-width: 34vh;
+    overflow-x: hidden;
+  }
+  
+  
+  .custom-accordion {
+    width: 70vw; // determines the size of the accordions on all pages
+  }
+  // ################ Form dimensions control end ############
+  // ############################ FORM ELEMENTS END ##########################
+  
+  // ################ Overrides ####################
+  
+  // ################ Overrides end ################
+  // ################ Tabs #########################
+  
+  // ################ Tabs end #####################
+  // ################ Lists ########################
+  
+  // ################ Lists end ####################
+  
+  
+  
+  
+  // ################ Categories ###################
+  .main-category {
+    h3 {
+      margin-bottom: 10px;
+    }
+    display: block;
+    text-align:start;
+    margin-bottom: 4rem;
+  }
+  
+    .extra-categories {
+      display: flex;
+      flex-direction: column;
+      gap: 45px;
+    }
+  
+    .lodge-category {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .bedrooms {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 2rem;
+    }
+  
+    .bathrooms {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 2rem;
+    }
+  // ################ Categories end ###############
+  
+  
+  
+  
+  
+  // ################ Grids ########################
+  .multi-options-grid {
+    display: flex;
+    flex-direction: column;
+    word-wrap: break-word;
+    margin-bottom: 2rem;
+  }
+  
+  .short-options-grid {
+    display: flex;
+    flex-direction: column;
+    word-wrap: break-word;
+    margin-bottom: 2rem;
+  }
+  // ################ Grids end ####################
+  
+  }

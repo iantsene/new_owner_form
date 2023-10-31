@@ -1,23 +1,22 @@
 "use client";
 
 import useMultistepForm from './useMultistepForm'
-import Amenities from '@/components/cards_content/Amenities';
 import { FormEvent, useState } from 'react';
-import GeneralInfo from '@/components/cards_content/GeneralInfo';
+import { FormDataTypes } from './types/all-form-types';
+import FormTabs from '../components/form_components/FormTabs'
+import INITIAL_DATA from './variables/variables';
+import { Button, Paper, Tab, Tabs } from '@mui/material';
+import BasicInfo from '@/components/cards_content/BasicInfo';
 import MainDescription from '@/components/cards_content/MainDescription';
-import Location from '@/components/cards_content/Location';
 import Pool from '@/components/cards_content/Pool';
 import Outside from '@/components/cards_content/Outside';
 import Inside from '@/components/cards_content/Inside';
 import Kitchen from '@/components/cards_content/Kitchen';
 import Safety from '@/components/cards_content/Safety';
 import BedsNBaths from '@/components/cards_content/BedsNBaths';
-import { FormDataTypes } from './types/all-form-types';
-import INITIAL_DATA from './variables/variables';
-import { Button, Paper, Tab, Tabs } from '@mui/material';
-import FormTabs from '../components/form_components/FormTabs'
-import BasicInfo from '@/components/cards_content/BasicInfo';
-
+import Amenities from '@/components/cards_content/Amenities';
+import Location from '@/components/cards_content/Location';
+// import Test from '@/components/defunct-components/Test';
 
 
 export default function Home() {
@@ -70,26 +69,25 @@ export default function Home() {
 
 
   const briefSteps = [
-    <BasicInfo {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
-    <MainDescription {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
-    <GeneralInfo {...data} data={data} setData={setData} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
+    <BasicInfo {...data} data={data} setData={setData} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
+    <MainDescription {...data} data={data} setData={setData} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
   ];
   //6. These above and below are the actual tab components, laid out here to be injected below and elsewhere.
   const detailedSteps = [
     
-    <Pool {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
-    <Outside {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
-    <Inside {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
-    <Kitchen {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
-    <Safety {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
-    <BedsNBaths {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
-    <Amenities {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
-    <Location {...data} data={data} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
+    <Pool {...data} data={data} setData={setData} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
+    <Kitchen {...data} data={data} setData={setData} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
+    <Safety {...data} data={data} setData={setData} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
+    <BedsNBaths {...data} data={data} setData={setData} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
+    <Outside {...data} data={data} setData={setData} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
+    <Inside {...data} data={data} setData={setData} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
+    <Amenities {...data} data={data} setData={setData} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
+    <Location {...data} data={data} setData={setData} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
    
   ];
 
-  const basicTabLabels = ['Basic Info', 'Main Description','General Info'];
-  const advancedTabLabels = ['Pool', 'Outside', 'Inside', 'Kitchen', 'Safety', 'Beds & Baths', 'Amenities','Location',];
+  const basicTabLabels = ['Basic Info', 'Main Description',];
+  const advancedTabLabels = ['Pool', 'Kitchen', 'Safety', 'Beds & Baths', 'Outside', 'Inside', 'Amenities','Location',];
   const [tabLabels, setTabLabels] = useState([...basicTabLabels, ...advancedTabLabels]); //Controls the rendering of tabs (FormTabs.tsx #4) via the above labels. 
 
   includeDetailedSteps && briefSteps.push(...detailedSteps) // Makes sure that on first push of advanced view button the array with the detailedSteps tabs is couple with the briefSteps one.
@@ -108,7 +106,7 @@ export default function Home() {
     if (!includeDetailedSteps) {
       setIncludeDetailedSteps(true);
       setTabLabels([...basicTabLabels, ...advancedTabLabels])
-      setCurrentStepIndex(3); //9. Sets to the first "Advanced" step on click of Advanced View button (effectively it hits next)
+      setCurrentStepIndex(2); //9. Sets to the first "Advanced" step on click of Advanced View button (effectively it hits next)
     }
   };
 
@@ -131,7 +129,7 @@ export default function Home() {
     return includeDetailedSteps ? "Advanced View" : "Basic View";
   } //12. This handles the label over the navigation form buttons to display based on the current view.
 
-
+const advancedViewBtn = !includeDetailedSteps && <Button variant="contained" className='advanced-view-btn' type='button' onClick={goToAdvancedView}>Go to advanced view</Button>
 
   return (<>
     <div className="formprime">
@@ -158,7 +156,7 @@ export default function Home() {
 
               {step}
               <div className="formButtons">
-                <div>{steps.length < 10 && currentStepIndex === 1 ? (<span className='help-text'>After filling out this section we have enough information to get you started. You may submit your property as it is now and fill the details later, or you can click below to switch to our advanced view where you may add your detailed information now. </span>) : <div style={{ display: 'block', width: 15, height: 36 }}></div>
+                <div>{steps.length < 10 && currentStepIndex === 1 ? (<span className='help-text'>After filling out this section we have enough information to get you started. You may submit your property as it is now and fill the details later, or you can click below to switch to our advanced view where you may add your detailed information now. </span>) : <div className='pre-submit-container'></div>
                 }</div>
                 <div>
                   <div className="page-counter"><span className='mode-label'>{modeLabel()}</span> {currentStepIndex + 1} / {steps.length}</div>
@@ -166,12 +164,12 @@ export default function Home() {
                     {!isFirstStep ? (<Button variant="contained" type='button' onClick={back}>Back</Button>) : (null
                     )}
                     <Button variant="contained" className={isLastStep ? 'submit-btn' : ''} onClick={handleStepComplete} type='submit'>{isLastStep ? "Submit" : "Next"}</Button>
-                    {steps.length <= 10 && currentStepIndex === 2 ? (<Button variant="contained" className='advanced-view-btn' type='button' onClick={goToAdvancedView}>Go to advanced view</Button>) : null
+                    {steps.length <= 10 && currentStepIndex === 1 ? (advancedViewBtn) : null
                     }
-                    {steps.length === 11 ? (<Button variant="contained" className='basic-view-btn' type='button' onClick={() => {
+                    {steps.length === 10 ? (<Button variant="contained" className='basic-view-btn' type='button' onClick={() => {
                       goToBasicView();
                       applySelectedItems();
-                      setCurrentStepIndex(2)
+                      setCurrentStepIndex(1)
                     }}>Go to basic view</Button>) : null
                     }
                   </div>

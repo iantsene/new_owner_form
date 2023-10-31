@@ -55,7 +55,7 @@ export default function FormTabs(props){
       <div className="form-tabs">
         {isTabContainerReady && (
           <Tabs
-            value={completedSteps}
+            value={currentStepIndex}
             indicatorColor="primary"
             textColor="primary"
             variant="scrollable"

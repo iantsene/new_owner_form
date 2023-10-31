@@ -31,11 +31,12 @@ export type FormDataTypes = {
     kitchenGround: boolean
     diner: boolean
     dinerDescription: string
-    numOfFloorsToGround: number
-    areaOfTheHouseInM2: number
-    surroundingAreaInM2: number
-    yearOfBuilt: number
+    numOfFloorsToGround: string
+    areaOfTheHouseInM2: string
+    surroundingAreaInM2: string
+    yearOfBuilt: string
     serviceSupermarket: boolean
+    serviceSupermarketDelivery: boolean
     singleLevelHome: boolean
     serviceBoatTaxiService: boolean
     serviceLunch: boolean
@@ -156,31 +157,31 @@ export type FormDataTypes = {
     sportsTubingWater: boolean
     powerBoatRental: boolean
     scubaOrSnorkeling: string
-    attractionBay: boolean
-    attractionAttractionscoinLaundry: boolean
-    attractionDutyFree: boolean
-    attractionHealthBeautyspa: boolean
-    attractionMarina: boolean
-    attractionMuseums: boolean
-    attractionThemeParks: boolean
-    attractionWaterParks: boolean
-    attractionWineryTours: boolean
-    attractionZoo: boolean
-    leisureAntiquing: boolean
-    leisureBirdWatching: boolean
-    leisureEcoTourism: boolean
-    leisureGambling: boolean
-    leisureHorsebackRiding: boolean
-    leisureOutletShopping: boolean
-    leisurePaddleBoating: boolean
-    leisureSledding: boolean
-    leisureBoating: boolean
-    leisureShopping: boolean
-    leisureWildLifeViewing: boolean
-    leisureWaterSports: boolean
-    leisureFitnessCenter: boolean
-    leisureHospital: boolean
-    leisureLaundromat: boolean
+    attractionBay: string
+    attractionAttractionscoinLaundry: string
+    attractionDutyFree: string
+    attractionHealthBeautyspa: string
+    attractionMarina: string
+    attractionMuseums: string
+    attractionThemeParks: string
+    attractionWaterParks: string
+    attractionWineryTours: string
+    attractionZoo: string
+    leisureAntiquing: string
+    leisureBirdWatching: string
+    leisureEcoTourism: string
+    leisureGambling: string
+    leisureHorsebackRiding: string
+    leisureOutletShopping: string
+    leisurePaddleBoating: string
+    leisureSledding: string
+    leisureBoating: string
+    leisureShopping: string
+    leisureWildLifeViewing: string
+    leisureWaterSports: string
+    leisureFitnessCenter: string
+    leisureHospital: string
+    leisureLaundromat: string
     levelGround: boolean
     terrace: boolean
     outsideFurniture: boolean
@@ -265,7 +266,7 @@ export type FormDataTypes = {
     laundryRoom: boolean
     clothesDryerRack: boolean
     fan: boolean
-    entertainmentvideogames: boolean
+    entertainmentVideogames: boolean
     amenitieswoodStove: boolean
     amenitiesFitnessRoom: boolean
     entertainmentSatelliteOrCable: boolean
@@ -365,7 +366,7 @@ export type FormDataTypes = {
     enSuiteBathroomOne: string
     extrasBabyBath: boolean
     extrasBabyPotty: boolean
-    extrasChangingMatt: boolean
+    extrasChangingMat: boolean
     extrasBabyLinen: boolean
     extrasBabyWashingGel: boolean
     extrasPortBebe: boolean
@@ -409,7 +410,7 @@ export type FormDataTypes = {
     safeSanitaryAssociation: string
     sanitaryStandard: string
     physicalDistancing: boolean
-    roomDescription: string
+    briefDescription: string
     
     data: any
     setData: any
