@@ -1,38 +1,73 @@
-@media (max-width: 1350px) {//1101px - 1350px
-    // ############################ FORM ELEMENTS ############################
-    * {
-      font-size: 14px;
-  
-    }
-  
-    h2 {
-      font-size: 2rem;
-    }
-  
-    h3 {
-      font-size: 1.5rem;
-    }
-  
+@media (max-width: 1350px) {
+
+  //1101px - 1350px
+  // ############################ FORM ELEMENTS ############################
+  * {
+    font-size: 14px;
+
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+
+  .form-navigation {
+    width: 155px;
+  }
+
+  .form-nav-btns {
+    width: 155px;
+    margin-bottom: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 0px 0px;
+    grid-template-areas: ". .";
+    justify-content: center;
+    justify-items: center;
+  }
+
+  .placeholder-back-btn {
+
+    visibility: hidden;
+  }
+
+
+  .submit-btn {
+    background-color: goldenrod;
+  }
+
+  .submit-btn:hover {
+    background-color: #9a4f00;
+  }
+
+
   // ################ Form dimensions control ################
-  
-  
+
+
   .form-foreground {
     //controls the content screen container
     width: 850px;
     height: 450px;
+    overflow-x: hidden;
   }
-  
+
   .custom-accordion {
     width: 848px; // determines the size of the accordions on all pages
   }
-  
-  
+
+
   .form-background {
     //controls the form background white container
     width: 956px;
   }
-  
-  
+
+
   .form-tabs {
     //tabs container size
     display: flex;
@@ -40,97 +75,96 @@
     max-width: 975px;
     overflow-x: hidden;
   }
+
   // ################ Form dimensions control end ############
-  
-  
+
+
   // ############################ FORM ELEMENTS END ############################
-  
-  
-  
-  
-  
-  
-    // ################ Overrides ################
-    .MuiFormControlLabel-root {
-      margin-left: 0;
-    } 
-    // ################ Overrides end ################
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
+
+
   // ################ Categories ###################
-  
+
   .main-category {
     h3 {
       margin-bottom: 10px;
     }
+
     display: block;
     text-align: center;
     margin-bottom: 4rem;
   }
-  
-  
-    .category-styling {
-      display: flex;
-      flex-direction: column;
-      margin-bottom: 2rem;
-    }
-  
-    .category-description {
-      width: 850px;
-      height: 60px;
-      margin-bottom: 25px;
-  
-      span {
-        font-size: small;
-        word-wrap: break-word;
-      }
-    }
-  
-  
-    .beds-category, .baths-category {
-      h3 {
-        margin-bottom: 10px;
-      }
-  
-      display: block;
-      text-align: start;
-      margin-bottom: 4rem;
-    }
-  
-    .bedsnbaths-flex {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-    }
-  
-  
-    
 
-  
-  
-  
-    .extra-categories {
-      display: flex;
-      flex-direction: column;
-      gap: 45px;
+
+  .category-styling {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+  }
+
+  .category-description {
+    width: 850px;
+    height: 60px;
+    margin-bottom: 25px;
+
+    span {
+      font-size: small;
+      word-wrap: break-word;
     }
-  
-    .lodge-category {
-      display: flex;
-      flex-direction: row;
-  
+  }
+
+
+  .beds-category,
+  .baths-category {
+    h3 {
+      margin-bottom: 10px;
     }
-  
+
+    display: block;
+    text-align: start;
+    margin-bottom: 4rem;
+  }
+
+  .bedsnbaths-flex {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+
+
+
+
+
+
+
+  .extra-categories {
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+  }
+
+  .lodge-category {
+    display: flex;
+    flex-direction: row;
+
+  }
+
   // ################ Categories end ###############
-  
-  
-  
-  
-  
+
+
+
+
+
   // ################ Grids ########################
-  
+
   // .media-query-custom-grid {
   //   margin: 35px auto;
   //   display: grid;
@@ -140,11 +174,11 @@
   //   grid-template-areas:
   //     ".";
   //   justify-content: center;
-  //   justify-items: normal;
+  //   justify-items: center;
   // }
-  
-   .media-query-custom-breakpoint {
-  
+
+  .media-query-custom-breakpoint {
+
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
@@ -152,9 +186,9 @@
     grid-template-areas:
       ". .";
     justify-content: center;
-    justify-items: flex-start;
+    justify-items: center;
   }
-  
+
   .multi-options-grid {
     width: unset;
     overflow-x: hidden;
@@ -171,8 +205,8 @@
     justify-content: flex-start;
     justify-items: flex-start;
   }
-  
-  
+
+
   .duo-options-grid {
     margin: 0 0 2rem 0;
     display: grid;
@@ -184,7 +218,7 @@
     justify-content: flex-start;
     justify-items: center;
   }
-  
+
   .short-options-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -193,25 +227,24 @@
     grid-template-areas:
       ". . . .";
   }
-  // ############### Grids end ####################
-  
 
-  
-  
-  
+  // ############### Grids end ####################
+
+
+
+
+
   // ################ Lists ########################
-  
-  .linen-icons-spacing span.checkbox-tags {
-      margin-left: 10px;
-  }
-  
+
+
+
 
   label span {
     display: flex;
-    
-  
+
+
   }
-  
+
   .list-item-container .label {
     flex: 1;
     /* Allow label to take up the remaining space */
@@ -223,8 +256,262 @@
     /* Adjust width as needed */
     text-align: left;
   }
+
   // ################ Lists end ####################
-  
-  
-  }//1101px - 1350px
-  
+
+  // ################ Overrides ################
+  .MuiFormControlLabel-root {
+    width: unset;
+    margin-left: 0;
+  }
+
+  .general-info-categories .media-query-custom-grid {
+    margin-top: 35px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-gap: 0px 0px;
+    gap: 0px 0px;
+    grid-template-areas: ".";
+    white-space: nowrap;
+    justify-content: center;
+    justify-items: center;
+  }
+
+  .scuba-snorkel-cat .media-query-custom-breakpoint {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-gap: 0px 0px;
+    gap: 0px 0px;
+    grid-template-areas: ".";
+    justify-content: center;
+    justify-items: center;
+  }
+
+  .check-in-cat .media-query-custom-breakpoint {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas: ". .";
+    justify-content: center;
+    justify-items: center;
+  }
+
+
+
+
+
+  .extra-parties-cat .media-query-custom-breakpoint,
+  .licenses-cat .media-query-custom-breakpoint {
+    width: 850px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-gap: 0px 0px;
+    gap: 0px 0px;
+    grid-template-areas: ". . .";
+    justify-content: center;
+    justify-items: flex-start;
+  }
+
+
+
+
+
+  .property-type-cat .multi-options-grid {
+    width: 850px;
+    overflow-x: hidden;
+    display: grid;
+    margin: 0 0 2rem 0;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-gap: 5px 0px;
+    gap: 5px 0px;
+    grid-template-areas:
+      ". . . ."
+      ". . . ."
+      ". . . .";
+    word-wrap: break-word;
+    justify-content: flex-start;
+    justify-items: center;
+  }
+
+
+
+  .winter-sports-cat .media-query-custom-grid,
+  .outdoor-sports-cat .media-query-custom-grid,
+  .marine-sports-cat .media-query-custom-grid,
+  .common-sports-cat .media-query-custom-grid {
+    width: 850px;
+    overflow-x: hidden;
+    display: grid;
+    margin: 0 0 2rem 0;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-gap: 5px 0px;
+    gap: 5px 0px;
+    grid-template-areas:
+      ". . . .";
+    word-wrap: break-word;
+    justify-content: flex-start;
+    justify-items: flex-start;
+  }
+
+  .radio-group .list-items {
+    min-width: 155px;
+  }
+
+  .nearby-services-category .multi-options-grid,
+  .cooking-devices-cat .media-query-custom-breakpoint,
+  .cooking-means-cat .media-query-custom-breakpoint,
+  .dining-area-utensils-cat .media-query-custom-breakpoint,
+  .safety-category .multi-options-grid,
+  .outdoors-dining-cat .media-query-custom-breakpoint,
+  .ambience-n-terrain-cat .media-query-custom-breakpoint,
+  .outside-conveniences-cat .media-query-custom-breakpoint,
+  .outside-games-cat .media-query-custom-breakpoint,
+  .heating-cooling-cat .media-query-custom-breakpoint,
+  .laundry-services-cat .media-query-custom-breakpoint,
+  .indoor-amenities-cat .media-query-custom-breakpoint,
+  .indoor-wellness-cat .media-query-custom-breakpoint,
+  .utility-options-cat .media-query-custom-breakpoint,
+  .indoor-entertainment-cat .media-query-custom-breakpoint,
+  .general-amenities-category .media-query-custom-breakpoint {
+    width: unset;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-gap: 0px 0px;
+    gap: 0px 0px;
+    grid-template-areas: ". . .";
+    justify-content: center;
+    justify-items: flex-start;
+  }
+
+  .general-amenities-category .multi-options-grid {
+    display: grid;
+    text-align: start;
+    white-space: nowrap;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-gap: 10px 0px;
+    gap: 10px 0px;
+    grid-template-areas:
+      ". . ."
+      ". . ."
+      ". . .";
+    justify-content: center;
+    justify-items: flex-start;
+  }
+
+  .safe-cleaning-cat .list-item-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    white-space: nowrap;
+  }
+
+
+  .help-text-div {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    background: white;
+    width: 956px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    margin: 0 auto;
+  }
+
+  .help-text {
+    // makes the help text on page 2 to come to the foreground for it's duration.
+    position: relative;
+    font-weight: bold;
+    width: unset;
+    height: 100px;
+    z-index: 20;
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  .clean-method-cat .list-item-container,
+  .scuba-snorkel-cat .list-item-container {
+    width: 45%;
+  }
+
+
+
+  .linen-service-cat .duo-options-grid {
+    margin-top: 35px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-gap: 0px px;
+    gap: 0px px;
+    grid-template-areas: ". . .";
+    white-space: nowrap;
+    justify-content: center;
+    justify-items: center;
+  }
+
+
+  .linen-service-cat .MuiFormControlLabel-root {
+
+    width: unset;
+  }
+
+  .living-space-cat .list-item-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    white-space: nowrap;
+  }
+
+
+  .nearby-services-category .multi-options-grid,
+  .cooking-devices-cat .media-query-custom-breakpoint,
+  .cooking-means-cat .media-query-custom-breakpoint,
+  .dining-area-utensils-cat .media-query-custom-breakpoint,
+  .safety-category .multi-options-grid,
+  .outdoors-dining-cat .media-query-custom-breakpoint,
+  .ambience-n-terrain-cat .media-query-custom-breakpoint,
+  .outside-conveniences-cat .media-query-custom-breakpoint,
+  .outside-games-cat .media-query-custom-breakpoint,
+  .heating-cooling-cat .media-query-custom-breakpoint,
+  .laundry-services-cat .media-query-custom-breakpoint,
+  .indoor-amenities-cat .media-query-custom-breakpoint,
+  .indoor-wellness-cat .media-query-custom-breakpoint,
+  .utility-options-cat .media-query-custom-breakpoint,
+  .indoor-entertainment-cat .media-query-custom-breakpoint,
+  .general-amenities-category .media-query-custom-breakpoint {
+    width: 830px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-gap: 0px 0px;
+    grid-gap: 0px 0px;
+    gap: 0px 0px;
+    grid-template-areas: ". . .";
+    justify-content: center;
+    justify-items: flex-start;
+  }
+
+ 
+  .common-sports-cat .media-query-custom-grid {
+    justify-items: center;
+  }
+
+
+  // ################ Overrides end ################
+}
+
+//1101px - 1350px

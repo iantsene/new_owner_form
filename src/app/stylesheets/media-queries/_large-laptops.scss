@@ -1,4 +1,6 @@
-@media (max-width: 1650px) {//  1351px - 1650px 
+@media (max-width: 1650px) {
+
+  //  1351px - 1650px 
   * {
     font-size: 14px;
 
@@ -12,256 +14,157 @@
     font-size: 1.5rem;
   }
 
-    // ################ Form dimensions control ################
-    
-    .form-foreground {
-      //controls the content screen container
-      width: 1152px;
-      height: 400px;
-    }
-    
-    
-    .custom-accordion {
-      width: 1151px; // determines the size of the accordions on all pages
-    }
-    
-    
-    .form-background {
-      //controls the form background white container
-      width: 1252px;
-    
-    }
-    
-    
-    
-    .form-tabs {
-      //tabs container size
-      display: flex;
-      justify-content: flex-start;
-      max-width: 1300px;
-      overflow-x: hidden;
-    }
-    
-    // ################ Form dimensions control end ############
-    
-    
-    
-    // ################ Categories ###################
-    .main-category {
-      h3 {
-        margin-bottom: 10px;
-      }
-      display: block;
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-    
-    
-    .category-styling {
-      display: flex;
-      flex-direction: column;
-      margin-bottom: 2rem;
-    }
-    
-    .category-description {
-      width: 1152px;
-      height: 60px;
-      span {
-        font-size: small;
-        word-wrap: break-word;
-      }
-    }
-    
-    
-   
-    
-    .bedsnbaths-flex {
-      display: flex;
-      justify-content: center;
-      margin: 0 auto;
-      gap: 150px;
-    }
-    
 
-    
-    
-    .extra-categories {
-      display: flex;
-      flex-direction: column;
-      gap: 45px;
-    }
-    
-    .lodge-category {
-      display: flex;
-      flex-direction: row;
-    
-    }
 
-   
+  .form-navigation {
+    width: 155px;
+  }
 
-    .distance-to-pois-category,
-    .distance-to-services-category,
-    .nearby-attractions-category,
-    .nearby-leisures-category,
-    .property-address-category,
-    .pool-dimensions-category,
-    .outside-extras-category,
-    .inside-options-cat,
-    .kitchen-extras-cat,
-    .common-area-beds-cat,
-    .keys-cat,
-    .safe-cleaning-cat,
-    .sanitation-cat {
-      .duo-options-grid {
-       
-        justify-items: unset;
-      }
-    }
+  .form-nav-btns {
+    width: 155px;
+    margin-bottom: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 0px 0px;
+    grid-template-areas: ". .";
+    justify-content: center;
+    justify-items: center;
+  }
 
-    .linen-service-cat .duo-options-grid {
-      place-items: flex-start;
-    }
-    
+  .placeholder-back-btn {
 
-    // ################ Categories end ###############
-    
+    visibility: hidden;
+  }
+
+
+  .submit-btn {
+    background-color: goldenrod;
+
+  }
+
+  .submit-btn:hover {
+    background-color: #9a4f00;
+
+  }
 
 
 
 
+  // ################ Form dimensions control ################
 
-    
-    // ################ Grids ########################
-    
-    
-    .duo-options-grid {
-      margin: 25px;
-      width: unset;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto;
-      gap: 0px 15px;
-      grid-template-areas:
-        ". .";
-      justify-content: center;
-      justify-items: center;
+  .form-foreground {
+    //controls the content screen container
+    width: 1152px;
+    height: 400px;
+  }
+
+
+  .custom-accordion {
+    width: 1151px; // determines the size of the accordions on all pages
+  }
+
+
+  .form-background {
+    //controls the form background white container
+    width: 1252px;
+
+  }
+
+
+
+  .form-tabs {
+    //tabs container size
+    display: flex;
+    justify-content: flex-start;
+    max-width: 1300px;
+    overflow-x: hidden;
+  }
+
+  // ################ Form dimensions control end ############
+
+
+
+  // ################ Categories ###################
+  .main-category {
+    h3 {
+      margin-bottom: 10px;
     }
 
+    display: block;
+    text-align: center;
+    margin-bottom: 4rem;
+  }
 
-    
-    // .media-query-custom-grid {
-    //   margin-top: 35px;
-    //   display: grid;
-    //   grid-template-columns: 1fr 1fr 1fr;
-    //   grid-template-rows: 1fr;
-    //   gap: 0px 50px;
-    //   grid-template-areas:
-    //     ". . .";
-    //   justify-content: center;
-    //   justify-items: center;
-    // }
-    
-    // .media-query-custom-breakpoint {
-    
-    //   display: grid;
-    //   grid-template-columns: 1fr 1fr 1fr;
-    //   grid-template-rows: 1fr;
-    //   gap: 0px 0px;
-    //   grid-template-areas:
-    //     ". . .";
-    //   justify-content: center;
-    //   justify-items: center;
-    // }
-    
-    .multi-options-grid {
-      width:1100px;
-      display: grid;
-      text-align: start;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows: auto;
-      gap: 0px 0px;
-      grid-template-areas:
-        ". . . ."
-        ". . . ."
-        ". . . .";
+
+  .category-styling {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+  }
+
+  .category-description {
+    width: 1152px;
+    height: 60px;
+
+    span {
+      font-size: small;
       word-wrap: break-word;
-      margin-bottom: 2rem;
-      place-items: normal;
     }
-    
-    
-    
-    // ################ Grids end ####################
-    
-  
-    
-    
-    
-    
-    
-    
-    // ################ Lists ########################
-
-    .list-item-container {
-      display: flex;
-      align-items: center;
-      width: 90%;
-      white-space: nowrap;
-      }
+  }
 
 
 
-    label span {
-      display: flex;
+
+  .bedsnbaths-flex {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    gap: 150px;
+  }
+
+
+
+
+  .extra-categories {
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+  }
+
+  .lodge-category {
+    display: flex;
+    flex-direction: row;
+
+  }
+
+
+
+  .distance-to-pois-category,
+  .distance-to-services-category,
+  .nearby-attractions-category,
+  .nearby-leisures-category,
+  .property-address-category,
+  .pool-dimensions-category,
+  .outside-extras-category,
+  .inside-options-cat,
+  .kitchen-extras-cat,
+  .common-area-beds-cat,
+  .keys-cat,
+  .safe-cleaning-cat,
+  .sanitation-cat {
+    .duo-options-grid {
+
+      justify-items: unset;
     }
-    
-    .list-item-container .label {
-      flex: 1;
-      /* Allow label to take up the remaining space */
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin: 0 5px;
-      min-width: 130px;
-      /* Adjust width as needed */
-      text-align: left;
-    }
+  }
+
+  .linen-service-cat .duo-options-grid {
+    place-items: flex-start;
+  }
 
 
-    
-    // ################ Lists end ####################
-
-
-
-      // ################ Overrides ####################
-
-
-      .MuiFormControlLabel-root {
-        width: 240px;
-      }
-
-      .accessibility-cat .MuiFormControlLabel-root,
-      .towels-service-cat .MuiFormControlLabel-root,
-      .maid-service-cat .MuiFormControlLabel-root,
-      .linen-service-cat .MuiFormControlLabel-root {
-        width: 240px; /* Adjust the min-width as needed */
-        }
-
-
-   
-
-      .towel-service-cat span.checkbox-tags {
-        
-        min-width: 300px;
-      }
-
-      .css-i4bv87-MuiSvgIcon-root {
-        width: 24px;
-        height: 24px;
-      }
-      
-    // ################ Overrides end ################
-    } // 1351px - 1650px 
+  // ################ Categories end ###############
 
 
 
@@ -269,6 +172,67 @@
 
 
 
+  // ################ Grids ########################
+
+
+  .duo-options-grid {
+    margin: 25px;
+    width: unset;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 0px 15px;
+    grid-template-areas:
+      ". .";
+    justify-content: center;
+    justify-items: center;
+  }
+
+
+
+  // .media-query-custom-grid {
+  //   margin-top: 35px;
+  //   display: grid;
+  //   grid-template-columns: 1fr 1fr 1fr;
+  //   grid-template-rows: 1fr;
+  //   gap: 0px 50px;
+  //   grid-template-areas:
+  //     ". . .";
+  //   justify-content: center;
+  //   justify-items: center;
+  // }
+
+  // .media-query-custom-breakpoint {
+
+  //   display: grid;
+  //   grid-template-columns: 1fr 1fr 1fr;
+  //   grid-template-rows: 1fr;
+  //   gap: 0px 0px;
+  //   grid-template-areas:
+  //     ". . .";
+  //   justify-content: center;
+  //   justify-items: center;
+  // }
+
+  .multi-options-grid {
+    width: 1100px;
+    display: grid;
+    text-align: start;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 0px 0px;
+    grid-template-areas:
+      ". . . ."
+      ". . . ."
+      ". . . .";
+    word-wrap: break-word;
+    margin-bottom: 2rem;
+    place-items: normal;
+  }
+
+
+
+  // ################ Grids end ####################
 
 
 
@@ -277,62 +241,157 @@
 
 
 
+  // ################ Lists ########################
+
+  .list-item-container {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    white-space: nowrap;
+  }
+
+
+
+  label span {
+    display: flex;
+  }
+
+  .list-item-container .label {
+    flex: 1;
+    /* Allow label to take up the remaining space */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 5px;
+    min-width: 130px;
+    /* Adjust width as needed */
+    text-align: left;
+  }
+
+
+
+  // ################ Lists end ####################
+
+
+
+  // ################ Overrides ####################
+
+
+  .MuiFormControlLabel-root {
+    width: 240px;
+  }
+
+  .accessibility-cat .MuiFormControlLabel-root,
+  .towels-service-cat .MuiFormControlLabel-root,
+  .maid-service-cat .MuiFormControlLabel-root,
+  .linen-service-cat .MuiFormControlLabel-root {
+    width: 240px;
+    /* Adjust the min-width as needed */
+  }
 
 
 
 
+  .towel-service-cat span.checkbox-tags {
+
+    min-width: 300px;
+  }
+
+  .css-i4bv87-MuiSvgIcon-root {
+    width: 24px;
+    height: 24px;
+  }
+
+
+  .check-in-cat .checkbox-tags {
+    width: 175px;
+    height: unset;
+    align-items: center;
+  }
+
+  .pool-category .MuiFormControlLabel-root {
+    width: unset;
+  }
 
 
 
 
+  .help-text-div {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    background: white;
+    width: 1250px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    margin: 0 auto;
+  }
+
+  .help-text {
+    // makes the help text on page 2 to come to the foreground for it's duration.
+    position: relative;
+    font-weight: bold;
+    width: 1100px;
+    height: 100px;
+    z-index: 20;
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .clean-method-cat .list-item-container,
+  .scuba-snorkel-cat .list-item-container {
+    width: 34%;
+  }
+
+  .property-type-cat .multi-options-grid {
+    gap: 0 0px;
+    justify-items: flex-start;
+  }
+
+  .MuiFormControlLabel-root {
+    width: unset;
+  }
 
 
+  .outdoors-dining-cat .media-query-custom-breakpoint,
+  .ambience-n-terrain-cat .media-query-custom-breakpoint,
+  .outside-conveniences-cat .media-query-custom-breakpoint,
+  .outside-games-cat .media-query-custom-breakpoint,
+  .utility-options-cat .media-query-custom-breakpoint,
+  .indoor-entertainment-cat .media-query-custom-breakpoint,
+  .safety-category .multi-options-grid,
+  .kitchen-category .multi-options-grid,
+  .general-amenities-category .multi-options-grid,
+  .winter-sports-cat .media-query-custom-grid,
+  .cooking-means-cat .media-query-custom-breakpoint,
+  .cooking-devices-cat .media-query-custom-breakpoint,
+  .dining-area-utensils-cat .media-query-custom-breakpoint,
+  .indoor-wellness-cat .media-query-custom-breakpoint,
+  .indoor-amenities-cat .media-query-custom-breakpoint,
+  .laundry-services-cat .media-query-custom-breakpoint,
+  .heating-cooling-cat .media-query-custom-breakpoint,
+  .outdoor-sports-cat .media-query-custom-grid,
+  .marine-sports-cat .media-query-custom-grid {
+    display: grid;
+    text-align: start;
+    white-space: nowrap;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-gap: 10px 0px;
+    gap: 10px 0px;
+    grid-template-areas: ". . . ." ". . . ." ". . . .";
+    justify-content: center;
+    justify-items: flex-start;
+  }
 
+  // ################ Overrides end ################
+}
 
-
-
-
-
-
-
-
-    // @media (max-width: 1650px) and (max-height: 768px) and (min-width: 1351px) and (min-height: 768px) {//  1366px - 768px 
-
-
-    //   // ################ Form dimensions control ################
-      
-    //   .form-foreground {
-    //     //controls the content screen container
-    //     width: 1152px;
-    //     height: 344px;
-    //   }
-      
-      
-    //   .custom-accordion {
-    //     width: 1151px; // determines the size of the accordions on all pages
-    //   }
-      
-      
-    //   .form-background {
-    //     //controls the form background white container
-    //     width: 1252px;
-      
-    //   }
-      
-      
-      
-    //   .form-tabs {
-    //     //tabs container size
-    //     display: flex;
-    //     justify-content: flex-start;
-    //     max-width: 1300px;
-    //     overflow-x: hidden;
-    //   }
-      
-    //   // ################ Form dimensions control end ############
-
-
-
-
-            
-    // }
+// 1351px - 1650px 

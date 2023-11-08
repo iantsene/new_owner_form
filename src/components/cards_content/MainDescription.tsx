@@ -6,7 +6,6 @@ import {
   FormControlLabel,
   FormGroup,
   Checkbox,
-  TextField,
   Typography,
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -103,8 +102,8 @@ export default function MainDescription({
         <div className="nearby-services-category main-category">
           <ul className="multi-options-grid">
             <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={kitchenGround} onChange={handleCheckboxChange('kitchenGround')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Kitchen on the ground</span></div>} /></li>
-            <li className="list-item"><CheckboxWithCustomTextField label="Diner" textboxLabel='Diner distance' checked={diner} onCheckboxChange={(checked) => updateFields({ diner: checked })} description={dinerDescription} onClearDescription={() => { updateFields({ dinerDescription: "" })}} onDescriptionChange={(description) => updateFields({ dinerDescription: description })} /></li>
-            <li className="list-item"><CheckboxWithCustomTextField label="Living room" textboxLabel='living room details' checked={livingRoom} onCheckboxChange={(checked) => updateFields({ livingRoom: checked })} description={livingRoomDescription} onClearDescription={() => { updateFields({ livingRoomDescription: "" })}} onDescriptionChange={(description) => updateFields({ livingRoomDescription: description })} /></li>
+            <li className="list-item"><CheckboxWithCustomTextField label="Diner" icon={<img src="/Icons/icon-placeholder.png" />} textboxLabel='Diner distance:' checked={diner} onCheckboxChange={(checked) => updateFields({ diner: checked })} description={dinerDescription} onClearDescription={() => { updateFields({ dinerDescription: "" })}} onDescriptionChange={(description) => updateFields({ dinerDescription: description })} /></li>
+            <li className="list-item"><CheckboxWithCustomTextField label="Living room" icon={<img src="/Icons/icon-placeholder.png" />} textboxLabel='living room details:' checked={livingRoom} onCheckboxChange={(checked) => updateFields({ livingRoom: checked })} description={livingRoomDescription} onClearDescription={() => { updateFields({ livingRoomDescription: "" })}} onDescriptionChange={(description) => updateFields({ livingRoomDescription: description })} /></li>
             <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={serviceSupermarket} onChange={handleCheckboxChange('serviceSupermarket')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Service supermarket</span></div>} /></li>
             <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={serviceSupermarketDelivery} onChange={handleCheckboxChange('serviceSupermarketDelivery')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Service supermarket delivery</span></div>} /></li>
             <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={serviceLunch} onChange={handleCheckboxChange('serviceLunch')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Service lunch</span></div>} /></li>
@@ -125,10 +124,10 @@ export default function MainDescription({
         <div className="living-space-cat main-category">
 
           <ul className="duo-options-grid">
-            <li className="list-item-container"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><div className="label"><span>Area of the house in m2:</span><CustomTextField label="Area of the house in m2" type="number" value={areaOfTheHouseInM2} onChange={e => updateFields({ areaOfTheHouseInM2: e })}  ></CustomTextField></div></li>
-            <li className="list-item-container"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><div className="label"><span>Surrounding area in m2:</span><CustomTextField label="Surrounding area in m2" type="number" value={surroundingAreaInM2} onChange={e => updateFields({ surroundingAreaInM2: e })}  ></CustomTextField></div></li>
-            <li className="list-item-container"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><div className="label"><span>Number of floors to the ground:</span><CustomTextField label="floors to ground" type="number" value={numOfFloorsToGround} onChange={e => updateFields({ numOfFloorsToGround: e })}  ></CustomTextField></div></li>
-            <li className="list-item-container"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><div className="label"><span>Year of built:</span><CustomTextField label="Year of built" type="number" value={yearOfBuilt} onChange={e => updateFields({ yearOfBuilt: e })}  ></CustomTextField></div></li>
+          <li className="list-item-container"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><div className="label"><span>Area of the house in m2:</span><CustomTextField label="Area of the house in m2" type="text" value={areaOfTheHouseInM2} icon={<img className="textfiel-icon" src="/Icons/icon-placeholder.png" alt="icon" />} onChange={e => updateFields({ areaOfTheHouseInM2: e })}  ></CustomTextField></div></li>
+          <li className="list-item-container"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><div className="label"><span>Surrounding area in m2:</span><CustomTextField label="Surrounding area in m2" type="text" value={surroundingAreaInM2} icon={<img className="textfiel-icon" src="/Icons/icon-placeholder.png" alt="icon" />} onChange={e => updateFields({ surroundingAreaInM2: e })}  ></CustomTextField></div></li>
+          <li className="list-item-container"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><div className="label"><span>Number of floors to the ground:</span><CustomTextField label="Number of floors to the ground" type="text" value={numOfFloorsToGround} icon={<img className="textfiel-icon" src="/Icons/icon-placeholder.png" alt="icon" />} onChange={e => updateFields({ numOfFloorsToGround: e })}  ></CustomTextField></div></li>
+          <li className="list-item-container"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><div className="label"><span>Year of built:</span><CustomTextField label="Year of built" type="text" value={yearOfBuilt} icon={<img className="textfiel-icon" src="/Icons/icon-placeholder.png" alt="icon" />} onChange={e => updateFields({ yearOfBuilt: e })}  ></CustomTextField></div></li>
           </ul>
         </div>
       </>

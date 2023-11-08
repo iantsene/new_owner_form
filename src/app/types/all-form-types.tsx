@@ -203,7 +203,8 @@ export type FormDataTypes = {
     minDepth: string
     maxdepth: string
     garage: boolean
-    tableTennis: boolean
+    outsideTableTennis: boolean
+    insideTableTennis: boolean
     tennisCourt: boolean
     balcony: boolean
     poolTable: boolean
@@ -230,7 +231,8 @@ export type FormDataTypes = {
     deck: boolean
     outdoorDining: boolean
     porch: boolean
-    miniBar: boolean
+    insideMiniBar: boolean
+    outsideMiniBar: boolean
     basketballCourt: boolean
     drinkingWater: boolean
     poofPilows: boolean

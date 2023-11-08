@@ -1,4 +1,3 @@
-
 $blue200: #b6daff;
 $blue400: #3399FF;
 $blue500: #007FFF;
@@ -32,7 +31,8 @@ $dark-text: #d2e1dd;
 }
 
 
-@mixin textarea-styles($theme: $light-theme) { // Manages the Brief Description textarea styling
+@mixin textarea-styles($theme: $light-theme) {
+  // Manages the Brief Description textarea styling
   width: 520px;
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: 0.875rem;
@@ -60,7 +60,8 @@ $dark-text: #d2e1dd;
 
 
 // ################ Form dimensions control ################
-.form-foreground {//controls the content screen container
+.form-foreground {
+  //controls the content screen container
   width: 1152px;
   height: 544px;
   overflow-y: auto;
@@ -76,7 +77,7 @@ $dark-text: #d2e1dd;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 1352px;//controls the form background white container
+  width: 1352px; //controls the form background white container
   padding: 2rem;
   border-radius: .5rem;
   font-family: Arial;
@@ -88,10 +89,10 @@ $dark-text: #d2e1dd;
   border: 1px solid rgba(255, 255, 255, 1);
 }
 
-.form-tabs { 
+.form-tabs {
   display: flex;
   justify-content: flex-start;
-  max-width: 1130px;//tabs container size
+  max-width: 1130px; //tabs container size
   overflow-x: hidden;
 }
 
@@ -108,7 +109,7 @@ $dark-text: #d2e1dd;
 
 
 .tab {
-  color:#007FFF;
+  color: #007FFF;
   display: flex;
   justify-content: flex-start;
   padding: 15px;
@@ -117,9 +118,11 @@ $dark-text: #d2e1dd;
   background-color: #f2f2f2;
   white-space: nowrap;
   cursor: pointer;
+  
 }
 
-.css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected, .active-tab {
+.css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected,
+.active-tab {
   background-color: rgba(245, 171, 11, 0.637);
   color: rgb(41, 11, 70);
   font-weight: bold;
@@ -131,13 +134,24 @@ $dark-text: #d2e1dd;
 // ################ Form dimensions control end ################
 
 .help-text {
-  display: block;
-  font-size: small;
-  height: 36px;
+  // makes the help text on page 2 to come to the foreground for it's duration.
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  font-weight: bold;
+  width: 1152px;
+  height: 100px;
+  z-index: 2;
+  color: red;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .pre-submit-container {
-  
+
   width: 15px;
   height: 36px;
 }
@@ -168,9 +182,14 @@ $dark-text: #d2e1dd;
   bottom: 0;
 }
 
-.radio-group .checkbox-tags {
-  min-width: 0px;
-}
+
+
+
+
+ 
+
+
+
 
 
 
@@ -219,6 +238,7 @@ $dark-text: #d2e1dd;
   display: block;
   text-align: left;
 }
+
 // ############################ FORM ELEMENTS END ############################
 
 
@@ -253,6 +273,7 @@ $dark-text: #d2e1dd;
 .category-description {
   width: 1150px;
   height: 60px;
+
   span {
     font-size: small;
     word-wrap: break-word;
@@ -419,6 +440,7 @@ li {
     margin: 0 0px;
     /* Adjust margin as needed */
   }
+
   span {
     /* Adjust the width as needed for consistent label width */
     text-align: left;
@@ -444,20 +466,20 @@ li {
 
 .list-items {
   display: flex;
-  justify-content: space-between; 
-  align-items: center; 
-  
+  justify-content: space-between;
+  align-items: center;
+
   .label {
     display: flex;
-    
+
     justify-content: flex-end;
-    align-items: center; 
-    margin-right: 10px; 
+    align-items: center;
+    margin-right: 10px;
 
     span {
-      min-width: 170px; 
-      text-align: left; 
-      margin-right: 10px; 
+      min-width: 170px;
+      text-align: left;
+      margin-right: 10px;
     }
   }
 
@@ -470,26 +492,29 @@ li {
   align-items: center;
   width: 80%;
   white-space: nowrap;
+
   .MuiInputLabel-root {
     width: 250px;
   }
-  }
+}
 
 
 
-svg{
-  
+svg {
+
   width: 24px;
   height: 24px;
 }
 
 .list-item-container .label {
-  flex: 1; /* Allow label to take up the remaining space */
+  flex: 1;
+  /* Allow label to take up the remaining space */
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin: 0 5px;
-  min-width: 170px; /* Adjust width as needed */
+  min-width: 170px;
+  /* Adjust width as needed */
   text-align: left;
 }
 
@@ -519,7 +544,7 @@ svg{
 
 // ################ Overrides ################
 .css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root {
-  width: 10px;// controls the size of the additional scroll buttons thar appear when the tabs no longer fit the container size
+  width: 10px; // controls the size of the additional scroll buttons thar appear when the tabs no longer fit the container size
 }
 
 .MuiTabs-flexContainer {
@@ -529,28 +554,36 @@ svg{
 
 .MuiFormControl-root {
   display: flex;
-  align-items: center; /* Center items vertically */
-  margin-bottom: 10px; /* Add some margin for spacing */
+  align-items: center;
+  /* Center items vertically */
+  margin-bottom: 10px;
+  /* Add some margin for spacing */
 }
 
 
 .MuiInputBase-root {
-  flex: 1; /* Allow the input field to take up the remaining space */
-  text-align: right; /* Right-align the input text */
+  flex: 1;
+  /* Allow the input field to take up the remaining space */
+  text-align: right;
+  /* Right-align the input text */
 }
 
 .css-o4b71y-MuiAccordionSummary-content {
   margin: 0;
-} // Mui class that was adding 12px margin top and bottom to the accordion vertical tabs. 
+}
+
+// Mui class that was adding 12px margin top and bottom to the accordion vertical tabs. 
 
 
 .MuiInputLabel-root {
-  width: 190px; /* Adjust the label width as needed */
-  text-align: right; /* Right-align the label text */
+  width: 190px;
+  /* Adjust the label width as needed */
+  text-align: right;
+  /* Right-align the label text */
 }
 
-.MuiFormControlLabel-root
- {//Overrides an annoying margin on the fields containing a checkbox
+.MuiFormControlLabel-root {
+  //Overrides an annoying margin on the fields containing a checkbox
   margin-left: 0;
   width: 240px;
 }
@@ -558,9 +591,10 @@ svg{
 .check-in-cat,
 .views-category,
 .lodging-type-category,
-.nearby-services-category .MuiFormControlLabel-root {//Overrides an annoying margin on the fields containing a checkbox
+.nearby-services-category .MuiFormControlLabel-root {
+  //Overrides an annoying margin on the fields containing a checkbox
   margin-left: unset;
-  width: unset ;
+  width: unset;
 }
 
 .views-category .checkbox-tags {
@@ -568,70 +602,66 @@ svg{
 }
 
 
-        .outdoors-dining-cat .media-query-custom-breakpoint,
-        .ambience-n-terrain-cat .media-query-custom-breakpoint,
-        .outside-conveniences-cat .media-query-custom-breakpoint,
-        .outside-games-cat .media-query-custom-breakpoint,
-        .heating-cooling-cat .media-query-custom-breakpoint,
-        .laundry-services-cat .media-query-custom-breakpoint,
-        .indoor-amenities-cat .media-query-custom-breakpoint,
-        .indoor-wellness-cat .media-query-custom-breakpoint,
-        .utility-options-cat .media-query-custom-breakpoint,
-        .indoor-entertainment-cat .media-query-custom-breakpoint,
-        .safety-category .multi-options-grid,
-        .kitchen-category .multi-options-grid,
-        .general-amenities-category .multi-options-grid,
-        .nearby-services-category .multi-options-grid
-         {
-          display: grid;
-          text-align: start;
-          white-space: nowrap;
-          grid-template-columns: 1fr 1fr 1fr 1fr;
-          grid-template-rows: auto;
-          gap: 10px 0px;
-          grid-template-areas:
-            ". . . ."
-            ". . . ."
-            ". . . .";
-          justify-content: center;
-          justify-items: center;
-        }
+.outdoors-dining-cat .media-query-custom-breakpoint,
+.ambience-n-terrain-cat .media-query-custom-breakpoint,
+.outside-conveniences-cat .media-query-custom-breakpoint,
+.outside-games-cat .media-query-custom-breakpoint,
+.heating-cooling-cat .media-query-custom-breakpoint,
+.laundry-services-cat .media-query-custom-breakpoint,
+.indoor-amenities-cat .media-query-custom-breakpoint,
+.indoor-wellness-cat .media-query-custom-breakpoint,
+.utility-options-cat .media-query-custom-breakpoint,
+.indoor-entertainment-cat .media-query-custom-breakpoint,
+.safety-category .multi-options-grid,
+.kitchen-category .multi-options-grid,
+.general-amenities-category .multi-options-grid,
+.nearby-services-category .multi-options-grid {
+  display: grid;
+  text-align: start;
+  white-space: nowrap;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 10px 0px;
+  grid-template-areas:
+    ". . . ."
+    ". . . ."
+    ". . . .";
+  justify-content: center;
+  justify-items: center;
+}
 
-        .internet-options-cat .media-query-custom-breakpoint {
-          margin: 25px;
-          display: grid;
-          text-align: start;
-          white-space: nowrap;
-          grid-template-columns: 1fr 1fr 1fr;
-          grid-template-rows: auto;
-          gap: 0px 0px;
-          grid-template-areas:
-            ". . . "
-            ". . ."
-            ". . .";
-          justify-content: center;
-          justify-items: center;
-        }
+.internet-options-cat .media-query-custom-breakpoint {
+  margin: 25px;
+  display: grid;
+  text-align: start;
+  white-space: nowrap;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 0px 0px;
+  grid-template-areas:
+    ". . . "
+    ". . ."
+    ". . .";
+  justify-content: center;
+  justify-items: center;
+}
 
-        .outside-extras-cat .media-query-custom-breakpoint {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          grid-template-rows: auto;
-          gap: 0px 15px;
-          grid-template-areas:
-            ". .";
-          justify-content: center;
-          justify-items: center;
-        }
+.outside-extras-cat .media-query-custom-breakpoint {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 0px 15px;
+  grid-template-areas:
+    ". .";
+  justify-content: center;
+  justify-items: center;
+}
 
-        
-       .linen-service-cat .MuiFormControlLabel-root
-            {//Overrides an annoying margin on the fields containing a checkbox
-              margin-left: 0;
-              width: unset;
+
+.linen-service-cat .MuiFormControlLabel-root {
+  //Overrides an annoying margin on the fields containing a checkbox
+  margin-left: 0;
+  width: unset;
 }
 
 // ################ Overrides end ################
-
-
-

@@ -154,15 +154,6 @@ export default function MainDescription({
 
 
 
-<h3>Devices</h3>
-
-
-<h3>Cooking means</h3>
-
-
-<h3>Dining areas and utensils</h3>
-
-
 
 
 
@@ -179,19 +170,19 @@ const mainCategories = [
     content: (<>
     <div className="cooking-devices-cat main-category">
      <ul>
-<li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={microwave} onChange={handleCheckboxChange('microwave')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Microwave</span></div>} /></li>
-<li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={toaster} onChange={handleCheckboxChange('toaster')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Toaster</span></div>} /></li>
-<li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={smallFridge} onChange={handleCheckboxChange('smallFridge')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Small fridge</span></div>} /></li>
-<li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={sandwichToaster} onChange={handleCheckboxChange('sandwichToaster')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Sandwich toaster</span></div>} /></li>
-<li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={filterCoffeeMachine} onChange={handleCheckboxChange('filterCoffeeMachine')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Filter coffee machine</span></div>} /></li>
-<li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={blenderOrMulti} onChange={handleCheckboxChange('blenderOrMulti')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Blender / multi</span></div>} /></li>
-<li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={breadMaker} onChange={handleCheckboxChange('breadMaker')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Bread maker</span></div>} /></li>
-<li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={espressoCoffeeMachine} onChange={handleCheckboxChange('espressoCoffeeMachine')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Espresso coffee machine</span></div>} /></li>
-<li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={mixer} onChange={handleCheckboxChange('mixer')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Mixer</span></div>} /></li>
-<li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={fryer} onChange={handleCheckboxChange('fryer')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Fryer</span></div>} /></li>
-<li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={kettle} onChange={handleCheckboxChange('kettle')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Kettle</span></div>} /></li>
-<li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={waterDispenser} onChange={handleCheckboxChange('waterDispenser')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Water dispenser</span></div>} /></li>
-</ul>
+     <h3>Winter and mountain sports</h3>
+<li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={mountainClimbing} onChange={handleCheckboxChange('mountainClimbing')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Mountain climbing</span></div>} /></li>
+<li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={mountainBiking} onChange={handleCheckboxChange('mountainBiking')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Mountain biking</span></div>} /></li>
+<li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={crossCountrySkiing} onChange={handleCheckboxChange('crossCountrySkiing')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Cross country skiing</span></div>} /></li>
+<li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={mountaineering} onChange={handleCheckboxChange('mountaineering')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Mountaineering</span></div>} /></li>
+<li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={rockClimbing} onChange={handleCheckboxChange('rockClimbing')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Rock climbing</span></div>} /></li>
+<li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={skiing} onChange={handleCheckboxChange('skiing')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Skiing</span></div>} /></li>
+<li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={skiLiftPrivileges} onChange={handleCheckboxChange('skiLiftPrivileges')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Ski list privileges</span></div>} /></li>
+<li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={skiLiftPrivilegesOptional} onChange={handleCheckboxChange('skiLiftPrivilegesOptional')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Ski lift privileges optional</span></div>} /></li>
+<li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={snowboarding} onChange={handleCheckboxChange('snowboarding')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Snowboarding</span></div>} /></li>
+<li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={snowmobiling} onChange={handleCheckboxChange('snowmobiling')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Snowmobiling</span></div>} /></li>
+<li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={iceSkating} onChange={handleCheckboxChange('iceSkating')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Ice skating</span></div>} /></li>
+    </ul>
 </div>
       </>
     ),
@@ -202,12 +193,18 @@ const mainCategories = [
     content: (<>
       <div className="cooking-means-cat main-category">
       <ul>
-<li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={kitchen} onChange={handleCheckboxChange('kitchen')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Kitchen</span></div>} /></li>
-<li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={kitchenette} onChange={handleCheckboxChange('kitchenette')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Kitchenette</span></div>} /></li>
-<li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={cookerWithSmallOven} onChange={handleCheckboxChange('cookerWithSmallOven')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Cooker with small oven</span></div>} /></li>
-<li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={stove} onChange={handleCheckboxChange('stove')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Stove</span></div>} /></li>
-<li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={separateStove} onChange={handleCheckboxChange('separateStove')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Separate stove</span></div>} /></li>
-<li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={extraSmallBbqOven} onChange={handleCheckboxChange('extraSmallBbqOven')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Extra small bbq oven</span></div>} /></li>
+      <h3>Outdoor Sports</h3>
+<li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={cycling} onChange={handleCheckboxChange('cycling')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Cycling</span></div>} /></li>
+<li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={hunting} onChange={handleCheckboxChange('hunting')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Hunting</span></div>} /></li>
+<li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={hiking} onChange={handleCheckboxChange('hiking')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Hiking</span></div>} /></li>
+<li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={golf} onChange={handleCheckboxChange('golf')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Golf</span></div>} /></li>
+<li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={golfOptional} onChange={handleCheckboxChange('golfOptional')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Golf optional</span></div>} /></li>
+<li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={equestrianEvents} onChange={handleCheckboxChange('equestrianEvents')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Equestrian events</span></div>} /></li>
+<li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={hotAirBallooning} onChange={handleCheckboxChange('hotAirBallooning')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Hot air ballooning</span></div>} /></li>
+<li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={paragliding} onChange={handleCheckboxChange('paragliding')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Paragliding</span></div>} /></li>
+<li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={rollerBlading} onChange={handleCheckboxChange('rollerBlading')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Roller blading</span></div>} /></li>
+<li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={spelunking} onChange={handleCheckboxChange('spelunking')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Spelunking</span></div>} /></li>
+<li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={tennis} onChange={handleCheckboxChange('tennis')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Tennis</span></div>} /></li>
       </ul>
       </div>
       </>
@@ -219,20 +216,50 @@ const mainCategories = [
     content: (<>
     <div className="dining-area-utensils-cat main-category">
     <ul>
-<li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={dinningArea} onChange={handleCheckboxChange('dinningArea')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Dinning area</span></div>} /></li>
-<li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={diningTable} onChange={handleCheckboxChange('diningTable')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Dining table</span></div>} /></li>
-<li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={dinningRoomOrSpace} onChange={handleCheckboxChange('dinningRoomOrSpace')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Dinning room or space</span></div>} /></li>
-<li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={wineGlasses} onChange={handleCheckboxChange('wineGlasses')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Wine glasses</span></div>} /></li>
-<li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={cookingBasics} onChange={handleCheckboxChange('cookingBasics')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Cooking basics</span></div>} /></li>
-<li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={dishesAndSilverware} onChange={handleCheckboxChange('dishesAndSilverware')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Dishes and silverware</span></div>} /></li>
-<li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={cookwareAndKitchenUtensils} onChange={handleCheckboxChange('cookwareAndKitchenUtensils')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Cookware and kitchen utensils</span></div>} /></li>
-<li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={highChair} onChange={handleCheckboxChange('highChair')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">High chair</span></div>} /></li>
+    <h3>Marine Sports</h3>
+<li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={fishing} onChange={handleCheckboxChange('fishing')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Fishing</span></div>} /></li>
+<li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={deepseaFishing} onChange={handleCheckboxChange('deepseaFishing')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Deepsea fishing</span></div>} /></li>
+<li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={fishingBay} onChange={handleCheckboxChange('fishingBay')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Fishing bay</span></div>} /></li>
+<li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={fishingFly} onChange={handleCheckboxChange('fishingFly')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Fishing fly</span></div>} /></li>
+<li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={fishingFreshwater} onChange={handleCheckboxChange('fishingFreshwater')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Fishing freshwater</span></div>} /></li>
+<li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={fishingSurf} onChange={handleCheckboxChange('fishingSurf')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Fishing surf</span></div>} /></li>
+<li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={jetSkiing} onChange={handleCheckboxChange('jetSkiing')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Jet skiing</span></div>} /></li>
+<li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={kayaking} onChange={handleCheckboxChange('kayaking')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Kayaking</span></div>} /></li>
+<li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={rafting} onChange={handleCheckboxChange('rafting')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Rafting</span></div>} /></li>
+<li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={parasailing} onChange={handleCheckboxChange('parasailing')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Parasailing</span></div>} /></li>
+<li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={pierFishing} onChange={handleCheckboxChange('pierFishing')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Pier fishing</span></div>} /></li>
+<li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={sailing} onChange={handleCheckboxChange('sailing')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Sailing</span></div>} /></li>
+<li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={skiingWater} onChange={handleCheckboxChange('skiingWater')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Water skiing</span></div>} /></li>
+<li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={snorkeling} onChange={handleCheckboxChange('snorkeling')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Snorkeling</span></div>} /></li>
+<li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={surfing} onChange={handleCheckboxChange('surfing')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Surfing</span></div>} /></li>
+<li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={swimming} onChange={handleCheckboxChange('swimming')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Swimming</span></div>} /></li>
+<li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={whitewaterRafting} onChange={handleCheckboxChange('whitewaterRafting')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">White water rafting</span></div>} /></li>
+<li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={windSurfing} onChange={handleCheckboxChange('windSurfing')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Wind surfing</span></div>} /></li>
+<li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={sportsSnorkelingDiving} onChange={handleCheckboxChange('sportsSnorkelingDiving')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Sports snorkeling diving</span></div>} /></li>
+<li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={sportsTubingWater} onChange={handleCheckboxChange('sportsTubingWater')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Sports tubing water</span></div>} /></li>
+<li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={powerBoatRental} onChange={handleCheckboxChange('powerBoatRental')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Power boat rental</span></div>} /></li>
     </ul>
     </div>
       </>
     ),
   },
-  
+  {
+    title: 'Cooking devices',
+    description: 'Which are your main cooking devices offered to guests?',
+    content: (<>
+      <div className="cooking-means-cat main-category">
+      <ul>
+      <h3>Miscellaneous Sports</h3>
+<li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={area} onChange={handleCheckboxChange('area')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Area</span></div>} /></li>
+<li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={basketballCourt} onChange={handleCheckboxChange('basketballCourt')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">basketball court</span></div>} /></li>
+<li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={sports} onChange={handleCheckboxChange('sports')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Sports</span></div>} /></li>
+<li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={racquetball} onChange={handleCheckboxChange('racquetball')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Racquetball</span></div>} /></li>
+<li className="list-item-container"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><div className="label"><span>Scuba or snorkeling:</span><CustomTextField label="Scuba or snorkeling" value={scubaOrSnorkeling} onChange={e => updateFields({ scubaOrSnorkeling: e })} type="text"   ></CustomTextField></div></li>    
+      </ul>
+      </div>
+      </>
+    ),
+  },
 ];
 
 const [expanded, setExpanded] = useState<string | false>(false);
@@ -279,3 +306,34 @@ return (
     </FormGroup>
   </FormWrapper>
 );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

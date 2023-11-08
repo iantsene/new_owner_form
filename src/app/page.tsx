@@ -1,7 +1,7 @@
 "use client";
 
 import useMultistepForm from './useMultistepForm'
-import { FormEvent, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 import { FormDataTypes } from './types/all-form-types';
 import FormTabs from '../components/form_components/FormTabs'
 import INITIAL_DATA from './variables/variables';
@@ -16,6 +16,7 @@ import Safety from '@/components/cards_content/Safety';
 import BedsNBaths from '@/components/cards_content/BedsNBaths';
 import Amenities from '@/components/cards_content/Amenities';
 import Location from '@/components/cards_content/Location';
+import Sports from '@/components/cards_content/Sports';
 // import Test from '@/components/defunct-components/Test';
 
 
@@ -24,9 +25,7 @@ export default function Home() {
   const [selectedItems, setSelectedItems] = useState({}); //2. Secondary document state. Part of a mechanism to transfer state to data when collapsing from Advanced View to Basic
   const [isTabContainerReady, setIsTabContainerReady] = useState(true); //3. Marks whether a placeholder occupies space upon the tab space (false) or whether the actual tabs comtainer is there to display tabs (true)
   const [includeDetailedSteps, setIncludeDetailedSteps] = useState(false); //4. Switch that affects other code determining whether we are on the basic or the advanced view.
-  const [openTabs, setOpenTabs] = useState([0]); //5. Controls how many tabs should be open
-
-
+  const [openTabs, setOpenTabs] = useState<number[]>([0]); //5. Controls how many tabs should be open
 
 
   const handleFieldChange = (fieldName: any, value: any) => {
@@ -49,6 +48,9 @@ export default function Home() {
     })
   }
 
+
+
+
   function onSubmit(e: FormEvent) {
     e.preventDefault()
     if (!isLastStep) {
@@ -58,7 +60,7 @@ export default function Home() {
       }
       return next();
     }
-    fetch('http://localhost:8080/submit', {
+    fetch('http://localhost:8080/submit', { //6. Here the backend endpoint is defined so it may be sent our data object for mapping.
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
@@ -72,26 +74,26 @@ export default function Home() {
     <BasicInfo {...data} data={data} setData={setData} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
     <MainDescription {...data} data={data} setData={setData} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
   ];
-  //6. These above and below are the actual tab components, laid out here to be injected below and elsewhere.
+  //7. These above and below are the actual tab components, laid out here to be injected below and elsewhere.
   const detailedSteps = [
-    
-    <Pool {...data} data={data} setData={setData} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
-    <Kitchen {...data} data={data} setData={setData} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
-    <Safety {...data} data={data} setData={setData} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
-    <BedsNBaths {...data} data={data} setData={setData} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
+
     <Outside {...data} data={data} setData={setData} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
+    <Sports {...data} data={data} setData={setData} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
+    <Pool {...data} data={data} setData={setData} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
     <Inside {...data} data={data} setData={setData} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
+    <BedsNBaths {...data} data={data} setData={setData} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
+    <Kitchen {...data} data={data} setData={setData} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
     <Amenities {...data} data={data} setData={setData} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
+    <Safety {...data} data={data} setData={setData} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
     <Location {...data} data={data} setData={setData} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
-   
+
   ];
 
   const basicTabLabels = ['Basic Info', 'Main Description',];
-  const advancedTabLabels = ['Pool', 'Kitchen', 'Safety', 'Beds & Baths', 'Outside', 'Inside', 'Amenities','Location',];
-  const [tabLabels, setTabLabels] = useState([...basicTabLabels, ...advancedTabLabels]); //Controls the rendering of tabs (FormTabs.tsx #4) via the above labels. 
-
+  const advancedTabLabels = ['Outside', 'Sports', 'Pool', 'Inside', 'Beds & Baths', 'Kitchen', 'Amenities', 'Safety', 'Location',];
+  const [tabLabels, setTabLabels] = useState([...basicTabLabels, ...advancedTabLabels]); //8. Controls the rendering of tabs (FormTabs.tsx #4) via the above labels. 
   includeDetailedSteps && briefSteps.push(...detailedSteps) // Makes sure that on first push of advanced view button the array with the detailedSteps tabs is couple with the briefSteps one.
-  //7. That way on click you get continuity of tabs and a smooth experience
+  //9. That way on click you get continuity of tabs and a smooth experience
 
 
 
@@ -100,19 +102,19 @@ export default function Home() {
 
   const currentSteps = [...briefSteps,];
   const { steps, currentStepIndex, setCurrentStepIndex, step, isFirstStep, isLastStep, back, next, handleStepComplete, completedSteps } = useMultistepForm(currentSteps);
-  //8. This is my multistep custom hook which handles navigation and tracking of steps on the form.
+  //10. This is my multistep custom hook which handles navigation and tracking of steps on the form.
 
-  const goToAdvancedView = () => { 
+  const goToAdvancedView = () => {
     if (!includeDetailedSteps) {
       setIncludeDetailedSteps(true);
       setTabLabels([...basicTabLabels, ...advancedTabLabels])
-      setCurrentStepIndex(2); //9. Sets to the first "Advanced" step on click of Advanced View button (effectively it hits next)
+      setCurrentStepIndex(2); //11. Sets to the first "Advanced" step on click of Advanced View button (effectively it hits next)
     }
   };
 
   const goToBasicView = () => {
     setIncludeDetailedSteps(false);
-    setCurrentStepIndex(0); //10. Sets to the first "Basic" step
+    setCurrentStepIndex(0); //12. Sets to the first "Basic" step
     setTabLabels(basicTabLabels)
   };
 
@@ -123,13 +125,37 @@ export default function Home() {
       ...data,
       ...selectedItems,
     });
-  }; //11. Part of the mechanism I mentioned on 2.
+  }; //13. Part of the mechanism I mentioned on 2.
 
   function modeLabel() {
     return includeDetailedSteps ? "Advanced View" : "Basic View";
-  } //12. This handles the label over the navigation form buttons to display based on the current view.
+  } //14. This handles the label over the navigation form buttons to display based on the current view.
 
-const advancedViewBtn = !includeDetailedSteps && <Button variant="contained" className='advanced-view-btn' type='button' onClick={goToAdvancedView}>Go to advanced view</Button>
+  const advancedViewBtn = !includeDetailedSteps && <Button variant="contained" className='advanced-view-btn' type='button' onClick={goToAdvancedView}>Go to advanced view</Button>
+  const [showMessage, setShowMessage] = useState(false);//15. hook to track when the help text message is shown or not
+  const [hasEffectRun, setHasEffectRun] = useState(false); //16. Keeps track of whether the message on the hook above has already appeared or not so it doesn't rerender it on subsequent passes of that tab.
+
+  //17. Function to show the message
+  const showMessageFunction = () => {
+    setShowMessage(true);
+  };
+
+
+  useEffect(() => {
+    if (!hasEffectRun && steps.length < 11 && currentStepIndex === 1) {
+      showMessageFunction();
+
+      //18. Hide the message after 15 seconds (15000 milliseconds)
+      setTimeout(() => {
+        setShowMessage(false);
+      }, 15000);
+
+      //19. Mark the effect as run
+      setHasEffectRun(true);
+    }
+  }, [currentStepIndex, hasEffectRun]);
+
+  const viewMode = modeLabel();
 
   return (<>
     <div className="formprime">
@@ -141,32 +167,36 @@ const advancedViewBtn = !includeDetailedSteps && <Button variant="contained" cla
             completedSteps={completedSteps}
             currentStepIndex={currentStepIndex}
             setCurrentStepIndex={setCurrentStepIndex}
-            steps={steps}
+            viewMode={viewMode}
             isTabContainerReady={isTabContainerReady}
-            setIsTabContainerReady={setIsTabContainerReady}
             openTabs={openTabs}
             setOpenTabs={setOpenTabs}
             basicTabLabels={basicTabLabels}
             tabLabels={tabLabels}
 
-          /> 
+          />
           <div className='page-counter'>
 
             <div className='form-background'>
 
               {step}
               <div className="formButtons">
-                <div>{steps.length < 10 && currentStepIndex === 1 ? (<span className='help-text'>After filling out this section we have enough information to get you started. You may submit your property as it is now and fill the details later, or you can click below to switch to our advanced view where you may add your detailed information now. </span>) : <div className='pre-submit-container'></div>
-                }</div>
+
+                {showMessage ? (<div className='help-text-div'>
+                  <span className='help-text'>
+                    After filling out this section, we have enough information to get you started. You may submit your property as it is now and fill the details later, or you can click below to switch to our advanced view where you may add your detailed information now.
+                  </span></div>
+                ) : null}
+
                 <div>
-                  <div className="page-counter"><span className='mode-label'>{modeLabel()}</span> {currentStepIndex + 1} / {steps.length}</div>
+                  <div className="page-counter"><span className='mode-label'>{modeLabel()} {currentStepIndex + 1} / {steps.length}</span></div>
                   <div className='menu-buttons'>
-                    {!isFirstStep ? (<Button variant="contained" type='button' onClick={back}>Back</Button>) : (null
-                    )}
-                    <Button variant="contained" className={isLastStep ? 'submit-btn' : ''} onClick={handleStepComplete} type='submit'>{isLastStep ? "Submit" : "Next"}</Button>
-                    {steps.length <= 10 && currentStepIndex === 1 ? (advancedViewBtn) : null
+                    <div className="form-navigation"><div className="form-nav-btns">{!isFirstStep ? (<Button variant="contained" className='back-btn' type='button' onClick={back}>Back</Button>) : (<Button variant="contained" className='placeholder-back-btn' type='button' >Back</Button>)}
+                      <Button variant="contained" className={isLastStep ? 'submit-btn' : 'next-btn'} onClick={handleStepComplete} type='submit'>{isLastStep ? "Submit" : "Next"}</Button>
+                      </div></div>
+                    {steps.length <= 11 && currentStepIndex === 1 ? (advancedViewBtn) : null
                     }
-                    {steps.length === 10 ? (<Button variant="contained" className='basic-view-btn' type='button' onClick={() => {
+                    {steps.length === 11 ? (<Button variant="contained" className='basic-view-btn' type='button' onClick={() => {
                       goToBasicView();
                       applySelectedItems();
                       setCurrentStepIndex(1)
@@ -175,6 +205,7 @@ const advancedViewBtn = !includeDetailedSteps && <Button variant="contained" cla
                   </div>
                 </div>
               </div>
+
 
             </div>
 

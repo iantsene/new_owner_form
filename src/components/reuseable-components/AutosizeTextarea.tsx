@@ -50,8 +50,8 @@ const {briefDescription} = data;
     aria-label="minimum height" 
     minRows={3} 
     placeholder="Please describe your property"
-    value={briefDescription} // Pass the value from your state
-    onChange={handleTextareaChange} // Define the onChange handler to update the state
+    value={briefDescription} 
+    onChange={handleTextareaChange}
    
      />
      <span className="textbox-char-limit" style={{color: textColor}}>

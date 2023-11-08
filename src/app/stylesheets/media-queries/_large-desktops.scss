@@ -1,6 +1,38 @@
   @media (max-width: 3000px) {// 2601 - 3000px
 
+    .form-navigation {
+      width: 165px;
+    }
+    
+    .form-nav-btns {
+      width: 165px;
+      margin-bottom: 10px;
+      display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 0px 5px;
+    grid-template-areas: ". .";
+    justify-content: center;
+    justify-items: center;
+    }
+  
+    .placeholder-back-btn {
+      visibility: hidden;
+    }
+  
+  
+    .submit-btn {
+      background-color: goldenrod;
+  }
+  
+    .submit-btn:hover {
+      background-color: #9a4f00;
+  }
 
+  .mode-label {
+    margin-right: 0px;
+  }
+  
 
     // ################ Form dimensions control panel ##############
     
@@ -34,7 +66,7 @@
     
     
     // ################ Form dimensions control end ################
-    }
+    
     
 
    
@@ -50,11 +82,9 @@
 .list-item-container {
   display: flex;
   align-items: center;
-  width: 50%;
+  width: 100%;
   white-space: nowrap;
-  .MuiInputLabel-root {
-    width: 250px;
-  }
+  
   }
  
 // ################ Lists end ####################
@@ -98,20 +128,87 @@
   justify-content: center;
   justify-items: center;
 }
+
+
+ .media-query-custom-grid {
+      margin-top: 35px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr;
+      gap: 0px 50px;
+      grid-template-areas:
+        ". . . .";
+        white-space: nowrap;
+      justify-content: center;
+      justify-items: center;
+    }
   // ################ Grids end ####################
 
 
   
 // ################ Overrides ####################
+
+.property-type-cat {
+  display: flex;
+  justify-content: center;
+}
+
+.property-type-cat .multi-options-grid {
+gap: 0 200px;
+}
+
+
+.general-info-categories .media-query-custom-grid {
+  width: unset;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 0px 0px;
+  grid-template-areas:
+    ". . .";
+  justify-content: center;
+  justify-items: center;
+}
+
+.extra-categories .media-query-custom-breakpoint
+    {// Dual column grid
+      width: unset;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+      gap: 0px 0px;
+      grid-template-areas:
+        ". .";
+      justify-content: center;
+      justify-items: center;
+    }
+
+    .beds-category .media-query-custom-breakpoint,
+    .beds-heating-cat .media-query-custom-breakpoint,
+    .baths-category .media-query-custom-breakpoint,
+    .common-baths-cat .media-query-custom-breakpoint
+    {//makes the dual-column grid into a single column-grid. Takes care of texfields and their textboxes when there is no other way to align
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      grid-gap: 0px 0px;
+      gap: 0px 0px;
+      grid-template-areas: "." 
+                           "."
+                           "."
+                           ".";
+      justify-content: center;
+      justify-items: center;
+    }
+
+
       .linen-service-cat .duo-options-grid {
-        
         place-items: flex-start;
-      
       }
 
 
 
-      .linen-service-cat .duo-options-grid {
+      .linen-service-cat .duo-options-grid
+       {
         margin-top: 35px;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
@@ -124,12 +221,16 @@
         justify-items: center;
       }
 
-      .clean-method-cat .list-item-container {
-        width: 50%;
+      .clean-method-cat .list-item-container,
+      .scuba-snorkel-cat .list-item-container {
+        width: 20%;
       }
     
 
-      .clean-method-cat .media-query-custom-grid {//makes the dual-column grid into a single column-grid. Takes care of texfields and their textboxes when there is no other way to align
+      .clean-method-cat .media-query-custom-grid,
+      .scuba-snorkel-cat .media-query-custom-breakpoint {//makes the dual-column grid into a single column-grid. Takes care of texfields and their textboxes when there is no other way to align
+       margin-top: 25px;
+        display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: auto;
         grid-gap: 0px 0px;
@@ -141,5 +242,95 @@
         justify-content: center;
         justify-items: center;
       }
+
+
       
-// ################ Overrides end ################
+  
+
+    .help-text-div {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      text-align: center;
+      background: white;
+      width: 2300px;
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+      margin: 0 auto;
+    }
+    
+    .help-text { // makes the help text on page 2 to come to the foreground for it's duration.
+      position: relative;
+      font-weight: bold;
+      width: 1100px;
+      height: 100px;
+      z-index: 20;
+      color: red;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+  .nearby-services-category .MuiFormControlLabel-root {
+      margin-left: unset;
+      width: 240px;
+  }
+
+  .check-in-cat .MuiFormControlLabel-root {
+    margin-left: unset;
+    width: unset;
+}
+.check-in-cat .checkbox-tags {
+  width: 220px;
+}
+
+  .check-in-cat .media-query-custom-breakpoint {
+    display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-gap: 0px 0px;
+        gap: 0px 0px;
+        grid-template-areas: "." 
+                             "."
+                             "."
+                             ".";
+        justify-content: center;
+        justify-items: flex-start;
+  }
+
+  .pool-dimensions-category .list-item-container {
+    display: flex;
+    align-items: center;
+    width: 35%;
+    white-space: nowrap;
+}
+
+    .kitchen-extras-cat {
+     margin-top: 35px;
+    }
+
+
+    .cooking-devices-cat .media-query-custom-breakpoint,
+    .cooking-means-cat .media-query-custom-breakpoint,
+    .dining-area-utensils-cat .media-query-custom-breakpoint {
+      margin-top: 35px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr;
+      gap: 0px 50px;
+      grid-template-areas:
+        ". . . .";
+        white-space: nowrap;
+      justify-content: center;
+      justify-items: center;
+     }
+
+     .common-sports-cat .MuiFormControlLabel-root {
+      width: unset;
+    }
+      
+  }// ################ Overrides end ################

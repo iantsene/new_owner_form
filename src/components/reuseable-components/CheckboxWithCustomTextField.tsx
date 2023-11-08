@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { Checkbox, FormControlLabel } from '@mui/material';
 import CustomTextField from './CustomTextField';
 
@@ -7,6 +7,8 @@ interface CheckboxWithCustomTextFieldProps {
   checked: boolean;
   textboxLabel: string;
   description: string;
+  icon: ReactNode;
+  onClearDescription: () => void;
   onCheckboxChange: (checked: boolean) => void;
   onDescriptionChange: (description: string) => void;
 }
@@ -16,6 +18,8 @@ function CheckboxWithCustomTextField({
   checked,
   textboxLabel,
   description,
+  icon,
+  onClearDescription,
   onCheckboxChange,
   onDescriptionChange,
 }: CheckboxWithCustomTextFieldProps) {
@@ -32,6 +36,7 @@ function CheckboxWithCustomTextField({
               size="small"
               checked={checked}
               onChange={handleCheckboxChange}
+
             />
           }
           label={
@@ -45,7 +50,7 @@ function CheckboxWithCustomTextField({
                 />
               ) : (
                 <>
-                  <img src="/Icons/icon-placeholder.png" />
+                  {icon}
                   <span className="checkbox-tags">{label}</span>
                 </>
   )}

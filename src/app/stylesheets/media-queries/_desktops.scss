@@ -1,6 +1,41 @@
 @media (max-width: 2100px) {//1651 - 2100px
 
 
+  .form-navigation {
+    width: 165px;
+  }
+  
+  .form-nav-btns {
+    width: 165px;
+    margin-bottom: 10px;
+    display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 0px 0px;
+  grid-template-areas: ". .";
+  justify-content: center;
+  justify-items: center;
+  }
+
+  .placeholder-back-btn {
+    
+    visibility: hidden;
+  }
+
+
+  .submit-btn {
+    background-color: goldenrod;
+   
+}
+
+  .submit-btn:hover {
+    background-color: #9a4f00;
+}
+
+.mode-label {
+  margin-right: 0px;
+}
+
 
     // ################ Form dimensions control panel ##############
     
@@ -25,7 +60,7 @@
       //tabs container size
       display: flex;
       justify-content: flex-start;
-      max-width: 1130px;
+      max-width: 1220px;
       overflow-x: hidden;
     }
     
@@ -168,6 +203,8 @@
       }
       }
 
+      
+      .pool-dimensions-category .list-item-container,
       .common-area-beds-cat .list-item-container {
         display: flex;
         align-items: center;
@@ -238,11 +275,11 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: auto;
-      gap: 0px 0px;
+      gap: 0px 100px;
       grid-template-areas:
         ". .";
       justify-content: center;
-      justify-items: center;
+      justify-items: flex-start;
     }
 
     .beds-category .media-query-custom-breakpoint,
@@ -292,7 +329,7 @@
         }
 
         .property-type-cat .MuiFormControlLabel-root {
-          width: unset; /* Adjust the min-width as needed */
+          width: 120px; /* Adjust the min-width as needed */
           }
 
           
@@ -307,8 +344,56 @@
         }
 
        
-
+        .property-type-cat .multi-options-grid {
+          gap: 0 0px;
+          justify-items: center;
+      }
         
+
+      .lodging-type-category .multi-options-grid,
+       .nearby-services-category .multi-options-grid,
+        .cooking-devices-cat .multi-options-grid,
+         .cooking-means-cat .multi-options-grid,
+          .dining-area-utensils-cat .multi-options-grid {
+        gap: unset;
+    }
+
+    .help-text-div {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      text-align: center;
+      background: white;
+      width: 1352px;
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+      margin: 0 auto;
+    }
+
+    .help-text { // makes the help text on page 2 to come to the foreground for it's duration.
+      position: relative;
+      font-weight: bold;
+      width: 1100px;
+      height: 100px;
+      z-index: 20;
+      color: red;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .clean-method-cat .list-item-container,
+  .scuba-snorkel-cat .list-item-container {
+    width: 40%;
+  }
+
+  .common-sports-cat .MuiFormControlLabel-root {
+    width: unset;
+}
         
       // ################ Overrides end ################
     

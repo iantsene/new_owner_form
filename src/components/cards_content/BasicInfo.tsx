@@ -3,8 +3,6 @@ import {
   FormControlLabel,
   FormGroup,
   InputBase,
-  FormLabel,
-  FormControl,
   RadioGroup,
   Radio
 } from "@mui/material";
@@ -35,6 +33,7 @@ import CottageIcon from '@mui/icons-material/Cottage';
 import HouseIcon from '@mui/icons-material/House';
 import { useState } from "react";
 import CustomTextField from "../reuseable-components/CustomTextField";
+
 
 
 type UserFormProps = FormDataTypes & {
@@ -125,7 +124,7 @@ export default function BasicInfo({
     },
     {
       title: 'Accessibility options',
-      description: 'What are your preferred accessibility options?',
+      description: 'What are your accessibility options?',
       content: (<>
         <div className="accessibility-cat main-category">
           <ul className="duo-options-grid">
@@ -151,18 +150,18 @@ export default function BasicInfo({
             <li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={viewBayView} onChange={handleCheckboxChange('viewBayView')} />} label={<div className="label-content"><img src="/Icons/icons8-bay-24.png" /><span className="checkbox-tags">Bay view</span></div>} /></li>
             <li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={waterView} onChange={handleCheckboxChange('waterView')} />} label={<div className="label-content"><WaterIcon /><span className="checkbox-tags">Water view</span></div>} /></li>
             <li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={viewMarinaView} onChange={handleCheckboxChange('viewMarinaView')} />} label={<div className="label-content"><SailingIcon /><span className="checkbox-tags">Marina view</span></div>} /></li>
-            <li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={viewPoolView} onChange={handleCheckboxChange('viewPoolView')} />} label={<div className="label-content"><PoolIcon /><span className="checkbox-tags">Pool view</span></div>} /></li>
-            <li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={viewHarborView} onChange={handleCheckboxChange('viewHarborView')} />} label={<div className="label-content"><img src="Icons/icons8-harbor-24.png" /><span className="checkbox-tags">Harbor view</span></div>} /></li>
-            <li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={viewSunset} onChange={handleCheckboxChange('viewSunset')} />} label={<div className="label-content"><img src="Icons/icons8-sunset-24.png" /><span className="checkbox-tags">Sunset view</span></div>} /></li>
             <li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={viewPanoramic} onChange={handleCheckboxChange('viewPanoramic')} />} label={<div className="label-content"><PanoramaHorizontalIcon /><span className="checkbox-tags">Panoramic view</span></div>} /></li>
+            <li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={viewHarborView} onChange={handleCheckboxChange('viewHarborView')} />} label={<div className="label-content"><img src="Icons/icons8-harbor-24.png" /><span className="checkbox-tags">Harbor view</span></div>} /></li>
+            <li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={viewVineyardView} onChange={handleCheckboxChange('viewVineyardView')} />} label={<div className="label-content"><img src="Icons/grapes_6024141.png" /><span className="checkbox-tags">Vineyard view</span></div>} /></li>
+            <li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={viewSunset} onChange={handleCheckboxChange('viewSunset')} />} label={<div className="label-content"><img src="Icons/icons8-sunset-24.png" /><span className="checkbox-tags">Sunset view</span></div>} /></li>
             <li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={viewSunrise} onChange={handleCheckboxChange('viewSunrise')} />} label={<div className="label-content"><img src="Icons/icons8-sunrise-24.png" /><span className="checkbox-tags">Sunrise view</span></div>} /></li>
-            <li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={viewCountryside} onChange={handleCheckboxChange('viewCountryside')} />} label={<div className="label-content"><img src="Icons/icons8-countryside-24.png" /><span className="checkbox-tags">Countryside view</span></div>} /></li>
             <li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={viewCityView} onChange={handleCheckboxChange('viewCityView')} />} label={<div className="label-content"><LocationCityIcon /><span className="checkbox-tags">City view</span></div>} /></li>
+            <li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={viewCountryside} onChange={handleCheckboxChange('viewCountryside')} />} label={<div className="label-content"><img src="Icons/icons8-countryside-24.png" /><span className="checkbox-tags">Countryside view</span></div>} /></li>
             <li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={viewGardenView} onChange={handleCheckboxChange('viewGardenView')} />} label={<div className="label-content"><img src="Icons/icons8-garden-24.png" /><span className="checkbox-tags">Garden view</span></div>} /></li>
             <li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={viewMountainView} onChange={handleCheckboxChange('viewMountainView')} />} label={<div className="label-content"><LandscapeIcon /><span className="checkbox-tags">Mountain view</span></div>} /></li>
             <li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={viewResortView} onChange={handleCheckboxChange('viewResortView')} />} label={<div className="label-content"><img src="Icons/icons8-resort-24.png" /><span className="checkbox-tags">Resort view</span></div>} /></li>
             <li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={viewValleyView} onChange={handleCheckboxChange('viewValleyView')} />} label={<div className="label-content"><img src="Icons/icons8-valley-24.png" /><span className="checkbox-tags">Valley view</span></div>} /></li>
-            <li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={viewVineyardView} onChange={handleCheckboxChange('viewVineyardView')} />} label={<div className="label-content"><img src="Icons/grapes_6024141.png" /><span className="checkbox-tags">Vineyard view</span></div>} /></li>
+            <li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={viewPoolView} onChange={handleCheckboxChange('viewPoolView')} />} label={<div className="label-content"><PoolIcon /><span className="checkbox-tags">Pool view</span></div>} /></li>
           </ul>
 
         </div>
@@ -176,10 +175,10 @@ export default function BasicInfo({
         <div className="property-address-category main-category">
 
           <ul className="duo-options-grid mobile-tablet-list-class">
-            <li className="list-item-container"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><div className="label"><span>Property address:</span><CustomTextField label="Property address" type="text" value={propertyAddress} onChange={e => updateFields({ propertyAddress: e })}  ></CustomTextField></div></li>
-            <li className="list-item-container"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><div className="label"><span>Post code:</span><CustomTextField label="Post code" type="text" value={postCode} onChange={e => updateFields({ postCode: e })}  ></CustomTextField></div></li>
-            <li className="list-item-container"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><div className="label"><span>GPS latitude:</span><CustomTextField label="GPS latitude" type="text" value={gpsLatitude} onChange={e => updateFields({ gpsLatitude: e })}  ></CustomTextField></div></li>
-            <li className="list-item-container"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><div className="label"><span>GPS longitude:</span><CustomTextField label="GPS longitude" type="text" value={gpsLongitude} onChange={e => updateFields({ gpsLongitude: e })}  ></CustomTextField></div></li>
+            <li className="list-item-container"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><div className="label"><span>Property address:</span><CustomTextField label="Property address" type="text" value={propertyAddress} icon={<img className="textfiel-icon" src="/Icons/icon-placeholder.png" alt="icon" />} onChange={e => updateFields({ propertyAddress: e })}  ></CustomTextField></div></li>
+            <li className="list-item-container"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><div className="label"><span>Post code:</span><CustomTextField label="Post code" type="text" value={postCode} icon={<img className="textfiel-icon" src="/Icons/icon-placeholder.png" alt="icon" />} onChange={e => updateFields({ postCode: e })}  ></CustomTextField></div></li>
+            <li className="list-item-container"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><div className="label"><span>GPS latitude:</span><CustomTextField label="GPS latitude" type="text" value={gpsLatitude} icon={<img className="textfiel-icon" src="/Icons/icon-placeholder.png" alt="icon" />} onChange={e => updateFields({ gpsLatitude: e })}  ></CustomTextField></div></li>
+            <li className="list-item-container"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><div className="label"><span>GPS longitude:</span><CustomTextField label="GPS longitude" type="text" value={gpsLongitude} icon={<img className="textfiel-icon" src="/Icons/icon-placeholder.png" alt="icon" />} onChange={e => updateFields({ gpsLongitude: e })}  ></CustomTextField></div></li>
           </ul>
         </div>
       </>
@@ -228,6 +227,7 @@ export default function BasicInfo({
             </AccordionSummary>
             <AccordionDetails>{category.content}</AccordionDetails>
           </Accordion>
+          
         ))}
 
         <div className="general-info-categories">
@@ -247,8 +247,8 @@ export default function BasicInfo({
             <h3>Licenses</h3>
             <ul className="media-query-custom-breakpoint">
               <li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={rentalLicense} onChange={handleCheckboxChange('rentalLicense')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Rental license</span></div>} /></li>
-              <li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={extraLicenceGMAG} onChange={handleCheckboxChange('extraLicenceGMAG')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Extra License type GreeceMAG</span></div>} /></li>
-              <li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={extraLicenseRequired} onChange={handleCheckboxChange('extraLicenseRequired')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Extra License required</span></div>} /></li>
+              <li className="list-items wrap-below"><FormControlLabel control={<Checkbox size="small" checked={extraLicenceGMAG} onChange={handleCheckboxChange('extraLicenceGMAG')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Extra License type GreeceMAG</span></div>} /></li>
+              <li className="list-items wrap-below"><FormControlLabel control={<Checkbox size="small" checked={extraLicenseRequired} onChange={handleCheckboxChange('extraLicenseRequired')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Extra License required</span></div>} /></li>
             </ul>
           </div>
 
@@ -256,13 +256,15 @@ export default function BasicInfo({
             <h3>Extra Parties & Eco</h3>
             <ul className="media-query-custom-breakpoint">
               <li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={extraEcoHouse} onChange={handleCheckboxChange('extraEcoHouse')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Extra Eco house</span></div>} /></li>
-              <li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={extraPartiesNotAllowed} onChange={handleCheckboxChange('extraPartiesNotAllowed')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Extra Parties not allowed</span></div>} /></li>
-              <li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={extraPartiesAllowed} onChange={handleCheckboxChange('extraPartiesAllowed')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Extra Parties allowed</span></div>} /></li>
+              <li className="list-items wrap-below"><FormControlLabel control={<Checkbox size="small" checked={extraPartiesNotAllowed} onChange={handleCheckboxChange('extraPartiesNotAllowed')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Extra Parties not allowed</span></div>} /></li>
+              <li className="list-items wrap-below"><FormControlLabel control={<Checkbox size="small" checked={extraPartiesAllowed} onChange={handleCheckboxChange('extraPartiesAllowed')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Extra Parties allowed</span></div>} /></li>
             </ul>
 
           </div>
           </div>
         </div>
+
+       
       </FormGroup>
     </FormWrapper>
   );

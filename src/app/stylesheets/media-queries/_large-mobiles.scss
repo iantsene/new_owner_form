@@ -1,0 +1,711 @@
+
+
+
+
+@media (max-width: 480px) {
+    //Large Mobiles: 361 - 480px
+    // ############################ FORM ELEMENTS ############################
+  
+    * {
+      font-size: 14px;
+  
+    }
+  
+    h2 {
+      font-size: 2rem;
+    }
+  
+    h3 {
+      font-size: 1.5rem;
+    }
+
+
+  
+
+  
+    .advanced-view-btn {
+      position: absolute;
+      left: 0;
+      right: unset;
+      top: 0;
+      bottom: unset;
+    }
+  
+    .basic-view-btn {
+      position: absolute;
+      left: 0;
+      right: unset;
+      top: 0;
+      bottom: unset;
+    }
+  
+
+    .form-nav-btns {
+      width: 175px;
+      margin-bottom: 10px;
+      display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 0px 10px;
+    grid-template-areas: ". .";
+    justify-content: center;
+    justify-items: center;
+    }
+
+
+    .form-navigation {
+      position: absolute;
+      left: 30svw;
+      bottom: 10%;
+    }
+
+    .submit-btn {
+     width: unset;
+  }
+  
+    .submit-btn:hover {
+     width: unset;
+  }
+  
+
+
+     
+  
+    .MuiButtonBase-root.submit-btn {
+      //Submit button size
+      width: 90px;
+      height: 55px;
+    }
+  
+    .MuiButtonBase-root.back-btn {
+      // Back button size
+      width: 90px;
+      height: 55px;
+    }
+  
+  
+    .MuiButtonBase-root.next-btn {
+      // Next button size
+      width: 90px;
+      height: 55px;
+    }
+
+
+    .placeholder-back-btn {
+      width: 90px;
+      height: 55px;
+      visibility: hidden;
+    }
+  
+    .mode-label { //The little text informing you of the view you're currently in
+      position: absolute;
+      top: 10px;
+      right: 5px;
+    }
+  
+
+
+
+
+    .help-text-div {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      text-align: center;
+      background: white;
+      width: 90svw;
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+      margin: 0 auto;
+    }
+
+
+  
+    .help-text {
+      // makes the help text on page 2 to come to the foreground for it's duration.
+      visibility: hidden;
+      position: absolute;
+      width: 90svw;
+      height: 100px;
+      z-index: -1;
+      color: red;
+      background: white;
+      display: flex;
+      align-items: center;
+    }
+  
+    .help-text:after {
+      visibility: visible;
+      position: absolute;
+      font-weight: bold;
+      bottom: 95px;
+      left: 0px;
+      width:90svw;
+      height: 100px;
+      color: red;
+      background: white;
+      display: flex;
+      align-items: center;
+  
+      content: "After filling out this section, we have enough information to get you started. You may submit your property as it is now and fill the details later, or you can click on the corner above to switch to our advanced view where you may add your detailed information now.";
+    }
+   // ################ Form dimensions control panel ################
+  
+  
+   .form-foreground {
+    //controls the content screen container
+    width: 340px;
+    height: 70svh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    z-index: 0;
+  }
+
+
+  .form-background {
+    //controls the form background white container
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 0;
+    position: relative;
+  }
+
+  .form-tabs {
+    //tabs container size
+
+    max-width: 100svw;
+    overflow-x: hidden;
+    position: absolute;
+    bottom: 0px;
+    z-index: 1;
+    .MuiTabs-flexContainer {
+      justify-content: flex-start;
+    }
+  }
+
+  form .css-tynsvj-MuiPaper-root {
+    // resets the padding around the form div
+    padding: 24px;
+  }
+
+  .form-background .css-tynsvj-MuiPaper-root {
+    // removes the padding around the form background div
+    padding: 0px;
+  }
+
+
+  .custom-accordion {
+    width: 338px // determines the size of the accordions on all pages
+  }
+
+
+
+
+  // ################ Form dimensions control end ############
+  
+  
+    // ################ Tabs #########################
+
+ 
+
+
+
+    .tab {
+      white-space: nowrap;
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    position: relative;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    background-color: transparent;
+    outline: 0;
+    border: 0;
+    margin: 0;
+    border-radius: 0;
+    padding: 0;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    vertical-align: middle;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -webkit-text-decoration: none;
+    text-decoration: none;
+    color: inherit;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.25;
+    letter-spacing: 0.02857em;
+    text-transform: uppercase;
+    max-width: 360px;
+    min-width: min-content;
+    position: relative;
+    min-height: 60px;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    padding: 12px 16px;
+    overflow: hidden;
+    text-align: center;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    color: rgba(0, 0, 0, 0.6);
+    }
+  
+    .css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected,
+    .active-tab {
+      background-color: rgba(245, 171, 11, 0.637);
+      color: rgb(41, 11, 70);
+      font-weight: bold;
+    }
+  
+   
+  
+  
+    // ################ Tabs end #####################
+  
+  
+   
+  
+  
+  
+    // ############################ FORM ELEMENTS END ##########################
+  
+  
+  
+    // ################ Lists ########################
+    .list-item-container {
+      display: flex;
+      align-items: center;
+      width: 100% !important;
+      white-space: nowrap;
+    }
+  
+    // ################ Lists end ####################
+  
+  
+  
+  
+    // ################ Categories ###################
+  
+    .main-category {
+      max-width: 340px;
+  
+      h3 {
+        margin-bottom: 20px;
+      }
+  
+      display: block;
+  
+      text-align:center;
+      margin-bottom: 2rem;
+    }
+  
+  
+  
+    .category-description {
+      width: 320px;
+      height: 60px;
+      margin-bottom: 25px;
+      margin-left: 10px;
+  
+      span {
+        font-size: small;
+        word-wrap: break-word;
+      }
+    }
+  
+  
+  
+    .general-info-categories {
+      width: 340px;
+      margin: 0 auto;
+    }
+  
+    .extra-categories {
+      display: flex;
+      flex-direction: column;
+      gap: 45px;
+    }
+  
+    .lodge-category {
+      display: flex;
+      flex-direction: column;
+    }
+  
+  
+  
+    .textarea-category,
+    .textarea-css {
+      width: 340px;
+      z-index: 0;
+    }
+  
+  
+    .help-text {
+      font-size: 0.9rem;
+    }
+  
+    // ################ Categories end ###############
+  
+  
+  
+    // ################ Grids ########################
+    .multi-options-grid {
+      margin: 0 0 2rem 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+      gap: 0px 15px;
+      grid-template-areas:
+        ". .";
+      justify-content: center;
+      justify-items: start;
+    }
+  
+  
+  
+  
+    .media-query-custom-breakpoint {
+      margin: 0;
+      width: 340px;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      gap: 10px 0px;
+      grid-template-areas:
+        ".";
+      white-space: nowrap;
+      justify-content: center;
+      justify-items: center;
+    }
+  
+  
+  
+  
+    // ################ Grids end ####################
+    // ################ Overrides ####################
+  
+    .check-in-cat,
+    .accessibility-cat {
+      //centering of categories
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+  
+  
+    .check-in-cat img {
+      // size of icons
+      height: 20px;
+      width: 20px;
+    }
+  
+    .wrap-below {
+      white-space: normal;
+    }
+  
+    .never-wrap {
+      white-space: nowrap;
+    }
+  
+    .accessibility-cat .duo-options-grid,
+    .safety-category .multi-options-grid,
+    .cooking-devices-cat .media-query-custom-breakpoint,
+    .cooking-means-cat .media-query-custom-breakpoint,
+    .dining-area-utensils-cat .media-query-custom-breakpoint,
+    .property-type-cat .multi-options-grid,
+    .views-category .multi-options-grid,
+    .lodging-type-category .multi-options-grid,
+    .linen-service-cat .duo-options-grid {
+      // Two columns grid centered
+      width: 340px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+      grid-gap: 10px 0px;
+      gap: 10px 15px;
+      grid-template-areas: ". .";
+      justify-content: center;
+      justify-items: center;
+    }
+  
+  
+    .views-category .multi-options-grid,
+    .pool-category .multi-options-grid {
+      // Two columns grid flex-start
+      width: 340px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+      grid-gap: 10px 0px;
+      gap: 10px 0px;
+      grid-template-areas: ". .";
+      justify-content: center;
+      justify-items: flex-start;
+    }
+  
+    .safety-category .multi-options-grid {
+      // Single column grid flex-start
+      margin: 0;
+      width: 340px;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      gap: 10px 0px;
+      grid-template-areas:
+        ".";
+      white-space: nowrap;
+      justify-content: center;
+      justify-items: flex-start;
+    }
+  
+    .accessibility-cat .duo-options-grid {
+      // Single column grid centered
+      margin: 0;
+      width: 340px;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      gap: 10px 0px;
+      grid-template-areas:
+        ".";
+      white-space: nowrap;
+      justify-content: center;
+      justify-items: center;
+    }
+  
+    .accessibility-cat .MuiFormControlLabel-root,
+    .nearby-services-category .MuiFormControlLabel-root,
+    .pool-dimensions-category .MuiFormControlLabel-root,
+    .cooking-devices-cat .MuiFormControlLabel-root,
+    .cooking-means-cat .MuiFormControlLabel-root,
+    .dining-area-utensils-cat .MuiFormControlLabel-root,
+    .maid-service-cat .MuiFormControlLabel-root {
+      width: 160px;
+      margin: 0;
+    }
+  
+    .property-type-cat .MuiFormControlLabel-root {
+      width: 130px;
+      margin: 0;
+    }
+  
+    .views-category .MuiFormControlLabel-root {
+      width: 178px;
+      margin: 0;
+    }
+  
+    .licenses-cat .media-query-custom-breakpoint,
+    .extra-parties-cat .media-query-custom-breakpoint,
+    .property-address-category .duo-options-grid,
+    .pool-dimensions-category .duo-options-grid,
+    .kitchen-extras-cat .duo-options-grid,
+    .outside-category .multi-options-grid,
+    .extra-categories .media-query-custom-breakpoint,
+    .general-info-categories .media-query-custom-grid {
+      width: 340px;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      grid-gap: 0px 0px;
+      grid-gap: 0px 0px;
+      gap: 0px 0px;
+      grid-template-areas: ".";
+      justify-content: center;
+      justify-items: center;
+    }
+  
+    .licenses-cat .media-query-custom-breakpoint,
+    .extra-parties-cat .media-query-custom-breakpoint {
+      justify-items: flex-start;
+    }
+  
+    .living-space-cat .duo-options-grid,
+    .pool-dimensions-category .duo-options-grid,
+    .check-in-cat .media-query-custom-breakpoint,
+    .nearby-services-category .multi-options-grid,
+    .common-area-beds-cat .duo-options-grid,
+    .outside-conveniences-cat .media-query-custom-breakpoint,
+    .general-amenities-category .multi-options-grid,
+    .keys-cat .duo-options-grid {
+      width: 340px;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      grid-gap: 0px 0px;
+      grid-gap: 0px 0px;
+      gap: 0px 0px;
+      grid-template-areas: ".";
+      justify-content: center;
+      justify-items: flex-start;
+    }
+  
+    .property-address-category .label span,
+    .icon,
+    // hides textfield labels (span) as well as the label icon for mobile screen sizes
+    .living-space-cat .label span,
+    .icon,
+    .pool-dimensions-category .label span,
+    .icon,
+    .kitchen-extras-cat .label span,
+    .icon,
+    .beds-category .label span,
+    .icon,
+    .beds-heating-cat .label span,
+    .icon,
+    .baths-category .label span,
+    .icon,
+    .common-baths-cat .label span,
+    .icon,
+    .common-area-beds-cat .label span,
+    .icon,
+    .outside-extras-cat .label span,
+    .icon,
+    .indoor-main-options-cat .label span,
+    .icon,
+    .keys-cat .label span,
+    .icon,
+    .linen-service-cat .label span,
+    .linen-service-cat .linen-text>img,
+    .safe-cleaning-cat .label span,
+    .icon,
+    .sanitation-cat .label span,
+    .icon,
+    .distance-to-pois-category .label span,
+    .icon,
+    .distance-to-services-category .label span,
+    .icon,
+    .nearby-attractions-category .label span,
+    .icon,
+    .nearby-leisures-category .label span,
+    .icon {
+  
+      display: none;
+    }
+  
+    //end
+  
+    .general-amenities-category .icon,
+    .property-theme-category .icon {
+      display: unset;
+    }
+  
+  
+    .list-item-container .MuiInputLabel-root {
+      //pushes char limit label all the way to the right
+      width: 415px;
+    }
+  
+  
+    .lodging-type-category .MuiFormControlLabel-root,
+    .pool-category .MuiFormControlLabel-root,
+    .kitchen-category .MuiFormControlLabel-root,
+    .safety-category .MuiFormControlLabel-root,
+    .bedsnbaths-extras-cat .MuiFormControlLabel-root,
+    .check-in-cat .MuiFormControlLabel-root,
+    .views-category .MuiFormControlLabel-root {
+      width: unset;
+      margin: 0;
+    }
+  
+    .lodging-type-category .checkbox-tags {
+      min-width: 70px;
+    }
+  
+    .MuiFormControl-root {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+  
+    .beds-category .MuiInputBase-root,
+    .beds-heating-cat .MuiInputBase-root,
+    .baths-category .MuiInputBase-root,
+    .common-baths-cat .MuiInputBase-root {
+      width: 303px;
+    }
+  
+    .bedsnbaths-extras-cat .multi-options-grid,
+    .outdoors-dining-cat .media-query-custom-breakpoint,
+    .ambience-n-terrain-cat .media-query-custom-breakpoint,
+    .outside-games-cat .media-query-custom-breakpoint,
+    .heating-cooling-cat .media-query-custom-breakpoint,
+    .laundry-services-cat .media-query-custom-breakpoint,
+    .indoor-amenities-cat .media-query-custom-breakpoint,
+    .indoor-wellness-cat .media-query-custom-breakpoint,
+    .utility-options-cat .media-query-custom-breakpoint,
+    .internet-options-cat .media-query-custom-breakpoint,
+    .indoor-entertainment-cat .media-query-custom-breakpoint,
+    .maid-service-cat .duo-options-grid {
+      margin: unset;
+      width: 340px;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+      gap: 0px 0px;
+      grid-template-areas: ". .";
+      justify-content: center;
+      justify-items: flex-start;
+    }
+  
+    .towels-service-cat .duo-options-grid {
+      gap: 0;
+      justify-items: flex-start;
+    }
+  
+   
+    .towels-service-cat .MuiFormControlLabel-root{
+      width: 165px;
+      margin: 0;
+    }
+
+    .nearby-services-category {
+        .MuiInputLabel-root {
+          width: 370px;
+      }
+      .MuiInputBase-root {
+        width: 260px;
+    }
+      }
+
+      .scuba-snorkel-cat {
+        margin-top: 20px;
+      }
+
+      .ambience-n-terrain-cat .MuiFormControlLabel-root {
+        min-width: unset;
+        width: 120px;
+    }
+
+    .ambience-n-terrain-cat .media-query-custom-breakpoint {
+      justify-items: center;
+    }
+
+  
+    // ################ Overrides end ################
+  }

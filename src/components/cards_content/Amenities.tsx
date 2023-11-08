@@ -105,8 +105,8 @@ export default function Amenities({
       content: (<>
         <div className="keys-cat main-category">
           <ul className="duo-options-grid">
-        <li className="list-item-container"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><div className="label"><span>Key location:</span><CustomTextField label="Key location" type="text" value={keyLocation} onChange={e => updateFields({keyLocation : e})}  ></CustomTextField></div></li>
-        <li className="list-item-container"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><div className="label"><span>Extra key location:</span><CustomTextField label="Extra key location" type="text" value={extraKeyLocation} onChange={e => updateFields({extraKeyLocation : e})}  ></CustomTextField></div></li>
+            <li className="list-item-container"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><div className="label"><span>Key location:</span><CustomTextField label="Key location" type="text" value={keyLocation} onChange={e => updateFields({ keyLocation: e })}  ></CustomTextField></div></li>
+            <li className="list-item-container"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><div className="label"><span>Extra key location:</span><CustomTextField label="Extra key location" type="text" value={extraKeyLocation} onChange={e => updateFields({ extraKeyLocation: e })}  ></CustomTextField></div></li>
           </ul>
         </div>
       </>
@@ -122,12 +122,12 @@ export default function Amenities({
             <li className="list-items"><FormControlLabel labelPlacement="start" control={<Checkbox size="small" checked={bedLinen} onChange={handleCheckboxChange('bedLinen')} />} label={<div className="label-content linen-icons-spacing"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Bed linen</span></div>} /></li>
             <li className="list-items"><FormControlLabel labelPlacement="start" control={<Checkbox size="small" checked={linenOnceAWeek} onChange={handleCheckboxChange('linenOnceAWeek')} />} label={<div className="label-content linen-icons-spacing"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Linen X1 a week</span></div>} /></li>
             <li className="list-items"><FormControlLabel labelPlacement="start" control={<Checkbox size="small" checked={linenTwiceAWeek} onChange={handleCheckboxChange('linenTwiceAWeek')} />} label={<div className="label-content linen-icons-spacing"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Linen X2 a week</span></div>} /></li>
-          </ul> 
+          </ul>
           <div className="clean-method-cat">
             <ul className="media-query-custom-grid">
-            <li className="list-item-container"><img src="/Icons/icon-placeholder.png" alt="icon" /><div className="label"><span >Linen cleaning method:</span><CustomTextField label="Linen cleaning method" type="text" value={linenCleaningMethod} onChange={e => updateFields({linenCleaningMethod : e})}  ></CustomTextField></div></li>
+              <li className="list-item-container linen-text"><img src="/Icons/icon-placeholder.png" alt="icon" /><div className="label"><span >Linen cleaning method:</span><CustomTextField label="Linen cleaning method" type="text" value={linenCleaningMethod} onChange={e => updateFields({ linenCleaningMethod: e })}  ></CustomTextField></div></li>
             </ul>
-            </div>
+          </div>
         </div>
 
       </>
@@ -157,10 +157,10 @@ export default function Amenities({
         <div className="safe-cleaning-cat main-category">
 
           <ul className="duo-options-grid">
-        <li className="list-item-container"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><div className="label"><span>Enhached cleaning:</span><CustomTextField label="Enhached cleaning" type="text" value={safeEnhachedCleaning} onChange={e => updateFields({safeEnhachedCleaning : e})}  ></CustomTextField></div></li>
-        <li className="list-item-container"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><div className="label"><span>Disinfection:</span><CustomTextField label="Disinfection" type="text" value={safeCleaningDisinfection} onChange={e => updateFields({safeCleaningDisinfection : e})}  ></CustomTextField></div></li>
-        <li className="list-item-container"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><div className="label"><span>Self check in check out:</span><CustomTextField label="Self check in check out" type="text" value={safeSelfCheckInCheckOut} onChange={e => updateFields({safeSelfCheckInCheckOut : e})}  ></CustomTextField></div></li>
-        <li className="list-item-container"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><div className="label"><span>Common surface disinfecting:</span><CustomTextField label="surfaces disinfecting" type="text" value={safeCommonSurfaceDisinfecting} onChange={e => updateFields({safeCommonSurfaceDisinfecting : e})}  ></CustomTextField></div></li>
+            <li className="list-item-container"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><div className="label"><span>Enhached cleaning:</span><CustomTextField label="Enhached cleaning" type="text" value={safeEnhachedCleaning} onChange={e => updateFields({ safeEnhachedCleaning: e })}  ></CustomTextField></div></li>
+            <li className="list-item-container"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><div className="label"><span>Disinfection:</span><CustomTextField label="Disinfection" type="text" value={safeCleaningDisinfection} onChange={e => updateFields({ safeCleaningDisinfection: e })}  ></CustomTextField></div></li>
+            <li className="list-item-container"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><div className="label"><span>Self check in check out:</span><CustomTextField label="Self check in check out" type="text" value={safeSelfCheckInCheckOut} onChange={e => updateFields({ safeSelfCheckInCheckOut: e })}  ></CustomTextField></div></li>
+            <li className="list-item-container"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><div className="label"><span>Common surface disinfecting:</span><CustomTextField label="surfaces disinfecting" type="text" value={safeCommonSurfaceDisinfecting} onChange={e => updateFields({ safeCommonSurfaceDisinfecting: e })}  ></CustomTextField></div></li>
           </ul>
         </div>
       </>
@@ -172,8 +172,8 @@ export default function Amenities({
       content: (<>
         <div className="sanitation-cat main-category">
           <ul className="duo-options-grid">
-        <li className="list-item-container"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><div className="label"><span>Safe sanitary association:</span><CustomTextField label="sanitary association" type="text" value={safeSanitaryAssociation} onChange={e => updateFields({safeSanitaryAssociation : e})}  ></CustomTextField></div></li>
-        <li className="list-item-container"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><div className="label"><span>Sanitary standard:</span><CustomTextField label="Sanitary standard" type="text" value={sanitaryStandard} onChange={e => updateFields({sanitaryStandard : e})}  ></CustomTextField></div></li>
+            <li className="list-item-container"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><div className="label"><span>Safe sanitary association:</span><CustomTextField label="sanitary association" type="text" value={safeSanitaryAssociation} onChange={e => updateFields({ safeSanitaryAssociation: e })}  ></CustomTextField></div></li>
+            <li className="list-item-container"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><div className="label"><span>Sanitary standard:</span><CustomTextField label="Sanitary standard" type="text" value={sanitaryStandard} onChange={e => updateFields({ sanitaryStandard: e })}  ></CustomTextField></div></li>
           </ul>
         </div>
       </>
@@ -231,9 +231,9 @@ export default function Amenities({
                 id={`panel${index}bh-header`}
               >
                 <Typography sx={{ width: '40%', fontWeight: 'bold', flexShrink: 0 }}>
-                {category.title}
-              </Typography>
-              <Typography sx={{ marginLeft: '20px', color: 'text.secondary' }}>
+                  {category.title}
+                </Typography>
+                <Typography sx={{ marginLeft: '20px', color: 'text.secondary' }}>
                   {category.description}
                 </Typography>
               </AccordionSummary>

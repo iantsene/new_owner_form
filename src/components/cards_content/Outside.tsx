@@ -14,7 +14,7 @@ export default function Outside({
     
     garden,
     garage,
-    tableTennis,
+    outsideTableTennis,
     tennisCourt,
     balcony,
     poolTable,
@@ -41,7 +41,7 @@ export default function Outside({
     deck,
     outdoorDining,
     porch,
-    miniBar,
+    outsideMiniBar,
     basketballCourt,
     drinkingWater,
     poofPilows,
@@ -70,8 +70,8 @@ export default function Outside({
               <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={outsideFridge} onChange={handleCheckboxChange('outsideFridge')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Outside fridge</span></div>} /></li>
               <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={outdoorDining} onChange={handleCheckboxChange('outdoorDining')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Outdoor dining</span></div>} /></li>
               <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={outsideKitchen} onChange={handleCheckboxChange('outsideKitchen')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Outside kitchen</span></div>} /></li>
-              <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={traditionalPizzaOven} onChange={handleCheckboxChange('traditionalPizzaOven')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Traditional pizza oven</span></div>} /></li>
-              <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={miniBar} onChange={handleCheckboxChange('miniBar')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Mini bar</span></div>} /></li>
+              <li className="list-item wrap-below"><FormControlLabel control={<Checkbox size="small" checked={traditionalPizzaOven} onChange={handleCheckboxChange('traditionalPizzaOven')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Traditional pizza oven</span></div>} /></li>
+              <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={outsideMiniBar} onChange={handleCheckboxChange('outsideMiniBar')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Mini bar</span></div>} /></li>
               </ul>
             </div>
           </>
@@ -125,7 +125,7 @@ export default function Outside({
       
             <ul className="media-query-custom-breakpoint">
               <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={poolTable} onChange={handleCheckboxChange('poolTable')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Pool table</span></div>} /></li>
-              <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={tableTennis} onChange={handleCheckboxChange('tableTennis')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Table tennis</span></div>} /></li>
+              <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={outsideTableTennis} onChange={handleCheckboxChange('outsideTableTennis')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Table tennis</span></div>} /></li>
               <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={tennisCourt} onChange={handleCheckboxChange('tennisCourt')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Tennis court</span></div>} /></li>
               <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={footballGame} onChange={handleCheckboxChange('footballGame')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Football game</span></div>} /></li>
               <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={basketballCourt} onChange={handleCheckboxChange('basketballCourt')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Basketball court</span></div>} /></li>
@@ -134,7 +134,7 @@ export default function Outside({
               <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={hammock} onChange={handleCheckboxChange('hammock')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Hammock</span></div>} /></li>
               <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={outdoorJacuzzi} onChange={handleCheckboxChange('outdoorJacuzzi')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Outdoor jacuzzi</span></div>} /></li>
               <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={poofPilows} onChange={handleCheckboxChange('poofPilows')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Poof pilows</span></div>} /></li>
-              <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={chairsAndTableOutside} onChange={handleCheckboxChange('chairsAndTableOutside')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Chairs and table outside</span></div>} /></li>
+              <li className="list-item wrap-below"><FormControlLabel control={<Checkbox size="small" checked={chairsAndTableOutside} onChange={handleCheckboxChange('chairsAndTableOutside')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Chairs and table outside</span></div>} /></li>
             </ul>
               
             </div>
