@@ -1,7 +1,7 @@
 "use client";
 
 import useMultistepForm from './useMultistepForm'
-import { FormEvent, useEffect, useState } from 'react';
+import { FormEvent, useEffect, useState, Dispatch, SetStateAction } from 'react';
 import { FormDataTypes } from './types/all-form-types';
 import FormTabs from '../components/form_components/FormTabs'
 import INITIAL_DATA from './variables/variables';
@@ -17,38 +17,24 @@ import BedsNBaths from '@/components/cards_content/BedsNBaths';
 import Amenities from '@/components/cards_content/Amenities';
 import Location from '@/components/cards_content/Location';
 import Sports from '@/components/cards_content/Sports';
+import { FormProvider, INITIAL_STATE } from './contexts/form';
 // import Test from '@/components/defunct-components/Test';
 
 
 export default function Home() {
-  const [data, setData] = useState(INITIAL_DATA); //1. Maintains state for the entire document. INITIAL_DATA lives under app/variables
-  const [selectedItems, setSelectedItems] = useState({}); //2. Secondary document state. Part of a mechanism to transfer state to data when collapsing from Advanced View to Basic
+  const [state, setState] = useState<FormDataTypes>(INITIAL_STATE)
   const [isTabContainerReady, setIsTabContainerReady] = useState(true); //3. Marks whether a placeholder occupies space upon the tab space (false) or whether the actual tabs comtainer is there to display tabs (true)
   const [includeDetailedSteps, setIncludeDetailedSteps] = useState(false); //4. Switch that affects other code determining whether we are on the basic or the advanced view.
   const [openTabs, setOpenTabs] = useState<number[]>([0]); //5. Controls how many tabs should be open
 
 
+  
   const handleFieldChange = (fieldName: any, value: any) => {
-    setData({
-      ...data,
-      [fieldName]: value,
-    });
-
-    setSelectedItems({
-      ...selectedItems,
+    setState({
+      ...state,
       [fieldName]: value,
     });
   };
-
-
-
-  function updateFields(fields: Partial<FormDataTypes>) {
-    setData(prev => {
-      return { ...prev, ...fields }
-    })
-  }
-
-
 
 
   function onSubmit(e: FormEvent) {
@@ -63,42 +49,38 @@ export default function Home() {
     fetch('http://localhost:8080/submit', { //6. Here the backend endpoint is defined so it may be sent our data object for mapping.
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
+      body: JSON.stringify(state)
     }).then(res => (res.json()).then(data => console.log(data)).catch(error => console.log(error)));
-    console.log(data)
+    console.log(state)
   };
 
 
 
+  // const poolCond = data.poolYesNo ? <Pool {...data} data={data} setState={setData} handleFieldChange={handleFieldChange} updateFields={updateFields} />: null
+  // const poolArray = data.poolYesNo ? 'Pool' : nstate
+
   const briefSteps = [
-    <BasicInfo {...data} data={data} setData={setData} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
-    <MainDescription {...data} data={data} setData={setData} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
+    <BasicInfo  />,
+    <MainDescription />,
   ];
   //7. These above and below are the actual tab components, laid out here to be injected below and elsewhere.
   const detailedSteps = [
-
-    <Outside {...data} data={data} setData={setData} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
-    <Sports {...data} data={data} setData={setData} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
-    <Pool {...data} data={data} setData={setData} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
-    <Inside {...data} data={data} setData={setData} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
-    <BedsNBaths {...data} data={data} setData={setData} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
-    <Kitchen {...data} data={data} setData={setData} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
-    <Amenities {...data} data={data} setData={setData} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
-    <Safety {...data} data={data} setData={setData} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
-    <Location {...data} data={data} setData={setData} handleFieldChange={handleFieldChange} updateFields={updateFields} />,
-
+    <Pool/>,
+    <Outside />,
+    <Inside />,
+    <BedsNBaths />,
+    <Kitchen />,
+    <Amenities />,
+    <Safety />,
+    <Location />,
+    <Sports />,
   ];
 
   const basicTabLabels = ['Basic Info', 'Main Description',];
-  const advancedTabLabels = ['Outside', 'Sports', 'Pool', 'Inside', 'Beds & Baths', 'Kitchen', 'Amenities', 'Safety', 'Location',];
+  const advancedTabLabels = ['Pool', 'Outside', 'Inside', 'Beds & Baths', 'Kitchen', 'Amenities', 'Safety', 'Location', 'Sports'];
   const [tabLabels, setTabLabels] = useState([...basicTabLabels, ...advancedTabLabels]); //8. Controls the rendering of tabs (FormTabs.tsx #4) via the above labels. 
   includeDetailedSteps && briefSteps.push(...detailedSteps) // Makes sure that on first push of advanced view button the array with the detailedSteps tabs is couple with the briefSteps one.
   //9. That way on click you get continuity of tabs and a smooth experience
-
-
-
-
-
 
   const currentSteps = [...briefSteps,];
   const { steps, currentStepIndex, setCurrentStepIndex, step, isFirstStep, isLastStep, back, next, handleStepComplete, completedSteps } = useMultistepForm(currentSteps);
@@ -118,14 +100,6 @@ export default function Home() {
     setTabLabels(basicTabLabels)
   };
 
-
-
-  const applySelectedItems = () => {
-    setData({
-      ...data,
-      ...selectedItems,
-    });
-  }; //13. Part of the mechanism I mentioned on 2.
 
   function modeLabel() {
     return includeDetailedSteps ? "Advanced View" : "Basic View";
@@ -148,7 +122,7 @@ export default function Home() {
       //18. Hide the message after 15 seconds (15000 milliseconds)
       setTimeout(() => {
         setShowMessage(false);
-      }, 15000);
+      }, 1000);
 
       //19. Mark the effect as run
       setHasEffectRun(true);
@@ -157,10 +131,17 @@ export default function Home() {
 
   const viewMode = modeLabel();
 
-  return (<>
+  return (
+    <FormProvider
+      value={{
+        value: state,
+        setValue: newState => setState({ ...state, ...newState }),
+        handleFieldChange
+      }}
+    >
+  <>
     <div className="formprime">
       <form id='form' onSubmit={onSubmit}>
-
 
         <Paper className="paper" sx={{ p: 3 }}>
           <FormTabs
@@ -198,7 +179,6 @@ export default function Home() {
                     }
                     {steps.length === 11 ? (<Button variant="contained" className='basic-view-btn' type='button' onClick={() => {
                       goToBasicView();
-                      applySelectedItems();
                       setCurrentStepIndex(1)
                     }}>Go to basic view</Button>) : null
                     }
@@ -214,5 +194,6 @@ export default function Home() {
       </form>
     </div>
   </>
+  </FormProvider>
   )
 }

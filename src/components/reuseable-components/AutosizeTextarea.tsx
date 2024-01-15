@@ -49,7 +49,7 @@ const {briefDescription} = data;
     className='textarea-css'
     aria-label="minimum height" 
     minRows={3} 
-    placeholder="Please describe your property"
+    placeholder="Please describe your property. Do not forget to mention why it stands out from the competition"
     value={briefDescription} 
     onChange={handleTextareaChange}
    
