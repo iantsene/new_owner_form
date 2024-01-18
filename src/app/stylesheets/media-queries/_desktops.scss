@@ -117,6 +117,39 @@
       }
     }
 
+    .select-flex .MuiFormControl-root {
+      display: flex;
+      flex-direction: row;    
+      span{
+        margin-right: 10px;
+      }
+    }
+
+    .pool-yes-no {   
+      margin: 25px 30px 32px;
+      
+      
+    }
+   
+    .pool-option {
+      display: flex;
+      justify-content: flex-start;
+      white-space: nowrap;
+    }
+
+    .clients-favorite {
+      color: red;
+      position: relative;
+      margin-top: -10px;
+      font-size: 10px;
+      font-weight: bolder;
+    }
+
+    .short-description {
+      font-style: italic;
+      color: rgba(128, 128, 128, 0.664);
+    }
+
     // .distance-to-pois-category,
     // .distance-to-services-category,
     // .nearby-attractions-category,
@@ -237,7 +270,9 @@
     
 
      // ################ 1651 - 2100px Overrides ####################
-     .cooking-devices-cat .media-query-custom-breakpoint
+     .cooking-devices-cat .media-query-custom-breakpoint,
+     .bedsnbaths-brief,
+     .bbq-cat .media-query-custom-breakpoint 
      {// Quad column grid
       width: 1152px;
       display: grid;
@@ -266,6 +301,23 @@
       white-space: nowrap;
       justify-content: center;
       justify-items: center;
+    }
+
+    .duo-text-grid .list-item-container .label {
+      flex: unset
+    }
+
+    .duo-text-grid
+    {// Dual column grid
+      width: unset;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+      gap: 0px 100px;
+      grid-template-areas:
+        ". .";
+      justify-content: center;
+      justify-items: flex-start;
     }
    
 

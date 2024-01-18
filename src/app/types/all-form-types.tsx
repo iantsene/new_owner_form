@@ -1,5 +1,6 @@
 export type FormDataTypes = {
     
+    poolYesNo: boolean
     checkInTime: string
     checkOutTime: string
     selfCheckIn: boolean
@@ -7,7 +8,7 @@ export type FormDataTypes = {
     luggageDropTime: string
     rentalLicense: boolean
     extraLicenseRequired: boolean
-    extraLicenceGMAG: boolean
+    extraLicenseType: string
     extraEcoHouse:boolean
     extraPartiesNotAllowed: boolean
     extraPartiesAllowed: boolean
@@ -182,15 +183,15 @@ export type FormDataTypes = {
     leisureFitnessCenter: string
     leisureHospital: string
     leisureLaundromat: string
-    levelGround: boolean
+    poolLevel: string
     terrace: boolean
-    outsideFurniture: boolean
+    poolFurniture: boolean
     depthMarks: boolean
     safetySign: boolean
-    swimmingRing: boolean
+    poolRing: boolean
     staircase: boolean
     jacuzziJets: boolean
-    poolMaintenace: boolean
+    poolMaintained: boolean
     accessToPool: boolean
     fence: boolean
     poolTowels: boolean
@@ -236,7 +237,8 @@ export type FormDataTypes = {
     basketballCourt: boolean
     drinkingWater: boolean
     poofPilows: boolean
-    parkingAvailable: string
+    parkingAvailable: boolean
+    parkingDescription: string
     terraceOrVeranda: string
     shadedTerraceOrveranda: string
     barbeque: string
@@ -244,11 +246,10 @@ export type FormDataTypes = {
     sunloungers: string
     kioskWithDiningFacilities: string
     fireplaceType: string
-    heatingMeans: string
     tvType: string
     hydroMassageType: string
     internetType: string
-    heating: boolean
+    heating: string
     acInLounge: boolean
     sofa: boolean
     musicSystem: boolean
@@ -257,8 +258,10 @@ export type FormDataTypes = {
     dishwasher: boolean
     washingMachine: boolean
     hairdryer: boolean
-    airConditioning: boolean
+    airConditioningCooling: boolean,
+    airConditioningHeating: boolean,
     ceilingFans: boolean
+    standingFans: boolean
     gym: boolean
     cleaningMaterials: boolean
     availableSmallGames: boolean
@@ -268,16 +271,16 @@ export type FormDataTypes = {
     laundryRoom: boolean
     clothesDryerRack: boolean
     fan: boolean
-    entertainmentVideogames: boolean
-    amenitieswoodStove: boolean
-    amenitiesFitnessRoom: boolean
-    entertainmentSatelliteOrCable: boolean
-    entertainmentVideoLibrary: boolean
-    amenitiesElevator: boolean
-    entertainmentToys: boolean
-    amenitiesTelephone: boolean
-    amenitiesGameRoom: boolean
-    entertainmentMusicLibrary: boolean
+    videoGames: boolean
+    woodStove: boolean
+    fitnessRoom: boolean
+    satelliteOrCable: boolean
+    videoLibrary: boolean
+    elevator: boolean
+    toys: boolean
+    telephone: boolean
+    gameRoom: boolean
+    musicLibrary: boolean
     clothesStorage: boolean
     privateEntrance: boolean
     washerDryer: boolean
@@ -289,7 +292,7 @@ export type FormDataTypes = {
     sauna: boolean
     petrolBoiler: boolean
     workStation: boolean
-    mosquitoNet: boolean
+    mosquitoNets: boolean
     outletAdapters: boolean
     networkCode: boolean
     wifiBroadband: boolean
@@ -334,13 +337,28 @@ export type FormDataTypes = {
     deadboltLock: boolean
     outdoorLighting: boolean
     lightningProtection: boolean
-    bedroomOneType: string
-    bedroomTwoType: string
-    bedroomThreeType: string
-    bedroomFourType: string
-    bedroomFiveType: string
-    bedroomSixType: string
-    bedroomSevenType: string
+    bedroomNumber: number
+    bedrooms: Bedroom[]
+    bathroomNumber: number
+    sofaBedsNumber: number
+    campBedsNumber: number
+    foldingBedsNumber: number
+    cotsNumber: number
+    enSuiteBathsNumber: number
+    commonBathsNumber: number
+    maxPaxNumber: number 
+    maxAdultsNumber: number
+    maxChildrenNumber: number
+    bedroomOne: string
+    bedroomTwo: string
+    bedroomThree: string
+    bedroomFour: string
+    bedroomFive: string
+    bedroomSix: string
+    bedroomSeven: string
+    bedroomEight: string
+    bedroomNine: string
+    bedroomTen: string
     bathroomOne: string
     bathroomTwo: string
     bathroomThree: string
@@ -348,6 +366,9 @@ export type FormDataTypes = {
     bathroomFive: string
     bathroomSix: string
     bathroomSeven: string
+    bathroomEight: string
+    bathroomNine: string
+    bathroomTen: string
     bedroomOneHeating: string
     bedroomTwoHeating: string
     bedroomThreeHeating: string
@@ -364,7 +385,6 @@ export type FormDataTypes = {
     bathroomsCommonSeven: string
     commonAreaBedOne: string
     commonAreaBedTwo: string
-    cot: string
     enSuiteBathroomOne: string
     extrasBabyBath: boolean
     extrasBabyPotty: boolean
@@ -413,10 +433,15 @@ export type FormDataTypes = {
     sanitaryStandard: string
     physicalDistancing: boolean
     briefDescription: string
-    
-    data: any
-    setData: any
-    handleFieldChange: any
-    handleValueChange: string
-    updateFields: (fields: Partial<FormDataTypes>) => void
+  
+}
+
+
+export type BedroomType = 'single' | 'double' | 'triple' | 'twin'
+export type Bed = 'double' | 'single' | 'king' | 'queen' |  'baby crib' | 'sofa bed' | 'murphy' | 'bunk bed' | 'child bed'
+
+export interface Bedroom {
+    type: BedroomType;
+    beds: Bed[];
+    heating: boolean;
 }

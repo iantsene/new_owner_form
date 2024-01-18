@@ -1,31 +1,20 @@
-import { Checkbox, FormControlLabel, FormGroup, InputBase, TextField } from "@mui/material";
+import { FormGroup } from "@mui/material";
 import FormWrapper from "../form_components/FormWrapper";
-import { FormDataTypes } from "@/app/types/all-form-types";
+import AccessibleIcon from '@mui/icons-material/Accessible';
+import FamilyRestroomIcon from '@mui/icons-material/FamilyRestroom';
+import PetsIcon from '@mui/icons-material/Pets';
+import SmokingRoomsIcon from '@mui/icons-material/SmokingRooms';
+import { useFormData } from "@/app/contexts/form";
+import CustomCheckbox from "../reuseable-components/CustomCheckbox";
 
 
 
-type UserFormProps = FormDataTypes & {
-  updateFields: (fields: Partial<FormDataTypes>) => void
 
-}
+export default function Safety() {
 
-export default function Safety({
-  carbonMonoxideAlarm,
-  emergencyExitRoute,
-  fireEmergencyContact,
-  fireExtinguisher,
-  firstAidKit,
-  medicalEmergencyContact,
-  policeEmergencyContact,
-  smokeAlarm,
-  deadboltLock,
-  outdoorLighting,
-  lightningProtection,
+  const { value, setValue, handleFieldChange } = useFormData();
 
-
-  updateFields, data, handleFieldChange }: UserFormProps) {
-
-  const handleCheckboxChange = (fieldName: string) => (e) => {
+  const handleCheckboxChange = (fieldName: string) => (e: any) => {
     handleFieldChange(fieldName, e.target.checked);
   };
 
@@ -40,20 +29,32 @@ export default function Safety({
           <div className="safety-category category-styling">
 
             <ul className="multi-options-grid">
-              <li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={carbonMonoxideAlarm} onChange={handleCheckboxChange('carbonMonoxideAlarm')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Carbon monoxide alarm</span></div>} /></li>
-              <li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={emergencyExitRoute} onChange={handleCheckboxChange('emergencyExitRoute')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Emergency exit route</span></div>} /></li>
-              <li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={firstAidKit} onChange={handleCheckboxChange('firstAidKit')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">First aid kit</span></div>} /></li>
-              <li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={fireExtinguisher} onChange={handleCheckboxChange('fireExtinguisher')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Fire extinguisher</span></div>} /></li>
-              <li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={smokeAlarm} onChange={handleCheckboxChange('smokeAlarm')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Smoke alarm</span></div>} /></li>
-              <li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={deadboltLock} onChange={handleCheckboxChange('deadboltLock')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Deadbolt lock</span></div>} /></li>
-              <li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={policeEmergencyContact} onChange={handleCheckboxChange('policeEmergencyContact')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Police emergency contact</span></div>} /></li>
-              <li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={fireEmergencyContact} onChange={handleCheckboxChange('fireEmergencyContact')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Fire emergency contact</span></div>} /></li>
-              <li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={outdoorLighting} onChange={handleCheckboxChange('outdoorLighting')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Outdoor lighting</span></div>} /></li>
-              <li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={lightningProtection} onChange={handleCheckboxChange('lightningProtection')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Lightning protection</span></div>} /></li>
-              <li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={medicalEmergencyContact} onChange={handleCheckboxChange('medicalEmergencyContact')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Medical emergency contact</span></div>} /></li>
-            </ul>
+                <CustomCheckbox label="Carbon monoxide alarm" value={value.carbonMonoxideAlarm} onChange={handleCheckboxChange('carbonMonoxideAlarm')} />
+                <CustomCheckbox label="Emergency exit route" value={value.emergencyExitRoute} onChange={handleCheckboxChange('emergencyExitRoute')} />
+                <CustomCheckbox label="First aid kit" value={value.firstAidKit} onChange={handleCheckboxChange('firstAidKit')} />
+                <CustomCheckbox label="Fire extinguisher" value={value.fireExtinguisher} onChange={handleCheckboxChange('fireExtinguisher')} />
+                <CustomCheckbox label="Smoke alarm" value={value.smokeAlarm} onChange={handleCheckboxChange('smokeAlarm')} />
+                <CustomCheckbox label="Deadbolt lock" value={value.deadboltLock} onChange={handleCheckboxChange('deadboltLock')} />
+                <CustomCheckbox label="Police emergency contact" value={value.policeEmergencyContact} onChange={handleCheckboxChange('policeEmergencyContact')} />
+                <CustomCheckbox label="Fire emergency contact" value={value.fireEmergencyContact} onChange={handleCheckboxChange('fireEmergencyContact')} />
+                <CustomCheckbox label="Outdoor lighting" value={value.outdoorLighting} onChange={handleCheckboxChange('outdoorLighting')} />
+                <CustomCheckbox label="Lightning protection" value={value.lightningProtection} onChange={handleCheckboxChange('lightningProtection')} />
+                <CustomCheckbox label="Medical emergency contact" value={value.medicalEmergencyContact} onChange={handleCheckboxChange('medicalEmergencyContact')} />
+          </ul>
 
           </div>
+
+      
+        <div className="accessibility-cat main-category">
+          <h3>Accessibility options</h3>
+          <ul className="duo-options-grid">
+              <CustomCheckbox label="Wheelchair friendly" value={value.wheelchairFriendly} icon={<AccessibleIcon />} onChange={handleCheckboxChange('wheelchairFriendly')} />
+              <CustomCheckbox label="Children Allowed" value={value.childrenAllowed} icon={<FamilyRestroomIcon />} onChange={handleCheckboxChange('childrenAllowed')} />
+              <CustomCheckbox label="Pets allowed" value={value.petsAllowed} icon={<PetsIcon />} onChange={handleCheckboxChange('petsAllowed')} />
+              <CustomCheckbox label="Smoking allowed" value={value.smokingAllowed} icon={<SmokingRoomsIcon />} onChange={handleCheckboxChange('smokingAllowed')} />
+          </ul>
+        </div>
+      
 
         </div>
       </FormGroup>

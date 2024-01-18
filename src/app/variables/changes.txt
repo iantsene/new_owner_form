@@ -1,0 +1,432 @@
+!  = needs to be on advanced view
+{} = select text
+-  = remove
+/  = move
+[       ] = provide a text box to write
++ add or move here
+@ mandatory
+(root) = no accordion
+
+**** = as it is
+
+BASIC INFO
+
+(root)
++Bedrooms
+@ +Number of bedrooms :  // Added
+
++Extra beds (outside of a bedroom) // Added to beds and baths tab also on beds and baths brief on basic info
+@ +Sofa beds: // Added
+@ +Camp beds : // Added
+@ +Folding beds: // Added
+@ +Cots: // Added
+
++Baths // Added
+@ +Number of bathrooms/wc: // Added
+@ +En-suite bathrooms: // Added
+@ +Common bathrooms: // Added
+
+
+@ +Max Pax: // Added
+@ +Max Adults: // Added
+@ +Max children (default Max Pax - 1): // Added
+
+Add pool option // done
+
+Property Type
+****
+
+! Assessibility options // Moved to Safety tab
+
+! Property Views // Moved to Location tab
+
+@ Property Location
+
+Check Option
+Preset check-in time 15.00, check-out 10.00 // done
+
+Licenses
+@ Rental license
+@ Licence Type: Make this text // Done
+@ License required: Yes/No
+(this has to do with the country)
+
+! Extra Parties & Eco // Moved to main description temporarily until I know where to move it
+
+
+
+
+
+
+
+
+
+
+
+
+Main Description
+
+Lodging Type
+! Nearby Sercices // Move to Location tab
+/ living room to Inside // Done
+/ garden to Outside // done
+
+Living space information
+@ area
+@ number of floors
+@ year of built
+surrounding area
+
+! Physical distancing
+
+@ Brief Description
+(Please describe your property. Do not forget to mention why it stands out of the competition) // Added
+
+
+
+
+
+
+
+
+
+
+
+
+
+Outside
+
+Outside {-conveniences}{+amenities} // Done
+! extra water tank // Not sure what to do here. Outside tab already exists on Advanced View
+! drinking water // Not sure what to do here. Outside tab already exists on Advanced View
+! water from a personal supply // Not sure what to do here. Outside tab already exists on Advanced View
+
+
++ Sun and Shade // Done
++ terrace/veranda: // Done
++ shaded terrace/veranda // Done
++ umbrella // Done
++ sunloungers // Done
+- kiosk and dining facilities // Done
+
+
++Parking // Done
++ parking available?: {description} // Done
+private parking // Done
+free on the street // Done
+
+
++BBQ/Barbecue // Done
+barbeque // Done
+washing basin // Done
+
+Outdoors dining {What type of dining facilities do you offer?} // Done
+Dining Terrace// Done
++ chairs and table outside// Done
+- outdoor dining// Done
+{-outside}fridge// Done
+{-outside}kitchen// Done
+traditional pizza oven// Done
+mini bar// Done
+kiosk// Done
+
+Ambience and terrain
+
+Outside games and leisure
+
+table tennis  {+clients' favourite} // Done
+football game {+clients' favourite} // Done
+pool table  {+clients' favourite} // Done
+jacuzzi  {+clients' favourite} // Done
+
+/ chairs and table outside // Done
+
+hammock // Done
+garden swing // Done
+playground // Done
+poof pilows // Done
+
+backetball court // Done
+tennis court // Done
+
+/- Outside Extras // Done
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/ SPORTS - Move last // Done
+
+
+
+
+
+/ POOL (move 3rd) // Done
+
+Pool dimensions
+
+****
+
+Pool amenities & properties
+
+-level ground} // Done
++Level // Done
++[dropdown list:ground,1st floor, second floor, third floor, attic, terrace, roof terrace] // Done
+{-outside}{+pool} furniture // Done
+inflatables // Done
+staircase  +[ give type  ]
+access to pool +[ describe access ]
+fence // Done
+terrace // Done
+pool towels // Done
+pool shower // Done
+{-jacuzzi}jets // Done
+ 
++Safety // Done
+ 
+safety sign // Done
+depth marks // Done
+{-swimmming}{+pool} ring // Done
+pool lasso // Done
+ 
++Other // Done
+
+solar panels // Done
+pool {-maintenance} {+maintained} // Done
+
+
+
+
+
+
+
+
+
+
+ 
+INSIDE
+
+Indoor options
+
+fireplace: {-type} // Done
+/ heating means // Done
++sofa // Done
+TV {-type}: +[ e.g. Netflix enables, Smart TV ] // Done
++satellite or cable // Done
+-internet type // Done
+
+-hydro-massage // Done
++sauna {+client's love this} // Done
+
++Internet options // Done
+Free WiFi // Done
+WiFi broadband // Done
+network {+&} code: +[ add the info hear ]
+
+Heating and cooling
+
++heating {-means}: +[ describe means of heating e.g.:Aircon/central heating ] // Done
++air conditioning for cooling // Done
++air conditioning for heating // Done
+ac in lounge // Done
+ceiling fans // Done
++standing fans // Done
+{-amenities} wood stove // Done
+
+hot water from solar // Done
+hot water from electric // Done
+
+Laundry services +{/ amenities} // Done
+
+cleaning materials // Done
+dishwasher // Done
+laundry room // Done
+washing machine // Done
+{- temple} {+tumble} dryer // Done
+washer dryer // Done
+iron & ironing board // Done
+clothes dryer rack // Done
+clothes storage // Done
+
+Typical indoor amenities
+
+hairdryer // Done
+mosquito net{+s} // Done
+dvd player // Done
+music system // Done
+outlet adapter{+s} // Done
+mini bar // Done
+
+Fitness, wellness and leisure
+
+/ sofa // Done
+inside jacuzzi // Done
+books // Possible mistake, went with last
+/ sauna // Done
+{-amenities} fitness room // Done
+gym // Done
+books // Done
+
+Utility options
+
+private entrance // Done
+petrol boiler // Done
+safe box // Done
+work station // Done
+{-amenities} telephone // Done
+electricity key fob // Done
+{-amenities} elevator // Done
+
+/ Internet options // Done
+
+Entertainment
+
+table tennis {+guests love this} // Done
+available small games // Done
+video games // Done
+toys // Done
+video library // Done
+/satellite or cable // Done
+music library // Done
+game room // Done
+snooker table // Done
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BEDS & BATHS
+
+Bedrooms
+Bedroom 1 {-type} // Done
++[dropdown list: double,twin,triple,single]
+Level:
++[dropdown list:ground,1st floor, second floor, third floor, attic, annex]
+Beds :
++[dropdown list: Double bed, Single bed, King bed, Queen bed, Baby crib, Sofa bed, Murphy bed, Bunk bed, Childbed]
++[dropdown list: Double bed, Single bed, King bed, Queen bed, Baby crib, Sofa bed, Murphy bed, Bunk bed, Childbed]
++[dropdown list: Double bed, Single bed, King bed, Queen bed, Baby crib, Sofa bed, Murphy bed, Bunk bed, Childbed]
+Heating / cooling
++Aircon
++(Ceiling) fan
+
+En-suite bath
++[dropdown list:en-suite shower, en-suite bathroom, en-suite wc]
+Detail:
++[dropdown list:Toilet, Bath with shower, Bath, Shower, Bath with jets, Bidet]
++[dropdown list:Toilet, Bath with shower, Bath, Shower, Bath with jets, Bidet]
++[dropdown list:Toilet, Bath with shower, Bath, Shower, Bath with jets, Bidet]
+etc.:
+
+Common Area Beds
+
+Cot:
+
+Bed 1
+Level +[dropdown list:ground,1st floor, second floor, third floor, attic, annex]
++[dropdown list: Double bed, Single bed, King bed, Queen bed, Baby crib, Sofa bed, Murphy bed, Bunk bed, Childbed]
+Bed 2
++[dropdown list: Double bed, Single bed, King bed, Queen bed, Baby crib, Sofa bed, Murphy bed, Bunk bed, Childbed]
+
+etc.
+
+
+Common Bathrooms:
+[dropdown list: family shower, family bathroom, family wc]
+Level
++[dropdown list:ground,1st floor, second floor, third floor, attic, annex]
+Detail:
++[dropdown list:Toilet, Bath with shower, Bath, Shower, Bath with jets, Bidet, Outdoor shower]
++[dropdown list:Toilet, Bath with shower, Bath, Shower, Bath with jets, Bidet, Outdoor shower]
++[dropdown list:Toilet, Bath with shower, Bath, Shower, Bath with jets, Bidet, Outdoor shower]
+
+! Extras
+
+****
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+KITCHEN
+
+{-Kitchen }Devices etc
++fridge with freezer
+
+****
+
+Dining area and utensils
+
+{-Extra Info} , add this to the first paragraph
+
+
+
+
+
+
+
+
+
+AMENITIES
+
+Maid Service
+- maid breakfast included
+***
+
+Linen
+***
+ 
+Towels
+***
+
+General {-Amenities}
+
+car hire +[dropdownlist: recommended, not essential]
+{+basic} essentials (like soap etc.)
+{-extras} paddle board
+{-extras} beach chair
+
+
+
+
+
+SAFETY
+
+****
+
+LOCATION
+
+****

@@ -1,52 +1,20 @@
 import { Accordion, AccordionDetails, AccordionSummary, Checkbox, FormControlLabel, FormGroup, InputBase, TextField, Typography } from "@mui/material";
 import FormWrapper from "../form_components/FormWrapper";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { FormDataTypes } from "@/app/types/all-form-types";
 import CustomTextField from "../reuseable-components/CustomTextField";
 import { useState } from "react";
+import { useFormData } from "@/app/contexts/form";
+import CustomCheckbox from "../reuseable-components/CustomCheckbox";
 
 
 
-type UserFormProps = FormDataTypes & {
-  updateFields: (fields: Partial<FormDataTypes>) => void
-
-}
-
-export default function Kitchen({
-  coffeeTypeAvailable,
-  cookerWithFullOven,
-  fridgeOrFreezer,
-  microwave,
-  toaster,
-  cookerWithSmallOven,
-  smallFridge,
-  dinningArea,
-  dishesAndSilverware,
-  kitchen,
-  dinningRoomOrSpace,
-  highChair,
-  waterDispenser,
-  cookingBasics,
-  diningTable,
-  cookwareAndKitchenUtensils,
-  separateStove,
-  wineGlasses,
-  kettle,
-  sandwichToaster,
-  espressoCoffeeMachine,
-  stove,
-  blenderOrMulti,
-  filterCoffeeMachine,
-  kitchenette,
-  fryer,
-  mixer,
-  extraSmallBbqOven,
-  breadMaker,
 
 
-  updateFields, data, handleFieldChange }: UserFormProps) {
+export default function Kitchen() {
 
-  const handleCheckboxChange = (fieldName: string) => (e) => {
+  const { value, setValue, handleFieldChange } = useFormData();
+
+  const handleCheckboxChange = (fieldName: string) => (e: any) => {
     handleFieldChange(fieldName, e.target.checked);
   };
 
@@ -57,18 +25,18 @@ export default function Kitchen({
       content: (<>
       <div className="cooking-devices-cat main-category">
       <ul className="media-query-custom-breakpoint">
-  <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={microwave} onChange={handleCheckboxChange('microwave')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Microwave</span></div>} /></li>
-  <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={toaster} onChange={handleCheckboxChange('toaster')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Toaster</span></div>} /></li>
-  <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={smallFridge} onChange={handleCheckboxChange('smallFridge')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Small fridge</span></div>} /></li>
-  <li className="list-item wrap-below"><FormControlLabel control={<Checkbox size="small" checked={sandwichToaster} onChange={handleCheckboxChange('sandwichToaster')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Sandwich toaster</span></div>} /></li>
-  <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={blenderOrMulti} onChange={handleCheckboxChange('blenderOrMulti')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Blender / multi</span></div>} /></li>
-  <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={breadMaker} onChange={handleCheckboxChange('breadMaker')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Bread maker</span></div>} /></li>
-  <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={mixer} onChange={handleCheckboxChange('mixer')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Mixer</span></div>} /></li>
-  <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={kettle} onChange={handleCheckboxChange('kettle')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Kettle</span></div>} /></li>
-  <li className="list-item wrap-below"><FormControlLabel control={<Checkbox size="small" checked={filterCoffeeMachine} onChange={handleCheckboxChange('filterCoffeeMachine')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Filter coffee machine</span></div>} /></li>
-  <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={fryer} onChange={handleCheckboxChange('fryer')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Fryer</span></div>} /></li>
-  <li className="list-item wrap-below"><FormControlLabel control={<Checkbox size="small" checked={espressoCoffeeMachine} onChange={handleCheckboxChange('espressoCoffeeMachine')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Espresso coffee machine</span></div>} /></li>
-  <li className="list-item wrap-below"><FormControlLabel control={<Checkbox size="small" checked={waterDispenser} onChange={handleCheckboxChange('waterDispenser')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Water dispenser</span></div>} /></li>
+      <CustomCheckbox label="Microwave" value={value.microwave} onChange={handleCheckboxChange('microwave')} />
+      <CustomCheckbox label="Toaster" value={value.toaster} onChange={handleCheckboxChange('toaster')} />
+      <CustomCheckbox label="Small fridge" value={value.smallFridge} onChange={handleCheckboxChange('smallFridge')} />
+      <CustomCheckbox label="Sandwich toaster" value={value.sandwichToaster} onChange={handleCheckboxChange('sandwichToaster')} />
+      <CustomCheckbox label="Blender / multi" value={value.blenderOrMulti} onChange={handleCheckboxChange('blenderOrMulti')} />
+      <CustomCheckbox label="Bread maker" value={value.breadMaker} onChange={handleCheckboxChange('breadMaker')} />
+      <CustomCheckbox label="Mixer" value={value.mixer} onChange={handleCheckboxChange('mixer')} />
+      <CustomCheckbox label="Kettle" value={value.kettle} onChange={handleCheckboxChange('kettle')} />
+      <CustomCheckbox label="Filter coffee machine" value={value.filterCoffeeMachine} onChange={handleCheckboxChange('filterCoffeeMachine')} />
+      <CustomCheckbox label="Fryer" value={value.fryer} onChange={handleCheckboxChange('fryer')} />
+      <CustomCheckbox label="Espresso coffee machine" value={value.espressoCoffeeMachine} onChange={handleCheckboxChange('espressoCoffeeMachine')} />
+      <CustomCheckbox label="Water dispenser" value={value.waterDispenser} onChange={handleCheckboxChange('waterDispenser')} />
   </ul>
   </div>
         </>
@@ -80,12 +48,12 @@ export default function Kitchen({
       content: (<>
         <div className="cooking-means-cat main-category">
         <ul className="media-query-custom-breakpoint">
-  <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={kitchen} onChange={handleCheckboxChange('kitchen')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Kitchen</span></div>} /></li>
-  <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={kitchenette} onChange={handleCheckboxChange('kitchenette')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Kitchenette</span></div>} /></li>
-  <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={stove} onChange={handleCheckboxChange('stove')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Stove</span></div>} /></li>
-  <li className="list-item wrap-below"><FormControlLabel control={<Checkbox size="small" checked={cookerWithSmallOven} onChange={handleCheckboxChange('cookerWithSmallOven')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Cooker with small oven</span></div>} /></li>
-  <li className="list-item wrap-below"><FormControlLabel control={<Checkbox size="small" checked={extraSmallBbqOven} onChange={handleCheckboxChange('extraSmallBbqOven')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Extra small bbq oven</span></div>} /></li>
-  <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={separateStove} onChange={handleCheckboxChange('separateStove')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Separate stove</span></div>} /></li>
+        <CustomCheckbox label="Kitchen" value={value.kitchen} onChange={handleCheckboxChange('kitchen')} />
+        <CustomCheckbox label="Kitchenette" value={value.kitchenette} onChange={handleCheckboxChange('kitchenette')} />
+        <CustomCheckbox label="Stove" value={value.stove} onChange={handleCheckboxChange('stove')} />
+        <CustomCheckbox label="Cooker with small oven" value={value.cookerWithSmallOven} onChange={handleCheckboxChange('cookerWithSmallOven')} />
+        <CustomCheckbox label="Extra small bbq oven" value={value.extraSmallBbqOven} onChange={handleCheckboxChange('extraSmallBbqOven')} />
+        <CustomCheckbox label="Separate stove" value={value.separateStove} onChange={handleCheckboxChange('separateStove')} />
         </ul>
         </div>
         </>
@@ -97,20 +65,19 @@ export default function Kitchen({
       content: (<>
       <div className="dining-area-utensils-cat main-category">
       <ul className="media-query-custom-breakpoint">
-  <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={dinningArea} onChange={handleCheckboxChange('dinningArea')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Dinning area</span></div>} /></li>
-  <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={dinningRoomOrSpace} onChange={handleCheckboxChange('dinningRoomOrSpace')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Dinning room or space</span></div>} /></li>
-  <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={diningTable} onChange={handleCheckboxChange('diningTable')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Dining table</span></div>} /></li>
-  <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={wineGlasses} onChange={handleCheckboxChange('wineGlasses')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Wine glasses</span></div>} /></li>
-  <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={dishesAndSilverware} onChange={handleCheckboxChange('dishesAndSilverware')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Dishes and silverware</span></div>} /></li>
-  <li className="list-item wrap-below"><FormControlLabel control={<Checkbox size="small" checked={cookwareAndKitchenUtensils} onChange={handleCheckboxChange('cookwareAndKitchenUtensils')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Cookware and kitchen utensils</span></div>} /></li>
-  <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={cookingBasics} onChange={handleCheckboxChange('cookingBasics')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Cooking basics</span></div>} /></li>
-  <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={highChair} onChange={handleCheckboxChange('highChair')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">High chair</span></div>} /></li>
+      <CustomCheckbox label="Dinning area" value={value.dinningArea} onChange={handleCheckboxChange('dinningArea')} />
+      <CustomCheckbox label="Dinning room or space" value={value.dinningRoomOrSpace} onChange={handleCheckboxChange('dinningRoomOrSpace')} />
+      <CustomCheckbox label="Dining table" value={value.diningTable} onChange={handleCheckboxChange('diningTable')} />
+      <CustomCheckbox label="Wine glasses" value={value.wineGlasses} onChange={handleCheckboxChange('wineGlasses')} />
+      <CustomCheckbox label="Dishes and silverware" value={value.dishesAndSilverware} onChange={handleCheckboxChange('dishesAndSilverware')} />
+      <CustomCheckbox label="Cookware and kitchen utensils" value={value.cookwareAndKitchenUtensils} onChange={handleCheckboxChange('cookwareAndKitchenUtensils')} />
+      <CustomCheckbox label="Cooking basics" value={value.cookingBasics} onChange={handleCheckboxChange('cookingBasics')} />
+      <CustomCheckbox label="High chair" value={value.highChair} onChange={handleCheckboxChange('highChair')} />
       </ul>
       </div>
         </>
       ),
     },
-    
   ];
   
   const [expanded, setExpanded] = useState<string | false>(false);
@@ -155,22 +122,17 @@ export default function Kitchen({
           </Accordion>
         ))}
 
-
         <div className="kitchen-extras-cat main-category">
           <h3>Extra info</h3>
           <ul className="duo-options-grid">
-            <li className="list-item-container"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><div className="label"><span>Coffee type available:</span><CustomTextField label="Coffee type available" value={coffeeTypeAvailable} onChange={e => updateFields({ coffeeTypeAvailable: e })} type="text"   ></CustomTextField></div></li>
-            <li className="list-item-container"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><div className="label"><span>Cooker with full oven:</span><CustomTextField label="Cooker with full oven" value={cookerWithFullOven} onChange={e => updateFields({ cookerWithFullOven: e })} type="text"   ></CustomTextField></div></li>
-            <li className="list-item-container"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><div className="label"><span>Fridge/Freezer:</span><CustomTextField label="Fridge/Freezer" value={fridgeOrFreezer} onChange={e => updateFields({ fridgeOrFreezer: e })} type="text"   ></CustomTextField></div></li>
+          <CustomTextField label="Coffee type available" type="text" value={value.coffeeTypeAvailable} onChange={e => setValue({ coffeeTypeAvailable: e })} />
+          <CustomTextField label="Cooker with full oven" type="text" value={value.cookerWithFullOven} onChange={e => setValue({ cookerWithFullOven: e })} />
+          <CustomTextField label="Fridge/Freezer" type="text" value={value.fridgeOrFreezer} onChange={e => setValue({ fridgeOrFreezer: e })} />
           </ul>
-
         </div>
 
       </FormGroup>
     </FormWrapper>
   );
-        
-
-      
 }
 
