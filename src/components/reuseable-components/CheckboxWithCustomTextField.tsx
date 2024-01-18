@@ -2,16 +2,19 @@ import React, { ReactNode } from 'react';
 import { Checkbox, FormControlLabel } from '@mui/material';
 import CustomTextField from './CustomTextField';
 
+
 interface CheckboxWithCustomTextFieldProps {
   label: string;
   checked: boolean;
   textboxLabel: string;
   description: string;
-  icon: ReactNode;
+  icon?: ReactNode;
   onClearDescription: () => void;
   onCheckboxChange: (checked: boolean) => void;
   onDescriptionChange: (description: string) => void;
 }
+
+
 
 function CheckboxWithCustomTextField({
   label,
@@ -50,7 +53,7 @@ function CheckboxWithCustomTextField({
                 />
               ) : (
                 <>
-                  {icon}
+                  {icon? icon : <img src="/Icons/icon-placeholder.png" />}
                   <span className="checkbox-tags">{label}</span>
                 </>
   )}

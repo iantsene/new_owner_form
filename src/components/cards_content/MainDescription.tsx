@@ -3,18 +3,15 @@ import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
-  FormControlLabel,
   FormGroup,
-  Checkbox,
   Typography,
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import AutosizeTextarea from '../reuseable-components/AutosizeTextarea';
 import FormWrapper from '../form_components/FormWrapper';
-import { FormDataTypes } from '@/app/types/all-form-types';
 import CustomTextField from '../reuseable-components/CustomTextField';
-import CheckboxWithCustomTextField from '../reuseable-components/CheckboxWithCustomTextField';
 import { useFormData } from '@/app/contexts/form';
+import CustomCheckbox from '../reuseable-components/CustomCheckbox';
 
 
 export default function MainDescription() {
@@ -46,17 +43,17 @@ export default function MainDescription() {
         <div className="lodging-type-category main-category">
 
           <ul className="multi-options-grid">
-            <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={value.awayFromItAll} onChange={handleCheckboxChange('awayFromItAll')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Away from it all</span></div>} /></li>
-            <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={value.family} onChange={handleCheckboxChange('family')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Family</span></div>} /></li>
-            <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={value.romantic} onChange={handleCheckboxChange('romantic')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Romantic</span></div>} /></li>
-            <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={value.historical} onChange={handleCheckboxChange('historical')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Historical</span></div>} /></li>
-            <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={value.traditionalProperty} onChange={handleCheckboxChange('traditionalProperty')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Traditional property</span></div>} /></li>
-            <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={value.secluded} onChange={handleCheckboxChange('secluded')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Secluded</span></div>} /></li>
-            <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={value.singleLevelHome} onChange={handleCheckboxChange('singleLevelHome')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Single level home</span></div>} /></li>
-            <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={value.detached} onChange={handleCheckboxChange('detached')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Detached</span></div>} /></li>
-            <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={value.semiDetached} onChange={handleCheckboxChange('semiDetached')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Semi-detached</span></div>} /></li>
-            <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={value.brandNew} onChange={handleCheckboxChange('brandNew')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Brand new</span></div>} /></li>
-            <li className="list-item"><FormControlLabel control={<Checkbox size="small" checked={value.privateResidence} onChange={handleCheckboxChange('privateResidence')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Bed and breakfast</span></div>} /></li>
+          <CustomCheckbox label="Away from it all" value={value.awayFromItAll} onChange={handleCheckboxChange('awayFromItAll')} />
+          <CustomCheckbox label="Family" value={value.family} onChange={handleCheckboxChange('family')} /> 
+          <CustomCheckbox label="Romantic" value={value.romantic} onChange={handleCheckboxChange('romantic')} /> 
+          <CustomCheckbox label="Historical" value={value.historical} onChange={handleCheckboxChange('historical')} /> 
+          <CustomCheckbox label="Traditional property" value={value.traditionalProperty} onChange={handleCheckboxChange('traditionalProperty')} /> 
+          <CustomCheckbox label="Secluded" value={value.secluded} onChange={handleCheckboxChange('secluded')} /> 
+          <CustomCheckbox label="Single level home" value={value.singleLevelHome} onChange={handleCheckboxChange('singleLevelHome')} /> 
+          <CustomCheckbox label="Detached" value={value.detached} onChange={handleCheckboxChange('detached')} /> 
+          <CustomCheckbox label="Semi-detached" value={value.semiDetached} onChange={handleCheckboxChange('semiDetached')} /> 
+          <CustomCheckbox label="Brand new" value={value.brandNew} onChange={handleCheckboxChange('brandNew')} /> 
+          <CustomCheckbox label="Bed and breakfast" value={value.privateResidence} onChange={handleCheckboxChange('privateResidence')} /> 
           </ul>
         </div>
       </>
@@ -69,10 +66,10 @@ export default function MainDescription() {
         <div className="living-space-cat main-category">
 
           <ul className="duo-options-grid">
-          <li className="list-item-container"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><div className="label"><span>Area of the house in m2:</span><CustomTextField label="Area of the house in m2" type="text" value={value.areaOfTheHouseInM2} icon={<img className="textfiel-icon" src="/Icons/icon-placeholder.png" alt="icon" />} onChange={e => setValue({ areaOfTheHouseInM2: e })}  ></CustomTextField></div></li>
-          <li className="list-item-container"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><div className="label"><span>Surrounding area in m2:</span><CustomTextField label="Surrounding area in m2" type="text" value={value.surroundingAreaInM2} icon={<img className="textfiel-icon" src="/Icons/icon-placeholder.png" alt="icon" />} onChange={e => setValue({ surroundingAreaInM2: e })}  ></CustomTextField></div></li>
-          <li className="list-item-container"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><div className="label"><span>Number of floors to the ground:</span><CustomTextField label="Number of floors to the ground" type="text" value={value.numOfFloorsToGround} icon={<img className="textfiel-icon" src="/Icons/icon-placeholder.png" alt="icon" />} onChange={e => setValue({ numOfFloorsToGround: e })}  ></CustomTextField></div></li>
-          <li className="list-item-container"><img className="icon" src="/Icons/icon-placeholder.png" alt="icon" /><div className="label"><span>Year of built:</span><CustomTextField label="Year of built" type="text" value={value.yearOfBuilt} icon={<img className="textfiel-icon" src="/Icons/icon-placeholder.png" alt="icon" />} onChange={e => setValue({ yearOfBuilt: e })}  ></CustomTextField></div></li>
+          <CustomTextField label="Area of the house in m2" type="text" value={value.areaOfTheHouseInM2} onChange={e => setValue({ areaOfTheHouseInM2: e })}  />
+          <CustomTextField label="Surrounding area in m2" type="text" value={value.surroundingAreaInM2} onChange={e => setValue({ surroundingAreaInM2: e })}  />
+          <CustomTextField label="Number of floors to the ground" type="text" value={value.numOfFloorsToGround} onChange={e => setValue({ numOfFloorsToGround: e })}  />
+          <CustomTextField label="Year of built" type="text" value={value.yearOfBuilt} onChange={e => setValue({ yearOfBuilt: e })}  />
           </ul>
         </div>
       </>
@@ -126,9 +123,9 @@ export default function MainDescription() {
 <div className="extra-parties-cat main-category">
             <h3>Extra Parties & Eco</h3>
             <ul className="media-query-custom-breakpoint">
-              <li className="list-items"><FormControlLabel control={<Checkbox size="small" checked={value.extraEcoHouse} onChange={handleCheckboxChange('extraEcoHouse')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Extra Eco house</span></div>} /></li>
-              <li className="list-items wrap-below"><FormControlLabel control={<Checkbox size="small" checked={value.extraPartiesNotAllowed} onChange={handleCheckboxChange('extraPartiesNotAllowed')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Extra Parties not allowed</span></div>} /></li>
-              <li className="list-items wrap-below"><FormControlLabel control={<Checkbox size="small" checked={value.extraPartiesAllowed} onChange={handleCheckboxChange('extraPartiesAllowed')} />} label={<div className="label-content"><img src="/Icons/icon-placeholder.png" /><span className="checkbox-tags">Extra Parties allowed</span></div>} /></li>
+          <CustomCheckbox label="Extra Eco house" value={value.extraEcoHouse} onChange={handleCheckboxChange('extraEcoHouse')} /> 
+          <CustomCheckbox label="Extra Parties not allowed" value={value.extraPartiesNotAllowed} onChange={handleCheckboxChange('extraPartiesNotAllowed')} /> 
+          <CustomCheckbox label="Extra Parties allowed" value={value.extraPartiesAllowed} onChange={handleCheckboxChange('extraPartiesAllowed')} /> 
             </ul>
 
           </div>

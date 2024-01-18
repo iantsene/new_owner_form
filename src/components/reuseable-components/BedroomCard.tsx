@@ -1,6 +1,5 @@
-// BedroomCard component
-import React, { useEffect } from 'react';
-import DropdownSelect from './DropdownSelect';  // Make sure to import your DropdownSelect component
+import React from 'react';
+import DropdownSelect from './DropdownSelect'; 
 import { Button, Card, Typography } from '@mui/material';
 import { BedroomType } from '@/app/types/all-form-types';
 
@@ -21,7 +20,7 @@ interface Props {
 
 
 const BedroomCard = ({ index, bedroom, onUpdate }: Props) => {
-  // ... Other logic specific to BedroomCard
+ 
 
   bedroom.beds
   return (
@@ -62,31 +61,15 @@ const BedroomCard = ({ index, bedroom, onUpdate }: Props) => {
       <Button onClick={() => onUpdate({ ...bedroom, beds: [...bedroom.beds, 'single']})}>
         Add bed
       </Button>
+      <Button onClick={() => onUpdate({ ...bedroom, beds: bedroom.beds.slice(0, -1) })}>
+        Remove bed
+      </Button>
     </Card>
   );
 };
 
 export default BedroomCard;
 
-// const bedrooms: Bedroom[] = [];
-
-// bedrooms.map((room, index) => (
-//   <BedroomCard bedroom={room} onUpdate={updatedRoom => setState({ ...state, bedrooms: bedrooms.map((r, i) => i === index ? updatedRoom : r)})} />
-// ))
-
-// const BedroomCard = ({ id, numberOfBedrooms }) => {
-//   // ... Other logic specific to BedroomCard
-
-//   return (
-//     <div>
-//       <h2>{`Bedroom ${id}`}</h2>
-//       <DropdownSelect id={`bedroom${id}`} options={/* your fixed options */} />
-//       {/* Add other components or UI specific to BedroomCard */}
-//     </div>
-//   );
-// };
-
-// export default BedroomCard;
 
 
 

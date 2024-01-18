@@ -1,7 +1,6 @@
 import * as React from "react";
 import { useState } from "react";
 import {
-  Checkbox,
   FormControlLabel,
   FormGroup,
   InputBase,
@@ -16,7 +15,6 @@ import {
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import FormWrapper from "../form_components/FormWrapper";
-import { FormDataTypes } from "@/app/types/all-form-types";
 import VillaIcon from "@mui/icons-material/Villa";
 import ApartmentIcon from "@mui/icons-material/Apartment";
 import CottageIcon from "@mui/icons-material/Cottage";
@@ -24,7 +22,7 @@ import HouseIcon from "@mui/icons-material/House";
 import CustomTextField from "../reuseable-components/CustomTextField";
 import DropdownSelect from "../reuseable-components/DropdownSelect";
 import { useFormData } from "@/app/contexts/form";
-
+import CustomCheckbox from "../reuseable-components/CustomCheckbox";
 
 export default function BasicInfo() {
   const { value, setValue, handleFieldChange } = useFormData();
@@ -223,98 +221,40 @@ export default function BasicInfo() {
         <>
           <div className="property-address-category main-category">
             <ul className="duo-options-grid mobile-tablet-list-class">
-              <li className="list-item-container">
-                <img
-                  className="icon"
-                  src="/Icons/icon-placeholder.png"
-                  alt="icon"
-                />
-                <div className="label">
-                  <span>Property address:</span>
-                  <CustomTextField
-                    label="Property address"
-                    type="text"
-                    value={value.propertyAddress}
-                    icon={
-                      <img
-                        className="textfield-icon"
-                        src="/Icons/icon-placeholder.png"
-                        alt="icon"
-                      />
-                    }
-                    onChange={(e) => setValue({ propertyAddress: e })}
-                  ></CustomTextField>
-                </div>
-              </li>
-              <li className="list-item-container">
-                <img
-                  className="icon"
-                  src="/Icons/icon-placeholder.png"
-                  alt="icon"
-                />
-                <div className="label">
-                  <span>Post code:</span>
-                  <CustomTextField
-                    label="Post code"
-                    type="text"
-                    value={value.postCode}
-                    icon={
-                      <img
-                        className="textfield-icon"
-                        src="/Icons/icon-placeholder.png"
-                        alt="icon"
-                      />
-                    }
-                    onChange={(e) => setValue({ postCode: e })}
-                  ></CustomTextField>
-                </div>
-              </li>
-              <li className="list-item-container">
-                <img
-                  className="icon"
-                  src="/Icons/icon-placeholder.png"
-                  alt="icon"
-                />
-                <div className="label">
-                  <span>GPS latitude:</span>
-                  <CustomTextField
-                    label="GPS latitude"
-                    type="text"
-                    value={value.gpsLatitude}
-                    icon={
-                      <img
-                        className="textfield-icon"
-                        src="/Icons/icon-placeholder.png"
-                        alt="icon"
-                      />
-                    }
-                    onChange={(e) => setValue({ gpsLatitude: e })}
-                  ></CustomTextField>
-                </div>
-              </li>
-              <li className="list-item-container">
-                <img
-                  className="icon"
-                  src="/Icons/icon-placeholder.png"
-                  alt="icon"
-                />
-                <div className="label">
-                  <span>GPS longitude:</span>
-                  <CustomTextField
-                    label="GPS longitude"
-                    type="text"
-                    value={value.gpsLongitude}
-                    icon={
-                      <img
-                        className="textfield-icon"
-                        src="/Icons/icon-placeholder.png"
-                        alt="icon"
-                      />
-                    }
-                    onChange={(e) => setValue({ gpsLongitude: e })}
-                  ></CustomTextField>
-                </div>
-              </li>
+              <CustomTextField
+                label="Property address"
+                type="text"
+                value={value.propertyAddress}
+                onChange={(e) => setValue({ propertyAddress: e })}
+              />
+
+              <CustomTextField
+                label="Post code"
+                type="text"
+                value={value.postCode}
+                icon={
+                  <img
+                    className="textfield-icon"
+                    src="/Icons/icon-placeholder.png"
+                    alt="icon"
+                  />
+                }
+                onChange={(e) => setValue({ postCode: e })}
+              />
+
+              <CustomTextField
+                label="GPS latitude"
+                type="text"
+                value={value.gpsLatitude}
+                onChange={(e) => setValue({ gpsLatitude: e })}
+              />
+
+              <CustomTextField
+                label="GPS longitude"
+                type="text"
+                value={value.gpsLongitude}
+                onChange={(e) => setValue({ gpsLongitude: e })}
+              />
             </ul>
           </div>
         </>
@@ -328,8 +268,6 @@ export default function BasicInfo() {
     (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
       setExpanded(isExpanded ? panel : false);
     };
-
-  console.log(value.bedroomNumber);
 
   return (
     <FormWrapper title="Basic info">
@@ -499,20 +437,10 @@ export default function BasicInfo() {
           <h3>Pool option</h3>
           <span>Is there a pool on the premises?</span>
           <div className="pool-option">
-            <FormControlLabel
-              control={
-                <Checkbox
-                  size="small"
-                  checked={value.poolYesNo}
-                  onChange={handleCheckboxChange("poolYesNo")}
-                />
-              }
-              label={
-                <div className="label-content">
-                  <img src="/Icons/icon-placeholder.png" />
-                  <span className="checkbox-tags">Pool exists?</span>
-                </div>
-              }
+            <CustomCheckbox
+              label="Pool exists"
+              value={value.poolYesNo}
+              onChange={handleCheckboxChange("poolYesNo")}
             />
           </div>
         </div>
@@ -535,24 +463,13 @@ export default function BasicInfo() {
                     />
                   </div>
                 </li>
-                <li className="list-items">
-                  <FormControlLabel
-                    label={
-                      <div className="label-content">
-                        <img src="/Icons/icon-placeholder.png" />
-                        <span className="checkbox-tags">Self Check-in</span>
-                      </div>
-                    }
-                    control={
-                      <Checkbox
-                        size="small"
-                        checked={value.selfCheckIn}
-                        onChange={handleCheckboxChange("selfCheckIn")}
-                      />
-                    }
-                    labelPlacement="start"
-                  />
-                </li>
+
+                <CustomCheckbox
+                  label="Self Check-in"
+                  value={value.selfCheckIn}
+                  onChange={handleCheckboxChange("selfCheckIn")}
+                />
+
                 <li className="list-items">
                   <img src="/Icons/icon-placeholder.png" />
                   <div className="label">
@@ -566,24 +483,13 @@ export default function BasicInfo() {
                     />
                   </div>
                 </li>
-                <li className="list-items">
-                  <FormControlLabel
-                    label={
-                      <div className="label-content">
-                        <img src="/Icons/icon-placeholder.png" />
-                        <span className="checkbox-tags">Luggage Check-in</span>
-                      </div>
-                    }
-                    control={
-                      <Checkbox
-                        size="small"
-                        checked={value.luggageCheckIn}
-                        onChange={handleCheckboxChange("luggageCheckIn")}
-                      />
-                    }
-                    labelPlacement="start"
-                  />
-                </li>
+
+                <CustomCheckbox
+                  label="Luggage Check-in"
+                  value={value.luggageCheckIn}
+                  onChange={handleCheckboxChange("luggageCheckIn")}
+                />
+
                 <li className="list-items">
                   <img src="/Icons/icon-placeholder.png" />
                   <div className="label">
@@ -604,65 +510,24 @@ export default function BasicInfo() {
             <div className="licenses-cat main-category">
               <h3>Licenses</h3>
               <ul className="media-query-custom-breakpoint">
-                <li className="list-items">
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        size="small"
-                        checked={value.rentalLicense}
-                        onChange={handleCheckboxChange("rentalLicense")}
-                      />
-                    }
-                    label={
-                      <div className="label-content">
-                        <img src="/Icons/icon-placeholder.png" />
-                        <span className="checkbox-tags">Rental license</span>
-                      </div>
-                    }
-                  />
-                </li>
-                <li className="list-items wrap-below">
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        size="small"
-                        checked={value.extraLicenseRequired}
-                        onChange={handleCheckboxChange("extraLicenseRequired")}
-                      />
-                    }
-                    label={
-                      <div className="label-content">
-                        <img src="/Icons/icon-placeholder.png" />
-                        <span className="checkbox-tags">
-                          Extra license required
-                        </span>
-                      </div>
-                    }
-                  />
-                </li>
-                <li className="list-item-container">
-                  <img
-                    className="icon"
-                    src="/Icons/icon-placeholder.png"
-                    alt="icon"
-                  />
-                  <div className="label">
-                    <span>Extra License type:</span>
-                    <CustomTextField
-                      label="Extra License type"
-                      type="text"
-                      value={value.extraLicenseType}
-                      icon={
-                        <img
-                          className="textfield-icon"
-                          src="/Icons/icon-placeholder.png"
-                          alt="icon"
-                        />
-                      }
-                      onChange={(e) => setValue({ extraLicenseType: e })}
-                    ></CustomTextField>
-                  </div>
-                </li>
+                <CustomCheckbox
+                  label="Rental license"
+                  value={value.rentalLicense}
+                  onChange={handleCheckboxChange("rentalLicense")}
+                />
+
+                <CustomCheckbox
+                  label="Extra license required"
+                  value={value.extraLicenseRequired}
+                  onChange={handleCheckboxChange("extraLicenseRequired")}
+                />
+
+                <CustomTextField
+                  label="Extra License type"
+                  type="text"
+                  value={value.extraLicenseType}
+                  onChange={(e) => setValue({ extraLicenseType: e })}
+                />
               </ul>
             </div>
 

@@ -3,17 +3,21 @@ import TextField from '@mui/material/TextField';
 import { InputAdornment } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
+
 interface CustomTextFieldProps {
   label: string;
   value: string;
   type: string;
+  descText?: string;
   icon?: ReactNode;
   onChange: (newValue: string) => void
 }
 
 const maxCharacterCount = 120;
 
-function CustomTextField({ label, value, type, onChange, icon }: CustomTextFieldProps) {
+function CustomTextField({ label, value, type, onChange, icon, descText }: CustomTextFieldProps) {
+
+ 
 
   const [isFocused, setIsFocused] = useState(false);
   const isMobile = useMediaQuery('(max-width:480px)');
@@ -41,6 +45,8 @@ function CustomTextField({ label, value, type, onChange, icon }: CustomTextField
   if (isMobile) {
    
     return (
+      <li className="list-item-container">
+      <div className="label">
       <TextField
         fullWidth
         className="custom-textfield"
@@ -60,13 +66,19 @@ function CustomTextField({ label, value, type, onChange, icon }: CustomTextField
             
         }}
       />
+      </div></li>
     );
     
   }
+  
 
   return (
-    <TextField
-     
+    <li className="list-item-container">
+    {icon ? icon : <img className="icon" src="/Icons/icon-placeholder.png" alt="icon" />}
+    <div className="label">
+      <span>{label}:</span>
+      {descText ? <span className="short-description">{descText}</span>: null}
+      <TextField
       className="custom-textfield"
       size="small"
       type={type}
@@ -76,11 +88,13 @@ function CustomTextField({ label, value, type, onChange, icon }: CustomTextField
       onChange={handleTextChange}
       onFocus={onFocus}
       onBlur={onBlur}
-      
     />
+    
+     </div></li>
   );
 }
 
 export default CustomTextField;
+
 
 
