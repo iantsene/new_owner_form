@@ -437,11 +437,20 @@ export type FormDataTypes = {
 }
 
 
-export type BedroomType = 'single' | 'double' | 'triple' | 'twin'
-export type Bed = 'double' | 'single' | 'king' | 'queen' |  'baby crib' | 'sofa bed' | 'murphy' | 'bunk bed' | 'child bed'
+export type BedroomType = '' | 'single' | 'double' | 'triple' | 'twin';
+export type EnSuiteType = '' | 'shower' | 'bathroom' | 'wc';
+export type Bed = 'double' | 'single' | 'king' | 'queen' |  'baby crib' | 'sofa bed' | 'murphy' | 'bunk bed' | 'child bed';
+export type Level = '' | 'ground' | 'first' | 'second' | 'third' |  'attic' | 'annex';
+export type EnSuite = '' | 'toilet' | 'bath with shower' | 'bath with jets' | 'bidet';
+export type Heating = '' | 'aircon' | 'ceilingFan';
+
+
 
 export interface Bedroom {
-    type: BedroomType;
+    bedroomType: BedroomType;
+    level: Level;
     beds: Bed[];
-    heating: boolean;
+    enSuiteTypes: [{type: EnSuiteType, subtype: EnSuite}]
+    heating: [{type: Heating, value: boolean}];
 }
+

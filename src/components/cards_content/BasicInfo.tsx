@@ -23,6 +23,7 @@ import CustomTextField from "../reuseable-components/CustomTextField";
 import DropdownSelect from "../reuseable-components/DropdownSelect";
 import { useFormData } from "@/app/contexts/form";
 import CustomCheckbox from "../reuseable-components/CustomCheckbox";
+import { Bedroom, EnSuite, EnSuiteType } from "@/app/types/all-form-types";
 
 export default function BasicInfo() {
   const { value, setValue, handleFieldChange } = useFormData();
@@ -39,9 +40,11 @@ export default function BasicInfo() {
     setValue({
       bedroomNumber: numRooms,
       bedrooms: new Array(numRooms).fill(0).map(() => ({
+        bedroomType: "",
+        level: "",
         beds: [],
-        heating: false,
-        type: "double",
+        enSuiteTypes: [{ type: "", enSuite: "" }],
+        heating: [{ type: "", value: false}],
       })),
     });
   };
@@ -57,7 +60,6 @@ export default function BasicInfo() {
               <div className="select-flex">
                 <DropdownSelect
                   label="Number of bedrooms:"
-                  // state={bedroomNumber}
                   state={value.bedroomNumber}
                   fieldName="bedroomNumber"
                   handleFieldChange={handleBedroomChange}
@@ -73,6 +75,8 @@ export default function BasicInfo() {
                   ]}
                 />
 
+                <div className="extra-beds">
+                  <h3>Extra beds (outside of a bedroom)</h3>
                 <div className="select-flex">
                   <DropdownSelect
                     label="Number of sofa beds:"
@@ -142,7 +146,12 @@ export default function BasicInfo() {
               </div>
             </div>
 
+            </div>
+
+
+
             <div className="baths">
+              <h3>Number of bathrooms</h3>
               <div className="select-flex">
                 <DropdownSelect
                   label="Number of bathrooms:"
@@ -177,21 +186,6 @@ export default function BasicInfo() {
                   />
                 </div>
 
-                {/* <div className="select-flex">
-                  <DropdownSelect
-                    elemLabel="Number of common baths:"
-                    state={commonBathsNumber}
-                    fieldName="commonBathsNumber"
-                    handleFieldChange={handleFieldChange}
-                    id={"common-baths-select"}
-                    options={[
-                      { value: 1, label: "one" },
-                      { value: 2, label: "two" },
-                      { value: 3, label: "three" },
-                      { value: 4, label: "four" },
-                    ]}
-                  />
-                </div> */}
 
                 <div className="select-flex">
                   <DropdownSelect
@@ -532,7 +526,7 @@ export default function BasicInfo() {
             </div>
 
             <div className="occupancy">
-              <h3>Occupancy</h3>
+              <h3>Max property occupancy</h3>
               <div className="select-flex">
                 <DropdownSelect
                   label="Max number of persons:"

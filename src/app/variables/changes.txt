@@ -67,7 +67,7 @@ Licenses
 Main Description
 
 Lodging Type
-! Nearby Sercices // Move to Location tab
+! Nearby Services // Move to Location tab
 / living room to Inside // Done
 / garden to Outside // done
 
@@ -342,13 +342,11 @@ etc.:
 
 Common Area Beds
 
-Cot:
-
 Bed 1
 Level +[dropdown list:ground,1st floor, second floor, third floor, attic, annex]
-+[dropdown list: Double bed, Single bed, King bed, Queen bed, Baby crib, Sofa bed, Murphy bed, Bunk bed, Childbed]
++[dropdown list: Double bed, Single bed, King bed, Queen bed, Baby crib, Sofa bed, Murphy bed, Bunk bed, Childbed, travel-cot]
 Bed 2
-+[dropdown list: Double bed, Single bed, King bed, Queen bed, Baby crib, Sofa bed, Murphy bed, Bunk bed, Childbed]
++[dropdown list: Double bed, Single bed, King bed, Queen bed, Baby crib, Sofa bed, Murphy bed, Bunk bed, Childbed, travel-cot]
 
 etc.
 

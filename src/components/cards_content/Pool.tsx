@@ -31,14 +31,13 @@ export default function Pool() {
 
        <ul className="multi-options-grid">
             <li>
-              {" "}
               <div className="select-flex">
                 <DropdownSelect
-                  label="Level:"
+                  label="Pool Level"
                   state={value.poolLevel}
                   fieldName="poolLevel"
                   handleFieldChange={handleFieldChange}
-                  id={"pool-level-select"}
+                  id="pool-level-select"
                   options={[
                     { value: "ground", label: "ground" },
                     { value: "first floor", label: "first floor" },

@@ -1,5 +1,4 @@
-import { FormControl, MenuItem, Select } from "@mui/material";
-import { staticGenerationAsyncStorage } from "next/dist/client/components/static-generation-async-storage.external";
+import { FormControl, MenuItem, Select, InputLabel, OutlinedInput } from "@mui/material";
 import { useState } from "react";
 
 interface Option {
@@ -11,30 +10,32 @@ interface Props {
   state: any;
   fieldName?: string;
   label?: string;
+  labelId?: string;
   id?: string;
+  noneOption?: string;
   options: Option[];
   handleFieldChange: (fieldName: string, value: any) => void;
 }
 
-function DropdownSelect({ state, fieldName, label, id, options, handleFieldChange }: Props) {
+function DropdownSelect({ state, fieldName, label, labelId, id, options, noneOption, handleFieldChange }: Props) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
-      <FormControl sx={{ m: 1, minWidth: 120 }}>
-        <span>{label}</span>
+      <FormControl sx={{ m: 1, minWidth: 100 }}>
+      <InputLabel id={labelId}>{label}</InputLabel>
         <Select
-          labelId={fieldName}
+          labelId={labelId}
           id={id}
           open={isOpen}
           onClose={() => setIsOpen(false)}
           onOpen={() => setIsOpen(true)}
-          value={state}
-          label={label}
+          value={state ? state : label}
           onChange={(event) => handleFieldChange(fieldName || "", event.target.value)}
+          input={<OutlinedInput label={label} />}
         >
           <MenuItem value="">
-            <em>None</em>
+            <em>{noneOption ? noneOption : "none"}</em>
           </MenuItem>
           {options.map((option, index) => (
             <MenuItem key={index} value={option.value}>

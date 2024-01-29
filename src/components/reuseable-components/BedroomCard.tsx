@@ -1,16 +1,10 @@
-import React from 'react';
-import DropdownSelect from './DropdownSelect'; 
-import { Button, Card, Typography } from '@mui/material';
-import { BedroomType } from '@/app/types/all-form-types';
+import React from "react";
+import DropdownSelect from "./DropdownSelect";
+import { Button, Card, Typography } from "@mui/material";
+import { Bedroom, BedroomType, Bed, EnSuiteType, Heating, Level } from "@/app/types/all-form-types";
+import MultipleSelectCheckmarks from "./MultipleSelectCheckmarks";
+import EnSuiteCard from "./EnSuiteCard";
 
-
-type Bed = 'double' | 'single' | 'king' | 'queen' |  'baby crib' | 'sofa bed' | 'murphy' | 'bunk bed' | 'child bed'
-
-interface Bedroom {
-  type: 'single' | 'double' | 'triple' | 'twin'
-  beds: Bed[];
-  heating: boolean;
-}
 
 interface Props {
   index: number;
@@ -18,95 +12,138 @@ interface Props {
   onUpdate: (updatedBedroom: Bedroom) => void;
 }
 
-
 const BedroomCard = ({ index, bedroom, onUpdate }: Props) => {
- 
+  return ( <>
+        <div className="bedroom-title">
+          <h4>Bedroom {index + 1}</h4>
+        </div>
 
-  bedroom.beds
-  return (
-    <Card sx={{ display: 'flex', m: 1, p: 1 }}>
-      <Typography>Bedroom {index + 1}</Typography>
-      <DropdownSelect
-        state={bedroom.type}
-        handleFieldChange={(_: any, type: BedroomType) => onUpdate({ ...bedroom, type })}
-        options={[
-          { value: 'single', label: 'Single' },
-          { value: 'double', label: 'Double' },
-          { value: 'triple', label: 'Triple' },
-          { value: 'twin', label: 'Twin' },
-        ]}
-      /> 
+    <Card sx={{ display: "flex", m: 1, p: 1 }}>
+      <div className="bedroom-type">
+        <Card className="bedroom-type" sx={{ display: "flex", m: 1, p: 1 }}>
+          <h5>Type</h5>
+          <DropdownSelect
+            state={bedroom.bedroomType}
+            handleFieldChange={(_: any, bedroomType: BedroomType) =>
+              onUpdate({ ...bedroom, bedroomType })
+            }
+            options={[
+              { value: "single", label: "Single" },
+              { value: "double", label: "Double" },
+              { value: "triple", label: "Triple" },
+              { value: "twin", label: "Twin" },
+            ]}
+          />
+          <h5>Level</h5>
+          <DropdownSelect
+            state={bedroom.level}
+            handleFieldChange={(_: any, level: Level) =>
+              onUpdate({ ...bedroom, level })
+            }
+            options={[
+              { value: "ground", label: "Ground" },
+              { value: "first", label: "First" },
+              { value: "second", label: "Second" },
+              { value: "third", label: "Third" },
+              { value: "attic", label: "Attic" },
+              { value: "annex", label: "Annex" },
+            ]}
+          />
+        </Card>
+      
 
-        <div>
-      {bedroom.beds.map((bed, index) => (
-        <DropdownSelect
-          key={index} 
-          state={bed}
-          handleFieldChange={(_: any, newBedType: Bed) => onUpdate({ ...bedroom, beds: bedroom.beds.with(index, newBedType) })}
-          options={[
-            { value: 'single', label: "Single" },
-            { value: 'double', label: "Double" },
-            { value: 'king', label: "King" },
-            { value: 'queen', label: "Queen" },
-            { value: 'baby crib', label: "Baby crib" },
-            { value: 'sofa bed', label: "Sofa bed" },
-            { value: 'murphy', label: "Murphy" },
-            { value: 'bunk bed', label: "Bunk bed" },
-            { value: 'child bed', label: "Child bed" },
-          ]}
-        />
-      ))}
-      </div>
+      <Card className="bed-types" sx={{ display: "flex", m: 1, p: 1 }}>
+        <div className="beds-title">
+          <h5>Beds</h5>
+        </div>
+        <div className="beds-dropdown">
+          {bedroom.beds.map((bed, index) => (
+             <div className="beds-column" key={index}>
+            <DropdownSelect
+              label={`Bed ${index + 1}`}
+              labelId={`Bed ${index + 1}`}
+              state={bed}
+              key={index}
+              id={`bed${index + 1}-id`}
+              handleFieldChange={(_: any, newBedType: Bed) =>
+                onUpdate({
+                  ...bedroom,
+                  beds: bedroom.beds.with(index, newBedType),
+                })
+              }
+              options={[
+                { value: "single", label: "Single" },
+                { value: "double", label: "Double" },
+                { value: "king", label: "King" },
+                { value: "queen", label: "Queen" },
+                { value: "baby crib", label: "Baby crib" },
+                { value: "sofabed", label: "Sofa-bed" },
+                { value: "murphy", label: "Murphy" },
+                { value: "bunk", label: "Bunk" },
+                { value: "child", label: "Child-bed" },
+              ]}
+            />
+            </div>
+          ))}
+        </div>
+        <div className="card-buttons">
+          <Button
+            className="button-remove"
+            onClick={() =>
+              onUpdate({ ...bedroom, beds: bedroom.beds.slice(0, -1) })
+            }
+          >
+            -
+          </Button>
+          {bedroom.beds.length <= 9 ? (
+            <Button
+              className="button-add"
+              onClick={() =>
+                onUpdate({ ...bedroom, beds: [...bedroom.beds, "single"] })
+              }
+            >
+              +
+            </Button>
+          ) : null}
+        </div>
+      </Card>
 
-      <Button onClick={() => onUpdate({ ...bedroom, beds: [...bedroom.beds, 'single']})}>
-        Add bed
-      </Button>
-      <Button onClick={() => onUpdate({ ...bedroom, beds: bedroom.beds.slice(0, -1) })}>
-        Remove bed
-      </Button>
+
+
+
+      <EnSuiteCard bedroom={bedroom} onUpdate={onUpdate} />
+
+      {/* <Card className="bedroom-heating" sx={{ display: 'flex', m: 1, p: 1 }}>
+
+          <MultipleSelectCheckmarks
+          handleFieldChange={(_: any, heatingOptions: Heating) => onUpdate({ ...bedroom, heating: bedroom.heating.with(index, heatingOptions) })}
+          state={bedroom.heating}
+          fieldName='Bedroom heating'
+          elemLabel='Bedroom heating'
+          label='Bedroom heating'
+          options= {
+            [
+              { value: false, label: 'Air condition' },
+              { value: false, label: 'Ceiling fan' },
+            ]
+          }>
+            
+          </MultipleSelectCheckmarks>
+
+
+       </Card> */}
+
+
+
+    </div>
     </Card>
-  );
+    </>);
 };
 
 export default BedroomCard;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // import React from 'react';
-// import DropdownSelect from './DropdownSelect'; 
+// import DropdownSelect from './DropdownSelect';
 // import MultipleSelectCheckmarks from './MultipleSelectCheckmarks';
 
 // interface MultipleDropdownElementProps {
