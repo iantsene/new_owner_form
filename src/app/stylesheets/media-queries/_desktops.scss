@@ -212,11 +212,11 @@
   max-height: 210px;
 }
 
-.bed-types, .en-suite-types {
+.bed-types, .en-suite-types, .heating-types {
   display: flex;
   flex-direction: column;
   max-height: 170px;
-  min-width: 100px;
+  min-width: 132px;
   max-width: fit-content;
   position: relative;
 }
@@ -238,7 +238,7 @@
 
 
 
-  .beds-title, .en-suite-title {
+  .beds-title, .en-suite-title, .heating-title {
     text-align: center;
     height: 30px;
     width: fit-content;

@@ -1,8 +1,8 @@
 import React from "react";
 import DropdownSelect from "./DropdownSelect";
-import { Button, Card, Typography } from "@mui/material";
+import { Button, Card } from "@mui/material";
 import { Bedroom, BedroomType, Bed, EnSuiteType, Heating, Level } from "@/app/types/all-form-types";
-import MultipleSelectCheckmarks from "./MultipleSelectCheckmarks";
+import HeatingSelect from "./HeatingSelect";
 import EnSuiteCard from "./EnSuiteCard";
 
 
@@ -95,7 +95,7 @@ const BedroomCard = ({ index, bedroom, onUpdate }: Props) => {
           >
             -
           </Button>
-          {bedroom.beds.length <= 9 ? (
+          {bedroom.beds.length <= 5 ? (
             <Button
               className="button-add"
               onClick={() =>
@@ -112,26 +112,8 @@ const BedroomCard = ({ index, bedroom, onUpdate }: Props) => {
 
 
       <EnSuiteCard bedroom={bedroom} onUpdate={onUpdate} />
-
-      {/* <Card className="bedroom-heating" sx={{ display: 'flex', m: 1, p: 1 }}>
-
-          <MultipleSelectCheckmarks
-          handleFieldChange={(_: any, heatingOptions: Heating) => onUpdate({ ...bedroom, heating: bedroom.heating.with(index, heatingOptions) })}
-          state={bedroom.heating}
-          fieldName='Bedroom heating'
-          elemLabel='Bedroom heating'
-          label='Bedroom heating'
-          options= {
-            [
-              { value: false, label: 'Air condition' },
-              { value: false, label: 'Ceiling fan' },
-            ]
-          }>
-            
-          </MultipleSelectCheckmarks>
-
-
-       </Card> */}
+      <HeatingSelect bedroom={bedroom} onUpdate={onUpdate} />
+    
 
 
 
@@ -141,109 +123,3 @@ const BedroomCard = ({ index, bedroom, onUpdate }: Props) => {
 };
 
 export default BedroomCard;
-
-// import React from 'react';
-// import DropdownSelect from './DropdownSelect';
-// import MultipleSelectCheckmarks from './MultipleSelectCheckmarks';
-
-// interface MultipleDropdownElementProps {
-//   bedroomNumber: number
-//   typeOptions: { value: string; label: string }[];
-//   levelOptions: { value: string; label: string }[];
-//   bedsOptions1: { value: string; label: string }[];
-//   bedsOptions2: { value: string; label: string }[];
-//   bedsOptions3: { value: string; label: string }[];
-//   heatingCoolingOptions: { value: string; label: string }[];
-//   handleFieldChange: (fieldName: string, value: any) => void;
-// }
-
-// function BedroomCard({
-//   bedroomNumber,
-//   typeOptions,
-//   levelOptions,
-//   bedsOptions1,
-//   bedsOptions2,
-//   bedsOptions3,
-//   heatingCoolingOptions,
-//   handleFieldChange,
-// }: MultipleDropdownElementProps): React.ReactNode {
-//   const bedroomDropdowns = [];
-
-//   for (let i = 1; i <= bedroomNumber; i++) {
-//     bedroomDropdowns.push(
-//       <div key={i}>
-//         <h2>Bedroom {i}</h2>
-//         <DropdownSelect
-//           state=""
-//           fieldName={`bedroom ${i}`} // Field name for bedroom type
-//           elemLabel="Type"
-//           id={`bedroom-${i}`}
-//           label={`bedroom-${i}`}
-//           options={typeOptions}
-//           handleFieldChange={handleFieldChange}
-//           openState={false}
-//           toggleOpenClose={}
-//         />
-//         <DropdownSelect
-//           state=""
-//           fieldName={`bedroomLevel${i}`} // Field name for bedroom level
-//           elemLabel="Level"
-//           id={`level-${i}`}
-//           label="Level"
-//           options={levelOptions}
-//           handleFieldChange={handleFieldChange}
-//           openState={false}
-//           toggleOpenClose={}
-//         />
-//         <DropdownSelect
-//           state=""
-//           fieldName={`bedroomBeds${i}`} // Field name for bedroom beds
-//           elemLabel="Beds"
-//           id={`beds-${i}`}
-//           label="Beds"
-//           options={bedsOptions1}
-//           handleFieldChange={handleFieldChange}
-//           openState={false}
-//           toggleOpenClose={}
-//         />
-//          <DropdownSelect
-//           state=""
-//           fieldName={`bedroomBeds${i}`} // Field name for bedroom beds
-//           elemLabel="Beds"
-//           id={`beds-${i}`}
-//           label="Beds"
-//           options={bedsOptions2}
-//           handleFieldChange={handleFieldChange}
-//           openState={false}
-//           toggleOpenClose={}
-//         />
-//          <DropdownSelect
-//           state=""
-//           fieldName={`bedroomBeds${i}`} // Field name for bedroom beds
-//           elemLabel="Beds"
-//           id={`beds-${i}`}
-//           label="Beds"
-//           options={bedsOptions3}
-//           handleFieldChange={handleFieldChange}
-//           openState={false}
-//           toggleOpenClose={}
-//         />
-//         <MultipleSelectCheckmarks
-//           state=""
-//           fieldName={`bedroomHeatingCooling${i}`} // Field name for bedroom heating/cooling
-//           elemLabel="Heating / Cooling"
-//           id={`heatingCooling-${i}`}
-//           label="Heating / Cooling"
-//           options={heatingCoolingOptions}
-//           handleFieldChange={handleFieldChange}
-//           openState={false}
-//           toggleOpenClose={}
-//         />
-//       </div>
-//     );
-//   }
-
-//   return <div>{bedroomDropdowns}</div>;
-// };
-
-// export default BedroomCard;

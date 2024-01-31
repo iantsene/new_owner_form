@@ -43,8 +43,8 @@ export default function BasicInfo() {
         bedroomType: "",
         level: "",
         beds: [],
-        enSuiteTypes: [{ type: "", enSuite: "" }],
-        heating: [{ type: "", value: false}],
+        enSuiteTypes: [{ type: "", subtype: "" }],
+        heating: [],
       })),
     });
   };

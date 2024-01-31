@@ -450,7 +450,7 @@ export interface Bedroom {
     bedroomType: BedroomType;
     level: Level;
     beds: Bed[];
-    enSuiteTypes: [{type: EnSuiteType, subtype: EnSuite}]
-    heating: [{type: Heating, value: boolean}];
+    enSuiteTypes: {type: EnSuiteType, subtype: EnSuite}[]
+    heating: Heating[];
 }
 

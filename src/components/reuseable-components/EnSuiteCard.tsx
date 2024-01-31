@@ -6,6 +6,9 @@ import {
   Bedroom,
 } from "@/app/types/all-form-types";
 
+
+
+
 function EnSuiteCard({
   bedroom,
   onUpdate,
@@ -14,6 +17,10 @@ function EnSuiteCard({
   onUpdate: (updatedRoom: Bedroom) => void;
 }) {
  
+
+
+
+  
   return (
     <Card className="en-suite-types" sx={{ display: "flex", m: 1, p: 1 }}>
       <div className="en-suite-title">
@@ -23,21 +30,24 @@ function EnSuiteCard({
         {bedroom.enSuiteTypes.map((enSuite, index) => (
           <div className="en-suite-column" key={index}>
             <DropdownSelect
-            label={`Type ${index + 1}`}
+            label={`Type`}
             labelId={`Type ${index + 1}`}
               state={enSuite.type}
               key={index}
               id={`Type${index + 1}-type-id`}
               handleFieldChange={(_: any, newEnsuiteType: EnSuiteType) =>
-                onUpdate({ ...bedroom, enSuiteTypes: [{type: newEnsuiteType, subtype: bedroom.enSuiteTypes[0]?.subtype || ''}] })
-              }
+                onUpdate({ ...bedroom, enSuiteTypes: bedroom.enSuiteTypes.map((item, i) =>
+                  i === index ? { ...item, type: newEnsuiteType } : item
+                ),
+              })
+            }
               options={[
                 { value: "shower", label: "Shower" },
                 { value: "bathroom", label: "Bathroom" },
-                { value: "wc", label: "WC" },
+                { value: "wc", label: "Water closet" },
               ]}
             />
-            
+
             <DropdownSelect
               label={`En-suite ${index + 1}`}
               labelId={`En-suite ${index + 1}`}
@@ -47,9 +57,11 @@ function EnSuiteCard({
               handleFieldChange={(_: any, newEnSuite: EnSuite) =>
                 onUpdate({
                   ...bedroom,
-                  enSuiteTypes: [{type: bedroom.enSuiteTypes[0]?.type || '', subtype: newEnSuite}],
-                })
-              }
+                  enSuiteTypes: bedroom.enSuiteTypes.map((item, i) =>
+                  i === index ? { ...item, subtype: newEnSuite } : item
+                ),
+              })
+            }
               options={[
                 { value: "toilet", label: "Toilet" },
                 { value: "bath with shower", label: "Bath with shower" },
