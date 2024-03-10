@@ -1,10 +1,6 @@
 import { Card, Button } from "@mui/material";
-import DropdownSelect from "./DropdownSelect";
-import {
-  EnSuite,
-  EnSuiteType,
-  Bedroom,
-} from "@/app/types/all-form-types";
+import DropdownSelect from "../reuseable-components/DropdownSelect";
+import { EnSuite, EnSuiteType, Bedroom } from "@/app/types/all-form-types";
 
 
 
@@ -23,19 +19,20 @@ function EnSuiteCard({
   
   return (
     <Card className="en-suite-types" sx={{ display: "flex", m: 1, p: 1 }}>
-      <div className="en-suite-title">
-        <h5>EnSuite</h5>
+      <div className="card-title">
+        <h5>EnSuite Baths/Showers</h5>
       </div>
       <div className="en-suite-dropdown">
         {bedroom.enSuiteTypes.map((enSuite, index) => (
           <div className="en-suite-column" key={index}>
             <DropdownSelect
-            label={`Type`}
-            labelId={`Type ${index + 1}`}
+              label={`Type`}
+              labelId={`Type ${index + 1}`}
               state={enSuite.type}
+              fieldName='enSuite.type'
               key={index}
               id={`Type${index + 1}-type-id`}
-              handleFieldChange={(_: any, newEnsuiteType: EnSuiteType) =>
+              extraEffects={(newEnsuiteType: EnSuiteType) =>
                 onUpdate({ ...bedroom, enSuiteTypes: bedroom.enSuiteTypes.map((item, i) =>
                   i === index ? { ...item, type: newEnsuiteType } : item
                 ),
@@ -52,9 +49,10 @@ function EnSuiteCard({
               label={`En-suite ${index + 1}`}
               labelId={`En-suite ${index + 1}`}
               state={enSuite.subtype}
+              fieldName='enSuite.subtype'
               key={index}
               id={`En-suite${index + 1}-type-id`}
-              handleFieldChange={(_: any, newEnSuite: EnSuite) =>
+              extraEffects={(newEnSuite: EnSuite) =>
                 onUpdate({
                   ...bedroom,
                   enSuiteTypes: bedroom.enSuiteTypes.map((item, i) =>

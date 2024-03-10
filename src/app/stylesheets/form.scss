@@ -56,6 +56,11 @@ $dark-text: #d2e1dd;
   }
 }
 
+.infoIcon {
+  color: rgb(112, 112, 124);
+  position: relative;
+}
+
 // ############################ FORM ELEMENTS ############################
 
 
@@ -438,14 +443,10 @@ li {
     justify-content: space-between;
     align-items: center;
     margin: 0 0px;
-    /* Adjust margin as needed */
   }
 
   span {
-    /* Adjust the width as needed for consistent label width */
     text-align: left;
-    margin-left: 5px;
-    /* Adjust the margin as needed */
   }
 }
 

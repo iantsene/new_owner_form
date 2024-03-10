@@ -1,5 +1,5 @@
-import { Button, Paper, Tab, Tabs } from "@mui/material";
-import { useEffect, useState } from "react";
+import { Tab, Tabs } from "@mui/material";
+import { useEffect } from "react";
 
 interface FormTabsProps {
   completedSteps: number[];
@@ -7,7 +7,7 @@ interface FormTabsProps {
   setCurrentStepIndex: (index: number) => void;
   isTabContainerReady: boolean;
   openTabs: number[]; 
-  setOpenTabs: (tabs: number[]) => void;
+  setOpenTabs: (tabs: number[] | ((prevOpenTabs: number[]) => number[])) => void;
   basicTabLabels: string[]; 
   tabLabels: string[]; 
   viewMode: "Basic View" | "Advanced View"; 
@@ -56,12 +56,8 @@ export default function FormTabs(props: FormTabsProps) {
   //3. Determine which tabs to render based on the view mode
   const tabsToRender = viewMode === "Basic View" ? basicTabLabels : tabLabels;
 
-  //4. Controls the rendering the tabs
-  const renderedTabs = tabsToRender
-    .filter(
-      (_: unknown, index: number) => completedSteps.includes(index) || openTabs.includes(index)
-    )
-    .map((label: string, index: number) => (
+  //4. Controls the rendering of the tabs
+  const renderedTabs = tabsToRender.filter((_: unknown, index: number) => completedSteps.includes(index) || openTabs.includes(index)).map((label: string, index: number) => (
       <Tab
         key={index}
         className={`tab ${currentStepIndex === index ? "active-tab" : ""}`}

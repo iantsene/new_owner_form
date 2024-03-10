@@ -11,90 +11,92 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import CustomTextField from "../reuseable-components/CustomTextField";
 import { useFormData } from "@/app/contexts/form";
 import CustomCheckbox from "../reuseable-components/CustomCheckbox";
+import DropdownSelect from "../reuseable-components/DropdownSelect";
 
 export default function Amenities() {
   const { value, setValue, handleFieldChange } = useFormData();
 
   const handleCheckboxChange = (fieldName: string) => (e: any) => {
-    handleFieldChange(fieldName, e.target.checked);
+    handleFieldChange('amenities', fieldName, e.target.checked);
   };
 
   const mainCategories = [
     {
-      title: "General Amenities",
+      title: "General",
       description: "What are the general amenities your property offers?",
       content: (
         <>
           <div className="general-amenities-category main-category">
             <ul className="multi-options-grid">
-              <CustomCheckbox
-                label="Car hire recommended"
-                value={value.carHireRecommended}
-                onChange={handleCheckboxChange("carHireRecommended")}
-              />
-              <CustomCheckbox
-                label="Car hire not essential"
-                value={value.carHireNotEssential}
-                onChange={handleCheckboxChange("carHireNotEssential")}
-              />
+            <DropdownSelect
+                  label="Car Hire Recommendation:"
+                  state={value.amenities.carHireRecommendation}
+                  fieldName="amenities.carHireRecommendation"
+                  handleFieldChange={handleFieldChange}
+                  id={"max-children-select"}
+                  options={[
+                    { value: 'recommended', label: "Recommended" },
+                    { value: 'notEssential', label: "Not Essential" },
+                  ]}
+                />
               <CustomCheckbox
                 label="Hot water provided"
-                value={value.hotWaterProvided}
+                value={value.amenities.hotWaterProvided}
                 onChange={handleCheckboxChange("hotWaterProvided")}
               />
               <CustomCheckbox
-                label="Essentials"
-                value={value.essentials}
-                onChange={handleCheckboxChange("essentials")}
+                label="Basic essentials"
+                value={value.amenities.basicEssentials}
+                onChange={handleCheckboxChange("basicEssentials")}
               />
               <CustomCheckbox
                 label="Room-darkening shades"
-                value={value.roomDarkeningShades}
+                value={value.amenities.roomDarkeningShades}
                 onChange={handleCheckboxChange("roomDarkeningShades")}
               />
               <CustomCheckbox
                 label="Hangers"
-                value={value.hangers}
+                value={value.amenities.hangers}
                 onChange={handleCheckboxChange("hangers")}
               />
               <CustomCheckbox
                 label="Beach sun loungers provided"
-                value={value.beachSunLoungersProvided}
+                value={value.amenities.beachSunLoungersProvided}
                 onChange={handleCheckboxChange("beachSunLoungersProvided")}
               />
               <CustomCheckbox
                 label="Beach towels provided"
-                value={value.beachTowelsProvided}
+                value={value.amenities.beachTowelsProvided}
                 onChange={handleCheckboxChange("beachTowelsProvided")}
               />
               <CustomCheckbox
                 label="Shower gel"
-                value={value.showerGel}
+                value={value.amenities.showerGel}
                 onChange={handleCheckboxChange("showerGel")}
               />
               <CustomCheckbox
-                label="Extras paddle board"
-                value={value.extrasPaddleBoard}
-                onChange={handleCheckboxChange("extrasPaddleBoard")}
+                label="Paddle board"
+                value={value.amenities.paddleBoard}
+                onChange={handleCheckboxChange("paddleBoard")}
               />
               <CustomCheckbox
-                label="Extras beach chair"
-                value={value.extrasBeachChair}
-                onChange={handleCheckboxChange("extrasBeachChair")}
+                label="Beach chair"
+                value={value.amenities.beachChair}
+                onChange={handleCheckboxChange("beachChair")}
               />
               <CustomCheckbox
                 label="Shampoo provided"
-                value={value.shampooProvided}
+                value={value.amenities.shampooProvided}
                 onChange={handleCheckboxChange("shampooProvided")}
               />
               <CustomCheckbox
                 label="Extra pillows and blankets"
-                value={value.extraPillowsAndBlankets}
+                value={value.amenities.extraPillowsAndBlankets}
                 onChange={handleCheckboxChange("extraPillowsAndBlankets")}
               />
               <CustomCheckbox
                 label="Beach towels cool bags and boxes"
-                value={value.beachTowelsCoolBagsAndBoxes}
+                value={value.amenities.beachTowelsCoolBagsAndBoxes}
                 onChange={handleCheckboxChange("beachTowelsCoolBagsAndBoxes")}
               />
             </ul>
@@ -112,14 +114,16 @@ export default function Amenities() {
               <CustomTextField
                 label="Key location"
                 type="text"
-                value={value.keyLocation}
-                onChange={(e) => setValue({ keyLocation: e })}
+                value={value.amenities.keyLocation}
+                onChange={(e) => setValue({amenities: {...value.amenities, keyLocation: e}})}
               />
+
+
               <CustomTextField
                 label="Extra key location"
                 type="text"
-                value={value.extraKeyLocation}
-                onChange={(e) => setValue({ extraKeyLocation: e })}
+                value={value.amenities.extraKeyLocation}
+                onChange={(e) => setValue({amenities: {...value.amenities, extraKeyLocation: e}})}
               />
             </ul>
           </div>
@@ -135,17 +139,17 @@ export default function Amenities() {
             <ul className="duo-options-grid">
               <CustomCheckbox
                 label="Bed linen"
-                value={value.bedLinen}
+                value={value.amenities.bedLinen}
                 onChange={handleCheckboxChange("bedLinen")}
               />
               <CustomCheckbox
                 label="Linen X1 a week"
-                value={value.linenOnceAWeek}
+                value={value.amenities.linenOnceAWeek}
                 onChange={handleCheckboxChange("linenOnceAWeek")}
               />
               <CustomCheckbox
                 label="Linen X2 a week"
-                value={value.linenTwiceAWeek}
+                value={value.amenities.linenTwiceAWeek}
                 onChange={handleCheckboxChange("linenTwiceAWeek")}
               />
             </ul>
@@ -154,8 +158,8 @@ export default function Amenities() {
                 <CustomTextField
                   label="Linen cleaning method"
                   type="text"
-                  value={value.linenCleaningMethod}
-                  onChange={(e) => setValue({ linenCleaningMethod: e })}
+                  value={value.amenities.linenCleaningMethod}
+                  onChange={(e) => setValue({amenities: {...value.amenities, linenCleaningMethod: e}})}
                 />
               </ul>
             </div>
@@ -172,28 +176,23 @@ export default function Amenities() {
             <ul className="duo-options-grid">
               <CustomCheckbox
                 label="Maid every day"
-                value={value.maidEveryDay}
+                value={value.amenities.maidEveryDay}
                 onChange={handleCheckboxChange("maidEveryDay")}
               />
               <CustomCheckbox
                 label="Maid X1 a week"
-                value={value.maidOnceAWeek}
+                value={value.amenities.maidOnceAWeek}
                 onChange={handleCheckboxChange("maidOnceAWeek")}
               />
               <CustomCheckbox
                 label="Maid X2 a week"
-                value={value.maidTwiceAWeek}
+                value={value.amenities.maidTwiceAWeek}
                 onChange={handleCheckboxChange("maidTwiceAWeek")}
               />
               <CustomCheckbox
                 label="Maid X3 a week"
-                value={value.maidThriceAWeek}
+                value={value.amenities.maidThriceAWeek}
                 onChange={handleCheckboxChange("maidThriceAWeek")}
-              />
-              <CustomCheckbox
-                label="Maid breakfast included"
-                value={value.maidBreakfastIncluded}
-                onChange={handleCheckboxChange("maidBreakfastIncluded")}
               />
             </ul>
           </div>
@@ -210,26 +209,26 @@ export default function Amenities() {
               <CustomTextField
                 label="Enhached cleaning"
                 type="text"
-                value={value.safeEnhachedCleaning}
-                onChange={(e) => setValue({ safeEnhachedCleaning: e })}
+                value={value.amenities.safeEnhachedCleaning}
+                onChange={(e) => setValue({amenities: {...value.amenities, safeEnhachedCleaning: e}})}
               />
               <CustomTextField
                 label="Disinfection"
                 type="text"
-                value={value.safeCleaningDisinfection}
-                onChange={(e) => setValue({ safeCleaningDisinfection: e })}
+                value={value.amenities.safeCleaningDisinfection}
+                onChange={(e) => setValue({amenities: {...value.amenities, safeCleaningDisinfection: e}})}
               />
               <CustomTextField
                 label="Self check in check out"
                 type="text"
-                value={value.safeSelfCheckInCheckOut}
-                onChange={(e) => setValue({ safeSelfCheckInCheckOut: e })}
+                value={value.amenities.safeSelfCheckInCheckOut}
+                onChange={(e) => setValue({amenities: {...value.amenities, safeSelfCheckInCheckOut: e}})}
               />
               <CustomTextField
                 label="Common surface disinfecting"
                 type="text"
-                value={value.safeCommonSurfaceDisinfecting}
-                onChange={(e) => setValue({ safeCommonSurfaceDisinfecting: e })}
+                value={value.amenities.safeCommonSurfaceDisinfecting}
+                onChange={(e) => setValue({amenities: {...value.amenities, safeCommonSurfaceDisinfecting: e}})}
               />
             </ul>
           </div>
@@ -246,14 +245,14 @@ export default function Amenities() {
               <CustomTextField
                 label="Safe sanitary association"
                 type="text"
-                value={value.safeSanitaryAssociation}
-                onChange={(e) => setValue({ safeSanitaryAssociation: e })}
+                value={value.amenities.safeSanitaryAssociation}
+                onChange={(e) => setValue({amenities: {...value.amenities, safeSanitaryAssociation: e}})}
               />
               <CustomTextField
                 label="Sanitary standard"
                 type="text"
-                value={value.sanitaryStandard}
-                onChange={(e) => setValue({ sanitaryStandard: e })}
+                value={value.amenities.sanitaryStandard}
+                onChange={(e) => setValue({amenities: {...value.amenities, sanitaryStandard: e}})}
               />
             </ul>
           </div>
@@ -269,22 +268,22 @@ export default function Amenities() {
             <ul className="duo-options-grid">
               <CustomCheckbox
                 label="Towels"
-                value={value.towels}
+                value={value.amenities.towels}
                 onChange={handleCheckboxChange("towels")}
               />
               <CustomCheckbox
                 label="Towels X1 a week"
-                value={value.towelsOnceAWeek}
+                value={value.amenities.towelsOnceAWeek}
                 onChange={handleCheckboxChange("towelsOnceAWeek")}
               />
               <CustomCheckbox
                 label="Towels X2 a week"
-                value={value.towelsTwiceAWeek}
+                value={value.amenities.towelsTwiceAWeek}
                 onChange={handleCheckboxChange("towelsTwiceAWeek")}
               />
               <CustomCheckbox
                 label="Towels X3 a week"
-                value={value.towelsThriceAWeek}
+                value={value.amenities.towelsThriceAWeek}
                 onChange={handleCheckboxChange("towelsThriceAWeek")}
               />
             </ul>
@@ -313,7 +312,7 @@ export default function Amenities() {
       </div>
       <FormGroup>
         {mainCategories.map((category, index) => (
-          <div className="accordions">
+          <div className="accordions" key={index}>
             <Accordion
               className="custom-accordion"
               key={index}

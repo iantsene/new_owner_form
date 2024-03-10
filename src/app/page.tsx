@@ -1,11 +1,10 @@
 "use client";
 
 import useMultistepForm from './useMultistepForm'
-import { FormEvent, useEffect, useState, Dispatch, SetStateAction } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 import { FormDataTypes } from './types/all-form-types';
 import FormTabs from '../components/form_components/FormTabs'
-import INITIAL_DATA from './variables/variables';
-import { Button, Paper, Tab, Tabs } from '@mui/material';
+import { Button, Paper } from '@mui/material';
 import BasicInfo from '@/components/cards_content/BasicInfo';
 import MainDescription from '@/components/cards_content/MainDescription';
 import Pool from '@/components/cards_content/Pool';
@@ -17,24 +16,26 @@ import BedsNBaths from '@/components/cards_content/BedsNBaths';
 import Amenities from '@/components/cards_content/Amenities';
 import Location from '@/components/cards_content/Location';
 import Sports from '@/components/cards_content/Sports';
+import Extras from '@/components/cards_content/Extras';
 import { FormProvider, INITIAL_STATE } from './contexts/form';
-// import Test from '@/components/defunct-components/Test';
 
+interface UsedLevelProps {
+  commonbathsUsedLevels: { value: string; label: string }[];
+  commonbedsUsedLevels: { value: string; label: string }[];
+}
 
 export default function Home() {
-  const [state, setState] = useState<FormDataTypes>(INITIAL_STATE)
-  const [isTabContainerReady, setIsTabContainerReady] = useState(true); //3. Marks whether a placeholder occupies space upon the tab space (false) or whether the actual tabs comtainer is there to display tabs (true)
-  const [includeDetailedSteps, setIncludeDetailedSteps] = useState(false); //4. Switch that affects other code determining whether we are on the basic or the advanced view.
-  const [openTabs, setOpenTabs] = useState<number[]>([0]); //5. Controls how many tabs should be open
-
+  const [state, setState] = useState<FormDataTypes>(INITIAL_STATE) //1. The form's global state. In order to populate the form with an account's data just use setState to imprint the new values
+  const [isTabContainerReady, setIsTabContainerReady] = useState(true); //2. Marks whether a placeholder occupies space upon the tab space (false) or whether the actual tabs comtainer is there to display tabs (true)
+  const [includeDetailedSteps, setIncludeDetailedSteps] = useState(false); //3. Switch that affects other code determining whether we are on the basic or the advanced view.
+  const [openTabs, setOpenTabs] = useState<number[]>([0]); //4. Controls how many tabs should be open
+  const [usedLevels, setUsedLevels] = useState<UsedLevelProps>({
+    commonbathsUsedLevels: [],
+    commonbedsUsedLevels: [],
+  }); //5. This hook is part of a mechanism that determines which levels have already been used in BedsNBaths tab for the widgets CommonAreaBeds and CommonBaths so the user cannot add duplicates of the same level.
 
   
-  const handleFieldChange = (fieldName: any, value: any) => {
-    setState({
-      ...state,
-      [fieldName]: value,
-    });
-  };
+
 
 
   function onSubmit(e: FormEvent) {
@@ -46,7 +47,7 @@ export default function Home() {
       }
       return next();
     }
-    fetch('http://localhost:8080/submit', { //6. Here the backend endpoint is defined so it may be sent our data object for mapping.
+    fetch('http://localhost:8080/submit', { //6. Here the backend endpoint is determined so our data object can be transmitted to the backend.
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(state)
@@ -56,32 +57,50 @@ export default function Home() {
 
 
 
-  // const poolCond = data.poolYesNo ? <Pool {...data} data={data} setState={setData} handleFieldChange={handleFieldChange} updateFields={updateFields} />: null
-  // const poolArray = data.poolYesNo ? 'Pool' : nstate
 
   const briefSteps = [
-    <BasicInfo  />,
-    <MainDescription />,
+    <BasicInfo key="basic-info" />,
+    <MainDescription key="main-description" />,
   ];
-  //7. These above and below are the actual tab components, laid out here to be injected below and elsewhere.
-  const detailedSteps = [
-    <Pool/>,
-    <Outside />,
-    <Inside />,
-    <BedsNBaths />,
-    <Kitchen />,
-    <Amenities />,
-    <Safety />,
-    <Location />,
-    <Sports />,
-  ];
+  //7. These above and below are the actual tab components, laid out here to be injected below. A ternary operator is used to conditionally inject the version with pool included or not.
+  const detailedSteps =
+  state.basicInfo.poolExists
+    ? [
+        <Pool key="pool" />,
+        <Outside key="outside" />,
+        <Inside key="inside" />,
+        <BedsNBaths key="beds-n-baths" usedLevels={usedLevels} setUsedLevels={setUsedLevels} />,
+        <Kitchen key="kitchen" />,
+        <Amenities key="amenities" />,
+        <Safety key="safety" />,
+        <Location key="location" />,
+        <Sports key="sports" />,
+        <Extras key="extras" />,
+      ]
+    : [
+        <Outside key="outside" />,
+        <Inside key="inside" />,
+        <BedsNBaths key="beds-n-baths" usedLevels={usedLevels} setUsedLevels={setUsedLevels} />,
+        <Kitchen key="kitchen" />,
+        <Amenities key="amenities" />,
+        <Safety key="safety" />,
+        <Location key="location" />,
+        <Sports key="sports" />,
+        <Extras key="extras" />,
+      ];
 
-  const basicTabLabels = ['Basic Info', 'Main Description',];
-  const advancedTabLabels = ['Pool', 'Outside', 'Inside', 'Beds & Baths', 'Kitchen', 'Amenities', 'Safety', 'Location', 'Sports'];
+
+  const basicTabLabels = ['Basic Info', 'Main Description',]; //7a. Same concept as above but these are the labels of the created tabs the user sees on the interface
+  const advancedTabLabels = state.basicInfo.poolExists 
+  ? ['Pool', 'Outside', 'Inside', 'Beds & Baths', 'Kitchen', 'Amenities', 'Safety', 'Location', 'Sports', 'Extras'] 
+  : ['Outside', 'Inside', 'Beds & Baths', 'Kitchen', 'Amenities', 'Safety', 'Location', 'Sports', 'Extras'];
+  
   const [tabLabels, setTabLabels] = useState([...basicTabLabels, ...advancedTabLabels]); //8. Controls the rendering of tabs (FormTabs.tsx #4) via the above labels. 
-  includeDetailedSteps && briefSteps.push(...detailedSteps) // Makes sure that on first push of advanced view button the array with the detailedSteps tabs is couple with the briefSteps one.
-  //9. That way on click you get continuity of tabs and a smooth experience
+  includeDetailedSteps && briefSteps.push(...detailedSteps) //9. Makes sure that on first push of advanced view button the array with the detailedSteps tabs is coupled with the briefSteps one.
+  //that way on click you get continuity of tabs and a smooth experience
 
+  
+   
   const currentSteps = [...briefSteps,];
   const { steps, currentStepIndex, setCurrentStepIndex, step, isFirstStep, isLastStep, back, next, handleStepComplete, completedSteps } = useMultistepForm(currentSteps);
   //10. This is my multistep custom hook which handles navigation and tracking of steps on the form.
@@ -127,16 +146,28 @@ export default function Home() {
       //19. Mark the effect as run
       setHasEffectRun(true);
     }
-  }, [currentStepIndex, hasEffectRun]);
+  }, [currentStepIndex, hasEffectRun, steps.length]);
 
   const viewMode = modeLabel();
+
+  
+  type TabKey = keyof FormDataTypes;
+
+  const totalStepsNumber = briefSteps.length > 2 ? briefSteps.length : briefSteps.length + detailedSteps.length; //20. Adjusts the number of steps so it can be used to determine when "go to basic mode' buttom shows up
+  
 
   return (
     <FormProvider
       value={{
         value: state,
         setValue: newState => setState({ ...state, ...newState }),
-        handleFieldChange
+        handleFieldChange: (tab, fieldname, value) => {
+          setState( {...state, 
+            [tab as TabKey]: {...state[tab as TabKey] ,
+              [fieldname]: value
+            }
+          });
+        }
       }}
     >
   <>
@@ -175,9 +206,9 @@ export default function Home() {
                     <div className="form-navigation"><div className="form-nav-btns">{!isFirstStep ? (<Button variant="contained" className='back-btn' type='button' onClick={back}>Back</Button>) : (<Button variant="contained" className='placeholder-back-btn' type='button' >Back</Button>)}
                       <Button variant="contained" className={isLastStep ? 'submit-btn' : 'next-btn'} onClick={handleStepComplete} type='submit'>{isLastStep ? "Submit" : "Next"}</Button>
                       </div></div>
-                    {steps.length <= 11 && currentStepIndex === 1 ? (advancedViewBtn) : null
+                    {steps.length <= totalStepsNumber && currentStepIndex === 1 ? (advancedViewBtn) : null
                     }
-                    {steps.length === 11 ? (<Button variant="contained" className='basic-view-btn' type='button' onClick={() => {
+                    {steps.length === totalStepsNumber ? (<Button variant="contained" className='basic-view-btn' type='button' onClick={() => {
                       goToBasicView();
                       setCurrentStepIndex(1)
                     }}>Go to basic view</Button>) : null

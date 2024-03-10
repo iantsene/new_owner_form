@@ -1,7 +1,7 @@
 import React from "react";
-import DropdownSelect from "./DropdownSelect";
+import DropdownSelect from "../reuseable-components/DropdownSelect";
 import { Button, Card } from "@mui/material";
-import { Bedroom, BedroomType, Bed, EnSuiteType, Heating, Level } from "@/app/types/all-form-types";
+import { Bedroom, BedroomType, Bed, Level } from "@/app/types/all-form-types";
 import HeatingSelect from "./HeatingSelect";
 import EnSuiteCard from "./EnSuiteCard";
 
@@ -21,12 +21,14 @@ const BedroomCard = ({ index, bedroom, onUpdate }: Props) => {
     <Card sx={{ display: "flex", m: 1, p: 1 }}>
       <div className="bedroom-type">
         <Card className="bedroom-type" sx={{ display: "flex", m: 1, p: 1 }}>
+        <div className="card-title">
           <h5>Type</h5>
+          </div>
           <DropdownSelect
+          fieldName="bedroom.bedroomType"
             state={bedroom.bedroomType}
-            handleFieldChange={(_: any, bedroomType: BedroomType) =>
-              onUpdate({ ...bedroom, bedroomType })
-            }
+            extraEffects={(bedroomType: BedroomType) =>
+              onUpdate({ ...bedroom, bedroomType })}
             options={[
               { value: "single", label: "Single" },
               { value: "double", label: "Double" },
@@ -34,10 +36,13 @@ const BedroomCard = ({ index, bedroom, onUpdate }: Props) => {
               { value: "twin", label: "Twin" },
             ]}
           />
+          <div className="card-title">
           <h5>Level</h5>
+          </div>
           <DropdownSelect
             state={bedroom.level}
-            handleFieldChange={(_: any, level: Level) =>
+            fieldName="bedroom.level"
+            extraEffects={(level: Level) =>
               onUpdate({ ...bedroom, level })
             }
             options={[
@@ -53,7 +58,7 @@ const BedroomCard = ({ index, bedroom, onUpdate }: Props) => {
       
 
       <Card className="bed-types" sx={{ display: "flex", m: 1, p: 1 }}>
-        <div className="beds-title">
+      <div className="card-title">
           <h5>Beds</h5>
         </div>
         <div className="beds-dropdown">
@@ -63,12 +68,13 @@ const BedroomCard = ({ index, bedroom, onUpdate }: Props) => {
               label={`Bed ${index + 1}`}
               labelId={`Bed ${index + 1}`}
               state={bed}
+              fieldName='bedrooms.bed'
               key={index}
               id={`bed${index + 1}-id`}
-              handleFieldChange={(_: any, newBedType: Bed) =>
+              extraEffects={(BedType: Bed) =>
                 onUpdate({
                   ...bedroom,
-                  beds: bedroom.beds.with(index, newBedType),
+                  beds: bedroom.beds.with(index, BedType),
                 })
               }
               options={[
@@ -99,7 +105,7 @@ const BedroomCard = ({ index, bedroom, onUpdate }: Props) => {
             <Button
               className="button-add"
               onClick={() =>
-                onUpdate({ ...bedroom, beds: [...bedroom.beds, "single"] })
+                onUpdate({ ...bedroom, beds: [...bedroom.beds, ""] })
               }
             >
               +

@@ -1,19 +1,6 @@
 import * as React from "react";
 import { useState } from "react";
-import {
-  FormControlLabel,
-  FormGroup,
-  InputBase,
-  RadioGroup,
-  Radio,
-} from "@mui/material";
-import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-  Typography,
-} from "@mui/material";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { FormControlLabel, FormGroup, InputBase, RadioGroup, Radio, FormControl, InputLabel, Select, OutlinedInput, MenuItem, SelectChangeEvent } from "@mui/material";
 import FormWrapper from "../form_components/FormWrapper";
 import VillaIcon from "@mui/icons-material/Villa";
 import ApartmentIcon from "@mui/icons-material/Apartment";
@@ -23,245 +10,95 @@ import CustomTextField from "../reuseable-components/CustomTextField";
 import DropdownSelect from "../reuseable-components/DropdownSelect";
 import { useFormData } from "@/app/contexts/form";
 import CustomCheckbox from "../reuseable-components/CustomCheckbox";
-import { Bedroom, EnSuite, EnSuiteType } from "@/app/types/all-form-types";
+
 
 export default function BasicInfo() {
   const { value, setValue, handleFieldChange } = useFormData();
+  const [isOpen, setIsOpen] = useState({
+    bedroomBeds: false,
+    commonAreaBeds: false,
+    commonBaths: false 
+  });
+    
 
   const handleCheckboxChange = (fieldName: string) => (e: any) => {
-    handleFieldChange(fieldName, e.target.checked);
+    handleFieldChange('basicInfo', fieldName, e.target.checked);
   };
 
   const handleRadioGroupChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    handleFieldChange("lodgingType", e.target.value);
+    handleFieldChange("basicInfo", "lodgingType", e.target.value);
   };
 
-  const handleBedroomChange = (e: string, numRooms: number) => {
-    setValue({
-      bedroomNumber: numRooms,
-      bedrooms: new Array(numRooms).fill(0).map(() => ({
+
+
+const handleBedroomChange = (e:  SelectChangeEvent<number>) => {
+  const selectedValue = e.target.value;
+  setValue({
+    basicInfo: {
+      ...value.basicInfo,
+      bedroomNumber: selectedValue as number},
+    bedsNbaths: {
+      ...value.bedsNbaths,
+      bedrooms: new Array(selectedValue).fill(0).map(() => ({
         bedroomType: "",
         level: "",
         beds: [],
         enSuiteTypes: [{ type: "", subtype: "" }],
         heating: [],
       })),
-    });
-  };
-
-  const mainCategories = [
-    {
-      title: "Beds and baths",
-      description: "How many beds and bathrooms do you have?",
-      content: (
-        <>
-          <div className="bedsnbaths-brief main-category">
-            <div className="beds">
-              <div className="select-flex">
-                <DropdownSelect
-                  label="Number of bedrooms:"
-                  state={value.bedroomNumber}
-                  fieldName="bedroomNumber"
-                  handleFieldChange={handleBedroomChange}
-                  id={"bedrooms-select"}
-                  options={[
-                    { value: 1, label: "one" },
-                    { value: 2, label: "two" },
-                    { value: 3, label: "three" },
-                    { value: 4, label: "four" },
-                    { value: 5, label: "five" },
-                    { value: 6, label: "six" },
-                    { value: 7, label: "seven" },
-                  ]}
-                />
-
-                <div className="extra-beds">
-                  <h3>Extra beds (outside of a bedroom)</h3>
-                <div className="select-flex">
-                  <DropdownSelect
-                    label="Number of sofa beds:"
-                    state={value.sofaBedsNumber}
-                    fieldName="sofaBedsNumber"
-                    handleFieldChange={handleFieldChange}
-                    id={"sofaBeds-select"}
-                    options={[
-                      { value: 1, label: "one" },
-                      { value: 2, label: "two" },
-                      { value: 3, label: "three" },
-                      { value: 4, label: "four" },
-                    ]}
-                  />
-                </div>
-
-                <div className="select-flex">
-                  <DropdownSelect
-                    label="Number of camp beds:"
-                    state={value.campBedsNumber}
-                    fieldName="campBedsNumber"
-                    handleFieldChange={handleFieldChange}
-                    id={"campBeds-select"}
-                    options={[
-                      { value: 1, label: "one" },
-                      { value: 2, label: "two" },
-                      { value: 3, label: "three" },
-                      { value: 4, label: "four" },
-                    ]}
-                  />
-                </div>
-
-                <div className="select-flex">
-                  <DropdownSelect
-                    label="Number of folding beds:"
-                    state={value.foldingBedsNumber}
-                    fieldName="foldingBedsNumber"
-                    handleFieldChange={handleFieldChange}
-                    id={"foldingBeds-select"}
-                    options={[
-                      { value: 1, label: "one" },
-                      { value: 2, label: "two" },
-                      { value: 3, label: "three" },
-                      { value: 4, label: "four" },
-                      { value: 5, label: "five" },
-                      { value: 6, label: "six" },
-                      { value: 7, label: "seven" },
-                    ]}
-                  />
-                </div>
-
-                <div className="select-flex">
-                  <DropdownSelect
-                    label="Number of cots:"
-                    state={value.cotsNumber}
-                    fieldName="cotsNumber"
-                    handleFieldChange={handleFieldChange}
-                    id={"cots-select"}
-                    options={[
-                      { value: 1, label: "one" },
-                      { value: 2, label: "two" },
-                      { value: 3, label: "three" },
-                      { value: 4, label: "four" },
-                    ]}
-                  />
-                </div>
-              </div>
-            </div>
-
-            </div>
-
-
-
-            <div className="baths">
-              <h3>Number of bathrooms</h3>
-              <div className="select-flex">
-                <DropdownSelect
-                  label="Number of bathrooms:"
-                  state={value.bathroomNumber}
-                  fieldName="bathroomNumber"
-                  handleFieldChange={handleFieldChange}
-                  id={"bathrooms-select"}
-                  options={[
-                    { value: 1, label: "one" },
-                    { value: 2, label: "two" },
-                    { value: 3, label: "three" },
-                    { value: 4, label: "four" },
-                    { value: 5, label: "five" },
-                    { value: 6, label: "six" },
-                    { value: 7, label: "seven" },
-                  ]}
-                />
-
-                <div className="select-flex">
-                  <DropdownSelect
-                    label="Number of en-suite bathrooms:"
-                    state={value.enSuiteBathsNumber}
-                    fieldName="enSuiteBathsNumber"
-                    handleFieldChange={handleFieldChange}
-                    id={"en-suite-baths-select"}
-                    options={[
-                      { value: 1, label: "one" },
-                      { value: 2, label: "two" },
-                      { value: 3, label: "three" },
-                      { value: 4, label: "four" },
-                    ]}
-                  />
-                </div>
-
-
-                <div className="select-flex">
-                  <DropdownSelect
-                    label="Number of common baths:"
-                    state={value.commonBathsNumber}
-                    fieldName="commonBathsNumber"
-                    handleFieldChange={handleFieldChange}
-                    id={"common-baths-select"}
-                    options={[
-                      { value: 1, label: "one" },
-                      { value: 2, label: "two" },
-                      { value: 3, label: "three" },
-                      { value: 4, label: "four" },
-                    ]}
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </>
-      ),
     },
-    {
-      title: "Property location",
-      description: "Where is it located?",
-      content: (
-        <>
-          <div className="property-address-category main-category">
-            <ul className="duo-options-grid mobile-tablet-list-class">
-              <CustomTextField
-                label="Property address"
-                type="text"
-                value={value.propertyAddress}
-                onChange={(e) => setValue({ propertyAddress: e })}
-              />
+  });
+};
 
-              <CustomTextField
-                label="Post code"
-                type="text"
-                value={value.postCode}
-                icon={
-                  <img
-                    className="textfield-icon"
-                    src="/Icons/icon-placeholder.png"
-                    alt="icon"
-                  />
-                }
-                onChange={(e) => setValue({ postCode: e })}
-              />
 
-              <CustomTextField
-                label="GPS latitude"
-                type="text"
-                value={value.gpsLatitude}
-                onChange={(e) => setValue({ gpsLatitude: e })}
-              />
+const handleCommonAreaBedsChange = (e:  SelectChangeEvent<number>) => {
+  const selectedValue = e.target.value;
 
-              <CustomTextField
-                label="GPS longitude"
-                type="text"
-                value={value.gpsLongitude}
-                onChange={(e) => setValue({ gpsLongitude: e })}
-              />
-            </ul>
-          </div>
-        </>
-      ),
+  setValue({
+    basicInfo: {
+      ...value.basicInfo,
+      commonAreaBedsNumber: selectedValue as number},
+    bedsNbaths: {
+      ...value.bedsNbaths,
+      commonAreaBeds: selectedValue !== 0 ? [{
+        level: '',
+        commonBeds: [],
+      }] : [],
     },
-  ];
+  });
+};
 
-  const [expanded, setExpanded] = useState<string | false>(false);
 
-  const handleChange =
-    (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
-      setExpanded(isExpanded ? panel : false);
-    };
+const handleCommonBathsChange = (e:  SelectChangeEvent<number>) => {
+  const selectedValue = e.target.value;
+
+  setValue({
+    basicInfo: {
+      ...value.basicInfo,
+      bathroomNumber: selectedValue as number},
+    bedsNbaths: {
+      ...value.bedsNbaths,
+      commonBaths: selectedValue != 0 ? [{
+        level: '',
+        commonBathTypes: [{type: '', subtype: ''}],
+      }] : [],
+    },
+  });
+};
+
+
+
+
+const bednbathOptions= [
+  { value: 1, label: "one (1)" },
+  { value: 2, label: "two (2)" },
+  { value: 3, label: "three (3)" },
+  { value: 4, label: "four (4)" },
+  { value: 5, label: "five (5)" },
+  { value: 6, label: "six (6)" },
+  { value: 7, label: "seven (7)" },
+];
+      
 
   return (
     <FormWrapper title="Basic info">
@@ -282,146 +119,18 @@ export default function BasicInfo() {
               row
               aria-labelledby="lodge-label"
               name="lodging-types"
-              value={value.lodgingType}
+              value={value.basicInfo.lodgingType}
               onChange={handleRadioGroupChange}
             >
               <ul className="multi-options-grid">
-                <li className="list-items">
-                  <FormControlLabel
-                    control={
-                      <Radio
-                        size="small"
-                        onChange={handleCheckboxChange("villa")}
-                      />
-                    }
-                    value="villa"
-                    label={
-                      <div className="label-content">
-                        <VillaIcon />
-                        <span className="checkbox-tags">Villa</span>
-                      </div>
-                    }
-                  />
-                </li>
-                <li className="list-items">
-                  <FormControlLabel
-                    control={
-                      <Radio
-                        size="small"
-                        onChange={handleCheckboxChange("apartment")}
-                      />
-                    }
-                    value="apartment"
-                    label={
-                      <div className="label-content">
-                        <ApartmentIcon />
-                        <span className="checkbox-tags">Apartment</span>
-                      </div>
-                    }
-                  />
-                </li>
-                <li className="list-items">
-                  <FormControlLabel
-                    control={
-                      <Radio
-                        size="small"
-                        onChange={handleCheckboxChange("maisonette")}
-                      />
-                    }
-                    value="maisonette"
-                    label={
-                      <div className="label-content">
-                        <img src="/Icons/maisonette.png" />
-                        <span className="checkbox-tags">Maisonette</span>
-                      </div>
-                    }
-                  />
-                </li>
-                <li className="list-items">
-                  <FormControlLabel
-                    control={
-                      <Radio
-                        size="small"
-                        onChange={handleCheckboxChange("room")}
-                      />
-                    }
-                    value="room"
-                    label={
-                      <div className="label-content">
-                        <img src="/Icons/icons8-room-24.png" />
-                        <span className="checkbox-tags">Room</span>
-                      </div>
-                    }
-                  />
-                </li>
-                <li className="list-items">
-                  <FormControlLabel
-                    control={
-                      <Radio
-                        size="small"
-                        onChange={handleCheckboxChange("studio")}
-                      />
-                    }
-                    value="studio"
-                    label={
-                      <div className="label-content">
-                        <img src="/Icons/studio.png" />
-                        <span className="checkbox-tags">Studio</span>
-                      </div>
-                    }
-                  />
-                </li>
-                <li className="list-items">
-                  <FormControlLabel
-                    control={
-                      <Radio
-                        size="small"
-                        onChange={handleCheckboxChange("cottage")}
-                      />
-                    }
-                    value="cottage"
-                    label={
-                      <div className="label-content">
-                        <CottageIcon />
-                        <span className="checkbox-tags">Cottage</span>
-                      </div>
-                    }
-                  />
-                </li>
-                <li className="list-items">
-                  <FormControlLabel
-                    control={
-                      <Radio
-                        size="small"
-                        onChange={handleCheckboxChange("bangalow")}
-                      />
-                    }
-                    value="bangalow"
-                    label={
-                      <div className="label-content">
-                        <img src="/Icons/icons8-bungalow-24.png" />
-                        <span className="checkbox-tags">Bangalow</span>
-                      </div>
-                    }
-                  />
-                </li>
-                <li className="list-items">
-                  <FormControlLabel
-                    control={
-                      <Radio
-                        size="small"
-                        onChange={handleCheckboxChange("house")}
-                      />
-                    }
-                    value="house"
-                    label={
-                      <div className="label-content">
-                        <HouseIcon />
-                        <span className="checkbox-tags">House</span>
-                      </div>
-                    }
-                  />
-                </li>
+                <li className="list-items"><FormControlLabel control={<Radio size="small" onChange={handleCheckboxChange("villa")} />} value="villa" label={<div className="label-content"><VillaIcon /><span className="checkbox-tags">Villa</span> </div> } /></li>
+                <li className="list-items"><FormControlLabel control={<Radio size="small" onChange={handleCheckboxChange("apartment")} />} value="apartment" label={<div className="label-content"><ApartmentIcon /><span className="checkbox-tags">Apartment</span> </div>} /></li>
+                <li className="list-items"><FormControlLabel control={<Radio size="small" onChange={handleCheckboxChange("maisonette")} />} value="maisonette" label={<div className="label-content"><img src="/Icons/maisonette.png" /><span className="checkbox-tags">Maisonette</span></div> } /></li>
+                <li className="list-items"><FormControlLabel control={<Radio size="small" onChange={handleCheckboxChange("room")} />} value="room" label={<div className="label-content"><img src="/Icons/icons8-room-24.png" /><span className="checkbox-tags">Room</span></div>} /></li>
+                <li className="list-items"><FormControlLabel control={<Radio size="small" onChange={handleCheckboxChange("studio")} />} value="studio" label={<div className="label-content"><img src="/Icons/studio.png" /><span className="checkbox-tags">Studio</span></div>} /></li>
+                <li className="list-items"><FormControlLabel control={<Radio size="small" onChange={handleCheckboxChange("cottage")} />} value="cottage" label={<div className="label-content"><CottageIcon /><span className="checkbox-tags">Cottage</span></div>} /></li>
+                <li className="list-items"><FormControlLabel control={<Radio size="small" onChange={handleCheckboxChange("bangalow")} />} value="bangalow" label={<div className="label-content"><img src="/Icons/icons8-bungalow-24.png" /><span className="checkbox-tags">Bangalow</span></div>} /></li>
+                <li className="list-items"><FormControlLabel control={<Radio size="small" onChange={handleCheckboxChange("house")} />} value="house" label={<div className="label-content"><HouseIcon /><span className="checkbox-tags">House</span></div>} /></li>
               </ul>
             </RadioGroup>
           </div>
@@ -433,8 +142,9 @@ export default function BasicInfo() {
           <div className="pool-option">
             <CustomCheckbox
               label="Pool exists"
-              value={value.poolYesNo}
-              onChange={handleCheckboxChange("poolYesNo")}
+              highlightedMessage='important!'
+              value={value.basicInfo.poolExists}
+              onChange={handleCheckboxChange("poolExists")}
             />
           </div>
         </div>
@@ -444,84 +154,20 @@ export default function BasicInfo() {
             <div className="check-in-cat main-category">
               <h3>Check-in options</h3>
               <ul className="media-query-custom-breakpoint">
-                <li className="list-items">
-                  <img src="/Icons/icon-placeholder.png" />
-                  <div className="label">
-                    <span>Check-in Time:</span>
-                    <InputBase
-                      type="time"
-                      value={value.checkInTime}
-                      onChange={(e) =>
-                        setValue({ checkInTime: e.target.value })
-                      }
-                    />
-                  </div>
-                </li>
-
-                <CustomCheckbox
-                  label="Self Check-in"
-                  value={value.selfCheckIn}
-                  onChange={handleCheckboxChange("selfCheckIn")}
-                />
-
-                <li className="list-items">
-                  <img src="/Icons/icon-placeholder.png" />
-                  <div className="label">
-                    <span>Check-out Time:</span>
-                    <InputBase
-                      type="time"
-                      value={value.checkOutTime}
-                      onChange={(e) =>
-                        setValue({ checkOutTime: e.target.value })
-                      }
-                    />
-                  </div>
-                </li>
-
-                <CustomCheckbox
-                  label="Luggage Check-in"
-                  value={value.luggageCheckIn}
-                  onChange={handleCheckboxChange("luggageCheckIn")}
-                />
-
-                <li className="list-items">
-                  <img src="/Icons/icon-placeholder.png" />
-                  <div className="label">
-                    <span>Luggage drop-off time:</span>
-                    <InputBase
-                      type="time"
-                      value={value.luggageDropTime}
-                      onChange={(e) =>
-                        setValue({ luggageDropTime: e.target.value })
-                      }
-                      id="lgdrop"
-                    />
-                  </div>
-                </li>
+                <li className="list-items"><img src="/Icons/icon-placeholder.png" /><div className="label"><span>Check-in Time:</span><InputBase type="time" value={value.basicInfo.checkInTime} onChange={(e) => setValue({basicInfo: {...value.basicInfo, checkInTime: e.target.value}})} /></div></li>
+                <CustomCheckbox label="Self Check-in" value={value.basicInfo.selfCheckIn} onChange={handleCheckboxChange("selfCheckIn")} />
+                <li className="list-items"><img src="/Icons/icon-placeholder.png" /><div className="label"><span>Check-out Time:</span><InputBase type="time" value={value.basicInfo.checkOutTime} onChange={(e) => setValue({basicInfo: {...value.basicInfo, checkOutTime: e.target.value}})} /></div></li>
+                <CustomCheckbox label="Luggage Check-in" value={value.basicInfo.luggageCheckIn} onChange={handleCheckboxChange("luggageCheckIn")} />
+                <li className="list-items"><img src="/Icons/icon-placeholder.png" /><div className="label"><span>Luggage drop-off time:</span><InputBase type="time" value={value.basicInfo.luggageDropTime} onChange={(e) => setValue({basicInfo: {...value.basicInfo, luggageDropTime: e.target.value}})} id="lgdrop" /></div></li>
               </ul>
             </div>
 
             <div className="licenses-cat main-category">
               <h3>Licenses</h3>
               <ul className="media-query-custom-breakpoint">
-                <CustomCheckbox
-                  label="Rental license"
-                  value={value.rentalLicense}
-                  onChange={handleCheckboxChange("rentalLicense")}
-                />
-
-                <CustomCheckbox
-                  label="Extra license required"
-                  value={value.extraLicenseRequired}
-                  onChange={handleCheckboxChange("extraLicenseRequired")}
-                />
-
-                <CustomTextField
-                  label="Extra License type"
-                  type="text"
-                  value={value.extraLicenseType}
-                  onChange={(e) => setValue({ extraLicenseType: e })}
-                />
+                <CustomCheckbox label="Rental license" value={value.basicInfo.rentalLicense} onChange={handleCheckboxChange("rentalLicense")} /> 
+                <CustomCheckbox label="license required" value={value.basicInfo.extraLicenseRequired} onChange={handleCheckboxChange("extraLicenseRequired")} />
+                <CustomTextField label="License type" type="text" value={value.basicInfo.extraLicenseType} onChange={(e) => setValue({basicInfo: {...value.basicInfo, extraLicenseType: e}})} />
               </ul>
             </div>
 
@@ -530,10 +176,11 @@ export default function BasicInfo() {
               <div className="select-flex">
                 <DropdownSelect
                   label="Max number of persons:"
-                  state={value.maxPaxNumber}
-                  fieldName="maxPaxNumber"
+                  state={value.basicInfo.maxPaxNumber}
+                  fieldName="basicInfo.maxPaxNumber"
                   handleFieldChange={handleFieldChange}
                   id={"max-pax-select"}
+                  required
                   options={[
                     { value: 1, label: "one" },
                     { value: 2, label: "two" },
@@ -546,8 +193,8 @@ export default function BasicInfo() {
               <div className="select-flex">
                 <DropdownSelect
                   label="Max number of adults:"
-                  state={value.maxAdultsNumber}
-                  fieldName="maxAdultsNumber"
+                  state={value.basicInfo.maxAdultsNumber}
+                  fieldName="basicInfo.maxAdultsNumber"
                   handleFieldChange={handleFieldChange}
                   id={"max-adults-select"}
                   options={[
@@ -562,11 +209,12 @@ export default function BasicInfo() {
               <div className="select-flex">
                 <DropdownSelect
                   label="Max number of children:"
-                  state={value.maxChildrenNumber}
-                  fieldName="maxChildrenNumber"
+                  state={value.basicInfo.maxChildrenNumber}
+                  fieldName="basicInfo.maxChildrenNumber"
                   handleFieldChange={handleFieldChange}
                   id={"max-children-select"}
                   options={[
+                    { value: 0, label: "none" },
                     { value: 1, label: "one" },
                     { value: 2, label: "two" },
                     { value: 3, label: "three" },
@@ -577,30 +225,231 @@ export default function BasicInfo() {
             </div>
           </div>
         </div>
-        {mainCategories.map((category, index) => (
-          <Accordion
-            className="custom-accordion"
-            key={index}
-            expanded={expanded === `panel${index}`}
-            onChange={handleChange(`panel${index}`)}
-          >
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
-              aria-controls={`panel${index}bh-content`}
-              id={`panel${index}bh-header`}
-            >
-              <Typography
-                sx={{ width: "40%", fontWeight: "bold", flexShrink: 0 }}
-              >
-                {category.title}
-              </Typography>
-              <Typography sx={{ marginLeft: "20px", color: "text.secondary" }}>
-                {category.description}
-              </Typography>
-            </AccordionSummary>
-            <AccordionDetails>{category.content}</AccordionDetails>
-          </Accordion>
-        ))}
+        
+
+        <div className="bedsnbaths-brief main-category">
+        <h3>Beds and Baths</h3>
+  <p>How many beds and bathrooms do you have?</p>
+<div className="beds">
+
+  <h3>Bedrooms</h3>
+  <div className="select-flex">
+  <FormControl sx={{ m: 1, minWidth: 100 }} >
+  <InputLabel id="bedrooms-select">Number of bedrooms</InputLabel>
+    <Select
+      id="bedrooms-select"
+      open={isOpen.bedroomBeds}
+      onClose={() => setIsOpen({...isOpen, bedroomBeds: false})}
+      onOpen={() => setIsOpen({...isOpen, bedroomBeds: true})}
+      value={value.basicInfo.bedroomNumber}
+      onChange={(e: SelectChangeEvent<number>)=> handleBedroomChange(e)}
+      input={<OutlinedInput label="Number of bedrooms" />}
+    >
+      {bednbathOptions.map((option, index) => (
+        <MenuItem key={index} value={option.value}>
+          {option.label}
+        </MenuItem>
+      ))}
+    </Select>
+  </FormControl>
+  </div>
+
+
+
+  <div className="baths">
+  <h3>Common area bathrooms</h3>
+  <div className="select-flex">
+    <FormControl sx={{ m: 1, minWidth: 100 }} >
+    <InputLabel id="bedrooms-select">Number of common bathrooms</InputLabel>
+    <Select
+      id="bedrooms-select"
+      open={isOpen.commonBaths}
+      onClose={() => setIsOpen({...isOpen, commonBaths: false})}
+      onOpen={() => setIsOpen({...isOpen, commonBaths: true})}
+      value={value.basicInfo.bathroomNumber}
+      onChange={(e: SelectChangeEvent<number>) => handleCommonBathsChange(e)}
+      input={<OutlinedInput label="Number of common bathrooms" />}
+      >
+      <MenuItem value={0}>
+        <em>None</em>
+      </MenuItem>
+      {bednbathOptions.map((option, index) => (
+        <MenuItem key={index} value={option.value}>
+          {option.label}
+        </MenuItem>
+      ))}
+    </Select>
+    </FormControl>
+    </div> 
+
+
+    <div className="extra-beds">
+      <h3>Common area beds</h3>
+
+      <div className="select-flex">
+    <FormControl sx={{ m: 1, minWidth: 100 }} >
+    <InputLabel id="bedrooms-select">Number of common area beds</InputLabel>
+    <Select
+      id="bedrooms-select"
+      open={isOpen.commonAreaBeds}
+      onClose={() => setIsOpen({...isOpen, commonAreaBeds: false})}
+      onOpen={() => setIsOpen({...isOpen, commonAreaBeds: true})}
+      value={value.basicInfo.commonAreaBedsNumber}
+      onChange={(e: SelectChangeEvent<number>) => handleCommonAreaBedsChange(e)}
+      input={<OutlinedInput label="Number of common area beds" />}
+    >
+      <MenuItem value={0}>
+        <em>None</em>
+      </MenuItem>
+      {bednbathOptions.map((option, index) => (
+        <MenuItem key={index} value={option.value}>
+          {option.label}
+        </MenuItem>
+      ))}
+    </Select>
+    </FormControl>
+    </div> 
+
+    <div className="select-flex">
+      <DropdownSelect
+        label="Number of sofa beds"
+        state={value.basicInfo.sofaBedsNumber}
+        fieldName="basicInfo.sofaBedsNumber"
+        handleFieldChange={handleFieldChange}
+        id={"sofaBeds-select"}
+        options={[
+          { value: 0, label: "none" },
+          { value: 1, label: "one" },
+          { value: 2, label: "two" },
+          { value: 3, label: "three" },
+          { value: 4, label: "four" },
+          { value: 5, label: "five" },
+          { value: 6, label: "six" },
+          { value: 7, label: "seven" },
+        ]}
+      />
+    </div> 
+
+    <div className="select-flex">
+      <DropdownSelect
+        label="Number of camp beds"
+        state={value.basicInfo.campBedsNumber}
+        fieldName="basicInfo.campBedsNumber"
+        handleFieldChange={handleFieldChange}
+        id={"campBeds-select"}
+        options={[
+          { value: 0, label: "none" },
+          { value: 1, label: "one" },
+          { value: 2, label: "two" },
+          { value: 3, label: "three" },
+          { value: 4, label: "four" },
+          { value: 5, label: "five" },
+          { value: 6, label: "six" },
+          { value: 7, label: "seven" },
+        ]}
+      />
+    </div>
+
+    <div className="select-flex">
+      <DropdownSelect
+        label="Number of folding beds"
+        state={value.basicInfo.foldingBedsNumber}
+        fieldName="basicInfo.foldingBedsNumber"
+        handleFieldChange={handleFieldChange}
+        id={"foldingBeds-select"}
+        options={[
+          { value: 0, label: "none" },
+          { value: 1, label: "one" },
+          { value: 2, label: "two" },
+          { value: 3, label: "three" },
+          { value: 4, label: "four" },
+          { value: 5, label: "five" },
+          { value: 6, label: "six" },
+          { value: 7, label: "seven" },
+        ]}
+      />
+    </div>
+
+    <div className="select-flex">
+      <DropdownSelect
+        label="Number of cots"
+        state={value.basicInfo.cotsNumber}
+        fieldName="basicInfo.cotsNumber"
+        handleFieldChange={handleFieldChange}
+        id={"cots-select"}
+        options={[
+          { value: 0, label: "none" },
+          { value: 1, label: "one" },
+          { value: 2, label: "two" },
+          { value: 3, label: "three" },
+          { value: 4, label: "four" },
+          { value: 5, label: "five" },
+          { value: 6, label: "six" },
+          { value: 7, label: "seven" },
+        ]}
+      />
+    </div>
+    </div>
+
+    <div className="select-flex">
+      <DropdownSelect
+        label="Number of en-suite bathrooms"
+        state={value.basicInfo.enSuiteBathsNumber}
+        fieldName="basicInfo.enSuiteBathsNumber"
+        handleFieldChange={handleFieldChange}
+        id={"en-suite-baths-select"}
+        options={[
+          { value: 0, label: "none" },
+          { value: 1, label: "one" },
+          { value: 2, label: "two" },
+          { value: 3, label: "three" },
+          { value: 4, label: "four" },
+          { value: 5, label: "five" },
+          { value: 6, label: "six" },
+          { value: 7, label: "seven" },
+        ]}
+      />
+    </div>
+
+
+    <div className="select-flex">
+      <DropdownSelect
+        label="Number of common baths:"
+        state={value.basicInfo.commonBathsNumber}
+        fieldName="basicInfo.commonBathsNumber"
+        handleFieldChange={handleFieldChange}
+        id={"common-baths-select"}
+        options={[
+          { value: 0, label: "none" },
+          { value: 1, label: "one" },
+          { value: 2, label: "two" },
+          { value: 3, label: "three" },
+          { value: 4, label: "four" },
+          { value: 5, label: "five" },
+          { value: 6, label: "six" },
+          { value: 7, label: "seven" },
+        ]}
+      />
+    </div>
+  
+</div>
+</div>
+
+</div>
+
+
+
+<div className="property-address-category main-category">
+<h3>Property Location</h3>
+<p>Where is it located?</p>
+<ul className="duo-options-grid mobile-tablet-list-class">
+  <CustomTextField label="Property address" type="text" value={value.basicInfo.propertyAddress} onChange={(e) => setValue({basicInfo: {...value.basicInfo, propertyAddress: e}})} />
+  <CustomTextField label="Post code" type="text" value={value.basicInfo.postCode} onChange={(e) => setValue({basicInfo: {...value.basicInfo, postCode: e}})} />
+  <CustomTextField label="GPS latitude" type="text" value={value.basicInfo.gpsLatitude} onChange={(e) => setValue({basicInfo: {...value.basicInfo, gpsLatitude: e}})} />
+  <CustomTextField label="GPS longitude" type="text" value={value.basicInfo.gpsLongitude} onChange={(e) => setValue({basicInfo: {...value.basicInfo, gpsLongitude: e}})} />
+</ul>
+</div>
+
       </FormGroup>
     </FormWrapper>
   );

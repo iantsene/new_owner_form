@@ -15,28 +15,31 @@ export default function Kitchen() {
   const { value, setValue, handleFieldChange } = useFormData();
 
   const handleCheckboxChange = (fieldName: string) => (e: any) => {
-    handleFieldChange(fieldName, e.target.checked);
+    handleFieldChange('kitchen', fieldName, e.target.checked);
   };
+
+
 
   const mainCategories = [
     {
-      title: 'Kitchen devices',
+      title: 'Devices',
       description: 'What common household devices are you offering towards cooking?',
       content: (<>
       <div className="cooking-devices-cat main-category">
       <ul className="media-query-custom-breakpoint">
-      <CustomCheckbox label="Microwave" value={value.microwave} onChange={handleCheckboxChange('microwave')} />
-      <CustomCheckbox label="Toaster" value={value.toaster} onChange={handleCheckboxChange('toaster')} />
-      <CustomCheckbox label="Small fridge" value={value.smallFridge} onChange={handleCheckboxChange('smallFridge')} />
-      <CustomCheckbox label="Sandwich toaster" value={value.sandwichToaster} onChange={handleCheckboxChange('sandwichToaster')} />
-      <CustomCheckbox label="Blender / multi" value={value.blenderOrMulti} onChange={handleCheckboxChange('blenderOrMulti')} />
-      <CustomCheckbox label="Bread maker" value={value.breadMaker} onChange={handleCheckboxChange('breadMaker')} />
-      <CustomCheckbox label="Mixer" value={value.mixer} onChange={handleCheckboxChange('mixer')} />
-      <CustomCheckbox label="Kettle" value={value.kettle} onChange={handleCheckboxChange('kettle')} />
-      <CustomCheckbox label="Filter coffee machine" value={value.filterCoffeeMachine} onChange={handleCheckboxChange('filterCoffeeMachine')} />
-      <CustomCheckbox label="Fryer" value={value.fryer} onChange={handleCheckboxChange('fryer')} />
-      <CustomCheckbox label="Espresso coffee machine" value={value.espressoCoffeeMachine} onChange={handleCheckboxChange('espressoCoffeeMachine')} />
-      <CustomCheckbox label="Water dispenser" value={value.waterDispenser} onChange={handleCheckboxChange('waterDispenser')} />
+      <CustomCheckbox label="Microwave" value={value.kitchen.microwave} onChange={handleCheckboxChange('microwave')} />
+      <CustomCheckbox label="Toaster" value={value.kitchen.toaster} onChange={handleCheckboxChange('toaster')} />
+      <CustomCheckbox label="Small fridge" value={value.kitchen.smallFridge} onChange={handleCheckboxChange('smallFridge')} />
+      <CustomCheckbox label="Fridge with freezer" value={value.kitchen.fridgeWithFreezer} onChange={handleCheckboxChange('fridgeWithFreezer')} />
+      <CustomCheckbox label="Sandwich toaster" value={value.kitchen.sandwichToaster} onChange={handleCheckboxChange('sandwichToaster')} />
+      <CustomCheckbox label="Blender / multi" value={value.kitchen.blenderOrMulti} onChange={handleCheckboxChange('blenderOrMulti')} />
+      <CustomCheckbox label="Bread maker" value={value.kitchen.breadMaker} onChange={handleCheckboxChange('breadMaker')} />
+      <CustomCheckbox label="Mixer" value={value.kitchen.mixer} onChange={handleCheckboxChange('mixer')} />
+      <CustomCheckbox label="Kettle" value={value.kitchen.kettle} onChange={handleCheckboxChange('kettle')} />
+      <CustomCheckbox label="Filter coffee machine" value={value.kitchen.filterCoffeeMachine} onChange={handleCheckboxChange('filterCoffeeMachine')} />
+      <CustomCheckbox label="Fryer" value={value.kitchen.fryer} onChange={handleCheckboxChange('fryer')} />
+      <CustomCheckbox label="Espresso coffee machine" value={value.kitchen.espressoCoffeeMachine} onChange={handleCheckboxChange('espressoCoffeeMachine')} />
+      <CustomCheckbox label="Water dispenser" value={value.kitchen.waterDispenser} onChange={handleCheckboxChange('waterDispenser')} />
   </ul>
   </div>
         </>
@@ -48,12 +51,12 @@ export default function Kitchen() {
       content: (<>
         <div className="cooking-means-cat main-category">
         <ul className="media-query-custom-breakpoint">
-        <CustomCheckbox label="Kitchen" value={value.kitchen} onChange={handleCheckboxChange('kitchen')} />
-        <CustomCheckbox label="Kitchenette" value={value.kitchenette} onChange={handleCheckboxChange('kitchenette')} />
-        <CustomCheckbox label="Stove" value={value.stove} onChange={handleCheckboxChange('stove')} />
-        <CustomCheckbox label="Cooker with small oven" value={value.cookerWithSmallOven} onChange={handleCheckboxChange('cookerWithSmallOven')} />
-        <CustomCheckbox label="Extra small bbq oven" value={value.extraSmallBbqOven} onChange={handleCheckboxChange('extraSmallBbqOven')} />
-        <CustomCheckbox label="Separate stove" value={value.separateStove} onChange={handleCheckboxChange('separateStove')} />
+        <CustomCheckbox label="Kitchen" value={value.kitchen.kitchen} onChange={handleCheckboxChange('kitchen')} />
+        <CustomCheckbox label="Kitchenette" value={value.kitchen.kitchenette} onChange={handleCheckboxChange('kitchenette')} />
+        <CustomCheckbox label="Stove" value={value.kitchen.stove} onChange={handleCheckboxChange('stove')} />
+        <CustomCheckbox label="Cooker with small oven" value={value.kitchen.cookerWithSmallOven} onChange={handleCheckboxChange('cookerWithSmallOven')} />
+        <CustomCheckbox label="Extra small bbq oven" value={value.kitchen.extraSmallBbqOven} onChange={handleCheckboxChange('extraSmallBbqOven')} />
+        <CustomCheckbox label="Separate stove" value={value.kitchen.separateStove} onChange={handleCheckboxChange('separateStove')} />
         </ul>
         </div>
         </>
@@ -65,14 +68,14 @@ export default function Kitchen() {
       content: (<>
       <div className="dining-area-utensils-cat main-category">
       <ul className="media-query-custom-breakpoint">
-      <CustomCheckbox label="Dinning area" value={value.dinningArea} onChange={handleCheckboxChange('dinningArea')} />
-      <CustomCheckbox label="Dinning room or space" value={value.dinningRoomOrSpace} onChange={handleCheckboxChange('dinningRoomOrSpace')} />
-      <CustomCheckbox label="Dining table" value={value.diningTable} onChange={handleCheckboxChange('diningTable')} />
-      <CustomCheckbox label="Wine glasses" value={value.wineGlasses} onChange={handleCheckboxChange('wineGlasses')} />
-      <CustomCheckbox label="Dishes and silverware" value={value.dishesAndSilverware} onChange={handleCheckboxChange('dishesAndSilverware')} />
-      <CustomCheckbox label="Cookware and kitchen utensils" value={value.cookwareAndKitchenUtensils} onChange={handleCheckboxChange('cookwareAndKitchenUtensils')} />
-      <CustomCheckbox label="Cooking basics" value={value.cookingBasics} onChange={handleCheckboxChange('cookingBasics')} />
-      <CustomCheckbox label="High chair" value={value.highChair} onChange={handleCheckboxChange('highChair')} />
+      <CustomCheckbox label="Dining area" value={value.kitchen.diningArea} onChange={handleCheckboxChange('diningArea')} />
+      <CustomCheckbox label="Dining room or space" value={value.kitchen.diningRoomOrSpace} onChange={handleCheckboxChange('diningRoomOrSpace')} />
+      <CustomCheckbox label="Dining table" value={value.kitchen.diningTable} onChange={handleCheckboxChange('diningTable')} />
+      <CustomCheckbox label="Wine glasses" value={value.kitchen.wineGlasses} onChange={handleCheckboxChange('wineGlasses')} />
+      <CustomCheckbox label="Dishes and silverware" value={value.kitchen.dishesAndSilverware} onChange={handleCheckboxChange('dishesAndSilverware')} />
+      <CustomCheckbox label="Cookware and kitchen utensils" value={value.kitchen.cookwareAndKitchenUtensils} onChange={handleCheckboxChange('cookwareAndKitchenUtensils')} />
+      <CustomCheckbox label="Cooking basics" value={value.kitchen.cookingBasics} onChange={handleCheckboxChange('cookingBasics')} />
+      <CustomCheckbox label="High chair" value={value.kitchen.highChair} onChange={handleCheckboxChange('highChair')} />
       </ul>
       </div>
         </>
@@ -111,7 +114,7 @@ export default function Kitchen() {
               aria-controls={`panel${index}bh-content`}
               id={`panel${index}bh-header`}
             >
-              <Typography sx={{ width: '33%', flexShrink: 0 }}>
+              <Typography sx={{ width: '40%', fontWeight: "bold", flexShrink: 0 }}>
                 {category.title}
               </Typography>
               <Typography sx={{ color: 'text.secondary' }}>
@@ -125,9 +128,9 @@ export default function Kitchen() {
         <div className="kitchen-extras-cat main-category">
           <h3>Extra info</h3>
           <ul className="duo-options-grid">
-          <CustomTextField label="Coffee type available" type="text" value={value.coffeeTypeAvailable} onChange={e => setValue({ coffeeTypeAvailable: e })} />
-          <CustomTextField label="Cooker with full oven" type="text" value={value.cookerWithFullOven} onChange={e => setValue({ cookerWithFullOven: e })} />
-          <CustomTextField label="Fridge/Freezer" type="text" value={value.fridgeOrFreezer} onChange={e => setValue({ fridgeOrFreezer: e })} />
+          <CustomTextField label="Coffee type available" type="text" value={value.kitchen.coffeeTypeAvailable} onChange={(e) => setValue({kitchen: {...value.kitchen, coffeeTypeAvailable: e}})} />
+          <CustomTextField label="Cooker with full oven" type="text" value={value.kitchen.cookerWithFullOven} onChange={(e) => setValue({kitchen: {...value.kitchen, cookerWithFullOven: e}})} />
+          <CustomTextField label="Fridge/Freezer" type="text" value={value.kitchen.fridgeOrFreezer} onChange={(e) => setValue({kitchen: {...value.kitchen, fridgeOrFreezer: e}})} />
           </ul>
         </div>
 

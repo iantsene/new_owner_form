@@ -36,7 +36,7 @@ Add pool option // done
 Property Type
 ****
 
-! Assessibility options // Moved to Safety tab
+! Assessibility options // Moved to Extras tab
 
 ! Property Views // Moved to Location tab
 
@@ -46,12 +46,12 @@ Check Option
 Preset check-in time 15.00, check-out 10.00 // done
 
 Licenses
-@ Rental license
+@ Rental license // Done
 @ Licence Type: Make this text // Done
-@ License required: Yes/No
+@ License required: Yes/No // Done
 (this has to do with the country)
 
-! Extra Parties & Eco // Moved to main description temporarily until I know where to move it
+! Extra Parties & Eco // Moved to Extras tab
 
 
 
@@ -67,9 +67,9 @@ Licenses
 Main Description
 
 Lodging Type
-! Nearby Services // Move to Location tab
+! Nearby Services // Move to Location tab // Done
 / living room to Inside // Done
-/ garden to Outside // done
+/ garden to Outside // Done
 
 Living space information
 @ area
@@ -77,7 +77,7 @@ Living space information
 @ year of built
 surrounding area
 
-! Physical distancing
+! Physical distancing // Done (Moved to Extras tab)
 
 @ Brief Description
 (Please describe your property. Do not forget to mention why it stands out of the competition) // Added
@@ -127,8 +127,8 @@ Dining Terrace// Done
 {-outside}fridge// Done
 {-outside}kitchen// Done
 traditional pizza oven// Done
-mini bar// Done
-kiosk// Done
+mini bar // Done
+kiosk // Done
 
 Ambience and terrain
 
@@ -167,7 +167,7 @@ tennis court // Done
 
 
 
-/ SPORTS - Move last // Done
+/ SPORTS - Move last // Done but then I created Extras and placed it last
 
 
 
@@ -181,13 +181,13 @@ Pool dimensions
 
 Pool amenities & properties
 
--level ground} // Done
+-level ground // Done
 +Level // Done
 +[dropdown list:ground,1st floor, second floor, third floor, attic, terrace, roof terrace] // Done
 {-outside}{+pool} furniture // Done
 inflatables // Done
-staircase  +[ give type  ]
-access to pool +[ describe access ]
+staircase  +[ give type  ] // Done
+access to pool +[ describe access ] // Done
 fence // Done
 terrace // Done
 pool towels // Done
@@ -233,7 +233,7 @@ TV {-type}: +[ e.g. Netflix enables, Smart TV ] // Done
 +Internet options // Done
 Free WiFi // Done
 WiFi broadband // Done
-network {+&} code: +[ add the info hear ]
+network {+&} code: +[ add the info here ] // Done
 
 Heating and cooling
 
@@ -321,44 +321,46 @@ BEDS & BATHS
 
 Bedrooms
 Bedroom 1 {-type} // Done
-+[dropdown list: double,twin,triple,single]
-Level:
-+[dropdown list:ground,1st floor, second floor, third floor, attic, annex]
-Beds :
-+[dropdown list: Double bed, Single bed, King bed, Queen bed, Baby crib, Sofa bed, Murphy bed, Bunk bed, Childbed]
-+[dropdown list: Double bed, Single bed, King bed, Queen bed, Baby crib, Sofa bed, Murphy bed, Bunk bed, Childbed]
-+[dropdown list: Double bed, Single bed, King bed, Queen bed, Baby crib, Sofa bed, Murphy bed, Bunk bed, Childbed]
-Heating / cooling
-+Aircon
-+(Ceiling) fan
++[dropdown list: double,twin,triple,single] // Done
+Level: // Done
++[dropdown list:ground,1st floor, second floor, third floor, attic, annex] // Done
+Beds : // Done
++[dropdown list: Double bed, Single bed, King bed, Queen bed, Baby crib, Sofa bed, Murphy bed, Bunk bed, Childbed] // Done
++[dropdown list: Double bed, Single bed, King bed, Queen bed, Baby crib, Sofa bed, Murphy bed, Bunk bed, Childbed] // Done
++[dropdown list: Double bed, Single bed, King bed, Queen bed, Baby crib, Sofa bed, Murphy bed, Bunk bed, Childbed] // Done
+Heating / cooling // Done
++Aircon // Done
++(Ceiling) fan // Done
 
-En-suite bath
-+[dropdown list:en-suite shower, en-suite bathroom, en-suite wc]
-Detail:
-+[dropdown list:Toilet, Bath with shower, Bath, Shower, Bath with jets, Bidet]
-+[dropdown list:Toilet, Bath with shower, Bath, Shower, Bath with jets, Bidet]
-+[dropdown list:Toilet, Bath with shower, Bath, Shower, Bath with jets, Bidet]
+En-suite bath // Done
++[dropdown list:en-suite shower, en-suite bathroom, en-suite wc] // Done
+Detail: // Done
++[dropdown list:Toilet, Bath with shower, Bath, Shower, Bath with jets, Bidet] // Done
++[dropdown list:Toilet, Bath with shower, Bath, Shower, Bath with jets, Bidet] // Done
++[dropdown list:Toilet, Bath with shower, Bath, Shower, Bath with jets, Bidet] // Done
 etc.:
+
+
 
 Common Area Beds
 
-Bed 1
-Level +[dropdown list:ground,1st floor, second floor, third floor, attic, annex]
-+[dropdown list: Double bed, Single bed, King bed, Queen bed, Baby crib, Sofa bed, Murphy bed, Bunk bed, Childbed, travel-cot]
-Bed 2
-+[dropdown list: Double bed, Single bed, King bed, Queen bed, Baby crib, Sofa bed, Murphy bed, Bunk bed, Childbed, travel-cot]
+Bed 1// Done
+Level +[dropdown list:ground,1st floor, second floor, third floor, attic, annex]// Done
++[dropdown list: Double bed, Single bed, King bed, Queen bed, Baby crib, Sofa bed, Murphy bed, Bunk bed, Childbed, travel-cot]// Done
+Bed 2// Done
++[dropdown list: Double bed, Single bed, King bed, Queen bed, Baby crib, Sofa bed, Murphy bed, Bunk bed, Childbed, travel-cot]// Done
 
 etc.
 
 
-Common Bathrooms:
-[dropdown list: family shower, family bathroom, family wc]
-Level
-+[dropdown list:ground,1st floor, second floor, third floor, attic, annex]
-Detail:
-+[dropdown list:Toilet, Bath with shower, Bath, Shower, Bath with jets, Bidet, Outdoor shower]
-+[dropdown list:Toilet, Bath with shower, Bath, Shower, Bath with jets, Bidet, Outdoor shower]
-+[dropdown list:Toilet, Bath with shower, Bath, Shower, Bath with jets, Bidet, Outdoor shower]
+Common Bathrooms: // Done
+[dropdown list: family shower, family bathroom, family wc] // Done
+Level // Done
++[dropdown list:ground,1st floor, second floor, third floor, attic, annex] // Done
+Detail: // Done
++[dropdown list:Toilet, Bath with shower, Bath, Shower, Bath with jets, Bidet, Outdoor shower] // Done
++[dropdown list:Toilet, Bath with shower, Bath, Shower, Bath with jets, Bidet, Outdoor shower] // Done
++[dropdown list:Toilet, Bath with shower, Bath, Shower, Bath with jets, Bidet, Outdoor shower] // Done
 
 ! Extras
 
@@ -381,14 +383,14 @@ Detail:
 
 KITCHEN
 
-{-Kitchen }Devices etc
-+fridge with freezer
+{-Kitchen }Devices etc // DONE
++fridge with freezer // DONE
 
 ****
 
 Dining area and utensils
 
-{-Extra Info} , add this to the first paragraph
+{-Extra Info} , add this to the first paragraph // ??? There's nothing like this there
 
 
 
@@ -401,7 +403,7 @@ Dining area and utensils
 AMENITIES
 
 Maid Service
-- maid breakfast included
+- maid breakfast included // DONE
 ***
 
 Linen
@@ -410,12 +412,12 @@ Linen
 Towels
 ***
 
-General {-Amenities}
+General {-Amenities} // DONE
 
-car hire +[dropdownlist: recommended, not essential]
-{+basic} essentials (like soap etc.)
-{-extras} paddle board
-{-extras} beach chair
+car hire +[dropdownlist: recommended, not essential] // DONE
+{+basic} essentials (like soap etc.) // DONE
+{-extras} paddle board // DONE
+{-extras} beach chair // DONE
 
 
 
@@ -428,3 +430,68 @@ SAFETY
 LOCATION
 
 ****
+
+
+
+
+
+
+
+
+
+Issues:
+-
+
+TODO:
+- Common bathroom card based on BedroomCard component. Has type, level and then details with Chip // Done
+- Common area beds // Done
+- Make Pool tab conditional based on basic info checkbox // Done
+
+- Place a warning on both advanced view and go to basic buttons explaining to the user what will happen when they will press each button.
+
+
+- BasicInfo: {
+    - Max property occupancy: {
+        - Max adults and max children should not be activated until max number of persons is first updated. Then they should become available for editing.
+        - Max number of persons: Add -/+ buttons so the user can determine how many people the property can accept.
+        - Max adults should take at least 1 adult minimum and the same number as max persons as its max value. The user should manually add how many adults are allowed.
+        - Max children should take zero (0) as the minimal value and -1 from max adults as its max value so that at least one adult can visit alongside the alloted number of children.}
+    - Move Property Location to Main Description
+}
+- Main Description: {
+    - Lose the accordions on first two sections
+    - Move Living space information on top of Lodging type
+    - Format the newly moved Property Location to accept GPS coordinates in a fashion that accepts only numbers and dots (.). You can hardcode the dots and you should also move the textfields closer to each other.
+        - Moreover, add the coordinates of the property into a link that once clicked will take the user to google maps to check the accuracy of their location. EASYMODE
+        - Or make a google maps programmer account and figure out how to embed the map onto the form (requires some kind of paid access so research it) HARDMODE
+    - Make brief description occupy the length of the form space
+}
+- Outside: {
+    - Make kiosk into a checkbox
+    - Add InfoIcon to bbq textbox that reads "e.g. charcoal, grill etc"
+    - Sun and shade, make these four into checkboxes with conditional textboxes
+}
+- BedsNBaths: {
+    - On BedroomCard remove the bedroom type and the ensuite type. Also add a label over Heating that reads "select all that apply". Also add -/+ buttons so the user may also add 
+bedrooms manually without having to go back to Basic Info and readjust the dropdown list (in short make it more intuitive) and then have the number of bedroom cards update the bedroomNumber variable ex post facto.
+    - On common area beds: Make each level able to host up to 2 max common area beds and stack the levels horizontally next to each other.
+    - On common baths lose the type and keep only subtypes. Then make each dropdown a chip with a label "Choose all that apply". 
+    However the user should be able to select an item within the chip more than once (example of two 'headed' showers in Turkey)
+    - Number of bathrooms should be first defined by the user on a dropdown on Basic Info but ALSO 
+adapt if the user adds more or less under beds and baths dynamically (basically some kind of baths.length)
+}
+- Extras: Rename Beds and baths extras into "Baby extras"
+- CSS styles: {
+    - Emphasize on the mobile inteface. Make it as user friendly as possible. Add hamburger for tabs on top right corner and after you do, add the tab name over the back/next buttons so the user always knows where they are.
+}
+- Add required field and test how they interact // Figured it out but going to implement it last
+- Make the form a bit more conservative, colors should be more light/smooth/discreet/conservative. Make tabs a bit glossy on hover and also on hover there should be a highlighted text description for PC/Laptop.
+- Add tab flavor texts (on main category) on all tabs or consider leaving it empty with just the category heading. It should be descriptive enough
+- Ask Alastair how to deploy this to a server or figure it out yourself (;-)
+- Make an account on eos and see the cookie it sends
+OPTIONAL
+- Find/create icons for each element
+
+
+
+

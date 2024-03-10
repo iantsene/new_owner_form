@@ -25,7 +25,6 @@
 
   .submit-btn {
     background-color: goldenrod;
-
   }
 
   .submit-btn:hover {
@@ -66,7 +65,7 @@
     //tabs container size
     display: flex;
     justify-content: flex-start;
-    max-width: 1220px;
+    max-width: 1310px;
     overflow-x: hidden;
   }
 
@@ -206,10 +205,31 @@
 
 
 .bedroom-type {
+  position: relative;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   max-height: 210px;
+}
+
+.common-bath-level {
+  width: 110px;
+
+}
+
+.common-bathroom-type {
+  position: relative;
+  display: flex;
+}
+
+.common-bathroom-cards, .common-area-beds-cards {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.common-bath-card {
+  position: relative;
 }
 
 .bed-types, .en-suite-types, .heating-types {
@@ -221,26 +241,24 @@
   position: relative;
 }
 
-.beds-dropdown, .en-suite-dropdown {
+.beds-dropdown, .en-suite-dropdown, .common-baths-dropdown {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   min-width:fit-content;
-  max-width: fit-content;
+  margin-top: 10px;
   max-height: 180px;
 }
 
 
-.beds-dropdown, .en-suite-dropdown > * {
-  max-width: fit-content;
-}
 
 
 
 
-  .beds-title, .en-suite-title, .heating-title {
+
+  .card-title {
     text-align: center;
-    height: 30px;
+    height: 15px;
     width: fit-content;
   }
 
@@ -471,8 +489,11 @@
 
 
   // ################ 1651 - 2100px Overrides ####################
+
+
+
+
   .cooking-devices-cat .media-query-custom-breakpoint,
-  .bedsnbaths-brief,
   .bbq-cat .media-query-custom-breakpoint {
     // Quad column grid
     width: 1152px;
@@ -539,7 +560,8 @@
   .beds-heating-cat .media-query-custom-breakpoint,
   .baths-category .media-query-custom-breakpoint,
   .common-baths-cat .media-query-custom-breakpoint,
-  .clean-method-cat .media-query-custom-grid {
+  .clean-method-cat .media-query-custom-grid,
+  .bedsnbaths-brief {
     //makes the dual-column grid into a single column-grid. Takes care of texfields and their textboxes when there is no other way to align
     grid-template-columns: 1fr;
     grid-template-rows: auto;
@@ -563,7 +585,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr;
-    gap: 0px px;
+    gap: 0px 0px;
     grid-template-areas:
       ". . .";
     white-space: nowrap;
@@ -652,6 +674,13 @@
   }
 
   // ################ Overrides end ################
+
+  .css-1hw9j7s {
+    position: unset;
+  }
+
+
+
 
 
 }

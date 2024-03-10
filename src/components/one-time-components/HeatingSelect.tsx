@@ -5,10 +5,10 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select from '@mui/material/Select';
 import Chip from '@mui/material/Chip';
 import { Card } from '@mui/material';
-import { Bedroom, Heating } from '@/app/types/all-form-types';
+import { Bedroom } from '@/app/types/all-form-types';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -47,7 +47,7 @@ export default function HeatingSelect({
   const theme = useTheme();
   
 
-  const handleChange = (event) => {
+  const handleChange = (event: any) => {
     const { target: { value } } = event;
 
     const newHeating = Array.isArray(value) ? value : [value];
@@ -57,7 +57,7 @@ export default function HeatingSelect({
 
   return (
         <Card className="heating-types" sx={{ display: "flex", m: 1, p: 1 }}>
-          <div className="heating-title">
+       <div className="card-title">
         <h5>Heating</h5>
       </div>
     <FormControl sx={{ m: 1, width: 150 }}>

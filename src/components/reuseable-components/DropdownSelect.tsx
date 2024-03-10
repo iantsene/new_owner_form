@@ -1,24 +1,76 @@
-import { FormControl, MenuItem, Select, InputLabel, OutlinedInput } from "@mui/material";
-import { useState } from "react";
+import { FormControl, MenuItem, Select, InputLabel, OutlinedInput, } from "@mui/material";
+import { Dispatch, SetStateAction, useState } from "react";
 
 interface Option {
   value: string | number;
   label: string;
 }
 
-interface Props {
+interface Props<DropdownType> {
   state: any;
-  fieldName?: string;
+  fieldName: string;
   label?: string;
   labelId?: string;
   id?: string;
+  required?: boolean;
   noneOption?: string;
+  disableOptions?: { value: string; }[];
   options: Option[];
-  handleFieldChange: (fieldName: string, value: any) => void;
+  handleFieldChange?: (tab: string, fieldName: string, value: any) => void;
+  extraEffects?: (value: DropdownType ) => void;
+  usedLevels?: { commonbathsUsedLevels: { value: string; label: string }[]; commonbedsUsedLevels: { value: string; label: string }[]; };
+  setUsedLevels?: Dispatch<SetStateAction<{ commonbathsUsedLevels: { value: string; label: string }[]; commonbedsUsedLevels: { value: string; label: string }[] }>>;
+  usedLevelsProperty?: string;
 }
 
-function DropdownSelect({ state, fieldName, label, labelId, id, options, noneOption, handleFieldChange }: Props) {
+function DropdownSelect<DropdownType>({ state, label, labelId, id, options, fieldName, noneOption, disableOptions, usedLevels, setUsedLevels, usedLevelsProperty, required, handleFieldChange, extraEffects }: Props<DropdownType>) {
   const [isOpen, setIsOpen] = useState(false);
+  const [tab, property] = fieldName.split('.');
+
+  const createBedroomDetail = (newValue: DropdownType) => {
+    return newValue;
+  };
+
+  
+  function levelHookChange(newValue: any) {
+    setUsedLevels && setUsedLevels((prevUsedLevels) => {
+      const propertyName = `${usedLevelsProperty}UsedLevels`;
+
+      const existsIndex = prevUsedLevels[propertyName]?.findIndex((level) => level === state);
+      const exists = existsIndex !== -1;
+  
+  
+      if (exists) {
+        const updatedLevels = [...prevUsedLevels[propertyName]];
+        updatedLevels[existsIndex] = newValue;
+  
+        return {
+          ...prevUsedLevels,
+          [propertyName]: updatedLevels,
+        };
+      } else {
+        return {
+          ...prevUsedLevels,
+          [propertyName]: [...prevUsedLevels[propertyName], newValue],
+        };
+      }
+    });
+  }
+  
+  
+  
+  
+  
+
+  const handleSelectChange = (event: any) => {
+    const newValue = event.target.value as DropdownType;
+    const newBedroomType = createBedroomDetail(newValue);
+    usedLevels && levelHookChange(newValue);
+    handleFieldChange ? handleFieldChange(tab, property, newValue) : extraEffects?.(newBedroomType)
+    
+   
+  };
+
 
   return (
     <>
@@ -28,17 +80,18 @@ function DropdownSelect({ state, fieldName, label, labelId, id, options, noneOpt
           labelId={labelId}
           id={id}
           open={isOpen}
+          required={required}
           onClose={() => setIsOpen(false)}
           onOpen={() => setIsOpen(true)}
-          value={state ? state : label}
-          onChange={(event) => handleFieldChange(fieldName || "", event.target.value)}
+          value={state}
+          onChange={handleSelectChange}
           input={<OutlinedInput label={label} />}
         >
-          <MenuItem value="">
-            <em>{noneOption ? noneOption : "none"}</em>
+          <MenuItem value="" disabled>
+            <em>{noneOption ? noneOption : "Select Field"}</em>
           </MenuItem>
-          {options.map((option, index) => (
-            <MenuItem key={index} value={option.value}>
+          {options.map((option: any, index: number) => (
+            <MenuItem key={id? id : index} value={option.value} disabled={disableOptions?.includes(option.value)}>
               {option.label}
             </MenuItem>
           ))}

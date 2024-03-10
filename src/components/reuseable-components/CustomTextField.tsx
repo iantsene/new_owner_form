@@ -2,22 +2,24 @@ import React, { ChangeEvent, useState, ReactNode } from 'react';
 import TextField from '@mui/material/TextField';
 import { InputAdornment } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import InfoIcon from './InfoIcon';
 
 
 interface CustomTextFieldProps {
   label: string;
   value: string;
   type: string;
-  descText?: string;
+  placeholder?: string;
+  info?: string;
   icon?: ReactNode;
   onChange: (newValue: string) => void
 }
 
 const maxCharacterCount = 120;
 
-function CustomTextField({ label, value, type, onChange, icon, descText }: CustomTextFieldProps) {
+function CustomTextField({ label, value, type, onChange, icon, placeholder, info }: CustomTextFieldProps) {
 
- 
+
 
   const [isFocused, setIsFocused] = useState(false);
   const isMobile = useMediaQuery('(max-width:480px)');
@@ -37,9 +39,9 @@ function CustomTextField({ label, value, type, onChange, icon, descText }: Custo
     setIsFocused(false);
   };
 
-
-  const placeholderTextMobile = isFocused && `Character limit: (${value.toString().length}/${maxCharacterCount})`;
-  const placeholderText = isFocused ? `Character limit: (${value.toString().length}/${maxCharacterCount})` : label;
+  const placeholderOrLabel = placeholder || label;
+  const placeholderTextMobile = isFocused && `Character limit: (${value.length}/${maxCharacterCount})`;
+  const placeholderText = isFocused ? `Character limit: (${value.length}/${maxCharacterCount})` : placeholderOrLabel;
 
   // Render the TextField without a label if it's mobile, and with a label otherwise
   if (isMobile) {
@@ -61,7 +63,7 @@ function CustomTextField({ label, value, type, onChange, icon, descText }: Custo
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
-              {label}
+              {info ? <InfoIcon message={info} /> : undefined}{label}
             </InputAdornment>),
             
         }}
@@ -76,8 +78,7 @@ function CustomTextField({ label, value, type, onChange, icon, descText }: Custo
     <li className="list-item-container">
     {icon ? icon : <img className="icon" src="/Icons/icon-placeholder.png" alt="icon" />}
     <div className="label">
-      <span>{label}:</span>
-      {descText ? <span className="short-description">{descText}</span>: null}
+      <span>{label}:</span>{info ? <InfoIcon message={info} /> : undefined}
       <TextField
       className="custom-textfield"
       size="small"

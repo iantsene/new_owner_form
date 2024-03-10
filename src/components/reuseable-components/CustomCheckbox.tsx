@@ -1,17 +1,18 @@
 import { Checkbox, FormControlLabel } from "@mui/material";
 import { ReactNode } from "react";
+import InfoIcon from "./InfoIcon";
 
 interface Props {
     value: boolean
     label: string
-    clientsFavorite?: boolean
-    highlightedMessage?: string
+    highlightedMessage?: boolean | string
     icon?: ReactNode;
+    info?: string;
     onChange: (e: any) => void
     
 }
 
-function CustomCheckbox({value, label, clientsFavorite, highlightedMessage, icon, onChange}: Props) {
+function CustomCheckbox({value, label, highlightedMessage, icon, info, onChange}: Props) {
   return (
     <>
       <li className="list-items">
@@ -27,7 +28,8 @@ function CustomCheckbox({value, label, clientsFavorite, highlightedMessage, icon
             <div className="label-content">
               {icon ? icon : <img src="/Icons/icon-placeholder.png" />}
               <span className="checkbox-tags">{label}</span>
-              {clientsFavorite ? <span className="clients-favorite">{highlightedMessage}</span> : null }
+              {info ? <InfoIcon message={info} /> : undefined}
+              {highlightedMessage ? <span className="clients-favorite">{highlightedMessage}</span> : undefined }
               
             </div>
           }

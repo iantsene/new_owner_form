@@ -21,19 +21,9 @@ export default function MainDescription() {
   const handleCheckboxChange = (fieldName: string) => (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
-    handleFieldChange(fieldName, e.target.checked);
+    handleFieldChange('mainDescription', fieldName, e.target.checked);
   };
 
-  const maxCharacterCount = 120;
-
-  // const handleTextChange = (e) => {
-  //   const newText = e.target.value;
-  //   // Check if the new text exceeds the character limit
-  //   if (newText.length <= maxCharacterCount) {
-  //     setValue({ areaOfTheHouseInM2: newText });
-  //   }
-  // };
-  const placeholderText = `Area of the house in m2 (${value.areaOfTheHouseInM2.length}/${maxCharacterCount})`;
 
   const mainCategories = [
     {
@@ -43,17 +33,18 @@ export default function MainDescription() {
         <div className="lodging-type-category main-category">
 
           <ul className="multi-options-grid">
-          <CustomCheckbox label="Away from it all" value={value.awayFromItAll} onChange={handleCheckboxChange('awayFromItAll')} />
-          <CustomCheckbox label="Family" value={value.family} onChange={handleCheckboxChange('family')} /> 
-          <CustomCheckbox label="Romantic" value={value.romantic} onChange={handleCheckboxChange('romantic')} /> 
-          <CustomCheckbox label="Historical" value={value.historical} onChange={handleCheckboxChange('historical')} /> 
-          <CustomCheckbox label="Traditional property" value={value.traditionalProperty} onChange={handleCheckboxChange('traditionalProperty')} /> 
-          <CustomCheckbox label="Secluded" value={value.secluded} onChange={handleCheckboxChange('secluded')} /> 
-          <CustomCheckbox label="Single level home" value={value.singleLevelHome} onChange={handleCheckboxChange('singleLevelHome')} /> 
-          <CustomCheckbox label="Detached" value={value.detached} onChange={handleCheckboxChange('detached')} /> 
-          <CustomCheckbox label="Semi-detached" value={value.semiDetached} onChange={handleCheckboxChange('semiDetached')} /> 
-          <CustomCheckbox label="Brand new" value={value.brandNew} onChange={handleCheckboxChange('brandNew')} /> 
-          <CustomCheckbox label="Bed and breakfast" value={value.privateResidence} onChange={handleCheckboxChange('privateResidence')} /> 
+          <CustomCheckbox label="Away from it all" value={value.mainDescription.awayFromItAll} onChange={handleCheckboxChange('awayFromItAll')} />
+          <CustomCheckbox label="Family" value={value.mainDescription.family} onChange={handleCheckboxChange('family')} /> 
+          <CustomCheckbox label="Romantic" value={value.mainDescription.romantic} onChange={handleCheckboxChange('romantic')} /> 
+          <CustomCheckbox label="Historical" value={value.mainDescription.historical} onChange={handleCheckboxChange('historical')} /> 
+          <CustomCheckbox label="Traditional property" value={value.mainDescription.traditionalProperty} onChange={handleCheckboxChange('traditionalProperty')} /> 
+          <CustomCheckbox label="Secluded" value={value.mainDescription.secluded} onChange={handleCheckboxChange('secluded')} /> 
+          <CustomCheckbox label="Single level home" value={value.mainDescription.singleLevelHome} onChange={handleCheckboxChange('singleLevelHome')} /> 
+          <CustomCheckbox label="Detached" value={value.mainDescription.detached} onChange={handleCheckboxChange('detached')} /> 
+          <CustomCheckbox label="Semi-detached" value={value.mainDescription.semiDetached} onChange={handleCheckboxChange('semiDetached')} /> 
+          <CustomCheckbox label="Brand new" value={value.mainDescription.brandNew} onChange={handleCheckboxChange('brandNew')} /> 
+          <CustomCheckbox label="Private residence" value={value.mainDescription.privateResidence} onChange={handleCheckboxChange('privateResidence')} /> 
+          <CustomCheckbox label="Bed and breakfast" value={value.mainDescription.bedAndBreakfast} onChange={handleCheckboxChange('bedAndBreakfast')} /> 
           </ul>
         </div>
       </>
@@ -66,10 +57,10 @@ export default function MainDescription() {
         <div className="living-space-cat main-category">
 
           <ul className="duo-options-grid">
-          <CustomTextField label="Area of the house in m2" type="text" value={value.areaOfTheHouseInM2} onChange={e => setValue({ areaOfTheHouseInM2: e })}  />
-          <CustomTextField label="Surrounding area in m2" type="text" value={value.surroundingAreaInM2} onChange={e => setValue({ surroundingAreaInM2: e })}  />
-          <CustomTextField label="Number of floors to the ground" type="text" value={value.numOfFloorsToGround} onChange={e => setValue({ numOfFloorsToGround: e })}  />
-          <CustomTextField label="Year of built" type="text" value={value.yearOfBuilt} onChange={e => setValue({ yearOfBuilt: e })}  />
+          <CustomTextField label="Area of the house in m2" type="text" value={value.mainDescription.areaOfTheHouseInM2} onChange={(e) => setValue({mainDescription: {...value.mainDescription, areaOfTheHouseInM2: e}})} />
+          <CustomTextField label="Surrounding area in m2" type="text" value={value.mainDescription.surroundingAreaInM2} onChange={(e) => setValue({mainDescription: {...value.mainDescription, surroundingAreaInM2: e}})} />
+          <CustomTextField label="Number of floors to the ground" type="text" value={value.mainDescription.numOfFloorsToGround} onChange={(e) => setValue({mainDescription: {...value.mainDescription, numOfFloorsToGround: e}})} />
+          <CustomTextField label="Year of built" type="text" value={value.mainDescription.yearOfBuilt} onChange={(e) => setValue({mainDescription: {...value.mainDescription, yearOfBuilt: e}})} />
           </ul>
         </div>
       </>
@@ -120,24 +111,11 @@ export default function MainDescription() {
           </Accordion>
         ))}
 
-<div className="extra-parties-cat main-category">
-            <h3>Extra Parties & Eco</h3>
-            <ul className="media-query-custom-breakpoint">
-          <CustomCheckbox label="Extra Eco house" value={value.extraEcoHouse} onChange={handleCheckboxChange('extraEcoHouse')} /> 
-          <CustomCheckbox label="Extra Parties not allowed" value={value.extraPartiesNotAllowed} onChange={handleCheckboxChange('extraPartiesNotAllowed')} /> 
-          <CustomCheckbox label="Extra Parties allowed" value={value.extraPartiesAllowed} onChange={handleCheckboxChange('extraPartiesAllowed')} /> 
-            </ul>
-
-          </div>
 
 
         <div className="textarea-category">
           <h3>Brief Description</h3>
-          <AutosizeTextarea
-            data={value}
-            setData={setValue}
-
-          />
+          <AutosizeTextarea />
 
         </div>
       </FormGroup>

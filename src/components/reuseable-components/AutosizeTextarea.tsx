@@ -1,36 +1,26 @@
-import * as React from 'react';
 import TextareaAutosize from '@mui/material/TextareaAutosize';
+import { useFormData } from '@/app/contexts/form';
 
 
 
+ function AutosizeTextarea (){
 
-interface AutosizeTextareaProps {
-  data: {
-    briefDescription: string;
-  };
-  setData: (data: { briefDescription: string }) => void;
-}
+  const {value, setValue}  = useFormData();
 
- function AutosizeTextarea ({ data, setData }: AutosizeTextareaProps){
-
-const {briefDescription} = data;
-
-
-
-
+  const briefDescription = value.mainDescription?.briefDescription || '';
 
   const maxCharacters = 500;
 
-  const handleTextareaChange = (e) => {
+  const handleTextareaChange = (e: any) => {
     const newText = e.target.value;
      
-    // Update the data object with the new roomDescription value
-    setData({
-      ...data,
-      briefDescription: newText,
-    });
-    
+    setValue({
+      ...value,
+      mainDescription:{...value.mainDescription,
+      briefDescription: newText,}
+    })
   };
+
 
   let textColor = 'black';
   if (briefDescription.length >= 125 && briefDescription.length <= 249) {
@@ -50,7 +40,7 @@ const {briefDescription} = data;
     aria-label="minimum height" 
     minRows={3} 
     placeholder="Please describe your property. Do not forget to mention why it stands out from the competition"
-    value={briefDescription} 
+    value={value.mainDescription.briefDescription} 
     onChange={handleTextareaChange}
    
      />
